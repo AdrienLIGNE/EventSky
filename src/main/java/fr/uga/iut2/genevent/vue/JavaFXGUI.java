@@ -32,12 +32,6 @@ public class JavaFXGUI extends IHM {
     private final MainController controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
 
-    // éléments vue nouvel·le utilisa·teur/trice
-    @FXML private TextField newUserForenameTextField;
-    @FXML private TextField newUserSurnameTextField;
-    @FXML private TextField newUserEmailTextField;
-    @FXML private Button newUserOkButton;
-    @FXML private Button newUserCancelButton;
 
     public JavaFXGUI(MainController controleur) {
         this.controleur = controleur;
