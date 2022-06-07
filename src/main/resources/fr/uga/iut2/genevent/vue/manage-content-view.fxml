@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -19,17 +20,179 @@
         <tabs>
           <Tab text="Matériel">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="507.0" prefWidth="800.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="430.0" prefWidth="425.0">
+                                 <children>
+                                    <Label text="Matériel">
+                                       <font>
+                                          <Font name="Open Sans" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView prefHeight="400.0" prefWidth="425.0" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="430.0" prefWidth="300.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Ajouter" textFill="WHITE">
+                                             <font>
+                                                <Font name="Open Sans Bold" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Modifier" textFill="WHITE">
+                                             <font>
+                                                <Font name="Open Sans Bold" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Supprimer" textFill="WHITE">
+                                             <font>
+                                                <Font name="Open Sans Bold" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
             </content>
           </Tab>
           <Tab text="Personnel">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                          <HBox alignment="CENTER" prefHeight="507.0" prefWidth="800.0">
+                              <children>
+                                  <VBox alignment="CENTER" prefHeight="430.0" prefWidth="425.0">
+                                      <children>
+                                          <Label text="Personnel">
+                                              <font>
+                                                  <Font name="Open Sans" size="26.0" />
+                                              </font>
+                                          </Label>
+                                          <ListView prefHeight="400.0" prefWidth="425.0" />
+                                      </children>
+                                      <HBox.margin>
+                                          <Insets right="10.0" />
+                                      </HBox.margin>
+                                  </VBox>
+                                  <VBox alignment="BOTTOM_CENTER" prefHeight="430.0" prefWidth="300.0">
+                                      <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                              <children>
+                                                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Ajouter" textFill="WHITE">
+                                                      <font>
+                                                          <Font name="Open Sans Bold" size="13.0" />
+                                                      </font>
+                                                      <HBox.margin>
+                                                          <Insets left="5.0" right="5.0" />
+                                                      </HBox.margin>
+                                                  </Button>
+                                                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Modifier" textFill="WHITE">
+                                                      <font>
+                                                          <Font name="Open Sans Bold" size="13.0" />
+                                                      </font>
+                                                      <HBox.margin>
+                                                          <Insets left="5.0" right="5.0" />
+                                                      </HBox.margin>
+                                                  </Button>
+                                                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Supprimer" textFill="WHITE">
+                                                      <font>
+                                                          <Font name="Open Sans Bold" size="13.0" />
+                                                      </font>
+                                                      <HBox.margin>
+                                                          <Insets left="5.0" right="5.0" />
+                                                      </HBox.margin>
+                                                  </Button>
+                                              </children>
+                                          </HBox>
+                                      </children>
+                                      <HBox.margin>
+                                          <Insets left="10.0" />
+                                      </HBox.margin>
+                                  </VBox>
+                              </children>
+                          </HBox>
+                      </children></AnchorPane>
+              </content>
           </Tab>
             <Tab text="Salles">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <HBox alignment="CENTER" prefHeight="507.0" prefWidth="800.0">
+                                <children>
+                                    <VBox alignment="CENTER" prefHeight="430.0" prefWidth="425.0">
+                                        <children>
+                                            <Label text="Salles">
+                                                <font>
+                                                    <Font name="Open Sans" size="26.0" />
+                                                </font>
+                                            </Label>
+                                            <ListView prefHeight="400.0" prefWidth="425.0" />
+                                        </children>
+                                        <HBox.margin>
+                                            <Insets right="10.0" />
+                                        </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="430.0" prefWidth="300.0">
+                                        <children>
+                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                <children>
+                                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Ajouter" textFill="WHITE">
+                                                        <font>
+                                                            <Font name="Open Sans Bold" size="13.0" />
+                                                        </font>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </Button>
+                                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Modifier" textFill="WHITE">
+                                                        <font>
+                                                            <Font name="Open Sans Bold" size="13.0" />
+                                                        </font>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </Button>
+                                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Supprimer" textFill="WHITE">
+                                                        <font>
+                                                            <Font name="Open Sans Bold" size="13.0" />
+                                                        </font>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </Button>
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                        <HBox.margin>
+                                            <Insets left="10.0" />
+                                        </HBox.margin>
+                                    </VBox>
+                                </children>
+                            </HBox>
+                        </children></AnchorPane>
                 </content>
             </Tab>
         </tabs>
