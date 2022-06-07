@@ -47,9 +47,9 @@
             </Label>
          </children>
       </HBox>
-      <ListView layoutX="14.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
-      <ListView layoutX="409.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
-      <Button layoutX="70.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Créer Evenement" textFill="WHITE">
+      <ListView fx:id="list_brouillon" layoutX="14.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
+      <ListView fx:id="list_evenement" layoutX="409.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
+      <Button layoutX="70.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Créer Evenement" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="472.0" AnchorPane.topAnchor="542.0">
          <font>
             <Font name="Open Sans Bold" size="18.0" />
          </font></Button>
