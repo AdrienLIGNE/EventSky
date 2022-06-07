@@ -1,6 +1,6 @@
 package fr.uga.iut2.genevent.test;
 
-import fr.uga.iut2.genevent.Utilitaire.TextUtilitaire;
+import fr.uga.iut2.genevent.util.TextUtilitaire;
 
 public class MainTest {
 
