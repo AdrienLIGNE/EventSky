@@ -32,26 +32,30 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="Gestion">
-          <items>
-            <MenuItem mnemonicParsing="false" onAction="#newUserMenuItemAction" text="Créer un·e utilisa·teur/trice" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" onAction="#exitMenuItemAction" text="Quitter" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-      <Pane fx:id="viewPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-  </children>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="76.0" prefWidth="192.0" text="Accueil">
+               <font>
+                  <Font name="Open Sans Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ListView layoutX="14.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
+      <ListView layoutX="409.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
+      <Button layoutX="70.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Créer Evenement" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="465.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Quitter" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Bold" size="18.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
