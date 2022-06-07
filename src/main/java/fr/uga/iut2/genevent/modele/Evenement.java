@@ -1,17 +1,65 @@
 package fr.uga.iut2.genevent.modele;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Evenement {
 
     private int idEvenement;
     private LocalDate dateDebut;
     private LocalDate dateFin;
-    private String nomEvenement;
+    private StringProperty nomEvenement;
     private boolean estConfirme;
 
-    public Evenement() {
+    private Lieu lieu;
+    private ArrayList<Personnel> personnel;
+    private ArrayList<Materiel> materiel;
 
+    /**
+     * Créé un événement
+     * @param id identifiant de l'événement
+     * @param dateDebut date de début de l'événement
+     * @param dateFin date de fin de l'événement
+     * @param nomEvenement Nom de l'événement
+     */
+    public Evenement(int id, LocalDate dateDebut, LocalDate dateFin, String nomEvenement) {
+        personnel = new ArrayList<>();
+        this.nomEvenement = new SimpleStringProperty();
+
+        setNomEvenement(nomEvenement);
+        setDateDebut(dateDebut);
+        setDateFin(dateFin);
+        setIdEvenement(id);
+
+        estConfirme = false;
+    }
+
+    public void setLieu(Lieu l) {
+        this.lieu = lieu;
+    }
+
+    public void addPersonnel(Personnel p) {
+        personnel.add(p);
+    }
+
+    public void addMateriel(Materiel m) {
+        materiel.add(m);
+    }
+
+    public Lieu getLieu() {
+        return lieu;
+    }
+
+    public ArrayList<Personnel> getPersonnel() {
+        return personnel;
+    }
+
+    public ArrayList<Materiel> getMateriel() {
+        return materiel;
     }
 
     /**
@@ -48,9 +96,13 @@ public class Evenement {
      * @param nomEvenement nom de l'événement
      */
     public void setNomEvenement(String nomEvenement) {
-        this.nomEvenement = nomEvenement;
+        this.nomEvenement.set(nomEvenement);
     }
 
+    /**
+     * Récupère l'identifiant de l'évènement
+     * @return identifiant
+     */
     public int getIdEvenement() {
         return idEvenement;
     }
@@ -63,7 +115,7 @@ public class Evenement {
         return dateFin;
     }
 
-    public String getNomEvenement() {
+    public StringProperty getNomEvenement() {
         return nomEvenement;
     }
 
