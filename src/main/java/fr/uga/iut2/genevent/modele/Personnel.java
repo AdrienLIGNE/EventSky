@@ -1,5 +1,7 @@
 package fr.uga.iut2.genevent.modele;
 
+import fr.uga.iut2.genevent.util.TextUtilitaire;
+
 import java.util.ArrayList;
 
 /**
@@ -9,9 +11,13 @@ import java.util.ArrayList;
 public class Personnel {
     private TypePersonnel type;
     private ArrayList<Evenement> affectations;
+    private String nom;
+    private String prenom;
 
-    public Personnel(TypePersonnel type){
+    public Personnel(TypePersonnel type, String nom, String prenom){
         this.type = type;
+        this.nom = TextUtilitaire.capitalize(nom);
+        this.prenom = TextUtilitaire.capitalize(prenom);
         this.affectations = new ArrayList<>();
     }
 
@@ -32,4 +38,24 @@ public class Personnel {
         return this.type.getSalaire()*nbHeure;
     }
 
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public ArrayList<Evenement> getAffectations() {
+        return affectations;
+    }
+
+    public TypePersonnel getType() {
+        return type;
+    }
+
+    public String getNomComplet(){
+        return prenom + " " + nom;
+    }
 }
