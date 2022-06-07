@@ -45,9 +45,9 @@
       <menus>
         <Menu mnemonicParsing="false" text="Gestion">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#newUserMenuItemAction" text="Créer un·e utilisa·teur/trice" />
+            <MenuItem mnemonicParsing="false"  text="Créer un·e utilisa·teur/trice" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" onAction="#exitMenuItemAction" text="Quitter" />
+            <MenuItem mnemonicParsing="false"  text="Quitter" />
           </items>
         </Menu>
       </menus>
