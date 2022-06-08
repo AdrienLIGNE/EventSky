@@ -16,6 +16,8 @@ public class Personnel extends Reservable {
     private String mail;
 
     public Personnel(String nom, String prenom, TypePersonnel type){
+        setNom(nom);
+        setPrenom(prenom);
         this.type = type;
     }
 

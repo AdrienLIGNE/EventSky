@@ -20,6 +20,9 @@ public class MainApplication {
 
     public MainApplication () {
         this.evenements = FXCollections.observableArrayList();
+        this.lieux = FXCollections.observableArrayList();
+        this.personnels = FXCollections.observableArrayList();
+        this.materiels = FXCollections.observableArrayList();
 
 
         evenements.add(new Evenement(0, LocalDate.of(2022, 6, 7), LocalDate.of(2022, 6, 10), "CONCERT DE RAP FRANCAIS OUIIIIIIII"));
@@ -28,15 +31,36 @@ public class MainApplication {
         evenements.add(new Evenement(3, LocalDate.of(2022, 10, 17), LocalDate.of(2022, 10, 17), "CONCERT DE EDSHEERAN"));
 
         Personnel personnel1 = new Personnel("Quentin", "LACOMBE", TypePersonnel.VIGILE);
+        Personnel personnel2 = new Personnel("Timéo", "COGNE", TypePersonnel.VIGILE);
+
+        personnels.add(personnel1);
+        personnels.add(personnel2);
 
         evenements.get(0).addPersonnel(personnel1);
+        evenements.get(1).addPersonnel(personnel2);
         evenements.get(0).confirme();
-        System.out.println("Disponibilité du personnel : " + personnel1.estDisponible(LocalDate.of(2022, 6, 7)));
+        evenements.get(1).confirme();
+
+        ObservableList<Personnel> personnels_dispo = getPersonnelDisponibles(LocalDate.of(2022, 8, 26));
+
+        System.out.println("Disponibilité du personnel : " + personnel1.estDisponible(LocalDate.of(2022, 8, 26)));
 
     }
 
     public ObservableList<Evenement> getEvenements() {
         return evenements;
+    }
+
+    public void addLieu(Lieu lieu) {
+        lieux.add(lieu);
+    }
+
+    public void addPersonnel(Personnel personnel) {
+        personnels.add(personnel);
+    }
+
+    public void addMateriel(Materiel materiel) {
+        materiels.add(materiel);
     }
 
     public ObservableList<Lieu> getLieux() {
@@ -52,14 +76,35 @@ public class MainApplication {
     }
 
     /**
-     * Récupère tout les lieux disponibles pour un jour donné
+     * Récupère tout les reservables disponibles un jour donné
      */
-    public ObservableList<Lieu> getLieuxDisponible(LocalDate date) {
-        ArrayList<Lieu> indisponible = new ArrayList<>();
+    public ObservableList getReservablesDisponibles(ObservableList reservables, LocalDate date) {
+        ObservableList<Reservable> indisponible = FXCollections.observableArrayList();
 
-        for(Reservable reservable : lieux) {
-
+        //On regarde pour chaque item réservable, si il est disponible le jour donné
+        for(int i = 0; i < reservables.size(); i++) {
+            Reservable r = (Reservable) reservables.get(i);
+            if(!r.estDisponible(date)) {
+                indisponible.add(r);
+            }
         }
-        return null;
+
+        ObservableList<Reservable> disponible = FXCollections.observableArrayList(reservables);
+        disponible.removeAll(indisponible);
+
+        return disponible;
+    }
+
+    /**
+     * Retourne la liste des lieux disponible un jour donné
+     * @param date
+     * @return
+     */
+    public ObservableList<Lieu> getLieuxDisponibles(LocalDate date) {
+        return getReservablesDisponibles(lieux, date);
+    }
+
+    public ObservableList<Personnel> getPersonnelDisponibles(LocalDate date) {
+        return getReservablesDisponibles(personnels, date);
     }
 }

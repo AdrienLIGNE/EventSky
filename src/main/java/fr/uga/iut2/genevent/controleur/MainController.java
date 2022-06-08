@@ -6,11 +6,13 @@ import fr.uga.iut2.genevent.vue.EvenementItem;
 import fr.uga.iut2.genevent.vue.IHM;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -49,6 +51,10 @@ public class MainController implements Initializable{
         System.out.println("test");
     }
 
+    @FXML
+    private void showInfosEvenementClick(MouseEvent e) {
+        System.out.println("lets go");
+    }
 
 
 }
