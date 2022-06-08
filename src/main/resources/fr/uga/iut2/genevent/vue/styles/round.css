@@ -26,3 +26,8 @@
 .date-picker > .arrow-button {
     -fx-background-radius: 0 10 10 0;
 }
+
+.combo-box {
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}

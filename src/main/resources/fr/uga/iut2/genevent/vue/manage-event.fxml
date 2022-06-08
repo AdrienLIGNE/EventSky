@@ -42,7 +42,10 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <ComboBox prefWidth="150.0" promptText="Concert" GridPane.columnIndex="3" />
+                  <ComboBox maxWidth="1.7976931348623157E308" prefHeight="30.0" promptText="Concert" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin></ComboBox>
                   <Label layoutX="10.0" layoutY="260.0" text="Date fin :" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="10.0" />
@@ -55,7 +58,7 @@
                   </Label>
                   <TextField editable="false" layoutX="200.0" layoutY="118.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
                      </GridPane.margin></TextField>
                   <Label layoutX="10.0" layoutY="361.0" text="Date début :" GridPane.rowIndex="2">
                      <GridPane.margin>
@@ -64,11 +67,11 @@
                   </Label>
                   <DatePicker editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
                      </GridPane.margin></DatePicker>
                   <ListView editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
                      </GridPane.margin>
                   </ListView>
                   <Label layoutX="20.0" layoutY="273.0" text="Coût :" GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -78,21 +81,16 @@
                   </Label>
                   <TextField editable="false" layoutX="200.0" layoutY="392.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
                      </GridPane.margin></TextField>
                   <Label text="Noms des artistes :" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" right="10.0" top="5.0" />
-                     </GridPane.margin>
-                  </TextArea>
                   <DatePicker editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
                      </GridPane.margin>
                   </DatePicker>
                   <Label text="Nombre de spectateurs :" GridPane.rowIndex="4">
@@ -102,7 +100,12 @@
                   </Label>
                   <TextField editable="false" layoutX="610.0" layoutY="222.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
                      </GridPane.margin>
                   </TextField>
                </children>
