@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
          <children>
@@ -81,21 +81,21 @@
             <DatePicker prefHeight="26.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                <children>
-                  <Button maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Annuler" textFill="WHITE">
+                  <Button maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" styleClass="cancelButton" text="Annuler" textFill="WHITE">
                      <font>
                         <Font name="Open Sans" size="13.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="7.5" />
                      </HBox.margin></Button>
-                  <Button maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Précédent" textFill="WHITE">
+                  <Button maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" styleClass="neutralButton" text="Précédent" textFill="WHITE">
                      <font>
                         <Font name="Open Sans" size="13.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="7.5" right="7.5" />
                      </HBox.margin></Button>
-                  <Button maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="90.0" text="Suivant" textFill="WHITE">
+                  <Button maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="90.0" styleClass="neutralButton" text="Suivant" textFill="WHITE">
                      <font>
                         <Font name="Open Sans" size="13.0" />
                      </font>
