@@ -1,0 +1,120 @@
+/* round */
+
+.list-view {
+    -fx-background-radius: 10;
+}
+
+.list-cell, .list-cell::focused {
+    -fx-border-radius: 10;
+}
+
+.button {
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.text-field {
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.date-picker {
+    -fx-background-radius: 10;
+}
+.date-picker > .text-field {
+    -fx-background-radius: 10 0 0 10;
+}
+
+.date-picker > .arrow-button {
+    -fx-background-radius: 0 10 10 0;
+}
+
+.combo-box {
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* colors */
+
+.button {
+    -fx-border-color: black;
+}
+
+.button:hover {
+    -fx-opacity: 0.8;
+}
+
+.cancelButton {
+    -fx-background-color: #b41e1e;
+}
+
+.actionButton {
+    -fx-background-color: #32961e;
+}
+
+.neutralButton {
+    -fx-background-color: #3264b4;
+}
+
+/* styles */
+
+.button {
+ -fx-width: 150px;
+ -fx-height: 50px;
+ -fx-cursor: pointer;
+ -fx-display: flex;
+ -fx-align-items: center;
+ -fx-background: red;
+ -fx-border: none;
+ -fx-border-radius: 5px;
+ -fx-box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+ -fx-background: #e62222;
+}
+
+.button, button span {
+ -fx-transition: 200ms;
+}
+
+.button .text {
+ -fx-transform: translateX(35px);
+ -fx-color: white;
+ -fx-font-weight: bold;
+}
+
+.button .icon {
+ -fx-position: absolute;
+ -fx-border-left: 1px solid #c41b1b;
+ -fx-transform: translateX(110px);
+ -fx-height: 40px;
+ -fx-width: 40px;
+ -fx-display: flex;
+ -fx-align-items: center;
+ -fx-justify-content: center;
+}
+
+.button svg {
+ -fx-width: 15px;
+ -fx-fill: #eee;
+}
+
+.button:hover {
+ -fx-background: #ff3636;
+}
+
+.button:hover .text {
+ -fx-color: transparent;
+}
+
+.button:hover .icon {
+ -fx-width: 150px;
+ -fx-border-left: none;
+ -fx-transform: translateX(0);
+}
+
+.button:focus {
+ -fx-outline: none;
+}
+
+.button:active .icon svg {
+ -fx-transform: scale(0.8);
+}
