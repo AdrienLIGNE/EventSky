@@ -1,19 +1,21 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ManageContentController {
 
     @FXML
-    public void ajoutSalleAction(ActionEvent event){
+    public void ajoutSalleClic(MouseEvent event){
         try {
             // Chargement de la nouvelle interface
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("create-salle.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 500);
+            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-salle.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             // Création d'un nouveau stage
             Stage stage = new Stage();
             stage.setTitle("Création Salle");
@@ -24,4 +26,6 @@ public class ManageContentController {
             e.printStackTrace();
         }
     }
+
+
 }

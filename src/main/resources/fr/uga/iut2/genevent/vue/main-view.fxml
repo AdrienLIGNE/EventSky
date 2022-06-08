@@ -37,7 +37,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MainController">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
          <children>
@@ -91,7 +91,7 @@
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin></ListView>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Gestion des ressources" textFill="WHITE">
+                  <Button mnemonicParsing="false" onMouseClicked="#gestionRessourcesClick" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Gestion des ressources" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Bold" size="18.0" />
                      </font>

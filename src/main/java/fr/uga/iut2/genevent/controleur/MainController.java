@@ -8,11 +8,14 @@ import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -54,6 +57,23 @@ public class MainController implements Initializable{
     @FXML
     private void showInfosEvenementClick(MouseEvent e) {
         System.out.println("lets go");
+    }
+
+    @FXML
+    private void gestionRessourcesClick(MouseEvent event){
+        try {
+            // Chargement de la nouvelle interface
+            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-content-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            // Création d'un nouveau stage
+            Stage stage = new Stage();
+            stage.setTitle("Création Salle");
+            // affectation de la nouvelle scène au stage et affichage
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

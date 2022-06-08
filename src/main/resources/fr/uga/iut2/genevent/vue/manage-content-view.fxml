@@ -177,7 +177,7 @@
                                         <children>
                                             <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                                                 <children>
-                                                    <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
+                                                    <Button alignment="CENTER" onMouseClicked="#ajoutSalleClic" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
                                                         <font>
                                                             <Font name="Open Sans Bold" size="13.0" />
                                                         </font>

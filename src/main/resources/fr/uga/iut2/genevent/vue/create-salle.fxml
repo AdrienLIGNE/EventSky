@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.CreateSalleController">
     <children>
         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
             <children>
@@ -60,7 +62,17 @@
                   <Font name="Open Sans" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="658.0" layoutY="487.0" mnemonicParsing="false" text="Charger image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Button layoutX="658.0" layoutY="487.0" mnemonicParsing="false" onMouseClicked="#onUploadButtonClick" text="Charger image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <children>
+                  <ImageView fx:id="iv" fitHeight="48.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="lblImageName" prefHeight="16.0" prefWidth="162.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
             </children>
         </GridPane>
     </children>
