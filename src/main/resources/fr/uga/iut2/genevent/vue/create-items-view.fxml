@@ -75,14 +75,14 @@
                     <children>
                         <Button maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" styleClass="cancelButton" text="Annuler" textFill="WHITE">
                             <font>
-                                <Font name="Open Sans" size="13.0" />
+                                <Font name="Open Sans Bold" size="13.0" />
                             </font>
                             <HBox.margin>
                                 <Insets left="7.5" right="7.5" />
                             </HBox.margin></Button>
                         <Button contentDisplay="CENTER" maxHeight="30.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="90.0" styleClass="actionButton" text="Valider" textFill="WHITE">
                             <font>
-                                <Font name="Open Sans" size="13.0" />
+                                <Font name="Open Sans Bold" size="13.0" />
                             </font>
                             <HBox.margin>
                                 <Insets left="7.5" right="20.0" />
