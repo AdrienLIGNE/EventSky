@@ -32,11 +32,12 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:controller="fr.uga.iut2.genevent.controleur.MainController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
          <children>
@@ -47,15 +48,41 @@
             </Label>
          </children>
       </HBox>
-      <ListView fx:id="list_brouillon" layoutX="14.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
-      <ListView fx:id="list_evenement" layoutX="409.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
-      <Button layoutX="70.0" layoutY="542.0" mnemonicParsing="false" onAction="#click" prefHeight="44.0" prefWidth="258.0" text="Créer Evenement" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="472.0" AnchorPane.topAnchor="542.0">
-         <font>
-            <Font name="Open Sans Bold" size="18.0" />
-         </font></Button>
-      <Button layoutX="465.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Quitter" textFill="WHITE">
-         <font>
-            <Font name="Open Sans Bold" size="18.0" />
-         </font></Button>
+      <HBox alignment="CENTER" layoutY="60.0" prefHeight="540.0" prefWidth="800.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="425.0" prefWidth="370.0">
+               <children>
+                  <ListView fx:id="list_brouillon" prefHeight="425.0" prefWidth="370.0">
+                     <VBox.margin>
+                        <Insets right="10.0" />
+                     </VBox.margin></ListView>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Créer Evenement" textFill="WHITE">
+                     <font>
+                        <Font name="Open Sans Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="425.0" prefWidth="370.0">
+               <children>
+                  <ListView fx:id="list_evenement" prefHeight="425.0" prefWidth="370.0">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin></ListView>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Quitter" textFill="WHITE">
+                     <font>
+                        <Font name="Open Sans Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
