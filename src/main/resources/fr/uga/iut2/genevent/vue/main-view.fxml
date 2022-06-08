@@ -64,7 +64,7 @@
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin></ListView>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Créer Evenement" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Créer un évènement" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Bold" size="18.0" />
                      </font>
