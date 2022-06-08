@@ -36,7 +36,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
          <children>
@@ -47,13 +47,13 @@
             </Label>
          </children>
       </HBox>
-      <ListView fx:id="list_brouillon" layoutX="14.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
-      <ListView fx:id="list_evenement" layoutX="409.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0" />
-      <Button layoutX="70.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Créer Evenement" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="472.0" AnchorPane.topAnchor="542.0">
+      <ListView fx:id="list_brouillon" layoutX="14.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0"/>
+      <ListView fx:id="list_evenement" layoutX="409.0" layoutY="105.0" prefHeight="425.0" prefWidth="370.0"/>
+      <Button styleClass="actionButton" layoutX="70.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Créer un évènement" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="472.0" AnchorPane.topAnchor="542.0">
          <font>
             <Font name="Open Sans Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="465.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Quitter" textFill="WHITE">
+      <Button styleClass="cancelButton" layoutX="465.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="258.0" text="Quitter" textFill="WHITE">
          <font>
             <Font name="Open Sans Bold" size="18.0" />
          </font></Button>
