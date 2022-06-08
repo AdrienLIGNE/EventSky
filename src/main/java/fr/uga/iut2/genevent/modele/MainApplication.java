@@ -50,4 +50,16 @@ public class MainApplication {
     public ObservableList<Personnel> getPersonnels() {
         return personnels;
     }
+
+    /**
+     * Récupère tout les lieux disponibles pour un jour donné
+     */
+    public ObservableList<Lieu> getLieuxDisponible(LocalDate date) {
+        ArrayList<Lieu> indisponible = new ArrayList<>();
+
+        for(Reservable reservable : lieux) {
+
+        }
+        return null;
+    }
 }
