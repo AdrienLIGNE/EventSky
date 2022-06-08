@@ -18,7 +18,7 @@
       </HBox>
       <TabPane layoutY="60.0" prefHeight="540.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Matériel">
+          <Tab text="Matériels">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -26,7 +26,7 @@
                            <children>
                               <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="Matériel">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="Matériels">
                                        <font>
                                           <Font name="Open Sans" size="26.0" />
                                        </font>
@@ -83,7 +83,7 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab text="Personnel">
+          <Tab text="Personnels">
               <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
@@ -91,7 +91,7 @@
                               <children>
                                   <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
                                       <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="Personnel">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="Personnels">
                                               <font>
                                                   <Font name="Open Sans" size="26.0" />
                                               </font>
