@@ -5,7 +5,6 @@ import javafx.beans.property.StringProperty;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.TreeSet;
 
 public class Evenement {
 
@@ -122,7 +121,7 @@ public class Evenement {
         return nomEvenement;
     }
 
-    public boolean isConfirme() {
+    public boolean isConfirmed() {
         return estConfirme;
     }
 

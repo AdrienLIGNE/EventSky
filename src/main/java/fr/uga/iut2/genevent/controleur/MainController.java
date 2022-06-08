@@ -24,22 +24,20 @@ import java.util.ResourceBundle;
 /**
  * Classe controlleur principale, gère l'affichage et le lien avec les données
  */
-public class MainController implements Initializable{
-
-    private final MainApplication app;
+public class MainController extends Controller implements Initializable{
 
     @FXML private ListView<Evenement> list_brouillon;
     @FXML private ListView<Evenement> list_evenement;
 
     public MainController() {
-        app = new MainApplication();
+        super(new MainApplication());
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // On affiche les listes avec les évènements
-        list_brouillon.setItems(app.getEvenements());
+        list_brouillon.setItems(getApplication().getEvenements());
 
         list_brouillon.setCellFactory(new Callback<ListView<Evenement>, ListCell<Evenement>>() {
             @Override
@@ -64,6 +62,7 @@ public class MainController implements Initializable{
         try {
             // Chargement de la nouvelle interface
             FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-content-view.fxml"));
+            fxmlLoader.setController(new ManageContentController(getApplication()));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             // Création d'un nouveau stage
             Stage stage = new Stage();

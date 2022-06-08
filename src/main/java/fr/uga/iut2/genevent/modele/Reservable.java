@@ -83,7 +83,7 @@ public abstract class Reservable {
 
         // On regarde pour chaque événement, s'il se produit le jour donné
         for(TupleQuantiteEvenement affect : affectation_evenements) {
-            if(affect.getEvenement().isConfirme() & affect.getEvenement().sePasseCeJour(date)) {
+            if(affect.getEvenement().isConfirmed() & affect.getEvenement().sePasseCeJour(date)) {
                 nbReserve += affect.getQuantite();
             }
         }

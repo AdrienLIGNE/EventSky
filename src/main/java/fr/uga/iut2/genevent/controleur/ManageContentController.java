@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.modele.MainApplication;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ManageContentController {
+public class ManageContentController extends Controller {
+
+    public ManageContentController(MainApplication app) {
+        super(app);
+    }
 
     @FXML
     public void ajoutSalleClic(MouseEvent event){
