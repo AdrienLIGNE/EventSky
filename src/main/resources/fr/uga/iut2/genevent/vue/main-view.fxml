@@ -52,6 +52,17 @@
          <children>
             <VBox alignment="CENTER" prefHeight="425.0" prefWidth="370.0">
                <children>
+                  <Label contentDisplay="CENTER" text="Brouillons">
+                     <font>
+                        <Font name="Open Sans" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </Label>
                   <ListView fx:id="list_brouillon" prefHeight="425.0" prefWidth="370.0">
                      <VBox.margin>
                         <Insets right="10.0" />
@@ -68,11 +79,19 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="425.0" prefWidth="370.0">
                <children>
+                  <Label text="Evènements à venir">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </Label>
                   <ListView fx:id="list_evenement" prefHeight="425.0" prefWidth="370.0">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin></ListView>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Quitter" textFill="WHITE">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Gestion des ressources" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Bold" size="18.0" />
                      </font>
