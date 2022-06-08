@@ -89,52 +89,58 @@
                       <children>
                           <HBox alignment="CENTER" prefHeight="507.0" prefWidth="800.0">
                               <children>
-                                  <VBox alignment="CENTER" prefHeight="430.0" prefWidth="425.0">
+                                  <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
                                       <children>
-                                          <Label text="Personnel">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="Personnel">
                                               <font>
                                                   <Font name="Open Sans" size="26.0" />
                                               </font>
+                                              <VBox.margin>
+                                                  <Insets top="15.0" />
+                                              </VBox.margin>
                                           </Label>
-                                          <ListView prefHeight="400.0" prefWidth="425.0" />
+                                          <ListView prefHeight="462.0" prefWidth="400.0">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.0" />
+                                              </VBox.margin></ListView>
                                       </children>
                                       <HBox.margin>
-                                          <Insets right="10.0" />
+                                          <Insets left="15.0" right="7.5" />
                                       </HBox.margin>
                                   </VBox>
-                                  <VBox alignment="BOTTOM_CENTER" prefHeight="430.0" prefWidth="300.0">
+                                  <VBox alignment="BOTTOM_CENTER" prefHeight="425.0" prefWidth="400.0">
                                       <children>
-                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                          <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                                               <children>
-                                                  <Button prefHeight="30.0" prefWidth="90.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
+                                                  <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
                                                       <font>
                                                           <Font name="Open Sans Bold" size="13.0" />
                                                       </font>
                                                       <HBox.margin>
-                                                          <Insets left="5.0" right="5.0" />
+                                                          <Insets bottom="15.0" right="7.5" />
                                                       </HBox.margin>
                                                   </Button>
-                                                  <Button prefHeight="30.0" prefWidth="90.0" styleClass="neutralButton" text="Modifier" textFill="WHITE">
+                                                  <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="neutralButton" text="Modifier" textFill="WHITE">
                                                       <font>
                                                           <Font name="Open Sans Bold" size="13.0" />
                                                       </font>
                                                       <HBox.margin>
-                                                          <Insets left="5.0" right="5.0" />
+                                                          <Insets bottom="15.0" left="7.5" right="7.5" />
                                                       </HBox.margin>
                                                   </Button>
-                                                  <Button prefHeight="30.0" prefWidth="90.0" styleClass="cancelButton" text="Supprimer" textFill="WHITE">
+                                                  <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="cancelButton" text="Supprimer" textFill="WHITE">
                                                       <font>
                                                           <Font name="Open Sans Bold" size="13.0" />
                                                       </font>
                                                       <HBox.margin>
-                                                          <Insets left="5.0" right="5.0" />
+                                                          <Insets bottom="15.0" left="7.5" />
                                                       </HBox.margin>
                                                   </Button>
                                               </children>
                                           </HBox>
                                       </children>
                                       <HBox.margin>
-                                          <Insets left="10.0" />
+                                          <Insets left="7.5" right="15.0" />
                                       </HBox.margin>
                                   </VBox>
                               </children>
@@ -148,52 +154,58 @@
                         <children>
                             <HBox alignment="CENTER" prefHeight="507.0" prefWidth="800.0">
                                 <children>
-                                    <VBox alignment="CENTER" prefHeight="430.0" prefWidth="425.0">
+                                    <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
                                         <children>
-                                            <Label text="Salles">
+                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="Salles">
                                                 <font>
                                                     <Font name="Open Sans" size="26.0" />
                                                 </font>
+                                                <VBox.margin>
+                                                    <Insets top="15.0" />
+                                                </VBox.margin>
                                             </Label>
-                                            <ListView prefHeight="400.0" prefWidth="425.0" />
+                                            <ListView prefHeight="462.0" prefWidth="400.0">
+                                                <VBox.margin>
+                                                    <Insets bottom="15.0" />
+                                                </VBox.margin></ListView>
                                         </children>
                                         <HBox.margin>
-                                            <Insets right="10.0" />
+                                            <Insets left="15.0" right="7.5" />
                                         </HBox.margin>
                                     </VBox>
-                                    <VBox alignment="BOTTOM_CENTER" prefHeight="430.0" prefWidth="300.0">
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="425.0" prefWidth="400.0">
                                         <children>
-                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                            <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                                                 <children>
-                                                    <Button prefHeight="30.0" prefWidth="90.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
+                                                    <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
                                                         <font>
                                                             <Font name="Open Sans Bold" size="13.0" />
                                                         </font>
                                                         <HBox.margin>
-                                                            <Insets left="5.0" right="5.0" />
+                                                            <Insets bottom="15.0" right="7.5" />
                                                         </HBox.margin>
                                                     </Button>
-                                                    <Button prefHeight="30.0" prefWidth="90.0" styleClass="neutralButton" text="Modifier" textFill="WHITE">
+                                                    <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="neutralButton" text="Modifier" textFill="WHITE">
                                                         <font>
                                                             <Font name="Open Sans Bold" size="13.0" />
                                                         </font>
                                                         <HBox.margin>
-                                                            <Insets left="5.0" right="5.0" />
+                                                            <Insets bottom="15.0" left="7.5" right="7.5" />
                                                         </HBox.margin>
                                                     </Button>
-                                                    <Button prefHeight="30.0" prefWidth="90.0" styleClass="cancelButton" text="Supprimer" textFill="WHITE">
+                                                    <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="cancelButton" text="Supprimer" textFill="WHITE">
                                                         <font>
                                                             <Font name="Open Sans Bold" size="13.0" />
                                                         </font>
                                                         <HBox.margin>
-                                                            <Insets left="5.0" right="5.0" />
+                                                            <Insets bottom="15.0" left="7.5" />
                                                         </HBox.margin>
                                                     </Button>
                                                 </children>
                                             </HBox>
                                         </children>
                                         <HBox.margin>
-                                            <Insets left="10.0" />
+                                            <Insets left="7.5" right="15.0" />
                                         </HBox.margin>
                                     </VBox>
                                 </children>
