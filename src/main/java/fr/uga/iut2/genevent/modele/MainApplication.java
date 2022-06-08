@@ -14,6 +14,9 @@ public class MainApplication {
 
     private ObservableList<Evenement> evenements;
 
+    private ObservableList<Lieu> lieux;
+    private ObservableList<Personnel> personnels;
+    private ObservableList<Materiel> materiels;
 
     public MainApplication () {
         this.evenements = FXCollections.observableArrayList();
@@ -36,6 +39,15 @@ public class MainApplication {
         return evenements;
     }
 
+    public ObservableList<Lieu> getLieux() {
+        return lieux;
+    }
 
+    public ObservableList<Materiel> getMateriels() {
+        return materiels;
+    }
 
+    public ObservableList<Personnel> getPersonnels() {
+        return personnels;
+    }
 }
