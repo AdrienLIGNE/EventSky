@@ -37,11 +37,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
          <children>
-            <Label alignment="CENTER" prefHeight="76.0" prefWidth="192.0" text="Accueil">
+            <Label alignment="CENTER" prefHeight="60.0" prefWidth="800.0" text="Accueil">
                <font>
                   <Font name="Open Sans Bold" size="40.0" />
                </font>
@@ -52,22 +52,19 @@
          <children>
             <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="370.0" text="En attente de validation">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="En attente de validation">
                      <font>
                         <Font name="Open Sans" size="24.0" />
                      </font>
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" top="5.0" />
-                     </padding>
                   </Label>
                   <ListView fx:id="list_brouillon" prefHeight="425.0" prefWidth="400.0">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin></ListView>
-                  <Button styleClass="actionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Créer Evenement" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Créer Evenement" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Bold" size="18.0" />
                      </font>
@@ -82,19 +79,19 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
                <children>
-                  <Label alignment="CENTER" prefWidth="370.0" text="Evènements à venir">
+                  <Label alignment="CENTER" prefHeight="45.0" prefWidth="400.0" text="Evènements à venir">
                      <font>
                         <Font name="Open Sans" size="24.0" />
                      </font>
                      <padding>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets bottom="5.0" />
                      </padding>
                   </Label>
                   <ListView fx:id="list_evenement" prefHeight="425.0" prefWidth="400.0">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin></ListView>
-                  <Button styleClass="actionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Gestion des ressources" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Gestion des ressources" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Bold" size="18.0" />
                      </font>

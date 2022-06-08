@@ -3,13 +3,17 @@
 }
 
 .button:hover {
-    -fx-opacity: 0.7;
+    -fx-opacity: 0.8;
 }
 
 .cancelButton {
-    -fx-background-color: red;
+    -fx-background-color: #b41e1e;
 }
 
 .actionButton {
-    -fx-background-color: green;
+    -fx-background-color: #32961e;
+}
+
+.neutralButton {
+    -fx-background-color: #3264b4;
 }
