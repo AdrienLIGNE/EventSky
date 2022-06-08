@@ -39,14 +39,17 @@ public class Evenement {
     }
 
     public void setLieu(Lieu l) {
+        l.affecteEvenement(this);
         this.lieu = lieu;
     }
 
     public void addPersonnel(Personnel p) {
+        p.affecteEvenement(this);
         personnel.add(p);
     }
 
-    public void addMateriel(Materiel m) {
+    public void addMateriel(Materiel m, int quantite) {
+        m.affecteEvenement(this, quantite);
         materiel.add(m);
     }
 
@@ -119,7 +122,20 @@ public class Evenement {
         return nomEvenement;
     }
 
-    public boolean isEstConfirme() {
+    public boolean isConfirme() {
         return estConfirme;
+    }
+
+    public void confirme() {
+        this.estConfirme = true;
+    }
+
+    /**
+     * Vérifie si un événement se passe un jour donné
+     * @param date date à tester
+     * @return vrai si l'événement se déroule le jour donné
+     */
+    public boolean sePasseCeJour(LocalDate date) {
+        return (date.compareTo(dateDebut) >= 0 & date.compareTo(dateFin) <= 0);
     }
 }

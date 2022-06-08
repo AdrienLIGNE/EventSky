@@ -2,7 +2,7 @@ package fr.uga.iut2.genevent.modele;
 
 import java.util.TreeSet;
 
-public class Lieu {
+public class Lieu extends Reservable {
 
     // Déclaration des attributs
     private int idLieu;
@@ -28,8 +28,6 @@ public class Lieu {
 
 
     // Méthodes
-
-
     public int getIdLieu() {
         return idLieu;
     }

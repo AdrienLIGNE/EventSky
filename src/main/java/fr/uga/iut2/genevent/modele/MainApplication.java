@@ -14,17 +14,28 @@ public class MainApplication {
 
     private ObservableList<Evenement> evenements;
 
+
     public MainApplication () {
         this.evenements = FXCollections.observableArrayList();
 
-        evenements.add(new Evenement(0, LocalDate.of(2022, 06, 07), LocalDate.of(2022, 06, 10), "CONCERT DE RAP FRANCAIS OUIIIIIIII"));
-        evenements.add(new Evenement(1, null, null, "CONCERT DE RAP FRANCAIS"));
-        evenements.add(new Evenement(2, null, null, "CONCERT DE RAP FRANCAIS"));
-        evenements.add(new Evenement(3, null, null, "CONCERT DE RAP FRANCAIS"));
-    }
 
+        evenements.add(new Evenement(0, LocalDate.of(2022, 6, 7), LocalDate.of(2022, 6, 10), "CONCERT DE RAP FRANCAIS OUIIIIIIII"));
+        evenements.add(new Evenement(1, LocalDate.of(2022, 8, 25), LocalDate.of(2022, 8, 28), "SPECTACLE DE MAGIE"));
+        evenements.add(new Evenement(2, LocalDate.of(2022, 8, 21), LocalDate.of(2022, 8, 21), "CONCERT ANNEE 90"));
+        evenements.add(new Evenement(3, LocalDate.of(2022, 10, 17), LocalDate.of(2022, 10, 17), "CONCERT DE EDSHEERAN"));
+
+        Personnel personnel1 = new Personnel("Quentin", "LACOMBE", TypePersonnel.VIGILE);
+
+        evenements.get(0).addPersonnel(personnel1);
+        evenements.get(0).confirme();
+        System.out.println("Disponibilité du personnel : " + personnel1.estDisponible(LocalDate.of(2022, 6, 7)));
+
+    }
 
     public ObservableList<Evenement> getEvenements() {
         return evenements;
     }
+
+
+
 }
