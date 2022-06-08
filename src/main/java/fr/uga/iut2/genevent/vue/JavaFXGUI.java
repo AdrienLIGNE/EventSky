@@ -29,13 +29,9 @@ import org.apache.commons.validator.routines.EmailValidator;
  */
 public class JavaFXGUI extends IHM {
 
-    private final MainController controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
 
-
-    public JavaFXGUI(MainController controleur) {
-        this.controleur = controleur;
-
+    public JavaFXGUI() {
         this.eolBarrier = new CountDownLatch(1);  // /!\ ne pas supprimer /!\
     }
 
@@ -51,9 +47,7 @@ public class JavaFXGUI extends IHM {
      */
     private void start(Stage primaryStage) throws IOException {
         FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("main-view.fxml"));
-        mainViewLoader.setController(this);
         Scene mainScene = new Scene(mainViewLoader.load());
-
         primaryStage.setTitle("GenEvent");
         primaryStage.setScene(mainScene);
         primaryStage.show();

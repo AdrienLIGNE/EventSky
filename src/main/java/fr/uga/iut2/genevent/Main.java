@@ -3,6 +3,9 @@ package fr.uga.iut2.genevent;
 import fr.uga.iut2.genevent.controleur.MainController;
 import fr.uga.iut2.genevent.modele.MainApplication;
 import fr.uga.iut2.genevent.util.Persisteur;
+import fr.uga.iut2.genevent.vue.IHM;
+import fr.uga.iut2.genevent.vue.JavaFXGUI;
+
 import java.io.IOException;
 
 
@@ -13,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MainApplication app = null;
+        MainApplication app = new MainApplication();
 
         try {
             app = Persisteur.lireEtat();
@@ -24,10 +27,8 @@ public class Main {
             System.exit(Main.EXIT_ERR_LOAD);
         }
 
-        MainController controleur = new MainController(app);
-        // `Controleur.demarrer` garde le contrôle de l'exécution tant que
-        // l'utilisa·teur/trice n'a pas saisi la commande QUITTER.
-        controleur.demarrer();
+        IHM ihm = new JavaFXGUI();
+        ihm.demarrerInteraction();
 
         try {
             Persisteur.sauverEtat(app);
