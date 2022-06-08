@@ -37,7 +37,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
          <children>
@@ -67,7 +67,7 @@
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin></ListView>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Créer Evenement" textFill="WHITE">
+                  <Button styleClass="actionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Créer Evenement" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Bold" size="18.0" />
                      </font>
@@ -94,7 +94,7 @@
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin></ListView>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Gestion des ressources" textFill="WHITE">
+                  <Button styleClass="actionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Gestion des ressources" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Bold" size="18.0" />
                      </font>
