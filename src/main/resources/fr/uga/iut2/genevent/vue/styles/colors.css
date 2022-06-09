@@ -1,6 +1,4 @@
-.button {
-    -fx-border-color: black;
-}
+
 
 .button:hover {
     -fx-opacity: 0.8;
