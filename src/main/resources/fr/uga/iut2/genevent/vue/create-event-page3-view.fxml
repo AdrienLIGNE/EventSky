@@ -24,26 +24,29 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="275.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="25.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
             <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Choisir le matériel" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label prefHeight="25.0" text="Choisir le matériel" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets bottom="5.0" />
                     </GridPane.margin>
                 </Label>
             <ListView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="4">
                <GridPane.margin>
-                  <Insets right="5.0" />
+                  <Insets right="7.5" />
                </GridPane.margin></ListView>
-            <Label layoutX="90.0" layoutY="14.0" text="Choisir le personnel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label layoutX="90.0" layoutY="14.0" prefHeight="25.0" text="Choisir le personnel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin></Label>
             <ListView layoutX="10.0" layoutY="35.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="4">
                <GridPane.margin>
-                  <Insets left="5.0" />
+                  <Insets left="7.5" />
                </GridPane.margin>
             </ListView>
             </children>
@@ -53,14 +56,17 @@
         </GridPane>
         <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
             <children>
-            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Annuler" />
+            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Annuler">
+               <HBox.margin>
+                  <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
+               </HBox.margin></Button>
                 <Button mnemonicParsing="false" text="Précédent">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                     </HBox.margin></Button>
                 <Button mnemonicParsing="false" text="Suivant">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                     </HBox.margin></Button>
             </children>
         </HBox>
