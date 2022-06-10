@@ -21,7 +21,7 @@
          </VBox.margin></Label>
       <Separator prefWidth="200.0">
          <VBox.margin>
-            <Insets top="10.0" />
+            <Insets top="15.0" />
          </VBox.margin>
       </Separator>
         <GridPane prefWidth="220.0">
@@ -57,7 +57,7 @@
             </ListView>
             </children>
             <VBox.margin>
-                <Insets top="30.0" />
+                <Insets top="15.0" />
             </VBox.margin>
          <padding>
             <Insets left="15.0" right="15.0" />
@@ -65,7 +65,7 @@
         </GridPane>
         <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
             <children>
-            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Annuler">
+            <Button mnemonicParsing="false" text="Annuler">
                <HBox.margin>
                   <Insets bottom="15.0" right="15.0" />
                </HBox.margin></Button>
