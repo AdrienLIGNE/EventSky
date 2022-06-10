@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.vue.ManageEvent">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.vue.ManageEvent">
    <children>
       <VBox prefHeight="61.0" prefWidth="800.0">
          <children>
@@ -17,7 +17,7 @@
                   <Insets left="5.0" />
                </padding>
             </Label>
-            <Label prefHeight="17.0" prefWidth="479.0" text="Consulter les informations de l'événement, le modifier ou le supprimer">
+            <Label prefHeight="16.0" prefWidth="479.0" text="Consulter les informations de l'événement, le modifier ou le supprimer">
                <VBox.margin>
                   <Insets left="5.0" />
                </VBox.margin></Label>
@@ -27,9 +27,9 @@
          <children>
             <GridPane layoutY="57.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="776.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="57.0">
               <columnConstraints>
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="157.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="175.0" />
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" prefWidth="202.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="150.0" prefWidth="240.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" prefWidth="165.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="175.0" />
               </columnConstraints>
               <rowConstraints>
