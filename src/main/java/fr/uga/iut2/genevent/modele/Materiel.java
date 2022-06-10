@@ -13,6 +13,7 @@ public class Materiel extends Reservable {
 
     public Materiel(String label, int quantite){
         this.label = label;
+        setQuantiteDisponible(quantite);
     }
 
     public String getLabel() {

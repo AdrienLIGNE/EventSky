@@ -37,6 +37,10 @@ public class Personnel extends Reservable {
         return prenom;
     }
 
+    public TypePersonnel getTypeEmploi() {
+        return type;
+    }
+
     public double getSalaireHoraire(){
         return this.type.getSalaire();
     }

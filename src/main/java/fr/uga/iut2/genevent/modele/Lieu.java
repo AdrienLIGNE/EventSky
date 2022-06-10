@@ -1,12 +1,15 @@
 package fr.uga.iut2.genevent.modele;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.TreeSet;
 
 public class Lieu extends Reservable {
 
     // Déclaration des attributs
     private int idLieu;
-    private String nom;
+    private StringProperty nom;
     private int capacite;
     private double surface;
     private TreeSet<TypeEvenement> TypesAcceptes;
@@ -15,13 +18,13 @@ public class Lieu extends Reservable {
     // Constructeur
 
     public Lieu(int idLieu, String nom) {
-        this.idLieu = idLieu;
-        this.nom = nom;
+        this(idLieu, nom, 0, 0);
     }
 
     public Lieu(int idLieu, String nom, int capacite, double surface) {
         this.idLieu = idLieu;
-        this.nom = nom;
+        this.nom = new SimpleStringProperty();
+        setNom(nom);
         this.capacite = capacite;
         this.surface = surface;
     }
@@ -36,12 +39,12 @@ public class Lieu extends Reservable {
         this.idLieu = idLieu;
     }
 
-    public String getNom() {
+    public StringProperty getNom() {
         return nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nom.set(nom);
     }
 
     public int getCapacite() {
