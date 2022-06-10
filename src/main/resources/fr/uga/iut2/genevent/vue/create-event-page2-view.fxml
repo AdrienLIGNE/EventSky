@@ -31,7 +31,7 @@
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label prefHeight="25.0" text="Choisissez une salle parmi celles proposées ci-dessous" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label prefHeight="25.0" text="Choisissez une salle parmi celles proposées ci-dessous *" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <GridPane.margin>
                         <Insets bottom="5.0" />
                     </GridPane.margin>
