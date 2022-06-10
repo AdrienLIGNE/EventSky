@@ -1,12 +1,12 @@
 .list-view {
-    -fx-background-radius: 10;
+    -fx-background-radius: 4;
 }
 
 .list-cell, .list-cell::focused {
-    -fx-border-radius: 10;
+    -fx-border-radius: 4;
 }
 
 .button {
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
 }
