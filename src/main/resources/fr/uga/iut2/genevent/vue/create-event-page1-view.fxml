@@ -20,49 +20,49 @@
       </Separator>
       <GridPane prefWidth="220.0">
          <columnConstraints>
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="210.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="322.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="25.0" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="25.0" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="80.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label prefHeight="17.0" prefWidth="138.0" text="Nom de l'artiste/groupe *" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Nom de l'artiste/groupe *" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="25.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label text="Estimation date de début *" GridPane.rowIndex="3">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de début *" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label text="Estimation date de fin *" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de fin *" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets right="10.0" top="5.0" />
+                  <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label text="Type d'évènement *">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Type d'évènement *">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
             <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
             </ComboBox>
-            <Label prefHeight="17.0" prefWidth="185.0" text="Nombre de personnes attendues *" GridPane.rowIndex="1">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Personnes attendues *" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets right="10.0" top="5.0" />
+                  <Insets bottom="25.0" right="7.5" />
                </GridPane.margin></Label>
             <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Revesty" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
@@ -70,16 +70,16 @@
             </TextField>
             <DatePicker prefHeight="25.0" prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
             </DatePicker>
             <DatePicker prefHeight="25.0" prefWidth="200.0" promptText="30/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin></DatePicker>
             <Spinner minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
             </Spinner>
          </children>
@@ -89,14 +89,17 @@
       </GridPane>
       <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
          <children>
-            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Précédent" />
+            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Précédent">
+               <HBox.margin>
+                  <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
+               </HBox.margin></Button>
             <Button mnemonicParsing="false" text="Suivant">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                </HBox.margin></Button>
             <Button mnemonicParsing="false" text="Publier">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                </HBox.margin></Button>
          </children>
       </HBox>

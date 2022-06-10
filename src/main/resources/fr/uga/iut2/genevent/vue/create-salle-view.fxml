@@ -21,7 +21,7 @@
         </Separator>
         <GridPane>
             <columnConstraints>
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="185.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="348.0" />
             </columnConstraints>
             <rowConstraints>
