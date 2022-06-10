@@ -12,6 +12,7 @@
 }
 
 .menu-button:hover {
+    -fx-
     -fx-background-color: white;
     -fx-text-fill: black;
     -fx-cursor: pointer;
