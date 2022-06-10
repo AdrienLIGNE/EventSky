@@ -73,7 +73,7 @@
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
-                <Button mnemonicParsing="false" text="Suivant">
+                <Button mnemonicParsing="false" onAction="#click" text="Suivant">
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>

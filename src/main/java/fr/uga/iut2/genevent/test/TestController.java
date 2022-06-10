@@ -40,7 +40,8 @@ public class TestController implements Initializable {
         list.add(new Personnel("DURAND", "Nadia", TypePersonnel.BARMAN));
         list.add(new Personnel("ALIA", "Alice", TypePersonnel.BARMAN));
 
-        list2.add(new Materiel("Camion", 2));
+        list2.add(new Materiel("Camion", 25));
+
 
         list_personnel.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
@@ -59,7 +60,7 @@ public class TestController implements Initializable {
         });
 
 
-        
+
 
     }
 }
