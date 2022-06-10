@@ -83,7 +83,7 @@
             </Button>
          </children>
          <VBox.margin>
-            <Insets top="35.0" />
+            <Insets top="30.0" />
          </VBox.margin>
       </GridPane>
       <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
