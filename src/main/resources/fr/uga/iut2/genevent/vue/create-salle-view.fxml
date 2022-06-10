@@ -97,7 +97,7 @@
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
             </Spinner>
-            <Label alignment="CENTER_RIGHT" layoutX="80.0" layoutY="62.0" prefHeight="25.0" prefWidth="165.0" text="Informations complémentaires" GridPane.rowIndex="3">
+            <Label alignment="CENTER_RIGHT" layoutX="80.0" layoutY="62.0" prefHeight="25.0" prefWidth="165.0" text="Infos complémentaires" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
@@ -110,14 +110,6 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER_RIGHT" layoutX="71.0" layoutY="58.0" prefHeight="25.0" prefWidth="165.0" text="Code postale *" GridPane.rowIndex="4">
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-               <GridPane.margin>
-                  <Insets bottom="5.0" right="7.5" />
-               </GridPane.margin>
-            </Label>
             <TextField layoutX="172.0" layoutY="77.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="06021" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
@@ -139,6 +131,11 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Code postal *" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="5.0" right="7.5" />
+               </GridPane.margin>
+            </Label>
             </children>
             <VBox.margin>
                 <Insets top="30.0" />
