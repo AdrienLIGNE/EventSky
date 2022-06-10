@@ -55,7 +55,7 @@
                         <Insets right="10.0" />
                     </GridPane.margin>
                 </Label>
-                <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" GridPane.columnIndex="1">
+                <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="Salle des fêtes" GridPane.columnIndex="1">
                     <GridPane.margin>
                         <Insets left="10.0" />
                     </GridPane.margin>

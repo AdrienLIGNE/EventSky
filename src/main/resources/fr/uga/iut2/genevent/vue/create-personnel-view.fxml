@@ -52,7 +52,7 @@
                         <Insets right="10.0" />
                     </GridPane.margin>
                 </Label>
-                <ComboBox prefHeight="26.0" prefWidth="200.0" GridPane.columnIndex="1">
+                <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Assistant de nettoyage" GridPane.columnIndex="1">
                     <GridPane.margin>
                         <Insets left="10.0" />
                     </GridPane.margin>
