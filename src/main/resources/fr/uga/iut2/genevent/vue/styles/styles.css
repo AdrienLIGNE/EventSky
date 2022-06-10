@@ -1,3 +1,18 @@
 .button {
     -fx-border-width: 2;
 }
+
+
+.menu-button {
+    -fx-border-radius: 0;
+    -fx-background-color: #171717;
+    -fx-label-padding: 5;
+
+    -fx-alignment: left;
+}
+
+.menu-button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-cursor: pointer;
+}

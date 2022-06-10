@@ -34,77 +34,157 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MainController">
-   <children>
-      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="800.0">
+<BorderPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MainController">
+         <left>
+            <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="200.0" style="-fx-background-color: #171717;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="60.0" prefWidth="800.0" text="Accueil">
+            <Label text="Accueil" textFill="WHITE">
                <font>
-                  <Font name="Open Sans Bold" size="40.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
             </Label>
+            <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Accueil">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Images/home-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gestionRessourcesClick" styleClass="menu-button" text="Gestion des ressources">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Images/gestion-icon.png" />
+                     </image></ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Outils">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Images/outils-icon.png" />
+                     </image></ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button layoutX="10.0" layoutY="143.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Tâches">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Images/todolist-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Statistiques">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Images/stats-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button layoutX="10.0" layoutY="208.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Paramètres">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Images/parametre-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Button>
          </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutY="60.0" prefHeight="540.0" prefWidth="800.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding></VBox>
+         </left>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
+            <HBox maxHeight="1.7976931348623157E308">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="En attente de validation">
-                     <font>
-                        <Font name="Open Sans" size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Label>
-                  <ListView fx:id="list_brouillon" onMouseClicked="#showInfosEvenementClick" prefHeight="425.0" prefWidth="400.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" />
-                     </VBox.margin></ListView>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Créer Evenement" textFill="WHITE">
-                     <font>
-                        <Font name="Open Sans Bold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="15.0" />
-                     </VBox.margin>
-                  </Button>
+                        <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="En attente de validation">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <ListView fx:id="list_brouillon" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="500.0" onMouseClicked="#showInfosEvenementClick">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="1.7976931348623157E308">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="45.0" prefWidth="400.0" text="Evènements à venir">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="list_evenement" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="500.0">
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                        </VBox>
                </children>
-               <HBox.margin>
-                  <Insets left="15.0" right="7.5" />
-               </HBox.margin>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="425.0" prefWidth="400.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="45.0" prefWidth="400.0" text="Evènements à venir">
-                     <font>
-                        <Font name="Open Sans" size="24.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </Label>
-                  <ListView fx:id="list_evenement" prefHeight="425.0" prefWidth="400.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" />
-                     </VBox.margin></ListView>
-                  <Button mnemonicParsing="false" onMouseClicked="#gestionRessourcesClick" prefHeight="40.0" prefWidth="250.0" styleClass="actionButton" text="Gestion des ressources" textFill="WHITE">
-                     <font>
-                        <Font name="Open Sans Bold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="15.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets left="7.5" right="15.0" />
-               </HBox.margin>
-            </VBox>
+            </HBox>
+            <Button mnemonicParsing="false" styleClass="neutralButton" text="Créer un événement">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
          </children>
-      </HBox>
-   </children>
-</AnchorPane>
+      </VBox>
+   </center>
+      </BorderPane>
