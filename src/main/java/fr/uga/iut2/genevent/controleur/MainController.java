@@ -10,11 +10,13 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -26,8 +28,9 @@ import java.util.ResourceBundle;
  */
 public class MainController extends Controller implements Initializable{
 
-    @FXML private ListView<Evenement> list_brouillon;
-    @FXML private ListView<Evenement> list_evenement;
+
+    @FXML
+    private Node menu;
 
     public MainController() {
         super(new MainApplication());
@@ -36,45 +39,9 @@ public class MainController extends Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // On affiche les listes avec les évènements
-        list_brouillon.setItems(getApplication().getEvenements());
 
-        list_brouillon.setCellFactory(new Callback<ListView<Evenement>, ListCell<Evenement>>() {
-            @Override
-            public ListCell<Evenement> call(ListView<Evenement> evenementListView) {
-                return new EvenementItem();
-            }
-        });
     }
 
-    @FXML
-    private void click(ActionEvent e) {
-        System.out.println("test");
-    }
-
-    @FXML
-    private void showInfosEvenementClick(MouseEvent e) {
-        System.out.println("lets go");
-    }
-
-    @FXML
-    private void gestionRessourcesClick(ActionEvent event){
-        try {
-            // Chargement de la nouvelle interface
-            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-content-view.fxml"));
-            fxmlLoader.setController(new ManageContentController(getApplication()));
-            Scene scene = new Scene(fxmlLoader.load());
-
-            // Création d'un nouveau stage
-            Stage stage = (Stage) ((Button) event.getTarget()).getScene().getWindow();
-            stage.setTitle("Gestion des ressources");
-            // affectation de la nouvelle scène au stage et affichage
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 
 }
