@@ -9,17 +9,20 @@
    <children>
       <VBox prefHeight="61.0" prefWidth="800.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="311.0" text="CONCERT DE 47TER">
+            <Label prefHeight="25.0" prefWidth="800.0" text="CONCERT DE 47TER">
                <font>
                   <Font size="21.0" />
                </font>
                <padding>
                   <Insets left="5.0" />
                </padding>
-            </Label>
-            <Label prefHeight="16.0" prefWidth="479.0" text="Consulter les informations de l'événement, le modifier ou le supprimer">
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets left="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="15.0" prefWidth="800.0" text="Consulter les informations de l'événement, le modifier ou le supprimer">
+               <VBox.margin>
+                  <Insets left="15.0" />
                </VBox.margin></Label>
          </children>
       </VBox>
