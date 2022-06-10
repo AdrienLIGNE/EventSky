@@ -72,6 +72,11 @@
                </GridPane.margin>
             </TextField>
             <Label text="Adresse mail" GridPane.rowIndex="2" />
+            <TextField maxWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TextField>
             </children>
             <VBox.margin>
                 <Insets top="50.0" />
