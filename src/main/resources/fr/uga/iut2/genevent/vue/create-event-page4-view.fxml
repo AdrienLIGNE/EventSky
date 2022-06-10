@@ -24,69 +24,69 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="377.99998474121094" />
             </columnConstraints>
             <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="25.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="80.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="50.0" prefHeight="25.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Nombre de places disponibles" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Places disponibles" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <GridPane.margin>
-                        <Insets right="10.0" top="8.0" />
+                        <Insets bottom="25.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Coût de l'évènement" GridPane.rowIndex="3">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Coût de l'évènement" GridPane.rowIndex="3">
                     <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Dates suggérées *" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Dates suggérées *" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                     <GridPane.margin>
-                        <Insets bottom="4.0" right="10.0" />
+                        <Insets bottom="25.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Salle choisie">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Salle choisie">
                     <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
+                <ComboBox prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
                     <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
                 </ComboBox>
-                <TextField maxWidth="200.0" prefHeight="22.0" prefWidth="200.0" promptText="500" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                <TextField maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="500" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <GridPane.margin>
-                        <Insets left="10.0" top="4.0" />
+                        <Insets bottom="25.0" left="7.5" />
                     </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
                 </TextField>
-            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="450€" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="450€" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <Label text="Nom du groupe / artiste" GridPane.rowIndex="2">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Nom du groupe / artiste" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="25.0" right="7.5" />
                </GridPane.margin></Label>
-            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="Revesty" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Revesty" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <ListView maxWidth="200.0" prefHeight="22.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <ListView maxWidth="200.0" prefHeight="50.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets left="7.5" />
                </GridPane.margin>
             </ListView>
             </children>
@@ -96,14 +96,17 @@
         </GridPane>
         <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
             <children>
-            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Précédent" />
+            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Précédent">
+               <HBox.margin>
+                  <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
+               </HBox.margin></Button>
                 <Button mnemonicParsing="false" text="Précédent">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                     </HBox.margin></Button>
                 <Button mnemonicParsing="false" text="Publier">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                     </HBox.margin></Button>
             </children>
         </HBox>
