@@ -2,101 +2,87 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label text="Ajouter personnel">
+        <Label text="Créer un évènement">
             <font>
                 <Font size="21.0" />
             </font>
         </Label>
-        <Label text="Ajouter un membre du personnel afin de l'affecter à vos futurs événements." />
+        <Label text="Etape 1 - Description de l'évènement" />
       <Separator prefWidth="200.0">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
       </Separator>
-        <GridPane prefWidth="220.0">
+        <GridPane>
             <columnConstraints>
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="215.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="377.99998474121094" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="208.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="322.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="25.0" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
             <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="80.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="25.0" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Nom de l'employé *" GridPane.rowIndex="1">
-                    <GridPane.margin>
-                        <Insets right="10.0" top="8.0" />
-                    </GridPane.margin>
-                </Label>
-                <Label text="Numéro de téléphone *" GridPane.rowIndex="3">
+                <Label text="Nom de l'artiste/groupe *" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets right="10.0" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Ajouter une image" GridPane.rowIndex="4">
-                    <GridPane.margin>
-                        <Insets bottom="4.0" right="10.0" />
-                    </GridPane.margin>
-                </Label>
-                <Label text="Type d'emploi *">
+                <Label text="Estimation date de début *" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets right="10.0" />
                     </GridPane.margin>
                 </Label>
-                <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
+                <Label text="Estimation date de fin *" GridPane.rowIndex="4">
+                    <GridPane.margin>
+                        <Insets right="10.0" top="5.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label text="Type d'évènement *">
+                    <GridPane.margin>
+                        <Insets right="10.0" />
+                    </GridPane.margin>
+                </Label>
+                <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
                     <GridPane.margin>
                         <Insets left="10.0" />
                     </GridPane.margin>
                 </ComboBox>
-                <TextField maxWidth="200.0" prefHeight="22.0" prefWidth="200.0" promptText="Gustave Lécuyer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField maxWidth="200.0" prefHeight="22.0" prefWidth="200.0" promptText="ACDC" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <GridPane.margin>
-                        <Insets left="10.0" top="4.0" />
+                        <Insets left="10.0" />
                     </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
                 </TextField>
-                <Button mnemonicParsing="false" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <GridPane.margin>
-                        <Insets bottom="4.0" left="10.0" />
-                    </GridPane.margin>
-               <graphic>
-                  <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Images/download.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-                </Button>
-            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="01.23.45.56.78" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label prefHeight="17.0" prefWidth="183.0" text="Nombre de personnes attendues *" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="System Italic" size="12.0" />
-               </font>
-            </TextField>
-            <Label text="Adresse mail *" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets right="10.0" top="5.0" />
                </GridPane.margin></Label>
-            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="gustave.lecu@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <DatePicker prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
-               <font>
-                  <Font name="System Italic" size="12.0" />
-               </font>
-            </TextField>
+            </DatePicker>
+            <DatePicker minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="30/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="10.0" top="5.0" />
+               </GridPane.margin>
+            </DatePicker>
+            <Spinner prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" top="5.0" />
+               </GridPane.margin>
+            </Spinner>
             </children>
             <VBox.margin>
                 <Insets top="30.0" />
@@ -108,10 +94,15 @@
                     <HBox.margin>
                         <Insets left="10.0" />
                     </HBox.margin></Button>
-                <Button mnemonicParsing="false" text="Confirmer">
+                <Button mnemonicParsing="false" text="Précédent">
                     <HBox.margin>
                         <Insets left="10.0" />
                     </HBox.margin></Button>
+            <Button layoutX="403.0" layoutY="24.0" mnemonicParsing="false" text="Suivant">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
             </children>
         </HBox>
     </children>
