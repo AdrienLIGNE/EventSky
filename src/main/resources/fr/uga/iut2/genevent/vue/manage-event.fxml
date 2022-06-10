@@ -5,24 +5,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.vue.ManageEvent">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.vue.ManageEvent">
    <children>
-      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="800.0">
+      <VBox prefHeight="61.0" prefWidth="800.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Gestion de l'évènement">
+            <Label prefHeight="17.0" prefWidth="311.0" text="Gestion de l'événement">
                <font>
-                  <Font name="Open Sans Bold" size="40.0" />
-               </font></Label>
+                  <Font size="21.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="479.0" text="Consulter les informations d'un événement, modifier ou supprimer un événement">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></Label>
          </children>
-      </HBox>
+      </VBox>
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <GridPane layoutY="57.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="776.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="57.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="157.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="175.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" prefWidth="202.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="175.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -33,71 +41,69 @@
                   <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Nom de l'évènement :">
+                  <Label text="Nom de l'évènement ">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" right="10.0" />
                      </GridPane.margin></Label>
-                  <Label text="Type de l'évènement :" GridPane.columnIndex="2">
+                  <Label text="Type de l'évènement " GridPane.columnIndex="2">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
-                  </Label>
-                  <ComboBox prefWidth="150.0" promptText="Concert" GridPane.columnIndex="3" />
-                  <Label layoutX="10.0" layoutY="260.0" text="Date fin :" GridPane.rowIndex="3">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label layoutX="400.0" layoutY="123.0" text="Salle occupée :" GridPane.rowIndex="1">
+                  <ComboBox prefHeight="25.0" prefWidth="190.0" promptText="Concert" GridPane.columnIndex="3" />
+                  <Label layoutX="10.0" layoutY="260.0" text="Date fin " GridPane.rowIndex="3">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="400.0" layoutY="123.0" text="Salle occupée " GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
                   <TextField editable="false" layoutX="200.0" layoutY="118.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></TextField>
-                  <Label layoutX="10.0" layoutY="361.0" text="Date début :" GridPane.rowIndex="2">
+                  <Label layoutX="10.0" layoutY="361.0" text="Date début " GridPane.rowIndex="2">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <DatePicker editable="false" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></DatePicker>
-                  <ListView editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                  <ListView editable="true" prefHeight="144.0" prefWidth="158.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </ListView>
-                  <Label layoutX="20.0" layoutY="273.0" text="Coût :" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Label layoutX="20.0" layoutY="273.0" text="Coût " GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
                   <TextField editable="false" layoutX="200.0" layoutY="392.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></TextField>
-                  <Label text="Noms des artistes :" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label text="Noms des artistes " GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" right="10.0" top="5.0" />
-                     </GridPane.margin>
-                  </TextArea>
-                  <DatePicker editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <DatePicker editable="false" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </DatePicker>
-                  <Label text="Nombre de spectateurs :" GridPane.rowIndex="4">
+                  <Label text="Nombre de spectateurs " GridPane.rowIndex="4">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
                   <TextField editable="false" layoutX="610.0" layoutY="222.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -105,9 +111,14 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </TextField>
+                  <TextField prefHeight="25.0" prefWidth="181.0" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
                </children>
             </GridPane>
-            <GridPane prefHeight="150.0" prefWidth="800.0" AnchorPane.topAnchor="350.0">
+            <GridPane prefHeight="150.0" prefWidth="810.0" AnchorPane.topAnchor="350.0">
               <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -124,26 +135,37 @@
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </ListView>
-                  <ListView layoutX="10.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ListView layoutX="10.0" layoutY="38.0" prefHeight="122.0" prefWidth="394.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </ListView>
                </children>
             </GridPane>
+            <Separator layoutX="-2.0" layoutY="56.0" prefHeight="4.0" prefWidth="812.0" />
+            <Separator layoutX="404.0" layoutY="69.0" orientation="VERTICAL" prefHeight="238.0" prefWidth="2.0" />
          </children>
       </AnchorPane>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="800.0" AnchorPane.topAnchor="525.0">
          <children>
-            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="200.0" text="Supprimer">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" styleClass="cancelButton" stylesheets="@styles/colors.css" text="Supprimer">
                <HBox.margin>
                   <Insets />
-               </HBox.margin></Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="200.0" text="Modifier">
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" styleClass="neutralButton" stylesheets="@styles/colors.css" text="Modifier">
                <HBox.margin>
                   <Insets left="30.0" right="30.0" />
-               </HBox.margin></Button>
-            <Button contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="44.0" prefWidth="200.0" text="Confirmer" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" stylesheets="@styles/colors.css" text="Confirmer">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>
