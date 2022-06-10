@@ -27,17 +27,17 @@
             <rowConstraints>
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Nom de l'employé" GridPane.rowIndex="1">
+                <Label text="Nom de l'employé *" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets right="10.0" top="8.0" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Numéro de tél" GridPane.rowIndex="3">
+                <Label text="Numéro de téléphone *" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets right="10.0" />
                     </GridPane.margin>
@@ -47,17 +47,17 @@
                         <Insets bottom="4.0" right="10.0" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Type d'emploi">
+                <Label text="Type d'emploi *">
                     <GridPane.margin>
                         <Insets right="10.0" />
                     </GridPane.margin>
                 </Label>
-                <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Assistant de nettoyage" GridPane.columnIndex="1">
+                <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
                     <GridPane.margin>
                         <Insets left="10.0" />
                     </GridPane.margin>
                 </ComboBox>
-                <TextField maxWidth="200.0" prefHeight="26.0" prefWidth="200.0" promptText="Gustave Lécuyer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField maxWidth="200.0" prefHeight="22.0" prefWidth="200.0" promptText="Gustave Lécuyer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="10.0" top="4.0" />
                     </GridPane.margin>
@@ -72,12 +72,12 @@
                <graphic>
                   <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/telecharger-icon.png" />
+                        <Image url="@../../../../../Images/download.png" />
                      </image>
                   </ImageView>
                </graphic>
                 </Button>
-            <TextField maxWidth="200.0" prefWidth="200.0" promptText="01.23.45.56.78" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="01.23.45.56.78" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
@@ -85,11 +85,11 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <Label text="Adresse mail" GridPane.rowIndex="2">
+            <Label text="Adresse mail *" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></Label>
-            <TextField maxWidth="200.0" prefWidth="200.0" promptText="gustave.lecu@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="gustave.lecu@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
