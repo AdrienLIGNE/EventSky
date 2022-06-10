@@ -8,15 +8,21 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label text="Ajouter personnel">
+        <Label prefHeight="25.0" prefWidth="550.0" text="Ajouter personnel">
             <font>
                 <Font size="21.0" />
             </font>
+         <VBox.margin>
+            <Insets left="15.0" top="15.0" />
+         </VBox.margin>
         </Label>
-        <Label text="Ajouter un membre du personnel afin de l'affecter à vos futurs événements." />
+        <Label prefHeight="15.0" prefWidth="550.0" text="Ajouter un membre du personnel afin de l'affecter à vos futurs événements.">
+         <VBox.margin>
+            <Insets left="15.0" />
+         </VBox.margin></Label>
       <Separator prefWidth="200.0">
          <VBox.margin>
-            <Insets top="10.0" />
+            <Insets top="15.0" />
          </VBox.margin>
       </Separator>
         <GridPane prefWidth="220.0">
@@ -29,7 +35,7 @@
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
             <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="30.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Nom de l'employé *" GridPane.rowIndex="1">
@@ -99,23 +105,20 @@
             </TextField>
             </children>
             <VBox.margin>
-                <Insets top="30.0" />
+                <Insets top="15.0" />
             </VBox.margin>
         </GridPane>
         <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
             <children>
                 <Button mnemonicParsing="false" text="Annuler">
                     <HBox.margin>
-                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
+                        <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
                 <Button mnemonicParsing="false" text="Confirmer">
                     <HBox.margin>
-                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
+                        <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
             </children>
         </HBox>
     </children>
-    <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-    </padding>
 </VBox>
