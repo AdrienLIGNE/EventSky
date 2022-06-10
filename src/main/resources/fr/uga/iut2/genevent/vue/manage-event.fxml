@@ -64,7 +64,7 @@
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField editable="false" layoutX="200.0" layoutY="118.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField editable="false" layoutX="200.0" layoutY="118.0" text="ALPEXPO" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></TextField>
@@ -73,21 +73,16 @@
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker editable="false" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <DatePicker editable="false" prefHeight="25.0" prefWidth="190.0" promptText="07/10/2022" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></DatePicker>
-                  <ListView editable="true" prefHeight="144.0" prefWidth="158.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
-                     <GridPane.margin>
-                        <Insets right="10.0" />
-                     </GridPane.margin>
-                  </ListView>
-                  <Label layoutX="20.0" layoutY="273.0" text="Coût " GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Label layoutX="20.0" layoutY="273.0" text="Coût " GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField editable="false" layoutX="200.0" layoutY="392.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                  <TextField editable="false" layoutX="200.0" layoutY="392.0" text="50 000 €" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></TextField>
@@ -96,7 +91,7 @@
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker editable="false" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <DatePicker editable="false" prefHeight="25.0" prefWidth="190.0" promptText="07/10/2022" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
@@ -106,12 +101,20 @@
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField editable="false" layoutX="610.0" layoutY="222.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField editable="false" layoutX="610.0" layoutY="222.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="25.0" prefWidth="181.0" GridPane.columnIndex="1">
+                  <TextField prefHeight="25.0" prefWidth="181.0" text="CONCERT DE 47TER" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField text="47TER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
