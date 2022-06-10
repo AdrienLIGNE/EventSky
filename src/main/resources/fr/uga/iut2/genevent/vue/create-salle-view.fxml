@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label text="Ajouter un lieu">
             <font>
@@ -25,44 +25,44 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="348.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="40.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="-Infinity" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Nom du lieu *" GridPane.rowIndex="1">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Nom du lieu *" GridPane.rowIndex="1">
                     <GridPane.margin>
-                        <Insets right="10.0" top="10.0" />
+                        <Insets bottom="25.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Capacité maximale *" GridPane.rowIndex="6">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Capacité maximale *" GridPane.rowIndex="6">
                     <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Ajouter une image" GridPane.rowIndex="7">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Ajouter une image" GridPane.rowIndex="7">
                     <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Type de lieu *">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Type de lieu *">
                     <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
+                <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
                     <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
                 </ComboBox>
-                <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="Salle Jean-Pierre" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Salle Jean-Pierre" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
-                        <Insets left="10.0" top="5.0" />
+                        <Insets bottom="25.0" left="7.5" />
                     </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
@@ -70,7 +70,7 @@
                 </TextField>
                 <Button alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="7">
                     <GridPane.margin>
-                        <Insets left="10.0" top="2.0" />
+                        <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
@@ -80,76 +80,76 @@
                   </ImageView>
                </graphic>
                 </Button>
-                <Label text="Adresse *" GridPane.rowIndex="2">
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Adresse *" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="5.0" right="7.5" />
                </GridPane.margin></Label>
-                <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="36 avenue de Millet" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="36 avenue de Millet" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
                 </TextField>
-            <Spinner minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Spinner minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
             </Spinner>
-            <Label layoutX="80.0" layoutY="62.0" text="Informations complémentaires" GridPane.rowIndex="3">
+            <Label alignment="CENTER_RIGHT" layoutX="80.0" layoutY="62.0" prefHeight="25.0" prefWidth="165.0" text="Infos complémentaires" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="172.0" layoutY="58.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="Bâtiment culturel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField layoutX="172.0" layoutY="58.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Bâtiment culturel" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <Label layoutX="71.0" layoutY="58.0" text="Code postale *" GridPane.rowIndex="4">
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </Label>
-            <TextField layoutX="172.0" layoutY="77.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="06021" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField layoutX="172.0" layoutY="77.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="06021" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <Label layoutX="170.0" layoutY="56.0" text="Ville *" GridPane.rowIndex="5">
+            <Label alignment="CENTER_RIGHT" layoutX="170.0" layoutY="56.0" prefHeight="25.0" prefWidth="165.0" text="Ville *" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="25.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="232.0" layoutY="96.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="200.0" promptText="Roche" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField layoutX="232.0" layoutY="96.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Roche" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Code postal *" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="5.0" right="7.5" />
+               </GridPane.margin>
+            </Label>
             </children>
             <VBox.margin>
-                <Insets />
+                <Insets top="30.0" />
             </VBox.margin>
         </GridPane>
         <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
             <children>
                 <Button mnemonicParsing="false" text="Annuler">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                     </HBox.margin></Button>
                 <Button mnemonicParsing="false" text="Confirmer">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                     </HBox.margin></Button>
             </children>
         </HBox>
