@@ -43,9 +43,9 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="507.0" prefWidth="1000.0">
+                              <HBox alignment="CENTER" prefHeight="573.0" prefWidth="1000.0">
                                  <children>
-                                    <VBox alignment="CENTER" prefHeight="559.0" prefWidth="566.0">
+                                    <VBox alignment="CENTER" prefHeight="545.0" prefWidth="549.0">
                                        <children>
                                           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="400.0" text="Matériels">
                                              <font>
