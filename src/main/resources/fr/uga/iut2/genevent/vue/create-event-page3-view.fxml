@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label prefHeight="25.0" prefWidth="550.0" text="Créer un évènement">
             <font>
@@ -42,7 +42,7 @@
                         <Insets bottom="5.0" />
                     </GridPane.margin>
                 </Label>
-            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="4">
+            <ListView fx:id="list_materiel" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="4">
                <GridPane.margin>
                   <Insets right="7.5" />
                </GridPane.margin></ListView>
@@ -50,7 +50,7 @@
                <GridPane.margin>
                   <Insets bottom="5.0" />
                </GridPane.margin></Label>
-            <ListView layoutX="10.0" layoutY="35.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="4">
+            <ListView fx:id="list_personnel" layoutX="10.0" layoutY="35.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="4">
                <GridPane.margin>
                   <Insets left="7.5" />
                </GridPane.margin>

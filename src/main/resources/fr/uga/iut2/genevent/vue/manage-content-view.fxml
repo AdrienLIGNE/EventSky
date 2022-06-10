@@ -2,12 +2,11 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1200.0">
           <left>
@@ -36,7 +35,7 @@
                               <Insets bottom="5.0" />
                           </VBox.margin>
                       </Button>
-                      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gestionRessourcesClick" styleClass="menu-button" text="Gestion des ressources">
+                      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Gestion des ressources">
                           <VBox.margin>
                               <Insets bottom="5.0" />
                           </VBox.margin>
@@ -210,7 +209,7 @@
                                                         <Insets top="15.0" />
                                                     </VBox.margin>
                                                 </Label>
-                                                <ListView prefHeight="503.0" prefWidth="566.0">
+                                                <ListView fx:id="list_personnel" prefHeight="503.0" prefWidth="566.0">
                                                     <VBox.margin>
                                                         <Insets bottom="15.0" />
                                                     </VBox.margin>
