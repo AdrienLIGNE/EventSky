@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.vue.ManageEvent">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" prefHeight="0.0" prefWidth="800.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -139,12 +139,12 @@
                <children>
                   <Label layoutX="86.0" layoutY="16.0" text="Liste du personnel" GridPane.columnIndex="1" />
                   <Label layoutX="81.0" layoutY="16.0" text="Liste du matériel" />
-                  <ListView prefHeight="230.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <ListView fx:id="list_materiel" prefHeight="230.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="15.0" right="7.5" />
                      </GridPane.margin>
                   </ListView>
-                  <ListView layoutX="10.0" layoutY="38.0" prefHeight="230.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ListView fx:id="list_personnel" layoutX="10.0" layoutY="38.0" prefHeight="230.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="7.5" right="15.0" />
                      </GridPane.margin>

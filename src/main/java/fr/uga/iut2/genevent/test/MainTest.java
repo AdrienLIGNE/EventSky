@@ -12,7 +12,7 @@ public class MainTest extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page3-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-event.fxml"));
         fxmlLoader.setController(new TestController());
 
         Scene scene = new Scene(fxmlLoader.load());

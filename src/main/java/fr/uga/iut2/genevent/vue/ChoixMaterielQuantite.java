@@ -7,12 +7,12 @@ import javafx.scene.control.SpinnerValueFactory;
 /**
  * Classe permettant de spécifier la quantité de matériel à allouer
  */
-public class TestMateriel {
+public class ChoixMaterielQuantite {
 
     public final Spinner<Integer> nb = new Spinner<Integer>();
     private Materiel mat;
 
-    public TestMateriel(Materiel m) {
+    public ChoixMaterielQuantite(Materiel m) {
         nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1));
         this.mat = m;
     }
