@@ -107,4 +107,8 @@ public class MainApplication {
     public ObservableList<Personnel> getPersonnelDisponibles(LocalDate date) {
         return getReservablesDisponibles(personnels, date);
     }
+
+    public ObservableList<Materiel> getMaterielDisponibles(LocalDate date) {
+        return getReservablesDisponibles(materiels, date);
+    }
 }

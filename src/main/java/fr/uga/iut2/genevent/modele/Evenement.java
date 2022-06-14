@@ -15,6 +15,7 @@ public class Evenement {
     private boolean estConfirme;
 
     private Lieu lieu;
+
     private ArrayList<Personnel> personnel;
     private ArrayList<Materiel> materiel;
 
@@ -27,6 +28,8 @@ public class Evenement {
      */
     public Evenement(int id, LocalDate dateDebut, LocalDate dateFin, String nomEvenement) {
         personnel = new ArrayList<>();
+        materiel = new ArrayList<>();
+
         this.nomEvenement = new SimpleStringProperty();
 
         setNomEvenement(nomEvenement);

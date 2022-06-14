@@ -73,12 +73,11 @@ public abstract class Reservable {
 
 
     /**
-     * Vérifie si c'est disponible dans la quantité demandé le jour spécifié
-     * @param date date à laquelle vérifier la disponibilité
-     * @param quantite quantité souhaitée
-     * @return Vrai si c'est disponible dans la quantité demandé
+     * Calcule la quantité réservée pour un jour donné.
+     * @param date date à tester
+     * @return le nombre d'élément réservé
      */
-    public boolean estDisponible(LocalDate date, int quantite) {
+    private int calculeQuantiteReserve(LocalDate date) {
         int nbReserve = 0;
 
         // On regarde pour chaque événement, s'il se produit le jour donné
@@ -87,11 +86,33 @@ public abstract class Reservable {
                 nbReserve += affect.getQuantite();
             }
         }
-        return (nbReserve < quantiteDisponible);
+
+        return nbReserve;
+    }
+
+    /**
+     * Vérifie si c'est disponible dans la quantité demandé le jour spécifié
+     * @param date date à laquelle vérifier la disponibilité
+     * @param quantite quantité souhaitée
+     * @return Vrai si c'est disponible dans la quantité demandé
+     */
+    public boolean estDisponible(LocalDate date, int quantite) {
+        int nbReserve = calculeQuantiteReserve(date);
+
+        return ((nbReserve + quantite) <= quantiteDisponible);
     }
 
     public boolean estDisponible(LocalDate date) {
         return estDisponible(date, 1);
+    }
+
+    /**
+     * Retourne la quantité disponible pour un jour donné
+     * @param date date à tester
+     * @return nombre disponible
+     */
+    public int getQuantiteDisponible(LocalDate date) {
+        return quantiteDisponible - calculeQuantiteReserve(date);
     }
 
 
