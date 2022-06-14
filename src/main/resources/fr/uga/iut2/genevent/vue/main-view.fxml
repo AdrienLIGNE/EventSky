@@ -50,7 +50,7 @@
                              <Insets bottom="10.0" />
                          </VBox.margin>
                      </Label>
-                     <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Accueil">
+                     <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Accueil" textFill="WHITE">
                          <graphic>
                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -64,8 +64,11 @@
                          <VBox.margin>
                              <Insets bottom="5.0" />
                          </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
                      </Button>
-                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gestionRessourcesClick" styleClass="menu-button" text="Gestion des ressources">
+                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gestionRessourcesClick" styleClass="menu-button" text="Gestion des ressources" textFill="WHITE">
                          <VBox.margin>
                              <Insets bottom="5.0" />
                          </VBox.margin>
@@ -78,8 +81,11 @@
                          <padding>
                              <Insets left="10.0" />
                          </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
                      </Button>
-                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Gestion des événements">
+                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Gestion des événements" textFill="WHITE">
                          <VBox.margin>
                              <Insets bottom="5.0" />
                          </VBox.margin>
@@ -92,8 +98,11 @@
                          <padding>
                              <Insets left="10.0" />
                          </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
                      </Button>
-                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Outils">
+                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Outils" textFill="WHITE">
                          <graphic>
                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -105,8 +114,11 @@
                          </padding>
                          <VBox.margin>
                              <Insets bottom="5.0" />
-                         </VBox.margin></Button>
-                     <Button layoutX="10.0" layoutY="143.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Tâches">
+                         </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+                     <Button layoutX="10.0" layoutY="143.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Tâches" textFill="WHITE">
                          <graphic>
                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -120,8 +132,11 @@
                          <VBox.margin>
                              <Insets bottom="5.0" />
                          </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
                      </Button>
-                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Statistiques">
+                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Statistiques" textFill="WHITE">
                          <graphic>
                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -134,8 +149,11 @@
                          </padding>
                          <VBox.margin>
                              <Insets bottom="5.0" />
-                         </VBox.margin></Button>
-                     <Button layoutX="10.0" layoutY="208.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Paramètres">
+                         </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+                     <Button layoutX="10.0" layoutY="208.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Paramètres" textFill="WHITE">
                          <graphic>
                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -149,6 +167,9 @@
                          <VBox.margin>
                              <Insets bottom="5.0" />
                          </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
                      </Button>
                  </children>
                  <padding>
@@ -156,44 +177,18 @@
                  </padding></VBox>
          </left>
    <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.5" minWidth="10.0" prefWidth="237.5" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.5" minWidth="10.0" prefWidth="237.5" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.5" minWidth="10.0" prefWidth="237.5" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.5" minWidth="10.0" prefWidth="237.5" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="177.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <AnchorPane prefHeight="600.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Bienvenue Catherine !" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <ImageView fitHeight="600.0" fitWidth="950.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Images/Plan%20de%20travail%201.png" />
+               </image>
+            </ImageView>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: black;" text="Créer un évènement" textFill="WHITE" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="480.0">
                <font>
-                  <Font name="System Bold" size="31.0" />
-               </font>
-            </Label>
-            <Button mnemonicParsing="false" prefHeight="116.0" prefWidth="276.0" text="+ Créer un évènement" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Button>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="481.0" text="Informations générales :" textAlignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" text="- Manifestation du 13/07 au 19/07&#10;- " />
-               </children>
-            </VBox>
          </children>
-      </GridPane>
+      </AnchorPane>
    </center>
       </BorderPane>
