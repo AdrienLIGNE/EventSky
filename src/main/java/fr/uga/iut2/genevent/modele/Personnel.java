@@ -14,10 +14,12 @@ public class Personnel extends Reservable {
     private String nom;
     private String prenom;
     private String mail;
+    private String numero;
 
     public Personnel(String nom, String prenom, TypePersonnel type){
         setNom(nom);
-        setPrenom(prenom);
+        //setPrenom(prenom);
+        this.prenom = "";
         this.type = type;
     }
 
@@ -31,6 +33,26 @@ public class Personnel extends Reservable {
 
     public String getNom() {
         return nom;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setType(TypePersonnel type) {
+        this.type = type;
     }
 
     public String getPrenom() {

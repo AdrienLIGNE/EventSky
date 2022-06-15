@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class CreateMaterielController extends Controller implements Initializable {
+public class CreateMaterielController extends FormulaireController<Materiel> implements Initializable {
 
     @FXML private ComboBox<TypeMateriel> typeMateriel_cb;
 
@@ -33,14 +33,39 @@ public class CreateMaterielController extends Controller implements Initializabl
 
     }
 
+    @Override
+    public void setEditMode(Materiel materiel) {
+        super.setEditMode(materiel);
+
+        typeMateriel_cb.setValue(materiel.getType());
+        nom_tf.setText(materiel.getLabel().get());
+        quantite_s.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10000000, materiel.getQuantiteDisponible()));
+    }
+
     @FXML
     private void confirmButtonClick(ActionEvent e) {
         String nom = nom_tf.getText();
         int quantite = quantite_s.getValue();
         TypeMateriel type = typeMateriel_cb.getValue();
 
-        Materiel materiel = new Materiel(nom, type, quantite);
-        getApplication().addMateriel(materiel);
+        // TODO: Vérifier les informations saisies
+
+        if(isOnEditMode()) {
+            getElementModifie().setLabel(nom);
+            getElementModifie().setQuantiteDisponible(quantite);
+            getElementModifie().setType(type);
+        }
+        else {
+            Materiel materiel = new Materiel(nom, type, quantite);
+            getApplication().addMateriel(materiel);
+        }
+
         exitStage(Controller.getStageFromNode((Node) e.getTarget()));
+    }
+
+    @Override
+    public boolean verifieSaisies() {
+        // TODO
+        return false;
     }
 }

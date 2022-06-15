@@ -1,5 +1,8 @@
 package fr.uga.iut2.genevent.modele;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +13,7 @@ import java.util.stream.Collectors;
  */
 public abstract class Reservable {
 
-    private int quantiteDisponible;
+    private IntegerProperty quantiteDisponible;
     private ArrayList<TupleQuantiteEvenement> affectation_evenements;
 
     /**
@@ -46,19 +49,24 @@ public abstract class Reservable {
 
     public Reservable(int quantite) {
         affectation_evenements = new ArrayList<>();
+        quantiteDisponible = new SimpleIntegerProperty();
         setQuantiteDisponible(quantite);
     }
 
     public void setQuantiteDisponible(int quantite) {
-        this.quantiteDisponible = quantite;
+        this.quantiteDisponible.set(quantite);
     }
 
     /**
-     * Retourne la quantité totale disponible
+     * Retourne la quantité totale disponible en tant que propriété
      * @return quantité
      */
-    public int getQuantiteDisponible() {
+    public IntegerProperty getQuantiteDisponibleProperty() {
         return quantiteDisponible;
+    }
+
+    public int getQuantiteDisponible() {
+        return quantiteDisponible.get();
     }
 
     /**
@@ -109,7 +117,7 @@ public abstract class Reservable {
     public boolean estDisponible(LocalDate date, int quantite) {
         int nbReserve = calculeQuantiteReserve(date);
 
-        return ((nbReserve + quantite) <= quantiteDisponible);
+        return ((nbReserve + quantite) <= getQuantiteDisponible());
     }
 
 
@@ -158,7 +166,7 @@ public abstract class Reservable {
      * @return nombre disponible
      */
     public int getQuantiteDisponible(LocalDate date) {
-        return quantiteDisponible - calculeQuantiteReserve(date);
+        return getQuantiteDisponible() - calculeQuantiteReserve(date);
     }
 
 

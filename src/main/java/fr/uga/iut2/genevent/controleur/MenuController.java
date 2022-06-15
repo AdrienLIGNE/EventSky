@@ -25,7 +25,7 @@ public class MenuController extends Controller {
             stage.setScene(new Scene(fxmlLoader.load()));
         }
         catch (IOException ex) {
-
+            ex.printStackTrace();
         }
     }
 

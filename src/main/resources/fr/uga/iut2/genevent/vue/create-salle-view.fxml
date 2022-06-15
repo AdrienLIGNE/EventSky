@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.CreateLieuController">
     <children>
         <Label prefHeight="25.0" prefWidth="550.0" text="Ajouter un lieu">
             <font>
@@ -74,7 +74,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
                 </TextField>
-                <Button alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#onUploadButtonClick" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <Button alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="7">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
@@ -149,7 +149,7 @@
         </GridPane>
         <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
             <children>
-                <Button mnemonicParsing="false" onMouseClicked="#onQuitButtonClick" text="Annuler">
+                <Button mnemonicParsing="false" onAction="#exitButtonClick" onMouseClicked="#exitButtonClick" text="Annuler">
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
