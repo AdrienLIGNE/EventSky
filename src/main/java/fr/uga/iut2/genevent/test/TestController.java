@@ -1,7 +1,6 @@
 package fr.uga.iut2.genevent.test;
 
 import fr.uga.iut2.genevent.modele.*;
-import fr.uga.iut2.genevent.vue.EvenementItem;
 import fr.uga.iut2.genevent.vue.MaterielItem;
 import fr.uga.iut2.genevent.vue.PersonnelItem;
 import javafx.collections.FXCollections;
@@ -14,7 +13,6 @@ import javafx.scene.control.SelectionMode;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class TestController implements Initializable {
@@ -22,10 +20,10 @@ public class TestController implements Initializable {
     @FXML private ListView<Personnel> list_personnel;
     @FXML private ListView<Materiel> list_materiel;
 
-    private MainApplication app;
+    private MainModel app;
 
     public TestController() {
-        this.app = new MainApplication();
+        this.app = new MainModel();
     }
 
     @Override

@@ -57,7 +57,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
         }
         else {
             Materiel materiel = new Materiel(nom, type, quantite);
-            getApplication().addMateriel(materiel);
+            getModel().addMateriel(materiel);
         }
 
         exitStage(Controller.getStageFromNode((Node) e.getTarget()));

@@ -13,9 +13,9 @@ public class PersonnelItemController {
     @FXML private Label label_nom_complet;
     @FXML private Label label_type_emploi;
 
-    public void setNomComplet(String nom) {
+    public void setNomComplet(StringProperty nom) {
         // TODO: bind le nom
-        this.label_nom_complet.setText(nom);
+        this.label_nom_complet.textProperty().bind(nom);
     }
 
     public void setTypeEmploi(TypePersonnel type) {

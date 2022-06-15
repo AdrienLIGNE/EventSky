@@ -1,8 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
-import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.Personnel;
-import fr.uga.iut2.genevent.modele.TypeMateriel;
 import fr.uga.iut2.genevent.modele.TypePersonnel;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -35,9 +33,9 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
         super.setEditMode(personnel);
 
         type_cb.setValue(personnel.getTypeEmploi());
-        nom_tf.setText(personnel.getNom());
-        mail_tf.setText(personnel.getMail());
-        numero_tf.setText(personnel.getNumero());
+        nom_tf.setText(personnel.getNom().getValue());
+        mail_tf.setText(personnel.getMail().getValue());
+        numero_tf.setText(personnel.getNumero().getValue());
     }
 
     @FXML
@@ -50,17 +48,19 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
 
         // TODO: Vérifier les informations saisies
 
-        if(isOnEditMode()) {
-            getElementModifie().setNom(nom);
-            getElementModifie().setMail(mail);
-            getElementModifie().setNumero(numero);
-            getElementModifie().setType(type);
-        }
-        else {
-            Personnel personnel = new Personnel(nom, "", type);
-            personnel.setMail(mail);
-            personnel.setNumero(numero);
-            getApplication().addPersonnel(personnel);
+        if(verifieSaisies()) {
+            if (isOnEditMode()) {
+                getElementModifie().setNom(nom);
+                getElementModifie().setMail(mail);
+                getElementModifie().setNumero(numero);
+                getElementModifie().setType(type);
+            } else {
+                // Création d'un nouveau personnel
+                Personnel personnel = new Personnel(nom, "", type);
+                personnel.setMail(mail);
+                personnel.setNumero(numero);
+                getModel().addPersonnel(personnel);
+            }
         }
 
         exitStage(Controller.getStageFromNode((Node) e.getTarget()));
@@ -68,6 +68,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
 
     @Override
     public boolean verifieSaisies() {
+        // TODO: Vérification de saisie
         return true;
     }
 }

@@ -38,7 +38,7 @@ public class PersonnelItem extends ListCell<Personnel> {
         super.updateItem(personnel, b);
 
         if(personnel != null) {
-            controller.setNomComplet(personnel.getNom() + " " + personnel.getPrenom());
+            controller.setNomComplet(personnel.getNom());
             controller.setTypeEmploi(personnel.getTypeEmploi());
             setGraphic(itemNode);
         }

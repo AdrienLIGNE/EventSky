@@ -2,15 +2,13 @@ package fr.uga.iut2.genevent.modele;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.util.converter.LocalDateStringConverter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 /**
  * Classe de base pour accéder au modèle de données
  */
-public class MainApplication {
+public class MainModel {
 
     private ObservableList<Evenement> evenements;
 
@@ -18,7 +16,7 @@ public class MainApplication {
     private ObservableList<Personnel> personnels;
     private ObservableList<Materiel> materiels;
 
-    public MainApplication () {
+    public MainModel() {
         this.evenements = FXCollections.observableArrayList();
         this.lieux = FXCollections.observableArrayList();
         this.personnels = FXCollections.observableArrayList();

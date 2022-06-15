@@ -1,6 +1,8 @@
 package fr.uga.iut2.genevent.modele;
 
 import fr.uga.iut2.genevent.util.TextUtilitaire;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 import java.util.ArrayList;
 
@@ -9,14 +11,19 @@ import java.util.ArrayList;
  * Personnel peut être affecté à un ou plusieurs événements
  */
 public class Personnel extends Reservable {
+
     private TypePersonnel type;
 
-    private String nom;
+    private StringProperty nom;
     private String prenom;
-    private String mail;
-    private String numero;
+    private StringProperty mail;
+    private StringProperty numero;
 
     public Personnel(String nom, String prenom, TypePersonnel type){
+        this.nom = new SimpleStringProperty();
+        this.mail = new SimpleStringProperty();
+        this.numero = new SimpleStringProperty();
+
         setNom(nom);
         //setPrenom(prenom);
         this.prenom = "";
@@ -24,30 +31,30 @@ public class Personnel extends Reservable {
     }
 
     public void setNom(String nom) {
-        this.nom = nom.toUpperCase();
+        this.nom.set(TextUtilitaire.capitalize(nom));
     }
 
     public void setPrenom(String prenom) {
         this.prenom = TextUtilitaire.capitalize(prenom);
     }
 
-    public String getNom() {
+    public StringProperty getNom() {
         return nom;
     }
 
     public void setMail(String mail) {
-        this.mail = mail;
+        this.mail.set(mail);
     }
 
-    public String getMail() {
+    public StringProperty getMail() {
         return mail;
     }
 
     public void setNumero(String numero) {
-        this.numero = numero;
+        this.numero.set(numero);
     }
 
-    public String getNumero() {
+    public StringProperty getNumero() {
         return numero;
     }
 

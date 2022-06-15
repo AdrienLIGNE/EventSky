@@ -30,7 +30,7 @@ public class ManageEventController extends Controller implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // On affiche les listes avec les évènements
-        list_brouillon.setItems(getApplication().getEvenements());
+        list_brouillon.setItems(getModel().getEvenements());
 
         list_brouillon.setCellFactory(new Callback<ListView<Evenement>, ListCell<Evenement>>() {
             @Override

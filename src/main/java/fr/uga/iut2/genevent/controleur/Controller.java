@@ -1,22 +1,21 @@
 package fr.uga.iut2.genevent.controleur;
 
-import fr.uga.iut2.genevent.modele.MainApplication;
+import fr.uga.iut2.genevent.modele.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
 public abstract class Controller {
 
-    private static MainApplication app;
+    private static MainModel app;
 
     static {
-        app = new MainApplication();
+        app = new MainModel();
     }
 
-    public MainApplication getApplication() {
+    public MainModel getModel() {
         return app;
     }
 

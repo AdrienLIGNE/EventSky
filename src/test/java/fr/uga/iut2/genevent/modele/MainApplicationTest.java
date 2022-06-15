@@ -1,6 +1,5 @@
 package fr.uga.iut2.genevent.modele;
 
-import javafx.collections.ObservableList;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -11,7 +10,7 @@ class MainApplicationTest {
 
     @Test
     void testGetLieuDisponible() {
-        MainApplication app = new MainApplication();
+        MainModel app = new MainModel();
 
         Lieu lieu1 = new Lieu(0, "Test");
         Lieu lieu2 = new Lieu(0, "Test1");

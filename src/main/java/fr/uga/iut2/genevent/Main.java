@@ -1,7 +1,6 @@
 package fr.uga.iut2.genevent;
 
-import fr.uga.iut2.genevent.controleur.MainController;
-import fr.uga.iut2.genevent.modele.MainApplication;
+import fr.uga.iut2.genevent.modele.MainModel;
 import fr.uga.iut2.genevent.util.Persisteur;
 import fr.uga.iut2.genevent.vue.IHM;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
@@ -33,7 +32,7 @@ public class Main {
 
         LOGGER.log(Level.INFO, "Démarrage de l'application.");
 
-        MainApplication app = new MainApplication();
+        MainModel app = new MainModel();
 
         try {
             app = Persisteur.lireEtat();

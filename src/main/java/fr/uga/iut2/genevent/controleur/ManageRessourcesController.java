@@ -8,13 +8,11 @@ import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import fr.uga.iut2.genevent.vue.MaterielItem;
 import fr.uga.iut2.genevent.vue.PersonnelItem;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -39,8 +37,8 @@ public class ManageRessourcesController extends Controller implements Initializa
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        materiel_list.setItems(getApplication().getMateriels());
-        personnel_list.setItems(getApplication().getPersonnels());
+        materiel_list.setItems(getModel().getMateriels());
+        personnel_list.setItems(getModel().getPersonnels());
 
         materiel_list.setCellFactory(new Callback<ListView<Materiel>, ListCell<Materiel>>() {
             @Override
