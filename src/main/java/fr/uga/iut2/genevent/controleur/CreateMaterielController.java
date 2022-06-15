@@ -48,24 +48,36 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
         int quantite = quantite_s.getValue();
         TypeMateriel type = typeMateriel_cb.getValue();
 
-        // TODO: Vérifier les informations saisies
+        if (verifieSaisies()) {
+            if (isOnEditMode()) {
+                getElementModifie().setLabel(nom);
+                getElementModifie().setQuantiteDisponible(quantite);
+                getElementModifie().setType(type);
+            } else {
+                Materiel materiel = new Materiel(nom, type, quantite);
+                getModel().addMateriel(materiel);
+            }
 
-        if(isOnEditMode()) {
-            getElementModifie().setLabel(nom);
-            getElementModifie().setQuantiteDisponible(quantite);
-            getElementModifie().setType(type);
+            exitStage(Controller.getStageFromNode((Node) e.getTarget()));
         }
-        else {
-            Materiel materiel = new Materiel(nom, type, quantite);
-            getModel().addMateriel(materiel);
-        }
-
-        exitStage(Controller.getStageFromNode((Node) e.getTarget()));
     }
 
     @Override
     public boolean verifieSaisies() {
-        // TODO
-        return false;
+        boolean b = true;
+
+        //on reset les bordures
+        nom_tf.setStyle("-fx-border-color: black;");
+        typeMateriel_cb.setStyle("-fx-border-color: black;");
+
+        //vérification des champs
+        if (nom_tf.getText().isEmpty()){
+            nom_tf.setStyle("-fx-border-color: red;");
+            b = false;
+        }if (typeMateriel_cb.getValue() == null){
+            System.out.println(typeMateriel_cb.getValue());
+            b = false;
+        }
+        return b;
     }
 }

@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.TypePersonnel;
+import fr.uga.iut2.genevent.util.VerifUtilitaire;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,20 +47,21 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
 
         TypePersonnel type = type_cb.getValue();
 
-        // TODO: Vérifier les informations saisies
 
-        if(verifieSaisies()) {
-            if (isOnEditMode()) {
-                getElementModifie().setNom(nom);
-                getElementModifie().setMail(mail);
-                getElementModifie().setNumero(numero);
-                getElementModifie().setType(type);
-            } else {
-                // Création d'un nouveau personnel
-                Personnel personnel = new Personnel(nom, "", type);
-                personnel.setMail(mail);
-                personnel.setNumero(numero);
-                getModel().addPersonnel(personnel);
+        if (verifieSaisies()) {
+            if (verifieSaisies()) {
+                if (isOnEditMode()) {
+                    getElementModifie().setNom(nom);
+                    getElementModifie().setMail(mail);
+                    getElementModifie().setNumero(numero);
+                    getElementModifie().setType(type);
+                } else {
+                    // Création d'un nouveau personnel
+                    Personnel personnel = new Personnel(nom, "", type);
+                    personnel.setMail(mail);
+                    personnel.setNumero(numero);
+                    getModel().addPersonnel(personnel);
+                }
             }
         }
 
@@ -68,7 +70,28 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
 
     @Override
     public boolean verifieSaisies() {
-        // TODO: Vérification de saisie
-        return true;
+        boolean b = true;
+
+        //on reset les bordures
+        nom_tf.setStyle("-fx-border-color: black;");
+        mail_tf.setStyle("-fx-border-color: black;");
+        numero_tf.setStyle("-fx-border-color: black;");
+        type_cb.setStyle("-fx-border-color: black;");
+
+        //on verifie les informations entrees
+        if (nom_tf.getText().isEmpty()){
+            nom_tf.setStyle("-fx-border-color: red;");
+            b = false;
+        }if (mail_tf.getText().isEmpty() | !VerifUtilitaire.verifMail(mail_tf.getText())){
+            mail_tf.setStyle("-fx-border-color: red;");
+            b = false;
+        }if (numero_tf.getText().isEmpty() | VerifUtilitaire.verifTelephone(numero_tf.getText())){
+            numero_tf.setStyle("-fx-border-color: red;");
+            b=false;
+        }if (type_cb.getValue() == null){
+            type_cb.setStyle("-fx-border-color: red;");
+            b=false;
+        }
+        return b;
     }
 }
