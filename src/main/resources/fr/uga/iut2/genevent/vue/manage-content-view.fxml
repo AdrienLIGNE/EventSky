@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/round.css, @styles/colors.css, @styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1200.0">
           <left>
@@ -281,7 +281,7 @@
                                                   </ListView>
                                                   <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                                                       <children>
-                                                          <Button alignment="CENTER" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
+                                                          <Button alignment="CENTER" onMouseClicked="#ajoutSalleClic" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
                                                               <font>
                                                                   <Font name="Open Sans Bold" size="13.0" />
                                                               </font>

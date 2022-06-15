@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ import java.io.File;
 public class CreateSalleController {
 
     @FXML
-    private AnchorPane root;
+    private VBox root;
 
     @FXML
     private ImageView iv;
@@ -36,8 +37,9 @@ public class CreateSalleController {
         File fileChosen = fileChooser.showOpenDialog(root.getScene().getWindow());
         Image image = new Image(fileChosen.toURI().toString());
 
-        iv.setImage(image);
-        lblImageName.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
+        //rajouter un imageview et un label pour l'image uploadee
+        //iv.setImage(image);
+        //lblImageName.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
     }
 
     @FXML

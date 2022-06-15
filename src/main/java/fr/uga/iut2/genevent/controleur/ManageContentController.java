@@ -19,7 +19,8 @@ public class ManageContentController extends Controller {
     public void ajoutSalleClic(MouseEvent event){
         try {
             // Chargement de la nouvelle interface
-            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-salle.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-salle-view.fxml"));
+            fxmlLoader.setController(new CreateSalleController());
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             // Création d'un nouveau stage
             Stage stage = new Stage();
