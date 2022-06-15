@@ -1,12 +1,9 @@
 package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Evenement;
-import fr.uga.iut2.genevent.modele.MainApplication;
 import fr.uga.iut2.genevent.vue.EvenementItem;
-import fr.uga.iut2.genevent.vue.IHM;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,10 +25,6 @@ public class ManageEventController extends Controller implements Initializable{
 
     @FXML private ListView<Evenement> list_brouillon;
     @FXML private ListView<Evenement> list_evenement;
-
-    public ManageEventController(MainApplication app) {
-        super(app);
-    }
 
 
     @Override
@@ -62,7 +55,7 @@ public class ManageEventController extends Controller implements Initializable{
         try {
             // Chargement de la nouvelle interface
             FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-content-view.fxml"));
-            fxmlLoader.setController(new ManageContentController(getApplication()));
+            fxmlLoader.setController(new ManageRessourcesController());
             Scene scene = new Scene(fxmlLoader.load());
 
             // Création d'un nouveau stage

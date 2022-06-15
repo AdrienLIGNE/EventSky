@@ -1,10 +1,12 @@
 package fr.uga.iut2.genevent.modele;
 
+import fr.uga.iut2.genevent.Main;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 public class Evenement {
 

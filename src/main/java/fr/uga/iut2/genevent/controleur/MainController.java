@@ -32,14 +32,10 @@ public class MainController extends Controller implements Initializable{
     @FXML
     private Node menu;
 
-    public MainController() {
-        super(new MainApplication());
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        System.out.println(getApplication().getLieux().size());
     }
 
 

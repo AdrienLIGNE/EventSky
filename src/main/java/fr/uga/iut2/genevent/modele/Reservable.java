@@ -2,6 +2,8 @@ package fr.uga.iut2.genevent.modele;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Classe permettant de rendre un élément réservable
@@ -41,6 +43,7 @@ public abstract class Reservable {
     public Reservable() {
         this(1);
     }
+
     public Reservable(int quantite) {
         affectation_evenements = new ArrayList<>();
         setQuantiteDisponible(quantite);
@@ -50,6 +53,10 @@ public abstract class Reservable {
         this.quantiteDisponible = quantite;
     }
 
+    /**
+     * Retourne la quantité totale disponible
+     * @return quantité
+     */
     public int getQuantiteDisponible() {
         return quantiteDisponible;
     }
@@ -60,6 +67,9 @@ public abstract class Reservable {
      * @param quantite nombre à réserver pour l'événement
      */
     public void affecteEvenement(Evenement e, int quantite) {
+
+        // TODO: Vérifier que pour chaque jour de l'événement la quantité est dispo
+
         affectation_evenements.add(new TupleQuantiteEvenement(e, quantite));
     }
 
@@ -102,8 +112,44 @@ public abstract class Reservable {
         return ((nbReserve + quantite) <= quantiteDisponible);
     }
 
+
+    /**
+     * Vérifie si l'élément est disponible le jour donné
+     * @param date jour auquel vérifié
+     * @return vrai si c'est disponible
+     */
     public boolean estDisponible(LocalDate date) {
         return estDisponible(date, 1);
+    }
+
+
+    /**
+     * Vérifie si un élément est disponible dans une plage de dates donnés avec la quantité demandée
+     * @param dateDebut date de début
+     * @param dateFin date de fin
+     * @param quantite quantité requise
+     * @return vrai si c'est disponible sur l'intégralité de la plage
+     */
+    public boolean estDisponible(LocalDate dateDebut, LocalDate dateFin, int quantite) {
+        List<LocalDate> dates = dateDebut.datesUntil(dateFin).collect(Collectors.toList());
+
+        // On regarde pour chaque jour si c'est disponible
+        int i = 0;
+        while(i < dates.size() && estDisponible(dates.get(i), quantite)) {
+            i++;
+        }
+
+        return i == dates.size();
+    }
+
+    /**
+     * Vérifie si un élément est disponible dans une plage de dates donnés
+     * @param dateDebut date de début
+     * @param dateFin date de fin
+     * @return vrai si c'est disponible sur l'intégralité de la plage
+     */
+    public boolean estDisponible(LocalDate dateDebut, LocalDate dateFin) {
+        return estDisponible(dateDebut, dateFin, 1);
     }
 
     /**
