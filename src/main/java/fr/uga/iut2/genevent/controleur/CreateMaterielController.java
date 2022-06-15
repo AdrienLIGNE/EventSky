@@ -75,6 +75,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
             nom_tf.setStyle("-fx-border-color: red;");
             b = false;
         }if (typeMateriel_cb.getValue() == null){
+            typeMateriel_cb.setStyle("-fx-border-color: red;");
             System.out.println(typeMateriel_cb.getValue());
             b = false;
         }
