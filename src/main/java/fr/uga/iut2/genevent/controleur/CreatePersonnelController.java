@@ -17,11 +17,15 @@ import java.util.ResourceBundle;
 
 public class CreatePersonnelController extends FormulaireController<Personnel> implements Initializable {
 
-    @FXML private ComboBox<TypePersonnel> type_cb;
+    @FXML
+    private ComboBox<TypePersonnel> type_cb;
 
-    @FXML private TextField nom_tf;
-    @FXML private TextField mail_tf;
-    @FXML private TextField numero_tf;
+    @FXML
+    private TextField nom_tf;
+    @FXML
+    private TextField mail_tf;
+    @FXML
+    private TextField numero_tf;
 
 
     @Override
@@ -47,25 +51,21 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
 
         TypePersonnel type = type_cb.getValue();
 
-
         if (verifieSaisies()) {
-            if (verifieSaisies()) {
-                if (isOnEditMode()) {
-                    getElementModifie().setNom(nom);
-                    getElementModifie().setMail(mail);
-                    getElementModifie().setNumero(numero);
-                    getElementModifie().setType(type);
-                } else {
-                    // Création d'un nouveau personnel
-                    Personnel personnel = new Personnel(nom, "", type);
-                    personnel.setMail(mail);
-                    personnel.setNumero(numero);
-                    getModel().addPersonnel(personnel);
-                }
+            if (isOnEditMode()) {
+                getElementModifie().setNom(nom);
+                getElementModifie().setMail(mail);
+                getElementModifie().setNumero(numero);
+                getElementModifie().setType(type);
+            } else {
+                // Création d'un nouveau personnel
+                Personnel personnel = new Personnel(nom, "", type);
+                personnel.setMail(mail);
+                personnel.setNumero(numero);
+                getModel().addPersonnel(personnel);
             }
+            exitStage(Controller.getStageFromNode((Node) e.getTarget()));
         }
-
-        exitStage(Controller.getStageFromNode((Node) e.getTarget()));
     }
 
     @Override
@@ -79,18 +79,21 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
         type_cb.setStyle("-fx-border-color: black;");
 
         //on verifie les informations entrees
-        if (nom_tf.getText().isEmpty()){
+        if (nom_tf.getText().isEmpty()) {
             nom_tf.setStyle("-fx-border-color: red;");
             b = false;
-        }if (mail_tf.getText().isEmpty() | !VerifUtilitaire.verifMail(mail_tf.getText())){
+        }
+        if (mail_tf.getText().isEmpty() | !VerifUtilitaire.verifMail(mail_tf.getText())) {
             mail_tf.setStyle("-fx-border-color: red;");
             b = false;
-        }if (numero_tf.getText().isEmpty() | VerifUtilitaire.verifTelephone(numero_tf.getText())){
+        }
+        if (numero_tf.getText().isEmpty() | !VerifUtilitaire.verifTelephone(numero_tf.getText())) {
             numero_tf.setStyle("-fx-border-color: red;");
-            b=false;
-        }if (type_cb.getValue() == null){
+            b = false;
+        }
+        if (type_cb.getValue() == null) {
             type_cb.setStyle("-fx-border-color: red;");
-            b=false;
+            b = false;
         }
         return b;
     }
