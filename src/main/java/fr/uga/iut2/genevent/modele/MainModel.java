@@ -91,4 +91,14 @@ public class MainModel {
     public ObservableList<Materiel> getMaterielDisponibles(LocalDate date) {
         return getReservablesDisponibles(materiels, date);
     }
+
+    /**
+     * Supprime un élément reservable parmis les lieux, matériel et événements
+     * @param r reservable
+     */
+    public void removeReservable(Reservable r) {
+        materiels.remove(r);
+        lieux.remove(r);
+        personnels.remove(r);
+    }
 }

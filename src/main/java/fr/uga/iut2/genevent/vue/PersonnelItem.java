@@ -42,6 +42,7 @@ public class PersonnelItem extends ListCell<Personnel> {
             controller.setTypeEmploi(personnel.getTypeEmploi());
             setGraphic(itemNode);
         }
+        else setGraphic(null);
     }
 
 }

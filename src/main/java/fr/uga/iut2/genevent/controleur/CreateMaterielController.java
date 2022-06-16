@@ -43,7 +43,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
     }
 
     @FXML
-    private void confirmButtonClick(ActionEvent e) {
+    public void confirmButtonClick(ActionEvent e) {
         String nom = nom_tf.getText();
         int quantite = quantite_s.getValue();
         TypeMateriel type = typeMateriel_cb.getValue();

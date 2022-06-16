@@ -1,6 +1,7 @@
 package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Materiel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -21,6 +22,9 @@ public abstract class FormulaireController<E> extends Controller{
      * @return vrai si tout est correcte.
      */
     public abstract boolean verifieSaisies();
+
+    @FXML
+    public abstract void confirmButtonClick(ActionEvent e);
 
     public void setEditMode(E e) {
         this.element_modifie = e;

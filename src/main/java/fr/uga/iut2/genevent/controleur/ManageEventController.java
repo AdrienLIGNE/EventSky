@@ -54,7 +54,7 @@ public class ManageEventController extends Controller implements Initializable{
     private void gestionRessourcesClick(ActionEvent event){
         try {
             // Chargement de la nouvelle interface
-            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-content-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-ressource-view.fxml"));
             fxmlLoader.setController(new ManageRessourcesController());
             Scene scene = new Scene(fxmlLoader.load());
 

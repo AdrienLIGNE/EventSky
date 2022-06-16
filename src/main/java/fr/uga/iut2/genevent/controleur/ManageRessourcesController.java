@@ -5,14 +5,17 @@ import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.Reservable;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
+import fr.uga.iut2.genevent.vue.LieuItem;
 import fr.uga.iut2.genevent.vue.MaterielItem;
 import fr.uga.iut2.genevent.vue.PersonnelItem;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -22,6 +25,10 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * Cette classe gère la partie de l'interface de gestion des ressources. Elle charge les données dans les ListView
+ * et gère les événements d'ajout/édition/supression des différents élèments
+ */
 public class ManageRessourcesController extends Controller implements Initializable {
 
     private final static int MATERIEL_TAB = 0;
@@ -32,13 +39,22 @@ public class ManageRessourcesController extends Controller implements Initializa
     @FXML private ListView<Personnel> personnel_list;
     @FXML private ListView<Lieu> lieux_list;
 
+    @FXML private Button ajouter_btn;
+    @FXML private Button modifier_btn;
+    @FXML private Button supprimer_btn;
+
+    // Les onglets permette de savoir quel type de ressource on gère
     @FXML private TabPane onglets;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        // Désactivation des boutons modifier et supprimer en attendant que un élément soit séléctionné
+        activeEditButton(false);
+
         materiel_list.setItems(getModel().getMateriels());
         personnel_list.setItems(getModel().getPersonnels());
+        lieux_list.setItems(getModel().getLieux());
 
         materiel_list.setCellFactory(new Callback<ListView<Materiel>, ListCell<Materiel>>() {
             @Override
@@ -51,6 +67,13 @@ public class ManageRessourcesController extends Controller implements Initializa
             @Override
             public ListCell<Personnel> call(ListView<Personnel> personnelListView) {
                 return new PersonnelItem();
+            }
+        });
+
+        lieux_list.setCellFactory(new Callback<ListView<Lieu>, ListCell<Lieu>>() {
+            @Override
+            public ListCell<Lieu> call(ListView<Lieu> lieuListView) {
+                return new LieuItem();
             }
         });
 
@@ -82,6 +105,10 @@ public class ManageRessourcesController extends Controller implements Initializa
 
     @FXML
     public void editRessourceClick(ActionEvent e){
+        editRessource();
+    }
+
+    private void editRessource() {
         Stage stage = new Stage();
 
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource(getFXMLRessourceCreator()));
@@ -106,14 +133,15 @@ public class ManageRessourcesController extends Controller implements Initializa
     private void supprimerRessourceClick() {
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
         confirm.setTitle("Confirmation requise");
-        confirm.setHeaderText("Supprimer  ?");
+        confirm.setHeaderText("Supprimer cette ressource ?");
         confirm.setContentText("Une fois confirmer, vous ne pourrez plus revenir en arrière !");
 
         Optional<ButtonType> result = confirm.showAndWait();
 
         if(result.get().getButtonData().equals(ButtonBar.ButtonData.OK_DONE)) {
-            // On supprime
-
+            // On supprime l'élement sélectionné
+            getModel().removeReservable(getSelectedRessource());
+            activeEditButton(false);
         }
     }
 
@@ -123,7 +151,7 @@ public class ManageRessourcesController extends Controller implements Initializa
      * @return URL du fichier fxml
      */
     private String getFXMLRessourceCreator() {
-        int index = onglets.getSelectionModel().getSelectedIndex();
+        int index = getOngletActif();
 
         if(index == MATERIEL_TAB) return "create-items-view.fxml";
         if(index == PERSONNEL_TAB) return "create-personnel-view.fxml";
@@ -136,12 +164,43 @@ public class ManageRessourcesController extends Controller implements Initializa
      * @return ressource
      */
     private Reservable getSelectedRessource() {
-        int index = onglets.getSelectionModel().getSelectedIndex();
+        int index = getOngletActif();
 
         if(index == MATERIEL_TAB) return materiel_list.getSelectionModel().getSelectedItem();
         if(index == PERSONNEL_TAB) return personnel_list.getSelectionModel().getSelectedItem();
         if(index == LIEU_TAB) return lieux_list.getSelectionModel().getSelectedItem();
         else return null;
+    }
+
+    private int getOngletActif() {
+        return onglets.getSelectionModel().getSelectedIndex();
+    }
+
+    @FXML
+    private void listViewEvent(MouseEvent e) {
+        // On regarde si un élément est sélectionné
+        if(getSelectedRessource() != null) {
+            activeEditButton(true); // Activation des boutons de modifications
+
+            // Si c'est un double click alors on ouvre l'édition
+            if (e.getClickCount() == 2) {
+                editRessource();
+            }
+        }
+        else {
+            activeEditButton(false);
+        }
+    }
+
+    @FXML
+    private void ongletClick(MouseEvent e) {
+        activeEditButton(false);
+    }
+
+
+    private void activeEditButton(boolean b) {
+        modifier_btn.setDisable(!b);
+        supprimer_btn.setDisable(!b);
     }
 
 

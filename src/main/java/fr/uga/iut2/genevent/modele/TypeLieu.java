@@ -1,11 +1,11 @@
 package fr.uga.iut2.genevent.modele;
 
-public enum TypeMateriel {
-    MOBILIER("Mobilier"), VEHICULE("Véhicule"), MATERIEL_MUSICAL("Matériel musical"), DECORATION("Décoration"), OTHER("Autre");
+public enum TypeLieu {
+    SALLE("Salle"), GYMNASE("Gymnase"), PLEIN_AIR("Plein air");
 
     private String libelle;
 
-    private TypeMateriel(String libelle) {
+    private TypeLieu(String libelle) {
         this.libelle = libelle;
     }
 

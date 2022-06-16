@@ -39,9 +39,10 @@ public class LieuItem extends ListCell<Lieu> {
 
         if(lieu != null) {
             controller.setNom(lieu.getNom());
-            controller.setCapacite("Capacité: " + lieu.getCapacite() + " personnes");
+            controller.setCapacite(lieu.getCapacite());
             setGraphic(itemNode);
         }
+        else setGraphic(null);
     }
 
 }
