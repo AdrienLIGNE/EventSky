@@ -105,13 +105,17 @@ public class ManageRessourcesController extends Controller implements Initializa
 
     @FXML
     public void editRessourceClick(ActionEvent e){
-        editRessource();
+        editRessource(getSelectedRessource());
     }
 
-    private void editRessource() {
+    /**
+     * Permet d'éditer une ressource. Cette méthode est aussi utilisé depuis le menu contextuel des items
+     * @param reservableModifie reservable à modifier
+     */
+    public static void editRessource(Reservable reservableModifie) {
         Stage stage = new Stage();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource(getFXMLRessourceCreator()));
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource(getFXMLRessourceCreator(reservableModifie)));
 
         try {
             Scene scene = new Scene(fxmlLoader.load());
@@ -122,7 +126,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             stage.show();
 
             FormulaireController controller =  fxmlLoader.getController();
-            controller.setEditMode(getSelectedRessource());
+            controller.setEditMode(reservableModifie);
         }
         catch (IOException ex) {
 
@@ -160,6 +164,18 @@ public class ManageRessourcesController extends Controller implements Initializa
     }
 
     /**
+     * Retourne l'url du fichier fxml en fonction du type de ressource
+     * @param r ressource
+     * @return url du fichier fxml
+     */
+    private static String getFXMLRessourceCreator(Reservable r) {
+        if(r instanceof Materiel) return "create-items-view.fxml";
+        if(r instanceof Personnel) return "create-personnel-view.fxml";
+        if(r instanceof Lieu) return "create-salle-view.fxml";
+        else return null;
+    }
+
+    /**
      * Retourne la ressource sélectionnée dans l'onglet courant
      * @return ressource
      */
@@ -184,7 +200,7 @@ public class ManageRessourcesController extends Controller implements Initializa
 
             // Si c'est un double click alors on ouvre l'édition
             if (e.getClickCount() == 2) {
-                editRessource();
+                editRessource(getSelectedRessource());
             }
         }
         else {
