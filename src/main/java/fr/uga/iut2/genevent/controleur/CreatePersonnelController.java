@@ -37,14 +37,14 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
     public void setEditMode(Personnel personnel) {
         super.setEditMode(personnel);
 
-        type_cb.setValue(personnel.getTypeEmploi());
+        type_cb.setValue(personnel.getTypeEmploi().getValue());
         nom_tf.setText(personnel.getNom().getValue());
         mail_tf.setText(personnel.getMail().getValue());
         numero_tf.setText(personnel.getNumero().getValue());
     }
 
     @FXML
-    private void confirmButtonClick(ActionEvent e) {
+    public void confirmButtonClick(ActionEvent e) {
         String nom = nom_tf.getText();
         String mail = mail_tf.getText();
         String numero = numero_tf.getText();

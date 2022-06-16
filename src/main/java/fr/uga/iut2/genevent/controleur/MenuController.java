@@ -17,7 +17,7 @@ public class MenuController extends Controller {
     private void manageRessourceClick(ActionEvent e) {
         Stage stage = Controller.getStageFromNode((Node) e.getTarget());
 
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-content-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-ressource-view.fxml"));
 
         try {
             stage.setScene(new Scene(fxmlLoader.load()));

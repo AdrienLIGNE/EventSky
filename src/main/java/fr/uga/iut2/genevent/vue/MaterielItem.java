@@ -42,6 +42,7 @@ public class MaterielItem extends ListCell<Materiel> {
             controller.setDispo(materiel.getQuantiteDisponibleProperty());
             setGraphic(itemNode);
         }
+        else setGraphic(null);
     }
 
 }
