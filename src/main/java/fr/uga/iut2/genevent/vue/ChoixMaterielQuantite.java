@@ -1,6 +1,8 @@
 package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.modele.Materiel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 
@@ -9,12 +11,17 @@ import javafx.scene.control.SpinnerValueFactory;
  */
 public class ChoixMaterielQuantite {
 
-    public final Spinner<Integer> nb = new Spinner<Integer>();
+    private Spinner<Integer> nb;
     private Materiel mat;
 
     public ChoixMaterielQuantite(Materiel m) {
-        nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1));
         this.mat = m;
+    }
+
+    public void setSpinner(Spinner<Integer> s, int max) {
+        this.nb = s;
+
+        this.nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, max, 1));
     }
 
     public int getQuantite() {
@@ -23,5 +30,20 @@ public class ChoixMaterielQuantite {
 
     public Materiel getMateriel() {
         return mat;
+    }
+
+    /**
+     * Permet de créer une liste de choix à partir de la liste de matériel
+     * @param materiels
+     * @return
+     */
+    public static ObservableList<ChoixMaterielQuantite> createList(ObservableList<Materiel> materiels) {
+        ObservableList<ChoixMaterielQuantite> liste = FXCollections.observableArrayList();
+
+        for(Materiel m : materiels) {
+            liste.add(new ChoixMaterielQuantite(m));
+        }
+
+        return liste;
     }
 }

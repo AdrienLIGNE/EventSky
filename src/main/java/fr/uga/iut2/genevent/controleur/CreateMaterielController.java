@@ -58,7 +58,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
                 getModel().addMateriel(materiel);
             }
 
-            exitStage(Controller.getStageFromNode((Node) e.getTarget()));
+            exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
     }
 

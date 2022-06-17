@@ -15,7 +15,7 @@ public class MenuController extends Controller {
 
     @FXML
     private void manageRessourceClick(ActionEvent e) {
-        Stage stage = Controller.getStageFromNode((Node) e.getTarget());
+        Stage stage = Controller.getStageFromTarget(e.getTarget());
 
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-ressource-view.fxml"));
 
@@ -30,9 +30,9 @@ public class MenuController extends Controller {
     @FXML
     private void manageEventClick(ActionEvent e) {
         System.out.println("test");
-        Stage stage = Controller.getStageFromNode((Node) e.getTarget());
+        Stage stage = Controller.getStageFromTarget(e.getTarget());
 
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("event-manager-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-event-view.fxml"));
 
         try {
             stage.setScene(new Scene(fxmlLoader.load()));
