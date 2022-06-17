@@ -31,7 +31,7 @@ class MainApplicationTest {
         evenement.setLieu(lieu1);
         evenement.confirme();
 
-        for(Lieu l : app.getLieuxDisponibles(LocalDate.of(2022, 10, 5))) {
+        for(Lieu l : app.getLieuxDisponibles(LocalDate.of(2022, 10, 5), LocalDate.of(2022, 10, 5))) {
             assertTrue(l.estDisponible(LocalDate.of(2022, 10, 5)), "Le lieu ne devrait pas être disponible.");
         }
 

@@ -11,7 +11,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -82,7 +81,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 getModel().addLieu(lieu);
             }
 
-            exitStage(Controller.getStageFromNode((Node) e.getTarget()));
+            exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
 
     }

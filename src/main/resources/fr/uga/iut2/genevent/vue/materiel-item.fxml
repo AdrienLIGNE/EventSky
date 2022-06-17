@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="241.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,7 +16,7 @@
             <Insets left="5.0" />
          </HBox.margin>
       </ImageView>
-      <VBox maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="282.0">
+      <VBox maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="153.0">
          <children>
             <Label fx:id="label_nom" text="NOM MATERIEL">
                <font>
@@ -36,5 +36,10 @@
             </Label>
          </children>
       </VBox>
+      <Spinner fx:id="quantite_s" prefHeight="26.0" prefWidth="65.0">
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
+      </Spinner>
    </children>
 </HBox>

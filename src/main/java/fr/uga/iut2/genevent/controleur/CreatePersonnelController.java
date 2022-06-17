@@ -64,7 +64,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 personnel.setNumero(numero);
                 getModel().addPersonnel(personnel);
             }
-            exitStage(Controller.getStageFromNode((Node) e.getTarget()));
+            exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
     }
 

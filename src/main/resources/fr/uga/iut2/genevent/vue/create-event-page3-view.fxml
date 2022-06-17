@@ -15,7 +15,7 @@
             <Insets left="15.0" top="15.0" />
          </VBox.margin>
         </Label>
-        <Label prefHeight="15.0" prefWidth="550.0" text="Étape 3 - Choix du matériel et du personnel">
+        <Label prefHeight="15.0" prefWidth="550.0" text="Étape 3/4 - Choix du matériel et du personnel">
          <VBox.margin>
             <Insets left="15.0" />
          </VBox.margin></Label>
@@ -24,7 +24,7 @@
             <Insets top="15.0" />
          </VBox.margin>
       </Separator>
-        <GridPane prefWidth="220.0">
+        <GridPane prefHeight="354.0" prefWidth="550.0">
             <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="275.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="275.0" />
@@ -32,9 +32,6 @@
             <rowConstraints>
                 <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label prefHeight="25.0" text="Choisir le matériel *" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -42,19 +39,16 @@
                         <Insets bottom="5.0" />
                     </GridPane.margin>
                 </Label>
-            <ListView fx:id="list_materiel" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="4">
-               <GridPane.margin>
-                  <Insets right="7.5" />
-               </GridPane.margin></ListView>
             <Label layoutX="90.0" layoutY="14.0" prefHeight="25.0" text="Choisir le personnel *" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" />
                </GridPane.margin></Label>
-            <ListView fx:id="list_personnel" layoutX="10.0" layoutY="35.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="4">
+            <ListView fx:id="personnel_list" layoutX="10.0" layoutY="35.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="4">
                <GridPane.margin>
                   <Insets left="7.5" />
                </GridPane.margin>
             </ListView>
+            <ListView fx:id="materiel_list" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
             </children>
             <VBox.margin>
                 <Insets top="15.0" />
@@ -65,15 +59,15 @@
         </GridPane>
         <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
             <children>
-            <Button mnemonicParsing="false" text="Annuler">
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#exitButtonClick" text="Annuler">
                <HBox.margin>
                   <Insets bottom="15.0" right="15.0" />
                </HBox.margin></Button>
-                <Button mnemonicParsing="false" text="Précédent">
+                <Button mnemonicParsing="false" onAction="#precButtonClick" text="Précédent">
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
-                <Button mnemonicParsing="false" onAction="#click" text="Suivant">
+                <Button fx:id="nextButtonClick" defaultButton="true" mnemonicParsing="false" onAction="#nextButtonClick" text="Suivant">
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
