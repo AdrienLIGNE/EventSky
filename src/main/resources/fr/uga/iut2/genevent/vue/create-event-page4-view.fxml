@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label prefHeight="25.0" prefWidth="550.0" text="Créer un évènement">
+            <font>
+                <Font size="21.0" />
+            </font>
+         <VBox.margin>
+            <Insets left="15.0" top="15.0" />
+         </VBox.margin>
+        </Label>
+        <Label prefHeight="15.0" prefWidth="550.0" text="Étape 4 - Récapitulatif">
+         <VBox.margin>
+            <Insets left="15.0" />
+         </VBox.margin></Label>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Separator>
+        <GridPane prefWidth="220.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="210.0" minWidth="-Infinity" prefWidth="210.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="377.99998474121094" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Places disponibles" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                    <GridPane.margin>
+                        <Insets bottom="25.0" right="7.5" />
+                    </GridPane.margin>
+                </Label>
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Coût de l'évènement" GridPane.rowIndex="3">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" right="7.5" />
+                    </GridPane.margin>
+                </Label>
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Dates suggérées *" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                    <GridPane.margin>
+                        <Insets bottom="25.0" right="7.5" />
+                    </GridPane.margin>
+                </Label>
+                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Salle choisie">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" right="7.5" />
+                    </GridPane.margin>
+                </Label>
+                <ComboBox prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" left="7.5" />
+                    </GridPane.margin>
+                </ComboBox>
+                <TextField maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="500" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                    <GridPane.margin>
+                        <Insets bottom="25.0" left="7.5" />
+                    </GridPane.margin>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+                </TextField>
+            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="450€" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="7.5" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Nom du groupe / artiste" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="25.0" right="7.5" />
+               </GridPane.margin></Label>
+            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Revesty" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="7.5" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </TextField>
+            <ListView maxWidth="200.0" prefHeight="45.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="7.5" />
+               </GridPane.margin>
+            </ListView>
+            </children>
+            <VBox.margin>
+                <Insets top="15.0" />
+            </VBox.margin>
+        </GridPane>
+        <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
+            <children>
+            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Annuler">
+               <HBox.margin>
+                  <Insets bottom="15.0" right="15.0" />
+               </HBox.margin></Button>
+                <Button mnemonicParsing="false" text="Précédent">
+                    <HBox.margin>
+                        <Insets bottom="15.0" right="15.0" />
+                    </HBox.margin></Button>
+                <Button mnemonicParsing="false" text="Publier">
+                    <HBox.margin>
+                        <Insets bottom="15.0" right="15.0" />
+                    </HBox.margin></Button>
+            </children>
+        </HBox>
+    </children>
+</VBox>

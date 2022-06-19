@@ -1,11 +1,12 @@
 package fr.uga.iut2.genevent.modele;
 
+import fr.uga.iut2.genevent.Main;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.logging.Level;
 
 public class Evenement {
 
@@ -16,6 +17,7 @@ public class Evenement {
     private boolean estConfirme;
 
     private Lieu lieu;
+
     private ArrayList<Personnel> personnel;
     private ArrayList<Materiel> materiel;
 
@@ -28,6 +30,8 @@ public class Evenement {
      */
     public Evenement(int id, LocalDate dateDebut, LocalDate dateFin, String nomEvenement) {
         personnel = new ArrayList<>();
+        materiel = new ArrayList<>();
+
         this.nomEvenement = new SimpleStringProperty();
 
         setNomEvenement(nomEvenement);
@@ -122,7 +126,7 @@ public class Evenement {
         return nomEvenement;
     }
 
-    public boolean isConfirme() {
+    public boolean isConfirmed() {
         return estConfirme;
     }
 

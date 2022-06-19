@@ -1,6 +1,6 @@
 package fr.uga.iut2.genevent.util;
 
-import fr.uga.iut2.genevent.modele.MainApplication;
+import fr.uga.iut2.genevent.modele.MainModel;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -40,7 +40,7 @@ public final class Persisteur {
      * @throws IOException si une erreur d'entrée/sortie survient pendant
      *     l'enregistrement.
      */
-    public static final void sauverEtat(final MainApplication app) throws FileNotFoundException, IOException {
+    public static final void sauverEtat(final MainModel app) throws FileNotFoundException, IOException {
         try (
             FileOutputStream fos = new FileOutputStream(Persisteur.NOM_BDD);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -79,14 +79,14 @@ public final class Persisteur {
      * @throws IOException si le fichier de persistance est corrompu ou qu'une
      *     erreur d'entrée/sortie survient.
      */
-    public static final MainApplication lireEtat() throws ClassNotFoundException, IOException {
-        MainApplication genevent;
+    public static final MainModel lireEtat() throws ClassNotFoundException, IOException {
+        MainModel genevent;
 
         try (
             FileInputStream fis = new FileInputStream(Persisteur.NOM_BDD);
             ObjectInputStream ois = new ObjectInputStream(fis);
         ){
-            genevent = (MainApplication) ois.readObject();
+            genevent = (MainModel) ois.readObject();
             System.out.println("Restauration de l'état réussie.");
             System.out.flush();
             // Les classes `FileInputStream` et `ObjectInputStream`
@@ -96,7 +96,7 @@ public final class Persisteur {
         catch (FileNotFoundException ignored) {
             System.out.println("Fichier de persistance inexistant : création d'une nouvelle instance.");
             System.out.flush();
-            genevent = new MainApplication();
+            genevent = new MainModel();
         }
         catch (IOException ioe) {
             System.err.println("Erreur de lecture du fichier de persistance.");

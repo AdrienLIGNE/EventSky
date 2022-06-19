@@ -1,3 +1,57 @@
 .button {
     -fx-border-width: 2;
 }
+
+
+.menu-button {
+    -fx-border-radius: 0;
+    -fx-background-color: #171717;
+    -fx-label-padding: 5;
+
+    -fx-alignment: center-left;
+}
+
+.menu-button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-cursor: pointer;
+}
+
+/* Colors */
+
+.button:hover {
+    -fx-opacity: 0.8;
+}
+
+.button {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+.cancelButton {
+    -fx-background-color: #b41e1e;
+}
+
+.actionButton {
+    -fx-background-color: #32961e;
+}
+
+.neutralButton {
+    -fx-background-color: #3264b4;
+}
+
+/* Round */
+
+.list-view {
+    -fx-background-radius: 4;
+}
+
+.list-cell, .list-cell::focused {
+    -fx-border-radius: 4;
+}
+
+.button {
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
