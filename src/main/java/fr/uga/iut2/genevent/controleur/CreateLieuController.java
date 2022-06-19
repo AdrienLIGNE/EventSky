@@ -11,7 +11,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -35,6 +39,18 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         type_cb.setItems(FXCollections.observableList(Arrays.asList(TypeLieu.values())));
         capacite_s.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000000, 1));
         capacite_s.setEditable(true);
+    }
+
+    @FXML
+    private void onUploadButtonClick(MouseEvent event){
+        FileChooser fileChooser = new FileChooser();
+
+        File fileChosen = fileChooser.showOpenDialog(nom_tf.getScene().getWindow());
+        Image image = new Image(fileChosen.toURI().toString());
+
+        //rajouter un imageview et un label pour l'image uploadee
+        //iv.setImage(image);
+        //lblImageName.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
     }
 
     @Override
