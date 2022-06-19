@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.TypeMateriel;
+import fr.uga.iut2.genevent.util.VerifUtilitaire;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -71,7 +72,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
         typeMateriel_cb.setStyle("-fx-border-color: black;");
 
         //vérification des champs
-        if (nom_tf.getText().isEmpty()){
+        if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaMateriel(nom_tf.getText(),this.getModel().getMateriels())){
             nom_tf.setStyle("-fx-border-color: red;");
             b = false;
         }if (typeMateriel_cb.getValue() == null){
