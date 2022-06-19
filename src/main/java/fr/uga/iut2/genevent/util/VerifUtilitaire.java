@@ -1,7 +1,20 @@
 package fr.uga.iut2.genevent.util;
 
+import fr.uga.iut2.genevent.modele.Materiel;
+import fr.uga.iut2.genevent.modele.Reservable;
+
+import java.util.Collection;
+
+/**
+ * classe contenant des méthodes utiles notamment pour les verifications de formulaire
+ */
 public class VerifUtilitaire {
 
+    /**
+     * Méthode permettant de vérifier le format du mail
+     * @param s mail
+     * @return vrai si le format est bon, faux sinon
+     */
     public static boolean verifMail(String s) {
         String[] s2 = s.split("@");
 
@@ -23,6 +36,12 @@ public class VerifUtilitaire {
     }
 
 
+    /**
+     * méthode permettant de vérifier le format d'un numérode téléphone
+     * (10 chiffres et commence bien par 0)
+     * @param s chaine à vérifier
+     * @return vrai si le format est bon, faux sinon
+     */
     public static boolean verifTelephone(String s) {
         //on check que c'est bien des nombres
         try {
@@ -42,5 +61,21 @@ public class VerifUtilitaire {
         }
 
         return true;
+    }
+
+    /**
+     * Méthode permettant de savoir si l'objet que l'on veut créer n'existe pas déjà, en comparant le nom du nouvel objet et les noms des objets dejà créés
+     * @param nom nom du nouvel objet
+     * @param materiel liste d'objets déjà existants
+     * @return vrai si cet objet existe deja, faux sinon
+     */
+    public static boolean existeDejaMateriel(String nom, Collection<Materiel> materiel){
+        boolean existe = false;
+        for (Materiel objet : materiel){
+            if (objet.getLabel().get().equals(nom)){
+                existe = true;
+            }
+        }
+        return existe;
     }
 }
