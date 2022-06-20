@@ -55,7 +55,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
     public void setEditMode(Materiel materiel) {
         super.setEditMode(materiel);
 
-        typeMateriel_cb.setValue(materiel.getType());
+        typeMateriel_cb.setValue(materiel.getType().getValue());
         nom_tf.setText(materiel.getLabel().get());
         quantite_s.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10000000, materiel.getQuantiteDisponible()));
     }

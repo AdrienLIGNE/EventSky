@@ -13,6 +13,7 @@ public class Evenement {
     private LocalDate dateDebut;
     private LocalDate dateFin;
     private StringProperty nomEvenement;
+    private StringProperty nomArtiste;
     private boolean estConfirme;
 
     private IntegerProperty nbPersonnes;
@@ -37,6 +38,7 @@ public class Evenement {
         this.nomEvenement = new SimpleStringProperty();
         this.nbPersonnes = new SimpleIntegerProperty();
         this.type = new SimpleObjectProperty<>();
+        this.nomArtiste = new SimpleStringProperty();
 
         setNomEvenement(nomEvenement);
         setDateDebut(dateDebut);
@@ -44,6 +46,14 @@ public class Evenement {
         setType(typeEvenement);
 
         estConfirme = false;
+    }
+
+    public StringProperty getNomArtiste() {
+        return nomArtiste;
+    }
+
+    public void setNomArtiste(String nomArtiste) {
+        this.nomArtiste.set(nomArtiste);
     }
 
     public void setLieu(Lieu l) {

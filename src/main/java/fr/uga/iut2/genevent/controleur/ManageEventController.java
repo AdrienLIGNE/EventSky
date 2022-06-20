@@ -62,4 +62,38 @@ public class ManageEventController extends Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
+
+    @FXML
+    private void listViewEvent(MouseEvent e) {
+        // Si on a sélectionné un évenement
+        if(getSelectedEvent() != null) {
+            if(e.getClickCount() == 2) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("event-infos-view.fxml"));
+
+                    Stage stage = getStageFromTarget(e.getTarget());
+                    stage.setScene(new Scene(fxmlLoader.load(), 1200, 600));
+
+                    InfosEventController controller = fxmlLoader.getController();
+                    controller.setEvenement(getSelectedEvent());
+
+                    stage.show();
+                }
+                catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        }
+    }
+
+
+    /**
+     * Retourne l'événement sélectionné
+     * @return evenement
+     */
+    public Evenement getSelectedEvent() {
+        return list_brouillon.getSelectionModel().getSelectedItem();
+    }
 }

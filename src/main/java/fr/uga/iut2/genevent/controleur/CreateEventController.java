@@ -33,6 +33,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     private TypeEvenement type;
     private int nb_personnes;
     private String nom_artistes;
+    private String nom;
     private LocalDate date_debut;
     private LocalDate date_fin;
     private Lieu lieu;
@@ -45,6 +46,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     @FXML private ComboBox<TypeEvenement> type_cb;
     @FXML private Spinner<Integer> nb_personnes_s;
     @FXML private TextField nom_artiste_tf;
+    @FXML private TextField nom_tf;
     @FXML private DatePicker date_debut_dp;
     @FXML private DatePicker date_fin_dp;
 
@@ -181,9 +183,10 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     public void confirmButtonClick(ActionEvent e) {
         // Création de l'événement
 
-        Evenement evenement = new Evenement(date_debut, date_fin, nom_artistes, type);
+        Evenement evenement = new Evenement(date_debut, date_fin, nom, type);
         evenement.setNbPersonnes(nb_personnes);
         evenement.setLieu(lieu);
+        evenement.setNomArtiste(nom_artistes);
 
         for(ChoixMaterielQuantite m : choix_materiel) {
             evenement.addMateriel(m.getMateriel(), m.getQuantite());
@@ -207,6 +210,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             type = type_cb.getValue();
             nb_personnes = nb_personnes_s.getValue();
             nom_artistes = nom_artiste_tf.getText();
+            nom = nom_tf.getText();
 
             date_debut = date_debut_dp.getValue();
             date_fin = date_fin_dp.getValue();
@@ -233,6 +237,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             nb_personnes_s.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10000000, nb_personnes));
             nb_personnes_s.setEditable(true);
             nom_artiste_tf.setText(nom_artistes);
+            nom_tf.setText(nom);
             date_debut_dp.setValue(date_debut);
             date_fin_dp.setValue(date_fin);
 
