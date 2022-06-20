@@ -1,6 +1,7 @@
 package fr.uga.iut2.genevent.modele;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -21,6 +22,8 @@ public class Materiel extends Reservable  {
 
     public Materiel(String label, TypeMateriel type, int quantite){
         this.label = new SimpleStringProperty();
+        this.type = new SimpleObjectProperty<>();
+
         setLabel(label);
         setType(type);
         setQuantiteDisponible(quantite);
