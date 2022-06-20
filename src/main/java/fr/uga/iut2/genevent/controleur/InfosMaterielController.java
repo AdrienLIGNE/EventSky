@@ -1,7 +1,12 @@
 package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Materiel;
+import fr.uga.iut2.genevent.modele.TypeMateriel;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.beans.property.StringProperty;
@@ -26,7 +31,7 @@ public class InfosMaterielController extends Controller{
 
     private void affiche(){
         if (this.materiel != null){
-            setType(materiel.getType().getLibelle());
+            setType(new SimpleObjectProperty<>());
             setNom(materiel.getLabel());
             setQuantite(materiel.getQuantiteDisponibleProperty());
         }else {
@@ -34,8 +39,14 @@ public class InfosMaterielController extends Controller{
         }
     }
 
-    private void setType(String type){
-        tf_type.setText(type);
+    private void setType(ObjectProperty<TypeMateriel> type){
+        tf_type.setText(type.get().getLibelle());
+        type.addListener(new ChangeListener<TypeMateriel>() {
+            @Override
+            public void changed(ObservableValue<? extends TypeMateriel> observableValue, TypeMateriel typeMateriel, TypeMateriel t1) {
+                tf_type.setText(t1.getLibelle());
+            }
+        });
     }
 
     private void setNom(StringProperty nom){
