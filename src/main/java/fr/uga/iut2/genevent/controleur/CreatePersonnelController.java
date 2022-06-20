@@ -39,7 +39,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
     }
 
     @FXML
-    private void onUploadButtonClick(MouseEvent event){
+    private void onUploadButtonClick(MouseEvent event) {
         FileChooser fileChooser = new FileChooser();
 
         File fileChosen = fileChooser.showOpenDialog(nom_tf.getScene().getWindow());
@@ -99,17 +99,29 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
         //on verifie les informations entrees
 
         //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
-        //si on est en edit mode on vérifie seulement si on change le nom du matériel
-        if (this.isOnEditMode()){
-            String nom = TextUtilitaire.capitalize(nom_tf.getText());
-            if (this.getElementModifie() == null || !nom.equals(this.getElementModifie().getNom().get())){
-                if (VerifUtilitaire.existeDejaPersonnel(nom,this.getModel().getPersonnels())){
+        //si on est en edit mode on vérifie seulement si on change le nom du personnel
+        if (this.isOnEditMode()) {
+            //on capitalise le nom pour le comparer
+            String nom;
+            try {
+                nom = TextUtilitaire.capitalize(nom_tf.getText());
+            } catch (IndexOutOfBoundsException e) {
+                nom = "";
+            }
+            //on fait la vérification seulement si on a modifié le nom
+            if (this.getElementModifie() == null || !nom.equals(this.getElementModifie().getNom().get())) {
+                if (VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())) {
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
                 }
             }
-        }else {
-            String nom = TextUtilitaire.capitalize(nom_tf.getText());
+        } else {
+            String nom;
+            try {
+                nom = TextUtilitaire.capitalize(nom_tf.getText());
+            } catch (IndexOutOfBoundsException e) {
+                nom = "";
+            }
             if (nom.isEmpty() || VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())) {
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
