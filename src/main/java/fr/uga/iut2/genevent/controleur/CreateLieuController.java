@@ -118,7 +118,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
         //si on est en edit mode on vérifie seulement si on change le nom du matériel
         if (this.isOnEditMode()){
-            if (this.getElementModifie() == null || !nom_tf.getText().equals(this.getElementModifie().getNom())){
+            if (this.getElementModifie() == null || !nom_tf.getText().equals(this.getElementModifie().getNom().get())){
                 if (VerifUtilitaire.existeDejaLieu(nom_tf.getText(),this.getModel().getLieux())){
                     nom_tf.setStyle("-fx-border-color: red;");
                     valide = false;

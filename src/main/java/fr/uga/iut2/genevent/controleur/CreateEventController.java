@@ -75,7 +75,32 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         // TODO: Vérification des valeurs à chaque étapes
 
         if(etape == 1) {
+            //reinitialisation des bordures des champs
+            type_cb.setStyle("-fx-border-color: black");
+            nom_artiste_tf.setStyle("-fx-border-color: black");
+            date_debut_dp.setStyle("-fx-border-color: black");
+            date_fin_dp.setStyle("-fx-border-color: black");
 
+            //verification des champs
+            if(type_cb.getValue() == null){
+                type_cb.setStyle("-fx-border-color: red");
+                valide = false;
+            }if (nom_artiste_tf.getText().isEmpty()){
+                nom_artiste_tf.setStyle("-fx-border-color: red");
+                valide = false;
+            }if (date_debut_dp.getValue() != null & date_fin_dp != null){
+                //vérification que la date de fin n'est pas antérieure à la date de début
+                if (date_debut_dp.getValue().isAfter(date_fin_dp.getValue())){
+                    date_fin_dp.setStyle("-fx-border-color: red");
+                    valide = false;
+                }
+            }if (date_debut_dp.getValue() == null){
+                date_debut_dp.setStyle("-fx-border-color: red");
+                valide = false;
+            }if (date_fin_dp.getValue() == null){
+                date_fin_dp.setStyle("-fx-border-color: red");
+                valide = false;
+            }
         }
 
         if(etape == 2) {

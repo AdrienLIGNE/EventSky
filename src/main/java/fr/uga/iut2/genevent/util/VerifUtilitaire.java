@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.util;
 
 import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.Materiel;
+import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.Reservable;
 
 import java.util.Collection;
@@ -80,10 +81,32 @@ public class VerifUtilitaire {
         return existe;
     }
 
+    /**
+     * Méthode permettant de savoir si le lieu que l'on veut créer n'existe pas déjà, en comparant le nom du nouvel lieu et les noms des lieux dejà créés
+     * @param nom nom du nouveau lieu
+     * @param lieux lieux deja existants
+     * @return vrai si ce lieu existe deja, faux sinon
+     */
     public static boolean existeDejaLieu(String nom, Collection<Lieu> lieux){
         boolean existe = false;
         for (Lieu lieu : lieux){
             if (lieu.getNom().get().equals(nom)){
+                existe = true;
+            }
+        }
+        return existe;
+    }
+
+    /**
+     * Méthode permettant de savoir si le personnel que l'on veut créer n'existe pas déjà, en comparant le nom de la nouvelle personne et les noms du personnel dejà créé
+     * @param nom nom du nouveau personnel
+     * @param personnel personnel deja existant
+     * @return vrai si cette personne existe deja, faux sinon
+     */
+    public static boolean existeDejaPersonnel(String nom, Collection<Personnel> personnel){
+        boolean existe = false;
+        for (Personnel personne : personnel){
+            if (personne.getNom().get().equals(nom)){
                 existe = true;
             }
         }
