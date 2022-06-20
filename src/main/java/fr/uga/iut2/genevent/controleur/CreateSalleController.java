@@ -38,6 +38,7 @@ public class CreateSalleController {
         Image image = new Image(fileChosen.toURI().toString());
 
         //rajouter un imageview et un label pour l'image uploadee
+
         //iv.setImage(image);
         //lblImageName.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
     }
