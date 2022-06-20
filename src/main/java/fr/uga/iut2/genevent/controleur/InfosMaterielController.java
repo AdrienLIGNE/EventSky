@@ -1,8 +1,11 @@
 package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Materiel;
+import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.beans.property.StringProperty;
+
 
 public class InfosMaterielController extends Controller{
     @FXML
@@ -24,8 +27,8 @@ public class InfosMaterielController extends Controller{
     private void affiche(){
         if (this.materiel != null){
             setType(materiel.getType().getLibelle());
-            setNom(materiel.getLabel().get());
-            setQuantite(String.valueOf(materiel.getQuantiteDisponible()));
+            setNom(materiel.getLabel());
+            setQuantite(materiel.getQuantiteDisponibleProperty());
         }else {
             //TODO : logger pas de materiel selectionné
         }
@@ -35,11 +38,11 @@ public class InfosMaterielController extends Controller{
         tf_type.setText(type);
     }
 
-    private void setNom(String nom){
-        tf_nom.setText(nom);
+    private void setNom(StringProperty nom){
+        tf_nom.textProperty().bind(nom);
     }
 
-    private void setQuantite(String quantite) {
-        tf_quantite.setText(quantite);
+    private void setQuantite(IntegerProperty quantite) {
+        tf_quantite.textProperty().bind(quantite.asString());
     }
 }
