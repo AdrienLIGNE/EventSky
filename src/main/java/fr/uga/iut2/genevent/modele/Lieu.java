@@ -2,9 +2,10 @@ package fr.uga.iut2.genevent.modele;
 
 import javafx.beans.property.*;
 
+import java.io.Serializable;
 import java.util.TreeSet;
 
-public class Lieu extends Reservable {
+public class Lieu extends Reservable  {
 
     // Déclaration des attributs
     private int idLieu;

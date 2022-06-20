@@ -16,7 +16,12 @@ public abstract class Controller {
         app = new MainModel();
     }
 
-    public MainModel getModel() {
+
+    public static void setModel(MainModel a) {
+        app = app;
+    }
+
+    public static MainModel getModel() {
         return app;
     }
 

@@ -6,13 +6,14 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Classe représentant la notion de personnel
  * Personnel peut être affecté à un ou plusieurs événements
  */
-public class Personnel extends Reservable {
+public class Personnel extends Reservable  {
 
     private ObjectProperty<TypePersonnel> type;
 

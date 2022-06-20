@@ -3,7 +3,9 @@ package fr.uga.iut2.genevent.modele;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Materiel extends Reservable {
+import java.io.Serializable;
+
+public class Materiel extends Reservable  {
 
     private StringProperty label;
     private TypeMateriel type;

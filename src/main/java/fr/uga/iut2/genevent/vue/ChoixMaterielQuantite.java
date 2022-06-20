@@ -21,7 +21,7 @@ public class ChoixMaterielQuantite {
     public void setSpinner(Spinner<Integer> s, int max) {
         this.nb = s;
 
-        this.nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, max, 1));
+        this.nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, max, 0));
     }
 
     public int getQuantite() {

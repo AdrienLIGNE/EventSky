@@ -3,6 +3,7 @@ package fr.uga.iut2.genevent.modele;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
