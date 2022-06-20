@@ -35,8 +35,8 @@ public class TestController implements Initializable {
         list_personnel.setItems(list);
         list_materiel.setItems(list2);
 
-        list.add(new Personnel("DURAND", "Nadia", TypePersonnel.BARMAN));
-        list.add(new Personnel("ALIA", "Alice", TypePersonnel.BARMAN));
+        list.add(new Personnel("DURAND", TypePersonnel.BARMAN));
+        list.add(new Personnel("ALIA", TypePersonnel.BARMAN));
 
         list2.add(new Materiel("Camion", TypeMateriel.VEHICULE,25));
 

@@ -8,7 +8,6 @@ import java.util.TreeSet;
 public class Lieu extends Reservable  {
 
     // Déclaration des attributs
-    private int idLieu;
     private StringProperty nom;
 
     private StringProperty adresse;
@@ -20,8 +19,7 @@ public class Lieu extends Reservable  {
     private ObjectProperty<TypeLieu> type;
 
 
-    public Lieu(int idLieu, String nom, int capacite, TypeLieu type) {
-        this.idLieu = idLieu;
+    public Lieu(String nom, int capacite, TypeLieu type) {
 
         this.nom = new SimpleStringProperty();
         this.capacite = new SimpleIntegerProperty();
@@ -39,13 +37,6 @@ public class Lieu extends Reservable  {
     }
 
 
-    public int getIdLieu() {
-        return idLieu;
-    }
-
-    public void setIdLieu(int idLieu) {
-        this.idLieu = idLieu;
-    }
 
     public StringProperty getNom() {
         return nom;
