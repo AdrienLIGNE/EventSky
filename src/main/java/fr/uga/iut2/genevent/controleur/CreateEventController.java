@@ -72,7 +72,6 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     @Override
     public boolean verifieSaisies() {
         boolean valide = true;
-        // TODO: Vérification des valeurs à chaque étapes
 
         if(etape == 1) {
             //reinitialisation des bordures des champs
@@ -104,16 +103,30 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         }
 
         if(etape == 2) {
+            //reset de la bordure
+            lieux_list.setStyle("-fx-border-color: black");
 
+            if (lieux_list.getSelectionModel().isEmpty()){
+                lieux_list.setStyle("-fx-border-color: red");
+                valide = false;
+            }
         }
 
         if (etape == 3){
+            //reset des bordures
+            materiel_list.setStyle("-fx-border-color: black");
+            personnel_list.setStyle("-fx-border-color: black");
 
+            if (materiel_list.getSelectionModel().isEmpty()){
+                materiel_list.setStyle("-fx-border-color: red");
+                valide = false;
+            }if (personnel_list.getSelectionModel().isEmpty()){
+                personnel_list.setStyle("-fx-border-color: red");
+                valide = false;
+            }
         }
 
-        if (etape == 4){
-
-        }
+        if (etape == 4);//rien ne se passe, l'étape 4 est seulement une consultation des informations rentrees
 
         return valide;
     }

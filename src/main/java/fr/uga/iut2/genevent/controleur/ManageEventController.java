@@ -23,10 +23,12 @@ import java.util.ResourceBundle;
 /**
  * Classe controlleur principale, gère l'affichage et le lien avec les données
  */
-public class ManageEventController extends Controller implements Initializable{
+public class ManageEventController extends Controller implements Initializable {
 
-    @FXML private ListView<Evenement> list_brouillon;
-    @FXML private ListView<Evenement> list_evenement;
+    @FXML
+    private ListView<Evenement> list_brouillon;
+    @FXML
+    private ListView<Evenement> list_evenement;
 
 
     @Override
@@ -55,16 +57,9 @@ public class ManageEventController extends Controller implements Initializable{
             stage.initModality(Modality.APPLICATION_MODAL);
 
             stage.show();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             // TODO: Logger
             e.printStackTrace();
         }
-
-
     }
-
-
-
-
 }
