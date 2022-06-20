@@ -1,5 +1,7 @@
 package fr.uga.iut2.genevent.modele;
 
+import java.io.Serializable;
+
 public enum TypeLieu {
     SALLE("Salle"), GYMNASE("Gymnase"), PLEIN_AIR("Plein air");
 

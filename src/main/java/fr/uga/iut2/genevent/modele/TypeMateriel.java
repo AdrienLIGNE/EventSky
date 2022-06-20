@@ -1,6 +1,8 @@
 package fr.uga.iut2.genevent.modele;
 
-public enum TypeMateriel {
+import java.io.Serializable;
+
+public enum TypeMateriel  {
     MOBILIER("Mobilier"), VEHICULE("Véhicule"), MATERIEL_MUSICAL("Matériel musical"), DECORATION("Décoration"), OTHER("Autre");
 
     private String libelle;

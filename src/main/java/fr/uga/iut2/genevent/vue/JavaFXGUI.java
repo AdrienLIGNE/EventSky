@@ -4,6 +4,7 @@ import fr.uga.iut2.genevent.controleur.MainController;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -50,6 +51,7 @@ public class JavaFXGUI extends IHM {
         Scene mainScene = new Scene(mainViewLoader.load());
         primaryStage.setTitle("GenEvent");
         primaryStage.setScene(mainScene);
+
         primaryStage.show();
     }
 

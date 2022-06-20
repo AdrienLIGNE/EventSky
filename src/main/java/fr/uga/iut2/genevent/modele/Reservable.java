@@ -3,6 +3,7 @@ package fr.uga.iut2.genevent.modele;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Classe permettant de rendre un élément réservable
  */
-public abstract class Reservable {
+public abstract class Reservable  {
 
     private IntegerProperty quantiteDisponible;
     private ArrayList<TupleQuantiteEvenement> affectation_evenements;
