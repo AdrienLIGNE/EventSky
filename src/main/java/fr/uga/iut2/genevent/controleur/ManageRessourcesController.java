@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -42,6 +43,8 @@ public class ManageRessourcesController extends Controller implements Initializa
     @FXML private Button ajouter_btn;
     @FXML private Button modifier_btn;
     @FXML private Button supprimer_btn;
+
+    @FXML private InfosMaterielController infos_materielController;
 
     // Les onglets permette de savoir quel type de ressource on gère
     @FXML private TabPane onglets;
@@ -200,12 +203,9 @@ public class ManageRessourcesController extends Controller implements Initializa
 
             //si c'est un simple click on affiche les infos sur le coté
             if (e.getClickCount() == 1){
-                if (getSelectedRessource().getClass() == Materiel.class){
-                    InfosMaterielController controller = new InfosMaterielController();
-                    controller.setMateriel((Materiel) getSelectedRessource());
-                    FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("infos-materiel.fxml"));
-                    fxmlLoader.setController(controller);
-                    controller.affiche();
+                if (getOngletActif() == MATERIEL_TAB){
+                    infos_materielController.setMateriel((Materiel) getSelectedRessource());
+                    infos_materielController.affiche();
                 }
             }
             // Si c'est un double click alors on ouvre l'édition
