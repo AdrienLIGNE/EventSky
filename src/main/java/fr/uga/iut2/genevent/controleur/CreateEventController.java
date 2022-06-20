@@ -114,7 +114,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
         if (etape == 3){
             //reset des bordures
-            materiel_list.setStyle("-fx-border-color: black");
+/*            materiel_list.setStyle("-fx-border-color: black");
             personnel_list.setStyle("-fx-border-color: black");
 
             if (materiel_list.getSelectionModel().isEmpty()){
@@ -123,7 +123,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             }if (personnel_list.getSelectionModel().isEmpty()){
                 personnel_list.setStyle("-fx-border-color: red");
                 valide = false;
-            }
+            }*/
         }
 
         if (etape == 4);//rien ne se passe, l'étape 4 est seulement une consultation des informations rentrees
