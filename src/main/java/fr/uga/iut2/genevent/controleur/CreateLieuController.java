@@ -2,15 +2,13 @@ package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.TypeLieu;
+import fr.uga.iut2.genevent.util.VerifUtilitaire;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
@@ -78,7 +76,6 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         int capcite_max = capacite_s.getValue();
 
         if(verifieSaisies()) {
-
             if(isOnEditMode()) {
                 getElementModifie().setType(type);
                 getElementModifie().setNom(nom);
@@ -104,7 +101,50 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
 
     @Override
     public boolean verifieSaisies() {
-        // TODO: Vérifier les données saisies par l'utilisateur
-        return true;
+        boolean valide = true;
+
+        //on reset les bordures en noir
+        type_cb.setStyle("-fx-border-color: black; -fx-text-fill: black;");
+        nom_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
+        adresse_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
+        code_postal_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
+        ville_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
+
+        if (type_cb.getValue() == null){
+            type_cb.setStyle("-fx-border-color: red; -fx-text-fill: red;");
+            valide = false;
+        }
+
+        //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
+        //si on est en edit mode on vérifie seulement si on change le nom du matériel
+        if (this.isOnEditMode()){
+            if (this.getElementModifie() == null || !nom_tf.getText().equals(this.getElementModifie().getNom())){
+                if (VerifUtilitaire.existeDejaLieu(nom_tf.getText(),this.getModel().getLieux())){
+                    nom_tf.setStyle("-fx-border-color: red;");
+                    valide = false;
+                }
+            }
+        }else {
+            if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaLieu(nom_tf.getText(), this.getModel().getLieux())) {
+                nom_tf.setStyle("-fx-border-color: red;");
+                valide = false;
+            }
+        }
+
+        if (adresse_tf.getText().isEmpty()){
+            adresse_tf.setStyle("-fx-border-color: red;");
+            valide = false;
+        }
+
+        if (code_postal_tf.getText().isEmpty() | !VerifUtilitaire.verifFormatCodePostal(code_postal_tf.getText())){
+            code_postal_tf.setStyle("-fx-border-color: red;");
+            valide = false;
+        }
+
+        if (ville_tf.getText().isEmpty()){
+            ville_tf.setStyle("-fx-border-color: red;");
+            valide = false;
+        }
+        return valide;
     }
 }

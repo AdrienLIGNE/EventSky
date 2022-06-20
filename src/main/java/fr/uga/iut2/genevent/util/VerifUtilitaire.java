@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.util;
 
+import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.Reservable;
 
@@ -77,5 +78,31 @@ public class VerifUtilitaire {
             }
         }
         return existe;
+    }
+
+    public static boolean existeDejaLieu(String nom, Collection<Lieu> lieux){
+        boolean existe = false;
+        for (Lieu lieu : lieux){
+            if (lieu.getNom().get().equals(nom)){
+                existe = true;
+            }
+        }
+        return existe;
+    }
+
+    /**
+     * méthode permettant de savoir si le format du code postal est bon.
+     * le code postal est bon si il a le format d'un code postal de la france métropolitaine : 6 chiffres et les 2 premiers chiffres représentent un numéro de département
+     * @param code code postal à vérifier
+     * @return vrai si il a le bon format, faux sinon
+     */
+    public static boolean verifFormatCodePostal(String code){
+        boolean verifie = true;
+        if (code.length() != 5){
+            verifie = false;
+        }if (!code.matches("^(0[1-9]|[1-8]\\d|9[0-5])\\d{3}$")){
+            verifie = false;
+        }
+        return  verifie;
     }
 }
