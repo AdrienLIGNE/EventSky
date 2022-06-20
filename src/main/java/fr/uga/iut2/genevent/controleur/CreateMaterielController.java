@@ -67,15 +67,30 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
     public boolean verifieSaisies() {
         boolean b = true;
 
+        String ancienNom = this.getElementModifie().getLabel().get();
+
         //on reset les bordures
         nom_tf.setStyle("-fx-border-color: black;");
         typeMateriel_cb.setStyle("-fx-border-color: black;");
 
         //vérification des champs
-        if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaMateriel(nom_tf.getText(),this.getModel().getMateriels())){
-            nom_tf.setStyle("-fx-border-color: red;");
-            b = false;
-        }if (typeMateriel_cb.getValue() == null){
+
+        //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
+        //si on est en edit mode on vérifie seulement si on change le nom du matériel
+        if (this.isOnEditMode()){
+            if (!nom_tf.getText().equals(ancienNom)){
+                if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(),this.getModel().getMateriels())){
+                    nom_tf.setStyle("-fx-border-color: red;");
+                }
+            }
+        }else {
+            if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
+                nom_tf.setStyle("-fx-border-color: red;");
+                b = false;
+            }
+        }
+        //verification du combobox
+        if (typeMateriel_cb.getValue() == null){
             typeMateriel_cb.setStyle("-fx-border-color: red;");
             System.out.println(typeMateriel_cb.getValue());
             b = false;
