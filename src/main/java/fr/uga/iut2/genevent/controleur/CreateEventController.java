@@ -84,7 +84,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             if(type_cb.getValue() == null){
                 type_cb.setStyle("-fx-border-color: red");
                 valide = false;
-            }if (nom_artiste_tf.getText().isEmpty()){
+            }if (nom_artiste_tf.getText() == null || nom_artiste_tf.getText().isEmpty()){
                 nom_artiste_tf.setStyle("-fx-border-color: red");
                 valide = false;
             }if (date_debut_dp.getValue() != null & date_fin_dp != null){
@@ -114,7 +114,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
         if (etape == 3){
             //reset des bordures
-            materiel_list.setStyle("-fx-border-color: black");
+/*            materiel_list.setStyle("-fx-border-color: black");
             personnel_list.setStyle("-fx-border-color: black");
 
             if (materiel_list.getSelectionModel().isEmpty()){
@@ -123,7 +123,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             }if (personnel_list.getSelectionModel().isEmpty()){
                 personnel_list.setStyle("-fx-border-color: red");
                 valide = false;
-            }
+            }*/
         }
 
         if (etape == 4);//rien ne se passe, l'étape 4 est seulement une consultation des informations rentrees
@@ -181,7 +181,8 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     public void confirmButtonClick(ActionEvent e) {
         // Création de l'événement
 
-        Evenement evenement = new Evenement(0, date_debut, date_fin, nom_artistes);
+        Evenement evenement = new Evenement(date_debut, date_fin, nom_artistes, type);
+        evenement.setNbPersonnes(nb_personnes);
         evenement.setLieu(lieu);
 
         for(ChoixMaterielQuantite m : choix_materiel) {
