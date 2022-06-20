@@ -209,7 +209,7 @@ public abstract class Reservable  {
 
         // On cherche l'évenement en question
         while(i < affectation_evenements.size() && !affectation_evenements.get(i).getEvenement().equals(e)) {
-
+            i++;
         }
         if(i < affectation_evenements.size()) {
             return affectation_evenements.get(i).getQuantite();

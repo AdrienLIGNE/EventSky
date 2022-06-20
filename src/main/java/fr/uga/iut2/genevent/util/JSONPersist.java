@@ -1,12 +1,14 @@
 package fr.uga.iut2.genevent.util;
 
 import fr.uga.iut2.genevent.Main;
+import fr.uga.iut2.genevent.controleur.Controller;
 import fr.uga.iut2.genevent.modele.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.logging.Level;
 
 public class JSONPersist {
@@ -226,6 +228,59 @@ public class JSONPersist {
                 app.addLieu(l);
             }
 
+            // on récupère la liste des événements
+
+            JSONArray evenements_list = (JSONArray) jsonObject.get("evenements");
+
+            for(int i = 0; i < evenements_list.size(); i++) {
+
+                JSONObject evenement = (JSONObject) evenements_list.get(i);
+
+                String nom = (String) evenement.get("nom");
+                String date_debut = (String) evenement.get("date_debut");
+                String date_fin = (String) evenement.get("date_fin");
+                String lieu = (String) evenement.get("lieu");
+                boolean confirme = (boolean) evenement.get("confirme");
+                String type = (String) evenement.get("type");
+                int nb_personnes = (int) (long) evenement.get("nb_personnes");
+
+                Evenement e = new Evenement(LocalDate.parse(date_debut), LocalDate.parse(date_fin), nom, getTypeEvenementByName(type));
+
+                e.setLieu(getLieuByName(app, lieu));
+                e.setNbPersonnes(nb_personnes);
+
+                // on récupère la liste des matériels
+                JSONArray materiel_list_evenement = (JSONArray) evenement.get("materiel");
+
+                for(int j = 0; j < materiel_list_evenement.size(); j++) {
+                    JSONObject materiel = (JSONObject) materiel_list_evenement.get(j);
+
+                    String nom_materiel = (String) materiel.get("nom");
+                    int quantite = (int) (long) materiel.get("quantite");
+
+                    Materiel m = getMaterielByName(app, nom_materiel);
+                    e.addMateriel(m, quantite);
+                }
+
+                // on récupère la liste des personnel
+
+                JSONArray personnel_list_evenement = (JSONArray) evenement.get("personnel");
+
+                for(int j = 0; j < personnel_list_evenement.size(); j++) {
+                    String nom_personnel = (String) personnel_list_evenement.get(j);
+
+                    Personnel p = getPersonnelByName(app, nom_personnel);
+                    e.addPersonnel(p);
+                }
+
+                if(confirme) {
+                    e.confirme();
+                }
+
+                app.addEvenement(e);
+
+            }
+
     }
 
 
@@ -257,6 +312,58 @@ public class JSONPersist {
         for(TypeLieu t : TypeLieu.values()) {
             if(t.toString().equals(name)) {
                 return t;
+            }
+        }
+        return null;
+    }
+
+    private static TypeEvenement getTypeEvenementByName(String name) {
+        for(TypeEvenement t : TypeEvenement.values()) {
+            if(t.toString().equals(name)) {
+                return t;
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * Récupère le lieu en fonction de son nom
+     * @param name nom du lieu
+     * @param app Modèle de données
+     */
+    public static Lieu getLieuByName(MainModel app, String name) {
+        for (Lieu l : app.getLieux()) {
+            if (l.getNom().getValue().equals(name)) {
+                return l;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Récupère le matériel en fonction de son nom
+     * @param name nom du matériel
+     * @param app Modèle de données
+     */
+    public static Materiel getMaterielByName(MainModel app, String name) {
+        for (Materiel m : app.getMateriels()) {
+            if (m.getLabel().getValue().equals(name)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Récupère le personnel en fonction de son nom
+     * @param name nom du personnel
+     * @param app Modèle de données
+     */
+    public static Personnel getPersonnelByName(MainModel app, String name) {
+        for (Personnel p : app.getPersonnels()) {
+            if (p.getNom().getValue().equals(name)) {
+                return p;
             }
         }
         return null;
