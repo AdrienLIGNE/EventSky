@@ -198,6 +198,16 @@ public class ManageRessourcesController extends Controller implements Initializa
         if(getSelectedRessource() != null) {
             activeEditButton(true); // Activation des boutons de modifications
 
+            //si c'est un simple click on affiche les infos sur le coté
+            if (e.getClickCount() == 1){
+                if (getSelectedRessource().getClass() == Materiel.class){
+                    InfosMaterielController controller = new InfosMaterielController();
+                    controller.setMateriel((Materiel) getSelectedRessource());
+                    FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("infos-materiel.fxml"));
+                    fxmlLoader.setController(controller);
+                    controller.affiche();
+                }
+            }
             // Si c'est un double click alors on ouvre l'édition
             if (e.getClickCount() == 2) {
                 editRessource(getSelectedRessource());
