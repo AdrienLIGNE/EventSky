@@ -84,7 +84,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             if(type_cb.getValue() == null){
                 type_cb.setStyle("-fx-border-color: red");
                 valide = false;
-            }if (nom_artiste_tf.getText().isEmpty() | nom_artiste_tf.getText() == null){
+            }if (nom_artiste_tf.getText() == null || nom_artiste_tf.getText().isEmpty()){
                 nom_artiste_tf.setStyle("-fx-border-color: red");
                 valide = false;
             }if (date_debut_dp.getValue() != null & date_fin_dp != null){
