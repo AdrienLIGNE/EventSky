@@ -202,6 +202,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             if (e.getClickCount() == 2) {
                 editRessource(getSelectedRessource());
             }
+
         }
         else {
             activeEditButton(false);

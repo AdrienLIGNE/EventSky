@@ -136,7 +136,8 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     public void confirmButtonClick(ActionEvent e) {
         // Création de l'événement
 
-        Evenement evenement = new Evenement(0, date_debut, date_fin, nom_artistes);
+        Evenement evenement = new Evenement(date_debut, date_fin, nom_artistes, type);
+        evenement.setNbPersonnes(nb_personnes);
         evenement.setLieu(lieu);
 
         for(ChoixMaterielQuantite m : choix_materiel) {

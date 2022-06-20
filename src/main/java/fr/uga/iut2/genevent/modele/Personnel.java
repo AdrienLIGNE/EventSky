@@ -22,7 +22,7 @@ public class Personnel extends Reservable  {
     private StringProperty mail;
     private StringProperty numero;
 
-    public Personnel(String nom, String prenom, TypePersonnel type){
+    public Personnel(String nom, TypePersonnel type){
         this.nom = new SimpleStringProperty();
         this.mail = new SimpleStringProperty();
         this.numero = new SimpleStringProperty();

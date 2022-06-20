@@ -29,7 +29,7 @@ public class VerifUtilitaire {
         }
 
         //on vérifie si les membres avant et après le point sont pas vides
-        if (s2[1].split("\\.")[0].isEmpty() | s2[1].split("\\.")[1].isEmpty()) {
+        if (s2[1].split("\\.")[0].isEmpty() | (s2[1].split("\\.")[1].isEmpty() | !s2[1].split("\\.")[1].matches("com|fr|be|it|gouv|uk|org|cn|net|de|eu|bg|jp|hu"))) {
             return false;
         }
         return true;
