@@ -84,6 +84,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
             if (!nom_tf.getText().equals(ancienNom) | ancienNom == null){
                 if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(),this.getModel().getMateriels())){
                     nom_tf.setStyle("-fx-border-color: red;");
+                    b = false;
                 }
             }
         }else {
