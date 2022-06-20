@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent;
 
 import fr.uga.iut2.genevent.controleur.Controller;
 import fr.uga.iut2.genevent.modele.MainModel;
+import fr.uga.iut2.genevent.util.JSONPersist;
 import fr.uga.iut2.genevent.util.Persisteur;
 import fr.uga.iut2.genevent.vue.IHM;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
@@ -24,7 +25,9 @@ public class Main extends Application {
     public static final int EXIT_ERR_LOAD = 2;
     public static final int EXIT_ERR_SAVE = 3;
 
-    private static Logger LOGGER = Logger.getLogger(Main.class.getPackageName());
+
+
+    public static Logger LOGGER = Logger.getLogger(Main.class.getPackageName());
     private static LogManager logManager = LogManager.getLogManager();
 
     static {
@@ -46,15 +49,8 @@ public class Main extends Application {
         stage.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
-                try {
-                    LOGGER.log(Level.INFO, "Sauvegarde...");
-                    Persisteur.sauverEtat(Controller.getModel());
-                }
-                catch (IOException ignored) {
-                    ignored.printStackTrace();
-                    LOGGER.log(Level.WARNING, "Impossible de sauvegarder les données.");
-                    System.exit(Main.EXIT_ERR_SAVE);
-                }
+                JSONPersist.sauvegardeEtat(Controller.getModel());
+                LOGGER.log(Level.INFO, "Sauvegarde de l'état");
             }
         });
 
@@ -66,14 +62,10 @@ public class Main extends Application {
         LOGGER.log(Level.INFO, "Démarrage de l'application.");
 
         MainModel app = new MainModel();
-        try {
-            app = Persisteur.lireEtat();
-            Controller.setModel(app);
-        }
-        catch (ClassNotFoundException | IOException ignored) {
-            LOGGER.log(Level.SEVERE, "Impossible de charger les données de sauvegarde.");
-            System.exit(Main.EXIT_ERR_LOAD);
-        }
+        JSONPersist.restaureEtat(app);
+
+        Controller.setModel(app);
+
 
         launch();
 

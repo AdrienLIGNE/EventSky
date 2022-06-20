@@ -199,5 +199,24 @@ public abstract class Reservable  {
         return minimum;
     }
 
+    /**
+     * Récupère la quantité affecté à un événement
+     * @param e Evenement pour lequel récupérer la quantité
+     */
+    public int getQuantiteAffecte(Evenement e) {
+
+        int i = 0;
+
+        // On cherche l'évenement en question
+        while(i < affectation_evenements.size() && !affectation_evenements.get(i).getEvenement().equals(e)) {
+
+        }
+        if(i < affectation_evenements.size()) {
+            return affectation_evenements.get(i).getQuantite();
+        }
+
+        return 0;
+    }
+
 
 }
