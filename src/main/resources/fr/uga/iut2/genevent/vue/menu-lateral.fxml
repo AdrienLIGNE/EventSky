@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="250.0" style="-fx-background-color: #171717;" stylesheets="@styles/styles.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="250.0" style="-fx-background-color: #171717;" stylesheets="@styles/styles.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
         <children>
             <Label text="GenEvent" textFill="WHITE">
                 <font>
@@ -16,7 +16,7 @@
                     <Insets bottom="10.0" />
                 </VBox.margin>
             </Label>
-            <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Accueil" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#accueilClick" styleClass="menu-button" text=" Accueil" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>

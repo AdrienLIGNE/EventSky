@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.modele;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -8,7 +9,7 @@ import java.io.Serializable;
 public class Materiel extends Reservable  {
 
     private StringProperty label;
-    private TypeMateriel type;
+    private ObjectProperty<TypeMateriel> type;
 
     /**
      * Constructeur de matériel avec seulement le label, quantité initiale à 0
@@ -26,10 +27,10 @@ public class Materiel extends Reservable  {
     }
 
     public void setType(TypeMateriel type) {
-        this.type = type;
+        this.type.set(type);
     }
 
-    public TypeMateriel getType() {
+    public ObjectProperty<TypeMateriel> getType() {
         return type;
     }
 

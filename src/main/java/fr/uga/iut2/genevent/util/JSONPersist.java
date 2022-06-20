@@ -95,6 +95,7 @@ public class JSONPersist {
             JSONObject evenement = new JSONObject();
 
             evenement.put("nom", e.getNomEvenement().getValue());
+            evenement.put("nom_artiste", e.getNomArtiste().getValue());
             evenement.put("date_debut", e.getDateDebut().toString());
             evenement.put("date_fin", e.getDateFin().toString());
             evenement.put("lieu", e.getLieu().getNom().getValue());
@@ -237,6 +238,7 @@ public class JSONPersist {
                 JSONObject evenement = (JSONObject) evenements_list.get(i);
 
                 String nom = (String) evenement.get("nom");
+                String nom_artiste = (String) evenement.get("nom_artiste");
                 String date_debut = (String) evenement.get("date_debut");
                 String date_fin = (String) evenement.get("date_fin");
                 String lieu = (String) evenement.get("lieu");
@@ -247,6 +249,7 @@ public class JSONPersist {
                 Evenement e = new Evenement(LocalDate.parse(date_debut), LocalDate.parse(date_fin), nom, getTypeEvenementByName(type));
 
                 e.setLieu(getLieuByName(app, lieu));
+                e.setNomArtiste(nom_artiste);
                 e.setNbPersonnes(nb_personnes);
 
                 // on récupère la liste des matériels

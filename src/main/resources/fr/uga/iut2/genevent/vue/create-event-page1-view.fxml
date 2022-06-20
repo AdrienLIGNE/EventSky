@@ -32,22 +32,23 @@
          <rowConstraints>
             <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
             <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.39999999999999" minHeight="32.40000762939452" prefHeight="32.40000762939452" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="68.39999237060547" minHeight="50.0" prefHeight="68.39999237060547" valignment="CENTER" vgrow="SOMETIMES" />
             <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
             <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Nom de l'artiste/groupe *" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="25.0" right="7.5" />
+                  <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de début *" GridPane.rowIndex="3">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de début *" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de fin *" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de fin *" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
@@ -68,18 +69,18 @@
                </GridPane.margin></Label>
             <TextField fx:id="nom_artiste_tf" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Revesty" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="25.0" left="7.5" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="date_debut_dp" prefHeight="25.0" prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <DatePicker fx:id="date_debut_dp" prefHeight="25.0" prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker fx:id="date_fin_dp" prefHeight="25.0" prefWidth="200.0" promptText="30/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <DatePicker fx:id="date_fin_dp" prefHeight="25.0" prefWidth="200.0" promptText="30/09/22" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin></DatePicker>
@@ -88,6 +89,19 @@
                   <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
             </Spinner>
+            <Label alignment="CENTER_RIGHT" layoutX="13.0" layoutY="92.0" prefHeight="25.0" prefWidth="200.0" text="Nom de l'événement" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="25.0" right="7.5" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="nom_tf" layoutX="228.0" layoutY="92.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Concert de Revesty" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="7.5" />
+               </GridPane.margin>
+            </TextField>
          </children>
          <VBox.margin>
             <Insets top="15.0" />
