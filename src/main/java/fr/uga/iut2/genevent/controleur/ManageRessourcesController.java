@@ -44,7 +44,9 @@ public class ManageRessourcesController extends Controller implements Initializa
     @FXML private Button modifier_btn;
     @FXML private Button supprimer_btn;
 
+    //les contrôleurs des items include
     @FXML private InfosMaterielController infos_materielController;
+    @FXML private InfosPersonnelController infos_personnelController;
 
     // Les onglets permette de savoir quel type de ressource on gère
     @FXML private TabPane onglets;
@@ -205,7 +207,10 @@ public class ManageRessourcesController extends Controller implements Initializa
             if (e.getClickCount() == 1){
                 if (getOngletActif() == MATERIEL_TAB){
                     infos_materielController.setMateriel((Materiel) getSelectedRessource());
-                    infos_materielController.affiche();
+                }if (getOngletActif() == PERSONNEL_TAB){
+                    infos_personnelController.setPersonnel((Personnel) getSelectedRessource());
+                }if (getOngletActif() == LIEU_TAB){
+
                 }
             }
             // Si c'est un double click alors on ouvre l'édition

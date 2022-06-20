@@ -18,9 +18,10 @@ public class InfosMaterielController extends Controller{
 
     public void setMateriel(Materiel materiel){
         this.materiel = materiel;
+        affiche();
     }
 
-    public void affiche(){
+    private void affiche(){
         if (this.materiel != null){
             setType(materiel.getType().getLibelle());
             setNom(materiel.getLabel().get());
