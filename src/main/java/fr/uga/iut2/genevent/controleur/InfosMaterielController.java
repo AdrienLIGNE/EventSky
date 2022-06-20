@@ -31,7 +31,7 @@ public class InfosMaterielController extends Controller{
 
     private void affiche(){
         if (this.materiel != null){
-            setType(new SimpleObjectProperty<>());
+            setType(materiel.getType());
             setNom(materiel.getLabel());
             setQuantite(materiel.getQuantiteDisponibleProperty());
         }else {
