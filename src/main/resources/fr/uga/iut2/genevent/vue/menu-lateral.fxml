@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="250.0" style="-fx-background-color: #171717;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="250.0" style="-fx-background-color: #171717;" stylesheets="@styles/styles.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
         <children>
             <Label text="GenEvent" textFill="WHITE">
                 <font>
@@ -16,7 +16,7 @@
                     <Insets bottom="10.0" />
                 </VBox.margin>
             </Label>
-            <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Accueil" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Accueil" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -34,7 +34,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#manageRessourceClick" styleClass="menu-button" text="Gestion des ressources" textFill="WHITE">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#manageRessourceClick" styleClass="menu-button" text=" Gestion des ressources" textFill="WHITE">
                 <VBox.margin>
                     <Insets bottom="5.0" />
                 </VBox.margin>
@@ -51,7 +51,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#manageEventClick" styleClass="menu-button" text="Gestion des événements" textFill="WHITE">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#manageEventClick" styleClass="menu-button" text=" Gestion des événements" textFill="WHITE">
                 <VBox.margin>
                     <Insets bottom="5.0" />
                 </VBox.margin>
@@ -68,7 +68,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Outils" textFill="WHITE">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Outils" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -84,7 +84,7 @@
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font></Button>
-            <Button layoutX="10.0" layoutY="143.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Tâches" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="143.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Tâches" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -102,7 +102,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Statistiques" textFill="WHITE">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Statistiques" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -119,7 +119,7 @@
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font></Button>
-            <Button layoutX="10.0" layoutY="208.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text="Paramètres" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="208.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Paramètres" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
