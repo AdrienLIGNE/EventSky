@@ -71,6 +71,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
     @Override
     public boolean verifieSaisies() {
+        boolean valide = true;
         // TODO: Vérification des valeurs à chaque étapes
 
         if(etape == 1) {
@@ -81,9 +82,15 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
         }
 
-        //...
+        if (etape == 3){
 
-        return true;
+        }
+
+        if (etape == 4){
+
+        }
+
+        return valide;
     }
 
     @FXML
