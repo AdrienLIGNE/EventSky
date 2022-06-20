@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.TypePersonnel;
+import fr.uga.iut2.genevent.util.TextUtilitaire;
 import fr.uga.iut2.genevent.util.VerifUtilitaire;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -100,14 +101,16 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
         //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
         //si on est en edit mode on vérifie seulement si on change le nom du matériel
         if (this.isOnEditMode()){
-            if (this.getElementModifie() == null || !nom_tf.getText().equals(this.getElementModifie().getNom().get())){
-                if (VerifUtilitaire.existeDejaPersonnel(nom_tf.getText(),this.getModel().getPersonnels())){
+            String nom = TextUtilitaire.capitalize(nom_tf.getText());
+            if (this.getElementModifie() == null || !nom.equals(this.getElementModifie().getNom().get())){
+                if (VerifUtilitaire.existeDejaPersonnel(nom,this.getModel().getPersonnels())){
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
                 }
             }
         }else {
-            if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaPersonnel(nom_tf.getText(), this.getModel().getPersonnels())) {
+            String nom = TextUtilitaire.capitalize(nom_tf.getText());
+            if (nom.isEmpty() || VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())) {
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
             }
