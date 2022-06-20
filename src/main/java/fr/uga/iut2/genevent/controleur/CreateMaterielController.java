@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.TypeMateriel;
+import fr.uga.iut2.genevent.util.VerifUtilitaire;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -33,6 +38,19 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
 
     }
 
+
+    @FXML
+    private void onUploadButtonClick(MouseEvent event){
+        FileChooser fileChooser = new FileChooser();
+
+        File fileChosen = fileChooser.showOpenDialog(nom_tf.getScene().getWindow());
+        Image image = new Image(fileChosen.toURI().toString());
+
+        //rajouter un imageview et un label pour l'image uploadee
+        //iv.setImage(image);
+        //lblImageName.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
+    }
+
     @Override
     public void setEditMode(Materiel materiel) {
         super.setEditMode(materiel);
@@ -43,29 +61,61 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
     }
 
     @FXML
-    private void confirmButtonClick(ActionEvent e) {
+    public void confirmButtonClick(ActionEvent e) {
         String nom = nom_tf.getText();
         int quantite = quantite_s.getValue();
         TypeMateriel type = typeMateriel_cb.getValue();
 
-        // TODO: Vérifier les informations saisies
+        if (verifieSaisies()) {
+            if (isOnEditMode()) {
+                getElementModifie().setLabel(nom);
+                getElementModifie().setQuantiteDisponible(quantite);
+                getElementModifie().setType(type);
+            } else {
+                Materiel materiel = new Materiel(nom, type, quantite);
+                getModel().addMateriel(materiel);
+            }
 
-        if(isOnEditMode()) {
-            getElementModifie().setLabel(nom);
-            getElementModifie().setQuantiteDisponible(quantite);
-            getElementModifie().setType(type);
+            exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
-        else {
-            Materiel materiel = new Materiel(nom, type, quantite);
-            getModel().addMateriel(materiel);
-        }
-
-        exitStage(Controller.getStageFromNode((Node) e.getTarget()));
     }
 
     @Override
     public boolean verifieSaisies() {
-        // TODO
-        return false;
+        boolean b = true;
+        String ancienNom = null;
+
+        if (this.getElementModifie() != null) {
+            ancienNom = this.getElementModifie().getLabel().get();
+        }
+
+        //on reset les bordures
+        nom_tf.setStyle("-fx-border-color: black;");
+        typeMateriel_cb.setStyle("-fx-border-color: black;");
+
+        //vérification des champs
+
+        //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
+        //si on est en edit mode on vérifie seulement si on change le nom du matériel
+        if (this.isOnEditMode()){
+            if (!nom_tf.getText().equals(ancienNom) | ancienNom == null){
+                if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(),this.getModel().getMateriels())){
+                    nom_tf.setStyle("-fx-border-color: red;");
+                    b = false;
+                }
+            }
+        }else {
+            if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
+                nom_tf.setStyle("-fx-border-color: red;");
+                b = false;
+            }
+        }
+        //verification du combobox
+        if (typeMateriel_cb.getValue() == null){
+            typeMateriel_cb.setStyle("-fx-border-color: red;");
+            System.out.println(typeMateriel_cb.getValue());
+            b = false;
+        }
+        return b;
     }
 }

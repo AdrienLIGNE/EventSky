@@ -1,18 +1,21 @@
 package fr.uga.iut2.genevent.modele;
 
 import fr.uga.iut2.genevent.util.TextUtilitaire;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Classe représentant la notion de personnel
  * Personnel peut être affecté à un ou plusieurs événements
  */
-public class Personnel extends Reservable {
+public class Personnel extends Reservable  {
 
-    private TypePersonnel type;
+    private ObjectProperty<TypePersonnel> type;
 
     private StringProperty nom;
     private String prenom;
@@ -23,11 +26,13 @@ public class Personnel extends Reservable {
         this.nom = new SimpleStringProperty();
         this.mail = new SimpleStringProperty();
         this.numero = new SimpleStringProperty();
+        this.type = new SimpleObjectProperty<>();
 
         setNom(nom);
+        setType(type);
+
         //setPrenom(prenom);
         this.prenom = "";
-        this.type = type;
     }
 
     public void setNom(String nom) {
@@ -59,19 +64,19 @@ public class Personnel extends Reservable {
     }
 
     public void setType(TypePersonnel type) {
-        this.type = type;
+        this.type.set(type);
     }
 
     public String getPrenom() {
         return prenom;
     }
 
-    public TypePersonnel getTypeEmploi() {
+    public ObjectProperty<TypePersonnel> getTypeEmploi() {
         return type;
     }
 
     public double getSalaireHoraire(){
-        return this.type.getSalaire();
+        return this.type.get().getSalaire();
     }
 
     /**
@@ -80,7 +85,7 @@ public class Personnel extends Reservable {
      * @return salaire horaire multiplié par le nombre d'heure
      */
     public double getPrixDuree(double nbHeure){
-        return this.type.getSalaire()*nbHeure;
+        return this.type.get().getSalaire()*nbHeure;
     }
 
 }

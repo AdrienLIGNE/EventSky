@@ -12,19 +12,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
  * Classe controlleur principale, gère l'affichage et le lien avec les données
  */
-public class ManageEventController extends Controller implements Initializable{
+public class ManageEventController extends Controller implements Initializable {
 
-    @FXML private ListView<Evenement> list_brouillon;
-    @FXML private ListView<Evenement> list_evenement;
+    @FXML
+    private ListView<Evenement> list_brouillon;
+    @FXML
+    private ListView<Evenement> list_evenement;
 
 
     @Override
@@ -40,34 +44,22 @@ public class ManageEventController extends Controller implements Initializable{
         });
     }
 
-    @FXML
-    private void click(ActionEvent e) {
-        System.out.println("test");
-    }
 
     @FXML
-    private void showInfosEvenementClick(MouseEvent e) {
-        System.out.println("lets go");
-    }
+    private void createEventButtonClick() {
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
+        fxmlLoader.setController(new CreateEventController());
+        Stage stage = new Stage();
 
-    @FXML
-    private void gestionRessourcesClick(ActionEvent event){
         try {
-            // Chargement de la nouvelle interface
-            FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-content-view.fxml"));
-            fxmlLoader.setController(new ManageRessourcesController());
             Scene scene = new Scene(fxmlLoader.load());
-
-            // Création d'un nouveau stage
-            Stage stage = (Stage) ((Button) event.getTarget()).getScene().getWindow();
-            stage.setTitle("Gestion des ressources");
-            // affectation de la nouvelle scène au stage et affichage
             stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+
             stage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
+            // TODO: Logger
             e.printStackTrace();
         }
     }
-
-
 }

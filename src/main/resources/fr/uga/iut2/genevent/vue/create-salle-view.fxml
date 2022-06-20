@@ -8,7 +8,7 @@
 
 <VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.CreateLieuController">
     <children>
-        <Label prefHeight="25.0" prefWidth="550.0" text="Ajouter un lieu">
+        <Label fx:id="title" prefHeight="25.0" prefWidth="550.0" text="Ajouter un lieu">
             <font>
                 <Font size="21.0" />
             </font>
@@ -61,12 +61,12 @@
                         <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
-                <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
+                <ComboBox fx:id="type_cb" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
                 </ComboBox>
-                <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Salle Jean-Pierre" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="nom_tf" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Salle Jean-Pierre" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" />
                     </GridPane.margin>
@@ -74,7 +74,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
                 </TextField>
-                <Button alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <Button alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#onUploadButtonClick" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="7">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
@@ -90,7 +90,7 @@
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin></Label>
-                <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="36 avenue de Millet" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TextField fx:id="adresse_tf" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="36 avenue de Millet" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
@@ -98,7 +98,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
                 </TextField>
-            <Spinner minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Spinner fx:id="capacite_s" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
@@ -108,7 +108,7 @@
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="172.0" layoutY="58.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Bâtiment culturel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="adresse2_tf" layoutX="172.0" layoutY="58.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Bâtiment culturel" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
@@ -116,7 +116,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <TextField layoutX="172.0" layoutY="77.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="06021" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="code_postal_tf" layoutX="172.0" layoutY="77.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="06021" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
@@ -129,7 +129,7 @@
                   <Insets bottom="25.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="232.0" layoutY="96.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Roche" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="ville_tf" layoutX="232.0" layoutY="96.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Roche" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
@@ -153,7 +153,7 @@
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
-                <Button mnemonicParsing="false" text="Confirmer">
+                <Button mnemonicParsing="false" onAction="#confirmButtonClick" text="Confirmer">
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>

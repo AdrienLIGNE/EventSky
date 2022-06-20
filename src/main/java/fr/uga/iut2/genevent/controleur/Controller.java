@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.MainModel;
 import javafx.event.ActionEvent;
+import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
@@ -15,24 +16,29 @@ public abstract class Controller {
         app = new MainModel();
     }
 
-    public MainModel getModel() {
+
+    public static void setModel(MainModel a) {
+        app = app;
+    }
+
+    public static MainModel getModel() {
         return app;
     }
 
 
     /**
      * Méthode permettant de récupérer le stage d'un élément.
-     * @param n élément
+     * @param e élément
      * @return Le stage associé à l'événement.
      */
-    public static Stage getStageFromNode(Node n) {
-        return (Stage) n.getScene().getWindow();
+    public static Stage getStageFromTarget(EventTarget e) {
+        return (Stage) ((Node) e).getScene().getWindow();
     }
 
 
     @FXML
     private void exitButtonClick(ActionEvent e) {
-        Stage stage = Controller.getStageFromNode((Node) e.getTarget());
+        Stage stage = Controller.getStageFromTarget(e.getTarget());
         stage.close();
     }
 

@@ -69,6 +69,10 @@ class ReservableTest {
         assertTrue(chaises.estDisponible(LocalDate.of(2022, 7, 13)));
         assertTrue(chaises.estDisponible(LocalDate.of(2022, 7, 14)));
         assertTrue(chaises.estDisponible(LocalDate.of(2022, 7, 15)));
+
+        // Test avec des intervals
+        assertTrue(chaises.estDisponible(LocalDate.of(2022, 7, 20), LocalDate.of(2022, 8, 10)));
+        assertFalse(chaises.estDisponible(LocalDate.of(2022, 6, 20), LocalDate.of(2022, 8, 10)));
     }
 
     @Test

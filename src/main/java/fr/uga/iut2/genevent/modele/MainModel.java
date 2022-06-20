@@ -3,6 +3,7 @@ package fr.uga.iut2.genevent.modele;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -58,13 +59,13 @@ public class MainModel {
     /**
      * Récupère tout les reservables disponibles un jour donné
      */
-    public ObservableList getReservablesDisponibles(ObservableList reservables, LocalDate date) {
+    public ObservableList getReservablesDisponibles(ObservableList reservables, LocalDate dateDebut, LocalDate dateFin) {
         ObservableList<Reservable> indisponible = FXCollections.observableArrayList();
 
         //On regarde pour chaque item réservable, si il est disponible le jour donné
         for(int i = 0; i < reservables.size(); i++) {
             Reservable r = (Reservable) reservables.get(i);
-            if(!r.estDisponible(date)) {
+            if(!r.estDisponible(dateDebut, dateFin)) {
                 indisponible.add(r);
             }
         }
@@ -76,19 +77,34 @@ public class MainModel {
     }
 
     /**
-     * Retourne la liste des lieux disponible un jour donné
-     * @param date
+     * Retourne la liste des lieux disponible dans une intervalle de date
+     * @param dateDebut date de début
+     * @param dateFin date de fin
      * @return
      */
-    public ObservableList<Lieu> getLieuxDisponibles(LocalDate date) {
-        return getReservablesDisponibles(lieux, date);
+    public ObservableList<Lieu> getLieuxDisponibles(LocalDate dateDebut, LocalDate dateFin) {
+        return getReservablesDisponibles(lieux, dateDebut, dateFin);
     }
 
-    public ObservableList<Personnel> getPersonnelDisponibles(LocalDate date) {
-        return getReservablesDisponibles(personnels, date);
+    public ObservableList<Personnel> getPersonnelDisponibles(LocalDate dateDebut, LocalDate dateFin) {
+        return getReservablesDisponibles(personnels, dateDebut, dateFin);
     }
 
-    public ObservableList<Materiel> getMaterielDisponibles(LocalDate date) {
-        return getReservablesDisponibles(materiels, date);
+    public ObservableList<Materiel> getMaterielDisponibles(LocalDate dateDebut, LocalDate dateFin) {
+        return getReservablesDisponibles(materiels, dateDebut, dateFin);
+    }
+
+    /**
+     * Supprime un élément reservable parmis les lieux, matériel et événements
+     * @param r reservable
+     */
+    public void removeReservable(Reservable r) {
+        materiels.remove(r);
+        lieux.remove(r);
+        personnels.remove(r);
+    }
+
+    public void addEvenement(Evenement e) {
+        evenements.add(e);
     }
 }

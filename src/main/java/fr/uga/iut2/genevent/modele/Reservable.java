@@ -3,6 +3,7 @@ package fr.uga.iut2.genevent.modele;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Classe permettant de rendre un élément réservable
  */
-public abstract class Reservable {
+public abstract class Reservable  {
 
     private IntegerProperty quantiteDisponible;
     private ArrayList<TupleQuantiteEvenement> affectation_evenements;
@@ -65,6 +66,10 @@ public abstract class Reservable {
         return quantiteDisponible;
     }
 
+    /**
+     * Retourne la quantité disponible en général (le maximum)
+     * @return
+     */
     public int getQuantiteDisponible() {
         return quantiteDisponible.get();
     }
@@ -139,7 +144,8 @@ public abstract class Reservable {
      * @return vrai si c'est disponible sur l'intégralité de la plage
      */
     public boolean estDisponible(LocalDate dateDebut, LocalDate dateFin, int quantite) {
-        List<LocalDate> dates = dateDebut.datesUntil(dateFin).collect(Collectors.toList());
+        // On ajoute 1 à la date de fin car sinon elle n'est pas comprise dans l'interval
+        List<LocalDate> dates = dateDebut.datesUntil(dateFin.plusDays(1)).collect(Collectors.toList());
 
         // On regarde pour chaque jour si c'est disponible
         int i = 0;
@@ -167,6 +173,30 @@ public abstract class Reservable {
      */
     public int getQuantiteDisponible(LocalDate date) {
         return getQuantiteDisponible() - calculeQuantiteReserve(date);
+    }
+
+    /**
+     * Retourne la quantité disponible pour un interval donné
+     * @param dateDebut date de début
+     * @param dateFin date de fin
+     * @return quantité disponible
+     */
+    public int getQuantiteDisponible(LocalDate dateDebut, LocalDate dateFin) {
+        // On ajoute 1 à la date de fin car sinon elle n'est pas comprise dans l'interval
+        List<LocalDate> dates = dateDebut.datesUntil(dateFin.plusDays(1)).collect(Collectors.toList());
+
+        int minimum = getQuantiteDisponible();
+
+        // On regarde pour chaque jour la quantité disponible et on garde le minimum
+        for(LocalDate d : dates) {
+            int dispo = getQuantiteDisponible(d);
+
+            if(dispo < minimum){
+                minimum = dispo;
+            }
+        }
+
+        return minimum;
     }
 
 

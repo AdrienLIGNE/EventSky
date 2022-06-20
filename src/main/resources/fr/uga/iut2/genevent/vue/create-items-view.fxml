@@ -75,7 +75,7 @@
                   <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
             </Spinner>
-            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onUploadButtonClick" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>

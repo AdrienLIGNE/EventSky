@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefHeight="25.0" prefWidth="550.0" text="Créer un évènement">
+      <Label fx:id="title" prefHeight="25.0" prefWidth="550.0" text="Créer un évènement">
          <font>
             <Font size="21.0" />
          </font>
@@ -15,7 +15,7 @@
             <Insets left="15.0" top="15.0" />
          </VBox.margin>
       </Label>
-      <Label prefHeight="15.0" prefWidth="550.0" text="Étape 1 - Description de l'évènement créé">
+      <Label prefHeight="15.0" prefWidth="550.0" text="Étape 1/4 - Description de l'évènement créé">
          <VBox.margin>
             <Insets left="15.0" />
          </VBox.margin></Label>
@@ -57,7 +57,7 @@
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <ComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
+            <ComboBox fx:id="type_cb" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Sélectionner" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
@@ -66,7 +66,7 @@
                <GridPane.margin>
                   <Insets bottom="25.0" right="7.5" />
                </GridPane.margin></Label>
-            <TextField maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Revesty" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="nom_artiste_tf" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Revesty" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
@@ -74,16 +74,16 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <DatePicker prefHeight="25.0" prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <DatePicker fx:id="date_debut_dp" prefHeight="25.0" prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker prefHeight="25.0" prefWidth="200.0" promptText="30/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <DatePicker fx:id="date_fin_dp" prefHeight="25.0" prefWidth="200.0" promptText="30/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin></DatePicker>
-            <Spinner minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Spinner fx:id="nb_personnes_s" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
@@ -95,15 +95,15 @@
       </GridPane>
       <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="550.0">
          <children>
-            <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" text="Précédent">
+            <Button cancelButton="true" layoutX="407.0" layoutY="74.0" mnemonicParsing="false" onAction="#exitButtonClick" text="Annuler">
                <HBox.margin>
                   <Insets bottom="15.0" right="15.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Suivant">
+            <Button disable="true" mnemonicParsing="false" text="Précedent">
                <HBox.margin>
                   <Insets bottom="15.0" right="15.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Publier">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#nextButtonClick" text="Suivant">
                <HBox.margin>
                   <Insets bottom="15.0" right="15.0" />
                </HBox.margin></Button>

@@ -12,10 +12,10 @@ class MainApplicationTest {
     void testGetLieuDisponible() {
         MainModel app = new MainModel();
 
-        Lieu lieu1 = new Lieu(0, "Test");
-        Lieu lieu2 = new Lieu(0, "Test1");
-        Lieu lieu3 = new Lieu(0, "Test2");
-        Lieu lieu4 = new Lieu(0, "Test3");
+        Lieu lieu1 = new Lieu(0, "Test", 100, TypeLieu.GYMNASE);
+        Lieu lieu2 = new Lieu(0, "Test1", 100, TypeLieu.GYMNASE);
+        Lieu lieu3 = new Lieu(0, "Test2", 100, TypeLieu.GYMNASE);
+        Lieu lieu4 = new Lieu(0, "Test3", 100, TypeLieu.GYMNASE);
 
         app.addLieu(lieu1);
         app.addLieu(lieu2);
@@ -31,7 +31,7 @@ class MainApplicationTest {
         evenement.setLieu(lieu1);
         evenement.confirme();
 
-        for(Lieu l : app.getLieuxDisponibles(LocalDate.of(2022, 10, 5))) {
+        for(Lieu l : app.getLieuxDisponibles(LocalDate.of(2022, 10, 5), LocalDate.of(2022, 10, 5))) {
             assertTrue(l.estDisponible(LocalDate.of(2022, 10, 5)), "Le lieu ne devrait pas être disponible.");
         }
 

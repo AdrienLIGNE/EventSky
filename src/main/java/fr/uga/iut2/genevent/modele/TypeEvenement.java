@@ -1,5 +1,7 @@
 package fr.uga.iut2.genevent.modele;
 
+import java.io.Serializable;
+
 public enum TypeEvenement {
     THEATRE("Théâtre", "Pièce de théâtre"),
     CONCERT("Concert", ""),
@@ -24,5 +26,10 @@ public enum TypeEvenement {
 
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public String toString() {
+        return getNom();
     }
 }
