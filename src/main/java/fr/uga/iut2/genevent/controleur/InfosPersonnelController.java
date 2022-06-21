@@ -7,13 +7,14 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class InfosPersonnelController extends Controller{
-    @FXML private TextField tf_type;
-    @FXML private TextField tf_nom;
-    @FXML private TextField tf_mail;
-    @FXML private TextField tf_tel;
+    @FXML private Label lbl_type;
+    @FXML private Label lbl_nom;
+    @FXML private Label lbl_mail;
+    @FXML private Label lbl_tel;
 
     private Personnel personnel;
 
@@ -35,24 +36,24 @@ public class InfosPersonnelController extends Controller{
     }
 
     private void setNom(StringProperty nom){
-        tf_nom.textProperty().bind(nom);
+        lbl_nom.textProperty().bind(nom);
     }
 
     private void setType(ObjectProperty<TypePersonnel> type){
-        tf_type.setText(type.get().getLibelle());
+        lbl_type.setText(type.get().getLibelle());
         type.addListener(new ChangeListener<TypePersonnel>() {
             @Override
             public void changed(ObservableValue<? extends TypePersonnel> observableValue, TypePersonnel typePersonnel, TypePersonnel t1) {
-                tf_type.setText(t1.getLibelle());
+                lbl_type.setText(t1.getLibelle());
             }
         });
     }
 
     private void setMail(StringProperty mail){
-        tf_mail.textProperty().bind(mail);
+        lbl_mail.textProperty().bind(mail);
     }
 
     private void setTel(StringProperty tel){
-        tf_tel.textProperty().bind(tel);
+        lbl_tel.textProperty().bind(tel);
     }
 }

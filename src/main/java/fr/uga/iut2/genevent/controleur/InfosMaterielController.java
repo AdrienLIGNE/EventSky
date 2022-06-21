@@ -8,19 +8,20 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.beans.property.StringProperty;
 
 
 public class InfosMaterielController extends Controller{
     @FXML
-    TextField tf_type;
+    Label lbl_type;
 
     @FXML
-    TextField tf_nom;
+    Label lbl_nom;
 
     @FXML
-    TextField tf_quantite;
+    Label lbl_quantite;
 
     private Materiel materiel;
 
@@ -40,20 +41,20 @@ public class InfosMaterielController extends Controller{
     }
 
     private void setType(ObjectProperty<TypeMateriel> type){
-        tf_type.setText(type.get().getLibelle());
+        lbl_type.setText(type.get().getLibelle());
         type.addListener(new ChangeListener<TypeMateriel>() {
             @Override
             public void changed(ObservableValue<? extends TypeMateriel> observableValue, TypeMateriel typeMateriel, TypeMateriel t1) {
-                tf_type.setText(t1.getLibelle());
+                lbl_type.setText(t1.getLibelle());
             }
         });
     }
 
     private void setNom(StringProperty nom){
-        tf_nom.textProperty().bind(nom);
+        lbl_nom.textProperty().bind(nom);
     }
 
     private void setQuantite(IntegerProperty quantite) {
-        tf_quantite.textProperty().bind(quantite.asString());
+        lbl_quantite.textProperty().bind(quantite.asString());
     }
 }
