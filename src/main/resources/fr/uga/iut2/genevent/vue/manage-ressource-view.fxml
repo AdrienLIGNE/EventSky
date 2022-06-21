@@ -30,13 +30,13 @@
                                                 <Insets bottom="15.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <ListView fx:id="materiel_list" onMouseClicked="#listViewEvent" prefHeight="465.0" prefWidth="477.0" />
+                                          <ListView fx:id="materiel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0" />
                                        </children>
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
                                     </VBox>
-                                    <fx:include source="infos-materiel.fxml" fx:id="infos_materiel"/>
+                                    <fx:include fx:id="infos_materiel" source="infos-materiel.fxml" />
                                  </children>
                                  <padding>
                                     <Insets left="15.0" right="7.5" top="15.0" />
@@ -58,13 +58,13 @@
                                                 <Insets bottom="15.0" />
                                              </VBox.margin>
                                          </Label>
-                                         <ListView fx:id="personnel_list" onMouseClicked="#listViewEvent" prefHeight="465.0" prefWidth="477.0" />
+                                         <ListView fx:id="personnel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0" />
                                       </children>
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
                                    </VBox>
-                                   <fx:include source="infos-personnel.fxml" fx:id="infos_personnel"/>
+                                   <fx:include fx:id="infos_personnel" source="infos-personnel.fxml" />
                                 </children>
                                 <padding>
                                    <Insets left="15.0" right="7.5" top="15.0" />
@@ -86,13 +86,13 @@
                                                 <Insets bottom="15.0" />
                                              </VBox.margin>
                                          </Label>
-                                         <ListView fx:id="lieux_list" onMouseClicked="#listViewEvent" prefHeight="465.0" prefWidth="477.0" />
+                                         <ListView fx:id="lieux_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0" />
                                       </children>
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
                                    </VBox>
-                                   <fx:include source="infos-lieu.fxml" fx:id="infos_lieu"/>
+                                   <fx:include fx:id="infos_lieu" source="infos-lieu.fxml" />
                                 </children>
                                 <padding>
                                    <Insets left="15.0" right="7.5" top="15.0" />
