@@ -98,10 +98,11 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
         if(etape == 1) {
             //reinitialisation des bordures des champs
-            type_cb.setStyle("-fx-border-color: black");
-            nom_artiste_tf.setStyle("-fx-border-color: black");
-            date_debut_dp.setStyle("-fx-border-color: black");
-            date_fin_dp.setStyle("-fx-border-color: black");
+            type_cb.setStyle("-fx-border-color: none");
+            nom_artiste_tf.setStyle("-fx-border-color: none");
+            date_debut_dp.setStyle("-fx-border-color: none");
+            date_fin_dp.setStyle("-fx-border-color: none");
+            duree_s.setStyle("-fx-border-color: none");
 
             //verification des champs
             if(type_cb.getValue() == null){
@@ -114,6 +115,12 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                 //vérification que la date de fin n'est pas antérieure à la date de début
                 if (date_debut_dp.getValue().isAfter(date_fin_dp.getValue())){
                     date_fin_dp.setStyle("-fx-border-color: red");
+                    date_debut_dp.setStyle("-fx-border-color: red");
+                    valide = false;
+                }
+                //vérification que la durée n'est pas supérieure au laps de temps sélectionné
+                if (duree_s.getValue() > java.time.temporal.ChronoUnit.DAYS.between(date_debut_dp.getValue(), date_fin_dp.getValue())+1){
+                    duree_s.setStyle("-fx-border-color: red");
                     valide = false;
                 }
             }if (date_debut_dp.getValue() == null){
@@ -127,7 +134,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
         if(etape == 2) {
             //reset de la bordure
-            lieux_list.setStyle("-fx-border-color: black");
+            lieux_list.setStyle("-fx-border-color: none");
 
             if (lieux_list.getSelectionModel().isEmpty()){
                 lieux_list.setStyle("-fx-border-color: red");
@@ -271,6 +278,20 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     private void initEtape() {
         if(etape == 1) {
             type_cb.setItems(FXCollections.observableList(Arrays.asList(TypeEvenement.values())));
+
+            //faire en sorte que l'utilisateur ne puisse sélectionner seulement des dates futures
+            date_debut_dp.setDayCellFactory(picker -> new DateCell() {
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    setDisable(empty || date.compareTo(LocalDate.now()) < 0 );
+                }
+            });
+            date_fin_dp.setDayCellFactory(picker -> new DateCell() {
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    setDisable(empty || date.compareTo(LocalDate.now()) < 0 );
+                }
+            });
 
             type_cb.setValue(type);
             nb_personnes_s.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10000000, nb_personnes));

@@ -90,10 +90,10 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
         boolean b = true;
 
         //on reset les bordures
-        nom_tf.setStyle("-fx-border-color: black;");
-        mail_tf.setStyle("-fx-border-color: black;");
-        numero_tf.setStyle("-fx-border-color: black;");
-        type_cb.setStyle("-fx-border-color: black;");
+        nom_tf.setStyle("-fx-border-color: none;");
+        mail_tf.setStyle("-fx-border-color: none;");
+        numero_tf.setStyle("-fx-border-color: none;");
+        type_cb.setStyle("-fx-border-color: none;");
 
 
         //on verifie les informations entrees
