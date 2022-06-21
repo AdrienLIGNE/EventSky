@@ -43,5 +43,6 @@ public class EvenementItem extends ListCell<Evenement> {
             controller.setDates(evenement.getDateDebut(), evenement.getDateFin());
             setGraphic(itemNode);
         }
+        else setGraphic(null);
     }
 }
