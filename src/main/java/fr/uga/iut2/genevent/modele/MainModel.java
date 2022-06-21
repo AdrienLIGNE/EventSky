@@ -154,4 +154,12 @@ public class MainModel {
     public void addEvenement(Evenement e) {
         evenementsNonConfirme.add(e);
     }
+
+    /**
+     * Ajoute une évènement confirmé
+     * @param e
+     */
+    public void addEvenementConfirme(Evenement e) {
+        evenementsConfirme.add(e);
+    }
 }

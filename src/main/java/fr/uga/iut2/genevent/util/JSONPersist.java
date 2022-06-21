@@ -8,6 +8,8 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.logging.Level;
 
 public class JSONPersist {
@@ -89,7 +91,11 @@ public class JSONPersist {
 
         JSONArray evenements_list = new JSONArray();
 
-        for(Evenement e : app.getEvenementsNonConfirme()) {
+        // On concat les évènements non confirmer avec ceux confirmés
+        Collection<Evenement> evenements = app.getEvenementsNonConfirme();
+        evenements.addAll(app.getEvenementsConfirme());
+
+        for(Evenement e : evenements) {
 
             JSONObject evenement = new JSONObject();
 
@@ -277,12 +283,14 @@ public class JSONPersist {
                     e.addPersonnel(p);
                 }
 
+
                 if(confirme) {
                     e.confirme();
+                    app.addEvenementConfirme(e);
                 }
-
-                app.addEvenement(e);
-
+                else {
+                    app.addEvenement(e);
+                }
             }
 
     }
