@@ -42,7 +42,7 @@ public class MenuController extends Controller {
 
     @FXML
     private void manageEventClick(ActionEvent e) {
-        System.out.println("test");
+        //System.out.println("test");
         Stage stage = Controller.getStageFromTarget(e.getTarget());
 
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-event-view.fxml"));

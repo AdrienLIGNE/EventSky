@@ -90,8 +90,8 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
         }
 
         //on reset les bordures
-        nom_tf.setStyle("-fx-border-color: black;");
-        typeMateriel_cb.setStyle("-fx-border-color: black;");
+        nom_tf.setStyle("-fx-border-color: none;");
+        typeMateriel_cb.setStyle("-fx-border-color: none;");
 
         //vérification des champs
 

@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -42,6 +43,11 @@ public class ManageRessourcesController extends Controller implements Initializa
     @FXML private Button ajouter_btn;
     @FXML private Button modifier_btn;
     @FXML private Button supprimer_btn;
+
+    //les contrôleurs des items include
+    @FXML private InfosMaterielController infos_materielController;
+    @FXML private InfosPersonnelController infos_personnelController;
+    @FXML private InfosLieuController infos_lieuController;
 
     // Les onglets permette de savoir quel type de ressource on gère
     @FXML private TabPane onglets;
@@ -198,6 +204,16 @@ public class ManageRessourcesController extends Controller implements Initializa
         if(getSelectedRessource() != null) {
             activeEditButton(true); // Activation des boutons de modifications
 
+            //si c'est un simple click on affiche les infos sur le coté
+            if (e.getClickCount() == 1){
+                if (getOngletActif() == MATERIEL_TAB){
+                    infos_materielController.setMateriel((Materiel) getSelectedRessource());
+                }if (getOngletActif() == PERSONNEL_TAB){
+                    infos_personnelController.setPersonnel((Personnel) getSelectedRessource());
+                }if (getOngletActif() == LIEU_TAB){
+                    infos_lieuController.setLieu((Lieu) getSelectedRessource());
+                }
+            }
             // Si c'est un double click alors on ouvre l'édition
             if (e.getClickCount() == 2) {
                 editRessource(getSelectedRessource());
