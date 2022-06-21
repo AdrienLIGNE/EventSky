@@ -14,8 +14,10 @@ public class ChoixMaterielQuantite {
     private Spinner<Integer> nb;
     private Materiel mat;
 
+
     public ChoixMaterielQuantite(Materiel m) {
         this.mat = m;
+
     }
 
     public void setSpinner(Spinner<Integer> s, int max) {

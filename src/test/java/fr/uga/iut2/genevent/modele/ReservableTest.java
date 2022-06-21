@@ -17,7 +17,7 @@ class ReservableTest {
         LocalDate fin = LocalDate.of(2022, 10, 6);
 
         // Création de l'événement
-        Evenement evenement = new Evenement(debut, fin, "Concert de Rock", TypeEvenement.CONCERT);
+        Evenement evenement = new Evenement(debut, fin, 0, "Concert de Rock", TypeEvenement.CONCERT);
 
         // Création de personnel
         Personnel personnel1 = new Personnel("LACOMBE", TypePersonnel.VIGILE);
@@ -50,8 +50,8 @@ class ReservableTest {
 
     @Test
     void testDispoAvecQuantite() {
-        Evenement evenement = new Evenement(LocalDate.of(2022, 7, 8), LocalDate.of(2022, 7, 11), "Concert de Rock", TypeEvenement.CONCERT);
-        Evenement evenement2 = new Evenement(LocalDate.of(2022, 7, 10), LocalDate.of(2022, 7, 15), "Spectacle de magie", TypeEvenement.MAGIE);
+        Evenement evenement = new Evenement(LocalDate.of(2022, 7, 8), LocalDate.of(2022, 7, 11), 0,  "Concert de Rock", TypeEvenement.CONCERT);
+        Evenement evenement2 = new Evenement(LocalDate.of(2022, 7, 10), LocalDate.of(2022, 7, 15), 0,  "Spectacle de magie", TypeEvenement.MAGIE);
 
         Materiel chaises = new Materiel("chaise", TypeMateriel.MOBILIER,10);
 
@@ -79,7 +79,7 @@ class ReservableTest {
     void getQuantiteDisponible() {
 
         // Création de l'événement
-        Evenement evenement = new Evenement(LocalDate.of(2022, 10, 5), LocalDate.of(2022, 10, 6), "Concert de Rock", TypeEvenement.CONCERT);
+        Evenement evenement = new Evenement(LocalDate.of(2022, 10, 5), LocalDate.of(2022, 10, 6), 0, "Concert de Rock", TypeEvenement.CONCERT);
 
         Materiel materiel = new Materiel("Chaise", TypeMateriel.MATERIEL_MUSICAL,15);
         evenement.addMateriel(materiel, 10);

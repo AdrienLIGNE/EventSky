@@ -72,8 +72,8 @@ public class ManageEventController extends Controller implements Initializable {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("event-infos-view.fxml"));
 
-                    Stage stage = getStageFromTarget(e.getTarget());
-                    stage.setScene(new Scene(fxmlLoader.load(), 1200, 600));
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(fxmlLoader.load()));
 
                     InfosEventController controller = fxmlLoader.getController();
                     controller.setEvenement(getSelectedEvent());

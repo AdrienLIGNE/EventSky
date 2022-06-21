@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.control.cell.CheckBoxTreeCell;
 import javafx.scene.control.cell.TextFieldListCell;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class CreateEventController extends FormulaireController<Evenement> implements Initializable {
@@ -36,10 +38,11 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     private String nom;
     private LocalDate date_debut;
     private LocalDate date_fin;
+    private int duree;
     private Lieu lieu;
     private ObservableList<ChoixMaterielQuantite> choix_materiel;
     private ObservableList<Personnel> choix_personnel;
-
+    private ObservableList<DatePossible> date_possibles;
 
 
     // Partie 1 - Infos générales
@@ -49,6 +52,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     @FXML private TextField nom_tf;
     @FXML private DatePicker date_debut_dp;
     @FXML private DatePicker date_fin_dp;
+    @FXML private Spinner<Integer> duree_s;
 
     // Partie 2 - Choix du lieu
     @FXML private ListView<Lieu> lieux_list;
@@ -61,14 +65,31 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     @FXML private TextField nom_lieu_tf;
     @FXML private TextField nb_place_tf;
     @FXML private TextField cout_tf;
+    @FXML private ListView<DatePossible> dates_list;
 
     public CreateEventController() {
         etape = 1;
+        duree = 1;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initEtape();
+    }
+
+    @Override
+    public void setEditMode(Evenement evenement) {
+        super.setEditMode(evenement);
+
+        type = evenement.getType().getValue();
+        nb_personnes = evenement.getNbPersonnes().getValue();
+        nom = evenement.getNomEvenement().getValue();
+        nom_artistes = evenement.getNomArtiste().getValue();
+        date_debut = evenement.getDateDebut();
+        date_fin = evenement.getDateFin();
+
+        initEtape();
+
     }
 
     @Override
@@ -181,9 +202,10 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
     @Override
     public void confirmButtonClick(ActionEvent e) {
+
         // Création de l'événement
 
-        Evenement evenement = new Evenement(date_debut, date_fin, nom, type);
+        Evenement evenement = new Evenement(date_debut, date_fin, duree, nom, type);
         evenement.setNbPersonnes(nb_personnes);
         evenement.setLieu(lieu);
         evenement.setNomArtiste(nom_artistes);
@@ -196,8 +218,14 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             evenement.addPersonnel(p);
         }
 
-        evenement.confirme();
-        getModel().addEvenement(evenement);
+        //evenement.confirme();
+
+        if(isOnEditMode()) {
+            // TODO: Modifier événement
+        }
+        else {
+            getModel().addEvenement(evenement);
+        }
         exitStage(Controller.getStageFromTarget(e.getTarget()));
     }
 
@@ -214,14 +242,25 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
             date_debut = date_debut_dp.getValue();
             date_fin = date_fin_dp.getValue();
+            duree = duree_s.getValue();
+
+            date_possibles = DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel);
+            System.out.println(date_possibles);
+
 
         }
         if(etape == 2) {
             lieu = lieux_list.getSelectionModel().getSelectedItem();
+
+            date_possibles = DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel);
+            System.out.println(date_possibles);
         }
         if(etape == 3) {
             choix_materiel = materiel_list.getItems();
             choix_personnel = personnel_list.getSelectionModel().getSelectedItems();
+
+            date_possibles = DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel);
+            System.out.println(date_possibles);
         }
     }
 
@@ -240,11 +279,13 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             nom_tf.setText(nom);
             date_debut_dp.setValue(date_debut);
             date_fin_dp.setValue(date_fin);
+            duree_s.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10000000, duree));
 
         }
         else if(etape == 2) {
             // Choix de la salle
-            lieux_list.setItems(FiltreUtilitaire.filtreLieuByCapacite(getModel().getLieuxDisponibles(date_debut, date_fin), nb_personnes));
+
+            lieux_list.setItems(FiltreUtilitaire.filtreLieuByCapacite(getModel().getLieuDisponibles(date_possibles), nb_personnes));
 
             lieux_list.setCellFactory(new Callback<ListView<Lieu>, ListCell<Lieu>>() {
                 @Override
@@ -263,7 +304,8 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             materiel_list.setCellFactory(new Callback<ListView<ChoixMaterielQuantite>, ListCell<ChoixMaterielQuantite>>() {
                 @Override
                 public ListCell<ChoixMaterielQuantite> call(ListView<ChoixMaterielQuantite> choixMaterielQuantiteListView) {
-                    return new MaterielItemChoice(date_debut, date_fin);
+                    // On lui fournit toutes ces informations pour qu'il puisse calculer les dispos lorsque les dates possibles changent
+                    return new MaterielItemChoice(date_possibles);
                 }
             });
 
@@ -280,6 +322,15 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             nom_lieu_tf.setText(lieu.getNom().getValue());
             nb_place_tf.setText(Integer.toString(nb_personnes));
             nom_artiste_tf.setText(nom_artistes);
+
+            dates_list.setItems(date_possibles);
+
         }
+    }
+
+
+    @FXML
+    private void listViewEvent(MouseEvent e) {
+        //date_possibles.setAll(DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel));
     }
 }

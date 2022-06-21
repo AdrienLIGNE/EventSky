@@ -38,7 +38,7 @@ public class JSONPersist {
 
             materiel.put("nom", m.getLabel().getValue());
             materiel.put("quantite", m.getQuantiteDisponible());
-            materiel.put("type", m.getType().toString());
+            materiel.put("type", m.getType().getValue().toString());
 
 
 
@@ -98,6 +98,7 @@ public class JSONPersist {
             evenement.put("nom_artiste", e.getNomArtiste().getValue());
             evenement.put("date_debut", e.getDateDebut().toString());
             evenement.put("date_fin", e.getDateFin().toString());
+            evenement.put("duree", e.getDuree().getValue());
             evenement.put("lieu", e.getLieu().getNom().getValue());
             evenement.put("confirme", e.isConfirmed());
             evenement.put("type", e.getType().getValue().toString());
@@ -241,12 +242,13 @@ public class JSONPersist {
                 String nom_artiste = (String) evenement.get("nom_artiste");
                 String date_debut = (String) evenement.get("date_debut");
                 String date_fin = (String) evenement.get("date_fin");
+                int duree = (int) (long) evenement.getOrDefault("duree", 0l);
                 String lieu = (String) evenement.get("lieu");
                 boolean confirme = (boolean) evenement.get("confirme");
                 String type = (String) evenement.get("type");
                 int nb_personnes = (int) (long) evenement.get("nb_personnes");
 
-                Evenement e = new Evenement(LocalDate.parse(date_debut), LocalDate.parse(date_fin), nom, getTypeEvenementByName(type));
+                Evenement e = new Evenement(LocalDate.parse(date_debut), LocalDate.parse(date_fin), duree, nom, getTypeEvenementByName(type));
 
                 e.setLieu(getLieuByName(app, lieu));
                 e.setNomArtiste(nom_artiste);

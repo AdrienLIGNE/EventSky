@@ -24,7 +24,7 @@
             <Insets top="15.0" />
          </VBox.margin>
       </Separator>
-      <GridPane prefWidth="220.0">
+      <GridPane prefHeight="243.0" prefWidth="550.0">
          <columnConstraints>
             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="322.0" />
@@ -33,9 +33,10 @@
             <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
             <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="45.39999999999999" minHeight="32.40000762939452" prefHeight="32.40000762939452" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="68.39999237060547" minHeight="50.0" prefHeight="68.39999237060547" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="68.39999237060547" minHeight="39.20000000000002" prefHeight="39.20000000000002" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="-Infinity" prefHeight="36.599999999999994" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.19999999999999" minHeight="-Infinity" prefHeight="17.80000000000001" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="51.00000000000003" minHeight="0.0" prefHeight="50.00000000000003" valignment="CENTER" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Nom de l'artiste/groupe *" GridPane.rowIndex="2" GridPane.valignment="CENTER">
@@ -102,12 +103,22 @@
                   <Insets bottom="25.0" left="7.5" />
                </GridPane.margin>
             </TextField>
+            <Label alignment="CENTER_RIGHT" layoutX="13.0" layoutY="220.0" prefHeight="25.0" prefWidth="200.0" text="Durée *" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="7.5" />
+               </GridPane.margin>
+            </Label>
+            <Spinner fx:id="duree_s" layoutX="228.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="7.5" />
+               </GridPane.margin>
+            </Spinner>
          </children>
          <VBox.margin>
             <Insets top="15.0" />
          </VBox.margin>
       </GridPane>
-      <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="550.0">
+      <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="47.0" prefWidth="550.0">
          <children>
             <Button cancelButton="true" layoutX="407.0" layoutY="74.0" mnemonicParsing="false" onAction="#exitButtonClick" text="Annuler">
                <HBox.margin>
