@@ -46,6 +46,7 @@ public class Evenement {
         setDateDebut(dateDebut);
         setDateFin(dateFin);
         setType(typeEvenement);
+        setDuree(duree);
 
         estConfirme = false;
     }

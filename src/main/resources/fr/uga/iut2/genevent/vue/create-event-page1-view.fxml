@@ -24,7 +24,7 @@
             <Insets top="15.0" />
          </VBox.margin>
       </Separator>
-      <GridPane prefHeight="243.0" prefWidth="550.0">
+      <GridPane prefHeight="278.0" prefWidth="550.0">
          <columnConstraints>
             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="322.0" />
@@ -44,12 +44,12 @@
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de début *" GridPane.rowIndex="4">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Première date possible*" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Estimation date de fin *" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Dernière date possible*" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>

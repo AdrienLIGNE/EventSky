@@ -14,10 +14,21 @@ public class ChoixMaterielQuantite {
     private Spinner<Integer> nb;
     private Materiel mat;
 
+    // Il peut être éditable (spinner) ou fixe (pour l'affichage)
+    private int quantite;
+    private boolean editable;
+
 
     public ChoixMaterielQuantite(Materiel m) {
         this.mat = m;
+        this.editable = true;
 
+    }
+
+    public ChoixMaterielQuantite(Materiel m, int quantite) {
+        this.mat = m;
+        this.editable = false;
+        this.quantite = quantite;
     }
 
     public void setSpinner(Spinner<Integer> s, int max) {
@@ -27,7 +38,10 @@ public class ChoixMaterielQuantite {
     }
 
     public int getQuantite() {
-        return nb.getValue();
+        if(editable)
+            return nb.getValue();
+
+        return quantite;
     }
 
     public Materiel getMateriel() {

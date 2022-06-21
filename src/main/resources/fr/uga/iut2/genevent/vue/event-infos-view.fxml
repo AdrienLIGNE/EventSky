@@ -180,7 +180,7 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Confirmer">
+            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#confirmerEventClick" prefHeight="30.0" prefWidth="120.0" text="Confirmer">
                <font>
                   <Font size="14.0" />
                </font>
