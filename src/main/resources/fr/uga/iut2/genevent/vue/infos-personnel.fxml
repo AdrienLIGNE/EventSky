@@ -19,7 +19,7 @@
    <children>
       <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Type d'emploi :">
          <GridPane.margin>
-            <Insets bottom="5.0" right="7.5" top="30.0" />
+            <Insets bottom="5.0" right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
@@ -47,11 +47,11 @@
          </font></Label>
       <Label fx:id="lbl_type" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1">
          <GridPane.margin>
-            <Insets left="7.5" top="30.0" />
+            <Insets bottom="5.0" left="7.5" />
          </GridPane.margin></Label>
       <Label fx:id="lbl_nom" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="7.5" />
+            <Insets bottom="5.0" left="7.5" />
          </GridPane.margin></Label>
       <Label fx:id="lbl_mail" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
