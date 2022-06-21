@@ -1,8 +1,7 @@
 package fr.uga.iut2.genevent.modele;
 
 import fr.uga.iut2.genevent.Main;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -11,41 +10,58 @@ import java.util.logging.Level;
 
 public class Evenement {
 
-    private int idEvenement;
     private LocalDate dateDebut;
     private LocalDate dateFin;
+    private IntegerProperty duree;
     private StringProperty nomEvenement;
+    private StringProperty nomArtiste;
     private boolean estConfirme;
+
+    private IntegerProperty nbPersonnes;
 
     private Lieu lieu;
 
     private ArrayList<Personnel> personnel;
     private ArrayList<Materiel> materiel;
 
+    private ObjectProperty<TypeEvenement> type;
+
     /**
      * Créé un événement
-     * @param id identifiant de l'événement
      * @param dateDebut date de début de l'événement
      * @param dateFin date de fin de l'événement
      * @param nomEvenement Nom de l'événement
      */
-    public Evenement(int id, LocalDate dateDebut, LocalDate dateFin, String nomEvenement) {
+    public Evenement(LocalDate dateDebut, LocalDate dateFin, int duree, String nomEvenement, TypeEvenement typeEvenement) {
         personnel = new ArrayList<>();
         materiel = new ArrayList<>();
 
         this.nomEvenement = new SimpleStringProperty();
+        this.nbPersonnes = new SimpleIntegerProperty();
+        this.type = new SimpleObjectProperty<>();
+        this.nomArtiste = new SimpleStringProperty();
+        this.duree = new SimpleIntegerProperty();
 
         setNomEvenement(nomEvenement);
         setDateDebut(dateDebut);
         setDateFin(dateFin);
-        setIdEvenement(id);
+        setType(typeEvenement);
+        setDuree(duree);
 
         estConfirme = false;
     }
 
+    public StringProperty getNomArtiste() {
+        return nomArtiste;
+    }
+
+    public void setNomArtiste(String nomArtiste) {
+        this.nomArtiste.set(nomArtiste);
+    }
+
     public void setLieu(Lieu l) {
         l.affecteEvenement(this);
-        this.lieu = lieu;
+        this.lieu = l;
     }
 
     public void addPersonnel(Personnel p) {
@@ -70,17 +86,20 @@ public class Evenement {
         return materiel;
     }
 
-    /**
-     * Modifie l'identifiant de l'événement (plus grand ou égale à 0)
-     * @param idEvenement
-     */
-    public void setIdEvenement(int idEvenement) {
-        if(idEvenement >= 0) {
-            this.idEvenement = idEvenement;
-        }
-        else {
-            this.idEvenement = 0;
-        }
+    public void setType(TypeEvenement type) {
+        this.type.set(type);
+    }
+
+    public void setNbPersonnes(int nbPersonnes) {
+        this.nbPersonnes.set(nbPersonnes);
+    }
+
+    public IntegerProperty getNbPersonnes() {
+        return nbPersonnes;
+    }
+
+    public ObjectProperty<TypeEvenement> getType() {
+        return type;
     }
 
     /**
@@ -99,6 +118,14 @@ public class Evenement {
         this.dateFin = dateFin;
     }
 
+    public void setDuree(int duree) {
+        this.duree.set(duree);
+    }
+
+    public IntegerProperty getDuree() {
+        return duree;
+    }
+
     /**
      * Modifie le nom de l'événement
      * @param nomEvenement nom de l'événement
@@ -107,13 +134,7 @@ public class Evenement {
         this.nomEvenement.set(nomEvenement);
     }
 
-    /**
-     * Récupère l'identifiant de l'évènement
-     * @return identifiant
-     */
-    public int getIdEvenement() {
-        return idEvenement;
-    }
+
 
     public LocalDate getDateDebut() {
         return dateDebut;

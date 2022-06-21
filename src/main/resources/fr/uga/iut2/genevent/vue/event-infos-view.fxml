@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.InfosEventController">
    <children>
       <VBox alignment="CENTER" prefHeight="0.0" prefWidth="800.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label prefHeight="25.0" prefWidth="800.0" text="CONCERT DE 47TER">
+            <Label fx:id="title" prefHeight="25.0" prefWidth="800.0" text="CONCERT DE 47TER">
                <font>
                   <Font size="21.0" />
                </font>
@@ -57,12 +57,12 @@
                         <Insets bottom="25.0" right="7.5" />
                      </GridPane.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="400.0" layoutY="123.0" maxWidth="160.0" prefHeight="25.0" text="Salle occupée " GridPane.rowIndex="1">
+                  <Label alignment="CENTER_RIGHT" layoutX="400.0" layoutY="123.0" maxWidth="160.0" prefHeight="25.0" text="Lieu occupé" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="25.0" right="7.5" />
                      </GridPane.margin>
                   </Label>
-                  <TextField editable="false" layoutX="200.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0" text="ALPEXPO" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="lieu_tf" disable="true" editable="false" layoutX="200.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0" text="ALPEXPO" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin></TextField>
@@ -71,7 +71,7 @@
                         <Insets bottom="25.0" right="7.5" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker editable="false" prefHeight="25.0" prefWidth="200.0" promptText="07/10/2022" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <DatePicker fx:id="date_debut_dp" disable="true" editable="false" prefHeight="25.0" prefWidth="200.0" promptText="07/10/2022" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin></DatePicker>
@@ -80,7 +80,7 @@
                         <Insets bottom="25.0" right="7.5" />
                      </GridPane.margin>
                   </Label>
-                  <TextField editable="false" layoutX="200.0" layoutY="392.0" text="50 000 €" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <TextField fx:id="cout_tf" disable="true" editable="false" layoutX="200.0" layoutY="392.0" text="50 000 €" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin></TextField>
@@ -89,7 +89,7 @@
                         <Insets bottom="25.0" right="7.5" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker editable="false" prefHeight="25.0" prefWidth="200.0" promptText="07/10/2022" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <DatePicker fx:id="date_fin_dp" disable="true" editable="false" prefHeight="25.0" prefWidth="200.0" promptText="07/10/2022" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin>
@@ -99,17 +99,17 @@
                         <Insets bottom="25.0" right="7.5" />
                      </GridPane.margin>
                   </Label>
-                  <TextField editable="false" layoutX="610.0" layoutY="222.0" prefHeight="25.0" prefWidth="200.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField fx:id="nb_personnes_tf" disable="true" editable="false" layoutX="610.0" layoutY="222.0" prefHeight="25.0" prefWidth="200.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0" text="CONCERT DE 47TER" GridPane.columnIndex="1">
+                  <TextField fx:id="nom_tf" disable="true" editable="false" prefHeight="25.0" prefWidth="200.0" text="CONCERT DE 47TER" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField editable="false" text="47TER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <TextField fx:id="nom_artiste_tf" disable="true" editable="false" text="47TER" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -117,7 +117,7 @@
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField editable="false" prefHeight="25.0" text="Concert" GridPane.columnIndex="3">
+                  <TextField fx:id="type_tf" disable="true" editable="false" prefHeight="25.0" text="Concert" GridPane.columnIndex="3">
                      <GridPane.margin>
                         <Insets bottom="25.0" left="7.5" right="15.0" />
                      </GridPane.margin>
@@ -139,12 +139,12 @@
                <children>
                   <Label layoutX="86.0" layoutY="16.0" text="Liste du personnel" GridPane.columnIndex="1" />
                   <Label layoutX="81.0" layoutY="16.0" text="Liste du matériel" />
-                  <ListView fx:id="list_materiel" prefHeight="230.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <ListView fx:id="materiel_list" prefHeight="230.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="15.0" right="7.5" />
                      </GridPane.margin>
                   </ListView>
-                  <ListView fx:id="list_personnel" layoutX="10.0" layoutY="38.0" prefHeight="230.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ListView fx:id="personnel_list" layoutX="10.0" layoutY="38.0" prefHeight="230.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="7.5" right="15.0" />
                      </GridPane.margin>
@@ -173,14 +173,14 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Modifier">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editEvenementClick" prefHeight="30.0" prefWidth="120.0" text="Modifier">
                <HBox.margin>
                   <Insets bottom="15.0" right="15.0" />
                </HBox.margin>
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Confirmer">
+            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#confirmerEventClick" prefHeight="30.0" prefWidth="120.0" text="Confirmer">
                <font>
                   <Font size="14.0" />
                </font>

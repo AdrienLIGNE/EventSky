@@ -2,10 +2,15 @@ package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.controleur.ManageRessourcesController;
 import fr.uga.iut2.genevent.controleur.MaterielItemController;
+import fr.uga.iut2.genevent.modele.DatePossible;
+import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.Materiel;
+import fr.uga.iut2.genevent.modele.Personnel;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -26,16 +31,21 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
     private Node itemNode;
 
     // Les dates servent à calculer la dispo max pour la période afin de configurer le spinner
-    private LocalDate dateDebut;
-    private LocalDate dateFin;
 
-    public MaterielItemChoice(LocalDate dateDebut, LocalDate dateFin) {
+    private ObservableList<DatePossible> datesPossibles;
+
+    public MaterielItemChoice(ObservableList<DatePossible> datePossibles) {
         super();
 
-        // Création du controller
+        this.datesPossibles = datePossibles;
+
+        init();
+    }
+
+
+    private void init() {
+
         controller = new MaterielItemController();
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
 
         // On charge le fxml de l'item
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("materiel-item.fxml"));
@@ -55,7 +65,7 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
 
         if(materiel != null) {
 
-            int quantiteDispo = materiel.getMateriel().getQuantiteDisponible(dateDebut, dateFin);
+            int quantiteDispo = materiel.getMateriel().getQuantiteDisponible(datesPossibles);
 
             controller.setNom(materiel.getMateriel().getLabel());
 
@@ -68,14 +78,9 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
             materiel.getMateriel().getQuantiteDisponibleProperty().addListener(new ChangeListener<Number>() {
                 @Override
                 public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                    int quantiteDispo = materiel.getMateriel().getQuantiteDisponible(dateDebut, dateFin);
-
-                    controller.setDispo(new SimpleIntegerProperty(quantiteDispo));
-                    materiel.setSpinner(controller.getQuantiteSpinner(), quantiteDispo);
-
+                    updateQuantite(materiel);
                 }
             });
-
 
             // On active le mode de choix de quantité
             controller.setChooseQuantiteMode();
@@ -98,6 +103,14 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
             setContextMenu(contextMenu);
         }
         else setGraphic(null);
+    }
+
+
+    private void updateQuantite(ChoixMaterielQuantite materiel) {
+        int quantiteDispo = materiel.getMateriel().getQuantiteDisponible(datesPossibles);
+
+        controller.setDispo(new SimpleIntegerProperty(quantiteDispo));
+        materiel.setSpinner(controller.getQuantiteSpinner(), quantiteDispo);
     }
 
 }

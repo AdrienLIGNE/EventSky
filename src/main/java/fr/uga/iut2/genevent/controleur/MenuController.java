@@ -12,6 +12,19 @@ import java.io.IOException;
 
 public class MenuController extends Controller {
 
+    @FXML
+    private void accueilClick(ActionEvent e) {
+        Stage stage = Controller.getStageFromTarget(e.getTarget());
+
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("main-view.fxml"));
+
+        try {
+            stage.setScene(new Scene(fxmlLoader.load()));
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     @FXML
     private void manageRessourceClick(ActionEvent e) {
@@ -29,7 +42,7 @@ public class MenuController extends Controller {
 
     @FXML
     private void manageEventClick(ActionEvent e) {
-        System.out.println("test");
+        //System.out.println("test");
         Stage stage = Controller.getStageFromTarget(e.getTarget());
 
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-event-view.fxml"));

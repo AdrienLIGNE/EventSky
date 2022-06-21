@@ -18,7 +18,7 @@ public abstract class Controller {
 
 
     public static void setModel(MainModel a) {
-        app = app;
+        app = a;
     }
 
     public static MainModel getModel() {

@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.modele;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -197,6 +198,43 @@ public abstract class Reservable  {
         }
 
         return minimum;
+    }
+
+    /**
+     * Retourne la quantité disponible maximum pour un ensemble de dates possibles
+     * @param dates dates possibles
+     * @return quantité disponible
+     */
+    public int getQuantiteDisponible(ObservableList<DatePossible> dates) {
+        int maximum = 0;
+
+        for(DatePossible date : dates) {
+            int qDispo = getQuantiteDisponible(date.getDateDebut(), date.getDateFin());
+
+            if(qDispo > maximum)
+                maximum = qDispo;
+        }
+
+        return maximum;
+    }
+
+    /**
+     * Récupère la quantité affecté à un événement
+     * @param e Evenement pour lequel récupérer la quantité
+     */
+    public int getQuantiteAffecte(Evenement e) {
+
+        int i = 0;
+
+        // On cherche l'évenement en question
+        while(i < affectation_evenements.size() && !affectation_evenements.get(i).getEvenement().equals(e)) {
+            i++;
+        }
+        if(i < affectation_evenements.size()) {
+            return affectation_evenements.get(i).getQuantite();
+        }
+
+        return 0;
     }
 
 

@@ -48,5 +48,4 @@ public class CreateSalleController {
         Stage stage = (Stage) root.getScene().getWindow();
         stage.close();
     }
-
 }

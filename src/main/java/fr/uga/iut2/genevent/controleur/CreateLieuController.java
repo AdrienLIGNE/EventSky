@@ -86,7 +86,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 getElementModifie().setCodePostal(code_postal);
             }
             else {
-                Lieu lieu = new Lieu(0, nom, capcite_max, type);
+                Lieu lieu = new Lieu(nom, capcite_max, type);
                 lieu.setAdresse(adresse[0]);
                 lieu.setComplementAdresse(adresse[1]);
                 lieu.setCodePostal(code_postal);

@@ -76,7 +76,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 getElementModifie().setType(type);
             } else {
                 // Création d'un nouveau personnel
-                Personnel personnel = new Personnel(nom, "", type);
+                Personnel personnel = new Personnel(nom,  type);
                 personnel.setMail(mail);
                 personnel.setNumero(numero);
                 getModel().addPersonnel(personnel);
