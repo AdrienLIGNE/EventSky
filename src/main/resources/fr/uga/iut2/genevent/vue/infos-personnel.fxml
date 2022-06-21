@@ -11,53 +11,53 @@
     <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="90.0" minHeight="90.0" prefHeight="90.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="55.0" minHeight="55.0" prefHeight="55.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Type d'emploi :">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Type d'emploi :">
          <GridPane.margin>
-            <Insets right="7.5" top="30.0" />
+            <Insets bottom="5.0" right="7.5" top="30.0" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Nom :" GridPane.rowIndex="1">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Nom :" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets right="7.5" />
+            <Insets bottom="5.0" right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Adresse mail :" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets right="7.5" />
-         </GridPane.margin>
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></Label>
-      <Label text="Numéro de téléphone :" GridPane.rowIndex="3">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Adresse mail :" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label fx:id="lbl_type" GridPane.columnIndex="1">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Numéro de téléphone :" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets right="7.5" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label fx:id="lbl_type" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets left="7.5" top="30.0" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_nom" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label fx:id="lbl_nom" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_mail" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label fx:id="lbl_mail" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_tel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label fx:id="lbl_tel" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>
