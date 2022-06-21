@@ -90,6 +90,23 @@ public class InfosEventController extends Controller{
     }
 
 
+    @FXML
+    private void confirmerEventClick(ActionEvent e) {
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("confirm-event-view.fxml"));
+
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(fxmlLoader.load()));
+            ConfirmEventController controller = fxmlLoader.getController();
+            controller.setEvenement(evenement);
+            stage.show();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
 
 
 }

@@ -3,30 +3,48 @@ package fr.uga.iut2.genevent.modele;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Classe de base pour accéder au modèle de données
  */
 public class MainModel {
 
-    private ObservableList<Evenement> evenements;
+    private ObservableList<Evenement> evenementsNonConfirme;
+    private ObservableList<Evenement> evenementsConfirme;
 
     private ObservableList<Lieu> lieux;
     private ObservableList<Personnel> personnels;
     private ObservableList<Materiel> materiels;
 
     public MainModel() {
-        this.evenements = FXCollections.observableArrayList();
+        this.evenementsNonConfirme = FXCollections.observableArrayList();
+        this.evenementsConfirme = FXCollections.observableArrayList();
         this.lieux = FXCollections.observableArrayList();
         this.personnels = FXCollections.observableArrayList();
         this.materiels = FXCollections.observableArrayList();
     }
 
-    public ObservableList<Evenement> getEvenements() {
-        return evenements;
+    public ObservableList<Evenement> getEvenementsNonConfirme() {
+        return evenementsNonConfirme;
+    }
+
+    public ObservableList<Evenement> getEvenementsConfirme() {
+        return evenementsConfirme;
+    }
+
+    /**
+     * Permet de confirmer un évenement
+     * @param evenement évenement à confirmer
+     * @param date Date à laquelle confirmer
+     */
+    public void confirmeEvenement(Evenement evenement, DatePossible date) {
+        evenement.confirme();
+        evenement.setDateDebut(date.getDateDebut());
+        evenement.setDateFin(date.getDateFin());
+
+        evenementsNonConfirme.remove(evenement);
+        evenementsConfirme.add(evenement);
     }
 
     public void addLieu(Lieu lieu) {
@@ -134,6 +152,6 @@ public class MainModel {
     }
 
     public void addEvenement(Evenement e) {
-        evenements.add(e);
+        evenementsNonConfirme.add(e);
     }
 }

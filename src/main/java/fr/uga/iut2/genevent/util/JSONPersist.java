@@ -1,7 +1,6 @@
 package fr.uga.iut2.genevent.util;
 
 import fr.uga.iut2.genevent.Main;
-import fr.uga.iut2.genevent.controleur.Controller;
 import fr.uga.iut2.genevent.modele.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -90,7 +89,7 @@ public class JSONPersist {
 
         JSONArray evenements_list = new JSONArray();
 
-        for(Evenement e : app.getEvenements()) {
+        for(Evenement e : app.getEvenementsNonConfirme()) {
 
             JSONObject evenement = new JSONObject();
 
