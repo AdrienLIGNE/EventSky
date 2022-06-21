@@ -47,6 +47,7 @@ public class ManageRessourcesController extends Controller implements Initializa
     //les contrôleurs des items include
     @FXML private InfosMaterielController infos_materielController;
     @FXML private InfosPersonnelController infos_personnelController;
+    @FXML private InfosLieuController infos_lieuController;
 
     // Les onglets permette de savoir quel type de ressource on gère
     @FXML private TabPane onglets;
@@ -210,7 +211,7 @@ public class ManageRessourcesController extends Controller implements Initializa
                 }if (getOngletActif() == PERSONNEL_TAB){
                     infos_personnelController.setPersonnel((Personnel) getSelectedRessource());
                 }if (getOngletActif() == LIEU_TAB){
-
+                    infos_lieuController.setLieu((Lieu) getSelectedRessource());
                 }
             }
             // Si c'est un double click alors on ouvre l'édition
