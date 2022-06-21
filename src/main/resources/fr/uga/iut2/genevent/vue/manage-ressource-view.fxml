@@ -12,7 +12,7 @@
               <fx:include source="menu-lateral.fxml" />
           </left>
          <center>
-            <VBox prefHeight="666.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="600.0" prefWidth="950.0" BorderPane.alignment="CENTER">
                <children>
                   <TabPane fx:id="onglets" onMouseClicked="#ongletClick" prefHeight="540.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
@@ -20,11 +20,11 @@
                            <content>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <VBox alignment="TOP_CENTER" prefHeight="481.0" prefWidth="477.0">
+                                    <VBox prefHeight="481.0" prefWidth="477.0">
                                        <children>
                                           <Label contentDisplay="CENTER" text="Matériel" textAlignment="CENTER">
                                              <font>
-                                                <Font size="21.0" />
+                                                <Font name="System Bold" size="21.0" />
                                              </font>
                                              <VBox.margin>
                                                 <Insets bottom="15.0" />
@@ -48,11 +48,11 @@
                           <content>
                              <HBox prefHeight="100.0" prefWidth="200.0">
                                 <children>
-                                   <VBox alignment="TOP_CENTER" prefHeight="481.0" prefWidth="477.0">
+                                   <VBox prefHeight="481.0" prefWidth="477.0">
                                       <children>
                                          <Label contentDisplay="CENTER" text="Personnels" textAlignment="CENTER">
                                             <font>
-                                               <Font size="21.0" />
+                                               <Font name="System Bold" size="21.0" />
                                             </font>
                                              <VBox.margin>
                                                 <Insets bottom="15.0" />
@@ -76,11 +76,11 @@
                           <content>
                              <HBox prefHeight="100.0" prefWidth="200.0">
                                 <children>
-                                   <VBox alignment="TOP_CENTER" prefHeight="481.0" prefWidth="477.0">
+                                   <VBox prefHeight="481.0" prefWidth="477.0">
                                       <children>
                                          <Label contentDisplay="CENTER" text="Lieux" textAlignment="CENTER">
                                             <font>
-                                               <Font size="21.0" />
+                                               <Font name="System Bold" size="21.0" />
                                             </font>
                                              <VBox.margin>
                                                 <Insets bottom="15.0" />
