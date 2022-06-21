@@ -104,11 +104,11 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         boolean valide = true;
 
         //on reset les bordures en noir
-        type_cb.setStyle("-fx-border-color: black; -fx-text-fill: black;");
-        nom_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
-        adresse_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
-        code_postal_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
-        ville_tf.setStyle("-fx-border-color: black; -fx-text-fill: black;");
+        type_cb.setStyle("-fx-border-color: none;");
+        nom_tf.setStyle("-fx-border-color: none;");
+        adresse_tf.setStyle("-fx-border-color: none;");
+        code_postal_tf.setStyle("-fx-border-color: none;");
+        ville_tf.setStyle("-fx-border-color: none;");
 
         if (type_cb.getValue() == null){
             type_cb.setStyle("-fx-border-color: red; -fx-text-fill: red;");
