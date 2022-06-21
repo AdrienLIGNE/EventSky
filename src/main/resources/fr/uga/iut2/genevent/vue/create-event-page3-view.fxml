@@ -32,6 +32,9 @@
             <rowConstraints>
                 <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
             </rowConstraints>
             <children>
                 <Label prefHeight="25.0" text="Choisir le matériel *" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -48,7 +51,7 @@
                   <Insets left="7.5" />
                </GridPane.margin>
             </ListView>
-            <ListView fx:id="materiel_list" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <ListView fx:id="materiel_list" onMouseClicked="#listViewEvent" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
             </children>
             <VBox.margin>
                 <Insets top="15.0" />

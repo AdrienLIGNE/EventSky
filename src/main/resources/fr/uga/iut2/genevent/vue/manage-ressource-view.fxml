@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.ManageRessourcesController">
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.ManageRessourcesController">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="1200.0">
           <left>
@@ -26,9 +26,15 @@
                                              <font>
                                                 <Font size="21.0" />
                                              </font>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
                                           </Label>
                                           <ListView fx:id="materiel_list" onMouseClicked="#listViewEvent" prefHeight="465.0" prefWidth="477.0" />
                                        </children>
+                                       <HBox.margin>
+                                          <Insets top="15.0" />
+                                       </HBox.margin>
                                     </VBox>
                                     <fx:include source="infos-materiel.fxml" fx:id="infos_materiel"/>
                                  </children>
@@ -48,9 +54,15 @@
                                             <font>
                                                <Font size="21.0" />
                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
                                          </Label>
                                          <ListView fx:id="personnel_list" onMouseClicked="#listViewEvent" prefHeight="465.0" prefWidth="477.0" />
                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="15.0" />
+                                       </HBox.margin>
                                    </VBox>
                                    <fx:include source="infos-personnel.fxml" fx:id="infos_personnel"/>
                                 </children>
@@ -70,9 +82,15 @@
                                             <font>
                                                <Font size="21.0" />
                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
                                          </Label>
                                          <ListView fx:id="lieux_list" onMouseClicked="#listViewEvent" prefHeight="465.0" prefWidth="477.0" />
                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="15.0" />
+                                       </HBox.margin>
                                    </VBox>
                                    <fx:include source="infos-lieu.fxml" fx:id="infos_lieu"/>
                                 </children>

@@ -26,7 +26,7 @@ class MainApplicationTest {
         LocalDate fin = LocalDate.of(2022, 10, 6);
 
         // Création de l'événement
-        Evenement evenement = new Evenement(debut, fin, "Concert de Rock", TypeEvenement.CONCERT);
+        Evenement evenement = new Evenement(debut, fin, 0, "Concert de Rock", TypeEvenement.CONCERT);
 
         evenement.setLieu(lieu1);
         evenement.confirme();

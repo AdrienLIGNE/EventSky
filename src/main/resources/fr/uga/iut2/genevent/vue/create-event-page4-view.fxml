@@ -24,22 +24,22 @@
             <Insets top="15.0" />
          </VBox.margin>
       </Separator>
-        <GridPane prefWidth="220.0">
+        <GridPane prefHeight="247.0" prefWidth="550.0">
             <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="210.0" minWidth="-Infinity" prefWidth="210.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="377.99998474121094" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="41.6" minHeight="12.599998092651369" prefHeight="35.6" valignment="BOTTOM" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="65.40000190734864" minHeight="22.400000000000006" prefHeight="27.400000000000006" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="64.39999999999999" minHeight="0.0" prefHeight="30.599999999999994" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="66.79999237060547" minHeight="-Infinity" prefHeight="61.799992370605466" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="50.0" prefHeight="90.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Places disponibles" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <GridPane.margin>
-                        <Insets bottom="25.0" right="7.5" />
+                        <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Coût de l'évènement" GridPane.rowIndex="3">
@@ -54,7 +54,7 @@
                 </Label>
                 <TextField fx:id="nb_place_tf" disable="true" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <GridPane.margin>
-                        <Insets bottom="25.0" left="7.5" />
+                        <Insets bottom="5.0" left="7.5" />
                     </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
@@ -70,11 +70,11 @@
             </TextField>
             <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Nom du groupe / artiste" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="25.0" right="7.5" />
+                  <Insets bottom="5.0" right="7.5" />
                </GridPane.margin></Label>
             <TextField fx:id="nom_artiste_tf" disable="true" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="25.0" left="7.5" />
+                  <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
                <font>
                   <Font name="System Italic" size="12.0" />
@@ -88,12 +88,22 @@
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>
             </TextField>
+            <Label text="Dates possibles" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="50.0" right="7.5" />
+               </GridPane.margin>
+            </Label>
+            <ListView fx:id="dates_list" maxWidth="200.0" prefHeight="75.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="7.5" />
+               </GridPane.margin>
+            </ListView>
             </children>
             <VBox.margin>
                 <Insets top="15.0" />
             </VBox.margin>
         </GridPane>
-        <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="160.0" prefWidth="530.0">
+        <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" prefHeight="58.0" prefWidth="550.0">
             <children>
             <Button layoutX="407.0" layoutY="74.0" mnemonicParsing="false" onAction="#exitButtonClick" text="Annuler">
                <HBox.margin>
@@ -103,7 +113,7 @@
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>
-                <Button mnemonicParsing="false" onAction="#confirmButtonClick" text="Confirmer">
+                <Button mnemonicParsing="false" onAction="#confirmButtonClick" text="Enregistrer">
                     <HBox.margin>
                         <Insets bottom="15.0" right="15.0" />
                     </HBox.margin></Button>

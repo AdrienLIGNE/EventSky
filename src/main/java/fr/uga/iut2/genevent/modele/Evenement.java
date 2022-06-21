@@ -12,6 +12,7 @@ public class Evenement {
 
     private LocalDate dateDebut;
     private LocalDate dateFin;
+    private IntegerProperty duree;
     private StringProperty nomEvenement;
     private StringProperty nomArtiste;
     private boolean estConfirme;
@@ -31,7 +32,7 @@ public class Evenement {
      * @param dateFin date de fin de l'événement
      * @param nomEvenement Nom de l'événement
      */
-    public Evenement(LocalDate dateDebut, LocalDate dateFin, String nomEvenement, TypeEvenement typeEvenement) {
+    public Evenement(LocalDate dateDebut, LocalDate dateFin, int duree, String nomEvenement, TypeEvenement typeEvenement) {
         personnel = new ArrayList<>();
         materiel = new ArrayList<>();
 
@@ -39,11 +40,13 @@ public class Evenement {
         this.nbPersonnes = new SimpleIntegerProperty();
         this.type = new SimpleObjectProperty<>();
         this.nomArtiste = new SimpleStringProperty();
+        this.duree = new SimpleIntegerProperty();
 
         setNomEvenement(nomEvenement);
         setDateDebut(dateDebut);
         setDateFin(dateFin);
         setType(typeEvenement);
+        setDuree(duree);
 
         estConfirme = false;
     }
@@ -113,6 +116,14 @@ public class Evenement {
      */
     public void setDateFin(LocalDate dateFin) {
         this.dateFin = dateFin;
+    }
+
+    public void setDuree(int duree) {
+        this.duree.set(duree);
+    }
+
+    public IntegerProperty getDuree() {
+        return duree;
     }
 
     /**
