@@ -3,7 +3,16 @@ package fr.uga.iut2.genevent.controleur;
 import fr.uga.iut2.genevent.modele.Materiel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 /**
  * Controller spécial qui permet de gérer des formulaires
@@ -39,5 +48,17 @@ public abstract class FormulaireController<E> extends Controller{
 
     public E getElementModifie() {
         return element_modifie;
+    }
+
+
+    public static void displayErrorField(Node n, String msg) {
+        Pane container = (Pane) n.getParent();
+
+        Label error = new Label(msg);
+        error.setPadding(new Insets(5));
+        error.setBackground(new Background(new BackgroundFill(Color.color(1, 0, 0), new CornerRadii(5.0), new Insets(0))));
+
+
+        container.getChildren().add(error);
     }
 }

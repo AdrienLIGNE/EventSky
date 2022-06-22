@@ -8,13 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 import java.io.File;
 import java.net.URL;
@@ -108,6 +106,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
             if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
+
             }
         }
         //verification du combobox

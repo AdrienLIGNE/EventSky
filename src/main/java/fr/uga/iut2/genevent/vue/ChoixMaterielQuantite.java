@@ -14,25 +14,19 @@ public class ChoixMaterielQuantite {
     private Spinner<Integer> nb;
     private Materiel mat;
 
-    // Il peut être éditable (spinner) ou fixe (pour l'affichage)
-    private int quantite;
-    private boolean editable;
 
     private int defaultValue;
 
 
     public ChoixMaterielQuantite(Materiel m) {
         this.mat = m;
-        this.editable = true;
         defaultValue = 0;
 
     }
 
     public ChoixMaterielQuantite(Materiel m, int quantite) {
         this.mat = m;
-        this.editable = false;
-        this.quantite = quantite;
-        defaultValue = 0;
+        setDefaultValue(quantite);
     }
 
     public void setDefaultValue(int defaultValue) {
@@ -47,10 +41,9 @@ public class ChoixMaterielQuantite {
     }
 
     public int getQuantite() {
-        if(editable)
-            return nb.getValue();
+        if(nb == null) return defaultValue;
+        return nb.getValue();
 
-        return quantite;
     }
 
     public Materiel getMateriel() {

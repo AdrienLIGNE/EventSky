@@ -99,7 +99,9 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         // On récupère la liste de matériel
         choix_materiel = FXCollections.observableArrayList();
         for(Materiel m : getModel().getMateriels()) {
-            choix_materiel.add(new ChoixMaterielQuantite(m, m.getQuantiteAffecte(evenement)));
+            ChoixMaterielQuantite c = new ChoixMaterielQuantite(m);
+            c.setDefaultValue(m.getQuantiteAffecte(evenement));
+            choix_materiel.add(c);
         }
 
 
@@ -244,11 +246,11 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         //evenement.confirme();
 
         if(isOnEditMode()) {
-            // TODO: Modifier événement
+            getModel().supprimeEvenement(getElementModifie());
         }
-        else {
-            getModel().addEvenement(evenement);
-        }
+
+        getModel().addEvenement(evenement);
+
         exitStage(Controller.getStageFromTarget(e.getTarget()));
     }
 
@@ -345,9 +347,9 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         }
         else if(etape == 3) {
 
-            ObservableList<ChoixPersonnel> personnels = ChoixPersonnel.createList(getModel().getPersonnelDisponibles(date_debut, date_fin));
+            ObservableList<ChoixPersonnel> personnels = ChoixPersonnel.createList(getModel().getPersonnelDisponibles(date_possibles));
 
-            if(isOnEditMode()) {
+            if(choix_personnel != null) {
                 // On coche toutes les personnels pris (modification)
                 for (ChoixPersonnel p : personnels) {
                     if (choix_personnel.contains(p.getPersonnel())) {
@@ -356,9 +358,9 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                 }
             }
 
-            ObservableList<ChoixMaterielQuantite> materiels = ChoixMaterielQuantite.createList(getModel().getMaterielDisponibles(date_debut, date_fin));
+            ObservableList<ChoixMaterielQuantite> materiels = ChoixMaterielQuantite.createList(getModel().getMaterielDisponibles(date_possibles));
 
-            if(isOnEditMode()) {
+            if(choix_materiel != null) {
                 materiels = choix_materiel;
 
                 for (ChoixMaterielQuantite m : materiels) {
@@ -391,6 +393,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             nom_artiste_tf.setText(nom_artistes);
 
             dates_list.setItems(date_possibles);
+            dates_list.setEditable(false);
 
         }
     }

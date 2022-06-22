@@ -86,6 +86,15 @@ public class Evenement {
         return materiel;
     }
 
+    public ArrayList<Reservable> getReservables() {
+        ArrayList<Reservable> reservables = new ArrayList<>();
+        reservables.addAll(personnel);
+        reservables.addAll(materiel);
+        reservables.add(lieu);
+
+        return reservables;
+    }
+
     public void setType(TypeEvenement type) {
         this.type.set(type);
     }

@@ -5,7 +5,7 @@
 
 .menu-button {
     -fx-border-radius: 0;
-    -fx-background-color: #171717;
+    -fx-background-color: #154B6E;
     -fx-label-padding: 5;
 
     -fx-alignment: center-left;
@@ -13,7 +13,7 @@
 
 .menu-button:hover {
     -fx-background-color: white;
-    -fx-text-fill: black;
+    -fx-text-fill: #154B6E;
     -fx-cursor: pointer;
 }
 

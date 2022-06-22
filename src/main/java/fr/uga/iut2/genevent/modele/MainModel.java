@@ -140,6 +140,14 @@ public class MainModel {
         return getReservablesDisponibles(lieux, date_possibles);
     }
 
+    public ObservableList<Materiel> getMaterielDisponibles(ObservableList<DatePossible> date_possibles) {
+        return getReservablesDisponibles(materiels, date_possibles);
+    }
+
+    public ObservableList<Personnel> getPersonnelDisponibles(ObservableList<DatePossible> date_possible) {
+        return getReservablesDisponibles(personnels, date_possible);
+    }
+
 
     /**
      * Supprime un élément reservable parmis les lieux, matériel et événements
@@ -161,5 +169,20 @@ public class MainModel {
      */
     public void addEvenementConfirme(Evenement e) {
         evenementsConfirme.add(e);
+    }
+
+
+    /**
+     * Supression d'un évènement
+     * @param e évènement à supprimer
+     */
+    public void supprimeEvenement(Evenement e) {
+        evenementsConfirme.remove(e);
+        evenementsNonConfirme.remove(e);
+
+        // On défait le lien avec les ressources pour éviter les effets de bord
+        for(Reservable r : e.getReservables()) {
+            r.supprimeEvenement(e);
+        }
     }
 }

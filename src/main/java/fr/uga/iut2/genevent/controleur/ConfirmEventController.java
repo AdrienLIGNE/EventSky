@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tooltip;
 
 public class ConfirmEventController extends FormulaireController {
 
@@ -27,8 +28,10 @@ public class ConfirmEventController extends FormulaireController {
 
         ObservableList<Personnel> personnels = FXCollections.observableArrayList(e.getPersonnel());
 
+        // Calcul de la date possible en fonction des contraintes
         ObservableList<DatePossible> datePossibles = DatePossible.getDatePossible(e.getDateDebut(), e.getDateFin(), e.getDuree().getValue(), e.getLieu(), materiels, personnels);
         dates_list.setItems(datePossibles);
+
     }
 
 

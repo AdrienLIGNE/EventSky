@@ -111,6 +111,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         ville_tf.setStyle("-fx-border-color: none;");
 
         if (type_cb.getValue() == null){
+
             type_cb.setStyle("-fx-border-color: red; -fx-text-fill: red;");
             valide = false;
         }
