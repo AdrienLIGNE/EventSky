@@ -271,6 +271,16 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         }
     }
 
+    @FXML
+    private void onDateDebutClick(ActionEvent event){
+        date_fin_dp.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                setDisable(empty || date.compareTo(date_debut_dp.getValue()) < 0 );
+            }
+        });
+    }
+
     /**
      * Permet de mettre les bonne valeurs lors de l'affichage de chaque étapes (restauration lorsque l'on appuie sur
      * précédent, chargement des listes)
@@ -286,6 +296,8 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                     setDisable(empty || date.compareTo(LocalDate.now()) < 0 );
                 }
             });
+
+
             date_fin_dp.setDayCellFactory(picker -> new DateCell() {
                 public void updateItem(LocalDate date, boolean empty) {
                     super.updateItem(date, empty);
