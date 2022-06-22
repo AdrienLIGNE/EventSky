@@ -12,7 +12,7 @@
               <fx:include source="menu-lateral.fxml" />
           </left>
          <center>
-            <VBox prefHeight="600.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+            <VBox maxHeight="600.0" maxWidth="927.0" prefHeight="600.0" prefWidth="927.0" BorderPane.alignment="CENTER">
                <children>
                   <TabPane fx:id="onglets" onMouseClicked="#ongletClick" prefHeight="540.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>

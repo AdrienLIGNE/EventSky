@@ -32,7 +32,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -40,10 +39,10 @@
 
 <BorderPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MainController">
          <left>
-            <fx:include source="menu-lateral.fxml"></fx:include>
+            <fx:include source="menu-lateral.fxml" />
          </left>
    <center>
-      <AnchorPane prefHeight="600.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="600.0" maxWidth="927.0" prefHeight="600.0" prefWidth="927.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="600.0" fitWidth="950.0" pickOnBounds="true" preserveRatio="true">
                <image>
