@@ -30,7 +30,7 @@ public abstract class FormulaireController<E> extends Controller{
         this.element_modifie = e;
         isModification = true;
 
-        title.setText(title.getText().replace("Ajouter", "Modifier"));
+        title.setText(title.getText().replace("Ajouter", "Modifier").replace("Créer", "Modifier"));
     }
 
     public boolean isOnEditMode() {

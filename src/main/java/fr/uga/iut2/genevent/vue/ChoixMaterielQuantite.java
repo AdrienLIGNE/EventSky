@@ -18,10 +18,13 @@ public class ChoixMaterielQuantite {
     private int quantite;
     private boolean editable;
 
+    private int defaultValue;
+
 
     public ChoixMaterielQuantite(Materiel m) {
         this.mat = m;
         this.editable = true;
+        defaultValue = 0;
 
     }
 
@@ -29,12 +32,18 @@ public class ChoixMaterielQuantite {
         this.mat = m;
         this.editable = false;
         this.quantite = quantite;
+        defaultValue = 0;
+    }
+
+    public void setDefaultValue(int defaultValue) {
+        this.defaultValue = defaultValue;
     }
 
     public void setSpinner(Spinner<Integer> s, int max) {
         this.nb = s;
 
-        this.nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, max, 0));
+        this.nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, max, defaultValue));
+
     }
 
     public int getQuantite() {

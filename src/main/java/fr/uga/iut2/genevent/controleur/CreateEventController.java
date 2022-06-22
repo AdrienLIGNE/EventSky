@@ -27,6 +27,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ * Controleur qui gère la création d'un évenement lors des différentes étapes
+ */
 public class CreateEventController extends FormulaireController<Evenement> implements Initializable {
 
     private int etape;
@@ -59,7 +62,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
     // Partie 3 - Choix du matériel/personnel
     @FXML private ListView<ChoixMaterielQuantite>  materiel_list;
-    @FXML private ListView<Personnel> personnel_list;
+    @FXML private ListView<ChoixPersonnel> personnel_list;
 
     // Partie 4 - Récap
     @FXML private TextField nom_lieu_tf;
@@ -87,6 +90,18 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         nom_artistes = evenement.getNomArtiste().getValue();
         date_debut = evenement.getDateDebut();
         date_fin = evenement.getDateFin();
+        duree = evenement.getDuree().getValue();
+        lieu = evenement.getLieu();
+
+        // On récupère la liste de personnel
+        choix_personnel = FXCollections.observableArrayList(evenement.getPersonnel());
+
+        // On récupère la liste de matériel
+        choix_materiel = FXCollections.observableArrayList();
+        for(Materiel m : getModel().getMateriels()) {
+            choix_materiel.add(new ChoixMaterielQuantite(m, m.getQuantiteAffecte(evenement)));
+        }
+
 
         initEtape();
 
@@ -218,7 +233,8 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         evenement.setNomArtiste(nom_artistes);
 
         for(ChoixMaterielQuantite m : choix_materiel) {
-            evenement.addMateriel(m.getMateriel(), m.getQuantite());
+            if(m.getQuantite() > 0)
+                evenement.addMateriel(m.getMateriel(), m.getQuantite());
         }
 
         for(Personnel p : choix_personnel) {
@@ -264,7 +280,17 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         }
         if(etape == 3) {
             choix_materiel = materiel_list.getItems();
-            choix_personnel = personnel_list.getSelectionModel().getSelectedItems();
+
+            ObservableList<ChoixPersonnel> choix = personnel_list.getItems();
+            choix_personnel = FXCollections.observableArrayList(); // On vide les choix du personnel précédent
+
+            // on récupère tout le personnel sélectionné
+            for(ChoixPersonnel c : choix) {
+                if(c.isSelected()) {
+                    choix_personnel.add(c.getPersonnel());
+                }
+            }
+
 
             date_possibles = DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel);
             System.out.println(date_possibles);
@@ -319,8 +345,29 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         }
         else if(etape == 3) {
 
-            materiel_list.setItems(ChoixMaterielQuantite.createList(getModel().getMaterielDisponibles(date_debut, date_fin)));
-            personnel_list.setItems(getModel().getPersonnelDisponibles(date_debut, date_fin));
+            ObservableList<ChoixPersonnel> personnels = ChoixPersonnel.createList(getModel().getPersonnelDisponibles(date_debut, date_fin));
+
+            if(isOnEditMode()) {
+                // On coche toutes les personnels pris (modification)
+                for (ChoixPersonnel p : personnels) {
+                    if (choix_personnel.contains(p.getPersonnel())) {
+                        p.setDefaultSelect();
+                    }
+                }
+            }
+
+            ObservableList<ChoixMaterielQuantite> materiels = ChoixMaterielQuantite.createList(getModel().getMaterielDisponibles(date_debut, date_fin));
+
+            if(isOnEditMode()) {
+                materiels = choix_materiel;
+
+                for (ChoixMaterielQuantite m : materiels) {
+                    m.setDefaultValue(choix_materiel.get(choix_materiel.indexOf(m)).getQuantite());
+                }
+            }
+
+            personnel_list.setItems(personnels);
+            materiel_list.setItems(materiels);
 
             materiel_list.setCellFactory(new Callback<ListView<ChoixMaterielQuantite>, ListCell<ChoixMaterielQuantite>>() {
                 @Override
@@ -330,13 +377,12 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                 }
             });
 
-            personnel_list.setCellFactory(new Callback<ListView<Personnel>, ListCell<Personnel>>() {
+            personnel_list.setCellFactory(new Callback<ListView<ChoixPersonnel>, ListCell<ChoixPersonnel>>() {
                 @Override
-                public ListCell<Personnel> call(ListView<Personnel> personnelListView) {
-                    return new PersonnelItem();
+                public ListCell<ChoixPersonnel> call(ListView<ChoixPersonnel> choixPersonnelListView) {
+                    return new PersonnelItemChoice();
                 }
             });
-            personnel_list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         }
 
         if(etape == 4) {

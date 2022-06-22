@@ -85,13 +85,14 @@ public class ManageEventController extends Controller implements Initializable {
             confirm_event_btn.setDisable(false);
             if(e.getClickCount() == 2) {
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("event-infos-view.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
+                    CreateEventController controller = new CreateEventController();
+                    fxmlLoader.setController(controller);
 
                     Stage stage = new Stage();
                     stage.setScene(new Scene(fxmlLoader.load()));
 
-                    InfosEventController controller = fxmlLoader.getController();
-                    controller.setEvenement(getSelectedEvent());
+                    controller.setEditMode(getSelectedEvent());
 
                     stage.show();
                 }

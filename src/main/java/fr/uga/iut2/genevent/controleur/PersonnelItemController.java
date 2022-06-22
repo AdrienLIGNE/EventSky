@@ -6,15 +6,34 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class PersonnelItemController {
+public class PersonnelItemController implements Initializable {
 
     @FXML private Label label_nom_complet;
     @FXML private Label label_type_emploi;
+    @FXML private CheckBox checkbox;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        checkbox.setVisible(false);
+    }
+
+    /**
+     * Permet de rendre l'item sélectionnable (lors de la phase de choix de personnel
+     * dans la création d'évènements)
+     */
+    public void setSelectionnable() {
+        checkbox.setVisible(true);
+    }
 
     public void setNomComplet(StringProperty nom) {
         this.label_nom_complet.textProperty().bind(nom);
@@ -28,5 +47,14 @@ public class PersonnelItemController {
                 label_type_emploi.setText(t1.getLibelle());
             }
         });
+    }
+
+    @FXML
+    private void itemClick(MouseEvent e) {
+        checkbox.setSelected(!checkbox.isSelected());
+    }
+
+    public CheckBox getCheckbox() {
+        return checkbox;
     }
 }
