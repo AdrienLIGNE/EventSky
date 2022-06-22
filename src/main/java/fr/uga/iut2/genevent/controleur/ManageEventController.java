@@ -70,6 +70,7 @@ public class ManageEventController extends Controller implements Initializable {
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
+            stage.setTitle("SkyEvent - Créer un évènement");
             stage.setResizable(false);
         } catch (IOException e) {
             // TODO: Logger
@@ -93,6 +94,7 @@ public class ManageEventController extends Controller implements Initializable {
                     stage.setScene(new Scene(fxmlLoader.load()));
 
                     controller.setEditMode(getSelectedEvent());
+                    stage.setTitle("SkyEvent - Afficher un évènement");
                     stage.show();
                     stage.setResizable(false);
 

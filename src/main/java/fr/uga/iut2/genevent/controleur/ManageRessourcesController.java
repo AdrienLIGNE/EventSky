@@ -101,7 +101,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             stage.setScene(scene);
 
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Ajouter nouvelles ressources");
+            stage.setTitle("EventSky - Ajouter des ressources");
             stage.show();
             stage.setResizable(false);
         }
@@ -129,7 +129,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             stage.setScene(scene);
 
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Modification du matériel");
+            stage.setTitle("EventSky - Modifier les matériels");
             stage.show();
             stage.setResizable(false);
 
@@ -146,7 +146,7 @@ public class ManageRessourcesController extends Controller implements Initializa
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
         confirm.setTitle("Confirmation requise");
         confirm.setHeaderText("Supprimer cette ressource ?");
-        confirm.setContentText("Une fois confirmer, vous ne pourrez plus revenir en arrière !");
+        confirm.setContentText("Une fois confirmé, vous ne pourrez plus revenir en arrière !");
 
         Optional<ButtonType> result = confirm.showAndWait();
 
