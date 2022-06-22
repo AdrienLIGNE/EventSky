@@ -76,7 +76,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="date_debut_dp" prefHeight="25.0" prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <DatePicker fx:id="date_debut_dp" onAction="#onDateDebutClick" prefHeight="25.0" prefWidth="200.0" promptText="28/09/22" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="7.5" />
                </GridPane.margin>

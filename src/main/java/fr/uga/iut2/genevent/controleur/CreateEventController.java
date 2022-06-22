@@ -128,7 +128,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             }if (nom_artiste_tf.getText() == null || nom_artiste_tf.getText().isEmpty()){
                 nom_artiste_tf.setStyle("-fx-border-color: red");
                 valide = false;
-            }if (date_debut_dp.getValue() != null & date_fin_dp != null){
+            }if (date_debut_dp.getValue() != null & date_fin_dp.getValue() != null){
                 //vérification que la date de fin n'est pas antérieure à la date de début
                 if (date_debut_dp.getValue().isAfter(date_fin_dp.getValue())){
                     date_fin_dp.setStyle("-fx-border-color: red");
@@ -299,6 +299,16 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         }
     }
 
+    @FXML
+    private void onDateDebutClick(ActionEvent event){
+        date_fin_dp.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                setDisable(empty || date.compareTo(date_debut_dp.getValue()) < 0 );
+            }
+        });
+    }
+
     /**
      * Permet de mettre les bonne valeurs lors de l'affichage de chaque étapes (restauration lorsque l'on appuie sur
      * précédent, chargement des listes)
@@ -314,6 +324,8 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                     setDisable(empty || date.compareTo(LocalDate.now()) < 0 );
                 }
             });
+
+
             date_fin_dp.setDayCellFactory(picker -> new DateCell() {
                 public void updateItem(LocalDate date, boolean empty) {
                     super.updateItem(date, empty);
