@@ -103,6 +103,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Ajouter nouvelles ressources");
             stage.show();
+            stage.setResizable(false);
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -130,6 +131,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Modification du matériel");
             stage.show();
+            stage.setResizable(false);
 
             FormulaireController controller =  fxmlLoader.getController();
             controller.setEditMode(reservableModifie);

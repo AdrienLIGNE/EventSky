@@ -69,8 +69,8 @@ public class ManageEventController extends Controller implements Initializable {
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
-
             stage.show();
+            stage.setResizable(false);
         } catch (IOException e) {
             // TODO: Logger
             e.printStackTrace();
@@ -93,8 +93,9 @@ public class ManageEventController extends Controller implements Initializable {
                     stage.setScene(new Scene(fxmlLoader.load()));
 
                     controller.setEditMode(getSelectedEvent());
-
                     stage.show();
+                    stage.setResizable(false);
+
                 }
                 catch (IOException ex) {
                     ex.printStackTrace();
@@ -123,6 +124,8 @@ public class ManageEventController extends Controller implements Initializable {
             ConfirmEventController controller = fxmlLoader.getController();
             controller.setEvenement(getSelectedEvent());
             stage.show();
+            stage.setResizable(false);
+
         }
         catch (IOException ex) {
             ex.printStackTrace();
