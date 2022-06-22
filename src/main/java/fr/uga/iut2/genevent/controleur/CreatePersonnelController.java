@@ -8,7 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -17,8 +17,10 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.attribute.PosixFileAttributes;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import org.controlsfx.control.Notifications;
 
 public class CreatePersonnelController extends FormulaireController<Personnel> implements Initializable {
 
@@ -113,6 +115,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 if (VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())) {
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
+
                 }
             }
         } else {
@@ -125,6 +128,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
             if (nom.isEmpty() || VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())) {
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
+                Notifications.create().title("Erreur de saisie").text("Ne laissez pas le champ vide").position(Pos.CENTER).show();
             }
         }
         if (mail_tf.getText().isEmpty() | !VerifUtilitaire.verifMail(mail_tf.getText())) {
