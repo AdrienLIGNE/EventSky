@@ -27,6 +27,16 @@ import java.util.ResourceBundle;
  */
 public class ManageEventController extends Controller implements Initializable {
 
+    private static ManageEventController controller;
+
+    static {
+        controller = new ManageEventController();
+    }
+
+    public static ManageEventController getController() {
+        return controller;
+    }
+
     @FXML
     private ListView<Evenement> list_brouillon;
     @FXML
@@ -62,7 +72,12 @@ public class ManageEventController extends Controller implements Initializable {
     @FXML
     private void createEventButtonClick() {
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
-        fxmlLoader.setController(new CreateEventController());
+
+        CreateEventController controller = CreateEventController.getController();
+        controller.resetEtape();
+
+        fxmlLoader.setController(controller);
+
         Stage stage = new Stage();
 
         try {
@@ -86,8 +101,9 @@ public class ManageEventController extends Controller implements Initializable {
             if(e.getClickCount() == 2) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
-                    CreateEventController controller = new CreateEventController();
+                    CreateEventController controller = CreateEventController.getController();
                     fxmlLoader.setController(controller);
+                    controller.resetEtape();
 
                     Stage stage = new Stage();
                     stage.setScene(new Scene(fxmlLoader.load()));
@@ -120,7 +136,7 @@ public class ManageEventController extends Controller implements Initializable {
         Stage stage = new Stage();
         try {
             stage.setScene(new Scene(fxmlLoader.load()));
-            ConfirmEventController controller = fxmlLoader.getController();
+            ConfirmEventController controller = ConfirmEventController.getController();
             controller.setEvenement(getSelectedEvent());
             stage.show();
         }

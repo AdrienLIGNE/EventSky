@@ -2,6 +2,8 @@ package fr.uga.iut2.genevent.modele;
 
 import fr.uga.iut2.genevent.Main;
 import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -10,19 +12,19 @@ import java.util.logging.Level;
 
 public class Evenement {
 
-    private LocalDate dateDebut;
-    private LocalDate dateFin;
+    private ObjectProperty<LocalDate> dateDebut;
+    private ObjectProperty<LocalDate> dateFin;
     private IntegerProperty duree;
     private StringProperty nomEvenement;
     private StringProperty nomArtiste;
-    private boolean estConfirme;
+    private BooleanProperty estConfirme;
 
     private IntegerProperty nbPersonnes;
 
-    private Lieu lieu;
+    private ObjectProperty<Lieu> lieu;
 
-    private ArrayList<Personnel> personnel;
-    private ArrayList<Materiel> materiel;
+    private ObservableList<Personnel> personnel;
+    private ObservableList<Materiel> materiel;
 
     private ObjectProperty<TypeEvenement> type;
 
@@ -33,14 +35,19 @@ public class Evenement {
      * @param nomEvenement Nom de l'événement
      */
     public Evenement(LocalDate dateDebut, LocalDate dateFin, int duree, String nomEvenement, TypeEvenement typeEvenement) {
-        personnel = new ArrayList<>();
-        materiel = new ArrayList<>();
+        personnel = FXCollections.observableArrayList();
+        materiel = FXCollections.observableArrayList();
 
         this.nomEvenement = new SimpleStringProperty();
         this.nbPersonnes = new SimpleIntegerProperty();
         this.type = new SimpleObjectProperty<>();
         this.nomArtiste = new SimpleStringProperty();
         this.duree = new SimpleIntegerProperty();
+        this.dateDebut = new SimpleObjectProperty<>();
+        this.dateFin = new SimpleObjectProperty<>();
+        this.estConfirme = new SimpleBooleanProperty();
+        this.lieu = new SimpleObjectProperty<>();
+
 
         setNomEvenement(nomEvenement);
         setDateDebut(dateDebut);
@@ -48,7 +55,6 @@ public class Evenement {
         setType(typeEvenement);
         setDuree(duree);
 
-        estConfirme = false;
     }
 
     public StringProperty getNomArtiste() {
@@ -61,7 +67,7 @@ public class Evenement {
 
     public void setLieu(Lieu l) {
         l.affecteEvenement(this);
-        this.lieu = l;
+        this.lieu.set(l);
     }
 
     public void addPersonnel(Personnel p) {
@@ -74,15 +80,15 @@ public class Evenement {
         materiel.add(m);
     }
 
-    public Lieu getLieu() {
+    public ObjectProperty<Lieu> getLieu() {
         return lieu;
     }
 
-    public ArrayList<Personnel> getPersonnel() {
+    public ObservableList<Personnel> getPersonnel() {
         return personnel;
     }
 
-    public ArrayList<Materiel> getMateriel() {
+    public ObservableList<Materiel> getMateriel() {
         return materiel;
     }
 
@@ -90,7 +96,7 @@ public class Evenement {
         ArrayList<Reservable> reservables = new ArrayList<>();
         reservables.addAll(personnel);
         reservables.addAll(materiel);
-        reservables.add(lieu);
+        reservables.add(lieu.getValue());
 
         return reservables;
     }
@@ -116,7 +122,7 @@ public class Evenement {
      * @param dateDebut date de début de l'événement
      */
     public void setDateDebut(LocalDate dateDebut) {
-        this.dateDebut = dateDebut;
+        this.dateDebut.set(dateDebut);
     }
 
     /**
@@ -124,7 +130,7 @@ public class Evenement {
      * @param dateFin date de fin de l'événement
      */
     public void setDateFin(LocalDate dateFin) {
-        this.dateFin = dateFin;
+        this.dateFin.set(dateFin);
     }
 
     public void setDuree(int duree) {
@@ -145,11 +151,11 @@ public class Evenement {
 
 
 
-    public LocalDate getDateDebut() {
+    public ObjectProperty<LocalDate> getDateDebut() {
         return dateDebut;
     }
 
-    public LocalDate getDateFin() {
+    public ObjectProperty<LocalDate> getDateFin() {
         return dateFin;
     }
 
@@ -158,11 +164,14 @@ public class Evenement {
     }
 
     public boolean isConfirmed() {
+        return estConfirme.get();
+    }
+    public BooleanProperty getConfirmed() {
         return estConfirme;
     }
 
     public void confirme() {
-        this.estConfirme = true;
+        this.estConfirme.set(true);
     }
 
     /**
@@ -171,6 +180,6 @@ public class Evenement {
      * @return vrai si l'événement se déroule le jour donné
      */
     public boolean sePasseCeJour(LocalDate date) {
-        return (date.compareTo(dateDebut) >= 0 & date.compareTo(dateFin) <= 0);
+        return (date.compareTo(dateDebut.getValue()) >= 0 & date.compareTo(dateFin.getValue()) <= 0);
     }
 }

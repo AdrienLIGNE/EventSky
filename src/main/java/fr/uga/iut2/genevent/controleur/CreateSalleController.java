@@ -14,7 +14,17 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class CreateSalleController {
+public class CreateSalleController extends Controller{
+
+    private static CreateSalleController controller;
+
+    static {
+        controller = new CreateSalleController();
+    }
+
+    public static CreateSalleController getController() {
+        return controller;
+    }
 
     @FXML
     private VBox root;

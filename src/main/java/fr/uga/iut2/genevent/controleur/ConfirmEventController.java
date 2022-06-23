@@ -14,6 +14,16 @@ import javafx.scene.control.Tooltip;
 
 public class ConfirmEventController extends FormulaireController {
 
+    private static ConfirmEventController controller;
+
+    static {
+        controller = new ConfirmEventController();
+    }
+
+    public static ConfirmEventController getController() {
+        return controller;
+    }
+
     private Evenement evenement;
     @FXML private ListView<DatePossible> dates_list;
 
@@ -29,7 +39,7 @@ public class ConfirmEventController extends FormulaireController {
         ObservableList<Personnel> personnels = FXCollections.observableArrayList(e.getPersonnel());
 
         // Calcul de la date possible en fonction des contraintes
-        ObservableList<DatePossible> datePossibles = DatePossible.getDatePossible(e.getDateDebut(), e.getDateFin(), e.getDuree().getValue(), e.getLieu(), materiels, personnels);
+        ObservableList<DatePossible> datePossibles = DatePossible.getDatePossible(e.getDateDebut().get(), e.getDateFin().get(), e.getDuree().getValue(), e.getLieu().get(), materiels, personnels);
         dates_list.setItems(datePossibles);
 
     }
@@ -51,4 +61,5 @@ public class ConfirmEventController extends FormulaireController {
         //TODO : Vérifier saisies
         return true;
     }
+
 }

@@ -16,7 +16,17 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class PersonnelItemController implements Initializable {
+public class PersonnelItemController extends Controller implements Initializable {
+
+    private static PersonnelItemController controller;
+
+    static {
+        controller = new PersonnelItemController();
+    }
+
+    public static PersonnelItemController getController() {
+        return controller;
+    }
 
     @FXML private Label label_nom_complet;
     @FXML private Label label_type_emploi;

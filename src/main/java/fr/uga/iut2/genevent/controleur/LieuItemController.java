@@ -10,7 +10,17 @@ import javafx.scene.control.Label;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class LieuItemController {
+public class LieuItemController extends Controller{
+
+    private static LieuItemController controller;
+
+    static {
+        controller = new LieuItemController();
+    }
+
+    public static LieuItemController getController() {
+        return controller;
+    }
 
     @FXML
     private Label label_nom;

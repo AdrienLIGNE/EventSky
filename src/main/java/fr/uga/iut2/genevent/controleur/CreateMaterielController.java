@@ -21,6 +21,16 @@ import java.util.ResourceBundle;
 
 public class CreateMaterielController extends FormulaireController<Materiel> implements Initializable {
 
+    private static CreateMaterielController controller;
+
+    static {
+        controller = new CreateMaterielController();
+    }
+
+    public static CreateMaterielController getController() {
+        return controller;
+    }
+
     @FXML private ComboBox<TypeMateriel> typeMateriel_cb;
 
     @FXML private TextField nom_tf;

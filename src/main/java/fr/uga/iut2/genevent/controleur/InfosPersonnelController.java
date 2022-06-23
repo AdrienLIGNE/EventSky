@@ -10,6 +10,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class InfosPersonnelController extends Controller{
+
+    private static InfosPersonnelController controller;
+
+    static {
+        controller = new InfosPersonnelController();
+    }
+
+    public static InfosPersonnelController getController() {
+        return controller;
+    }
+
     @FXML private Label lbl_type;
     @FXML private Label lbl_nom;
     @FXML private Label lbl_mail;

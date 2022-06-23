@@ -15,7 +15,7 @@
       </ImageView>
       <VBox prefHeight="43.0" prefWidth="282.0">
          <children>
-            <Label fx:id="label_nom" prefHeight="25.0" prefWidth="116.0" text="NOM SALLE">
+            <Label fx:id="label_nom" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="116.0" text="NOM SALLE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

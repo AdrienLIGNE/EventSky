@@ -11,7 +11,18 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class InfosLieuController extends Controller{
+public class InfosLieuController extends Controller {
+
+    private static InfosLieuController controller;
+
+    static {
+        controller = new InfosLieuController();
+    }
+
+    public static InfosLieuController getController() {
+        return controller;
+    }
+
     @FXML private Label lbl_type;
     @FXML private Label lbl_nom;
     @FXML private Label lbl_adresse;
