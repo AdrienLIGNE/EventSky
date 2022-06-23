@@ -107,24 +107,39 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
 
         //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
         //si on est en edit mode on vérifie seulement si on change le nom du matériel
-        if (this.isOnEditMode()){
-            if (!nom_tf.getText().equals(ancienNom) | ancienNom == null){
-                if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(),this.getModel().getMateriels())){
+        if (nom_tf.getText().isEmpty()){
+            nom_tf.setStyle("-fx-border-color: red;");
+            b = false;
+
+            VerifUtilitaire.createPopOver(nom_tf, "Veuillez remplir ce champ");
+        }else {
+            if (this.isOnEditMode()) {
+                if (!nom_tf.getText().equals(ancienNom) | ancienNom == null) {
+                    if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
+                        nom_tf.setStyle("-fx-border-color: red;");
+                        b = false;
+
+                        VerifUtilitaire.createPopOver(nom_tf, "Un matériel de ce nom existe déjà");
+                    }
+                }
+            } else {
+                if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
+
+                    VerifUtilitaire.createPopOver(nom_tf, "Un matériel de ce nom existe déjà");
                 }
             }
-        }else {
-            if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
-                nom_tf.setStyle("-fx-border-color: red;");
-                b = false;
-            }
         }
+
         //verification du combobox
         if (typeMateriel_cb.getValue() == null){
             typeMateriel_cb.setStyle("-fx-border-color: red;");
             System.out.println(typeMateriel_cb.getValue());
             b = false;
+
+            VerifUtilitaire.createPopOver(typeMateriel_cb, "Veuillez choisir un type");
+
         }
         return b;
     }
