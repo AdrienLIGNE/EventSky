@@ -22,9 +22,18 @@ import java.util.ResourceBundle;
 
 public class CreatePersonnelController extends FormulaireController<Personnel> implements Initializable {
 
+    private static CreatePersonnelController controller;
+
+    static {
+        controller = new CreatePersonnelController();
+    }
+
+    public static CreatePersonnelController getController() {
+        return controller;
+    }
+
     @FXML
     private ComboBox<TypePersonnel> type_cb;
-
     @FXML
     private TextField nom_tf;
     @FXML

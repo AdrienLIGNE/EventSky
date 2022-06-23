@@ -20,6 +20,16 @@ import java.util.Date;
 
 public class InfosEventController extends Controller{
 
+    private static InfosEventController controller;
+
+    static {
+        controller = new InfosEventController();
+    }
+
+    public static InfosEventController getController() {
+        return controller;
+    }
+
     private Evenement evenement;
 
     @FXML private Label title;
@@ -41,9 +51,9 @@ public class InfosEventController extends Controller{
 
         title.setText(e.getNomEvenement().getValue());
         nom_tf.setText(e.getNomEvenement().getValue());
-        lieu_tf.setText(e.getLieu().getNom().getValue());
-        date_debut_dp.setValue(e.getDateDebut());
-        date_fin_dp.setValue(e.getDateFin());
+        lieu_tf.setText(e.getLieu().get().getNom().getValue());
+        date_debut_dp.setValue(e.getDateDebut().get());
+        date_fin_dp.setValue(e.getDateFin().get());
         nb_personnes_tf.setText(e.getNbPersonnes().getValue().toString());
         type_tf.setText(e.getType().getValue().getNom());
         nom_artiste_tf.setText(e.getNomArtiste().getValue());

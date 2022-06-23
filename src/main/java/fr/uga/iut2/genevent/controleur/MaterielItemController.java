@@ -16,7 +16,17 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MaterielItemController implements Initializable {
+public class MaterielItemController extends Controller implements Initializable {
+
+    private static MaterielItemController controller;
+
+    static {
+        controller = new MaterielItemController();
+    }
+
+    public static MaterielItemController getController() {
+        return controller;
+    }
 
     @FXML private Label label_nom;
     @FXML private Label label_dispo;

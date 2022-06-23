@@ -23,6 +23,16 @@ import java.util.ResourceBundle;
  */
 public class CreateLieuController extends FormulaireController<Lieu> implements Initializable {
 
+    private static CreateLieuController controller;
+
+    static {
+        controller = new CreateLieuController();
+    }
+
+    public static CreateLieuController getController() {
+        return controller;
+    }
+
     @FXML private ComboBox<TypeLieu> type_cb;
 
     @FXML private TextField nom_tf;

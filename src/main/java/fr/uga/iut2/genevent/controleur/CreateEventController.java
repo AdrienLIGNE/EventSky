@@ -32,6 +32,16 @@ import java.util.ResourceBundle;
  */
 public class CreateEventController extends FormulaireController<Evenement> implements Initializable {
 
+    private static CreateEventController controller;
+
+    static {
+        controller = new CreateEventController();
+    }
+
+    public static CreateEventController getController() {
+        return controller;
+    }
+
     private int etape;
 
     // Données récupérées à chaque étapes
@@ -77,7 +87,23 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("initialize() called " + etape);
         initEtape();
+    }
+
+    public void resetEtape() {
+        etape = 1;
+
+        type = null;
+        nb_personnes = 0;
+        nom = null;
+        nom_artistes = null;
+        date_debut = null;
+        date_fin = null;
+        duree = 1;
+        lieu = null;
+        choix_materiel = null;
+        choix_personnel = null;
     }
 
     @Override
@@ -88,10 +114,10 @@ public class CreateEventController extends FormulaireController<Evenement> imple
         nb_personnes = evenement.getNbPersonnes().getValue();
         nom = evenement.getNomEvenement().getValue();
         nom_artistes = evenement.getNomArtiste().getValue();
-        date_debut = evenement.getDateDebut();
-        date_fin = evenement.getDateFin();
+        date_debut = evenement.getDateDebut().getValue();
+        date_fin = evenement.getDateFin().getValue();
         duree = evenement.getDuree().getValue();
-        lieu = evenement.getLieu();
+        lieu = evenement.getLieu().getValue();
 
         // On récupère la liste de personnel
         choix_personnel = FXCollections.observableArrayList(evenement.getPersonnel());

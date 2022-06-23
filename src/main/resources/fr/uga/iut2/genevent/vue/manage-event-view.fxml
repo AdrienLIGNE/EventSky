@@ -37,12 +37,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.ManageEventController">
+<BorderPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
          <left>
             <fx:include source="menu-lateral.fxml" />
          </left>
    <center>
-      <VBox alignment="CENTER" maxHeight="600.0" maxWidth="927.0" prefHeight="600.0" prefWidth="927.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <HBox fx:id="parent_hbox" maxHeight="1.7976931348623157E308" onMouseClicked="#parentClick">
                <children>
