@@ -171,7 +171,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
             code_postal_tf.setStyle("-fx-border-color: red;");
             valide = false;
 
-            VerifUtilitaire.createPopOver(code_postal_tf, " Code postal invalide ");
+            VerifUtilitaire.createPopOver(code_postal_tf, " Format invalide ");
         }
 
         if (ville_tf.getText().isEmpty()){
