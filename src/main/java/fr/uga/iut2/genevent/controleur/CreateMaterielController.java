@@ -135,7 +135,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
         //verification du combobox
         if (typeMateriel_cb.getValue() == null){
             typeMateriel_cb.setStyle("-fx-border-color: red;");
-k            b = false;
+            b = false;
 
             VerifUtilitaire.createPopOver(typeMateriel_cb, "Veuillez choisir un type");
 
