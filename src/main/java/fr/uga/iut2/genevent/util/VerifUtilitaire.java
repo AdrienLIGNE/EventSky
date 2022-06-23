@@ -7,6 +7,7 @@ import fr.uga.iut2.genevent.modele.Reservable;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
 
 import java.util.Collection;
@@ -145,5 +146,9 @@ public class VerifUtilitaire {
         node.setOnMouseClicked(MouseEvent -> {
             popOver.hide();
         });
+
+        //pour empêcher le crash lors de la fermeture de la fenêtre lorsque le popover est toujours ouvert
+        //(sinon ça crash car le popover disparait pas instantanément, et quand la fenetre n'existe plus ça déclenche une erreur)
+        popOver.setFadeOutDuration(Duration.ZERO);
     }
 }
