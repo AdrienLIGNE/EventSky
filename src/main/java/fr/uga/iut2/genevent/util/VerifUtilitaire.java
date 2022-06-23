@@ -4,6 +4,10 @@ import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.Reservable;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import org.controlsfx.control.PopOver;
 
 import java.util.Collection;
 
@@ -127,5 +131,19 @@ public class VerifUtilitaire {
             verifie = false;
         }
         return  verifie;
+    }
+
+
+    public static void createPopOver(Node node, String msg){
+        Label label = new Label(msg);
+        label.setStyle("-fx-text-fill: red;");
+
+        PopOver popOver = new PopOver(label);
+        popOver.arrowIndentProperty().bind(new SimpleDoubleProperty(1));
+        popOver.arrowSizeProperty().bind(new SimpleDoubleProperty(5));
+        popOver.show(node);
+        node.setOnMouseClicked(MouseEvent -> {
+            popOver.hide();
+        });
     }
 }

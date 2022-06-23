@@ -4,12 +4,15 @@ import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.TypePersonnel;
 import fr.uga.iut2.genevent.util.TextUtilitaire;
 import fr.uga.iut2.genevent.util.VerifUtilitaire;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -17,10 +20,13 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
-import java.nio.file.attribute.PosixFileAttributes;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+
+import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+import org.controlsfx.control.PopOver;
+
 
 public class CreatePersonnelController extends FormulaireController<Personnel> implements Initializable {
 
@@ -87,9 +93,15 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
         }
     }
 
+    /**
+     * Méthode qui permet de vérifier que le formulaire a été rempli correctement, et encadre les champs mal remplis en rouge et affiche un message pour l'utilisateur s'il est mal rempli
+     * @return true si tout le formulaire est bien rempli, false sinon
+     */
     @Override
     public boolean verifieSaisies() {
         boolean b = true;
+
+
 
         //on reset les bordures
         nom_tf.setStyle("-fx-border-color: none;");
@@ -107,8 +119,12 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
             String nom;
             try {
                 nom = TextUtilitaire.capitalize(nom_tf.getText());
-            } catch (IndexOutOfBoundsException e) {
+            } catch (StringIndexOutOfBoundsException e) {
                 nom = "";
+                nom_tf.setStyle("-fx-border-color: red;");
+                b = false;
+
+                VerifUtilitaire.createPopOver(nom_tf, "Veuillez remplir ce champ");
             }
             //on fait la vérification seulement si on a modifié le nom
             if (this.getElementModifie() == null || !nom.equals(this.getElementModifie().getNom().get())) {
@@ -116,6 +132,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
 
+                    VerifUtilitaire.createPopOver(nom_tf, "Un personnel de ce nom existe déjà");
                 }
             }
         } else {
@@ -125,23 +142,52 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
             } catch (IndexOutOfBoundsException e) {
                 nom = "";
             }
-            if (nom.isEmpty() || VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())) {
+            if (nom.isEmpty()) {
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
-                Notifications.create().title("Erreur de saisie").text("Ne laissez pas le champ vide").position(Pos.CENTER).show();
+
+               VerifUtilitaire.createPopOver(nom_tf,"Veuillez remplir ce champ");
+
+            }else if (VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())){
+                nom_tf.setStyle("-fx-border-color: red;");
+                b = false;
+
+                VerifUtilitaire.createPopOver(nom_tf,"Un personnel de ce nom existe déjà");
             }
         }
-        if (mail_tf.getText().isEmpty() | !VerifUtilitaire.verifMail(mail_tf.getText())) {
+
+        //verification du mail
+        if (mail_tf.getText().isEmpty()) {
             mail_tf.setStyle("-fx-border-color: red;");
             b = false;
+
+            VerifUtilitaire.createPopOver(mail_tf, "Veuillez remplir ce champ");
+        }else if(!VerifUtilitaire.verifMail(mail_tf.getText())){
+            mail_tf.setStyle("-fx-border-color: red;");
+            b = false;
+
+            VerifUtilitaire.createPopOver(mail_tf, "Veuillez rentrer une adresse mail avec un format valide");
         }
-        if (numero_tf.getText().isEmpty() | !VerifUtilitaire.verifTelephone(numero_tf.getText())) {
+
+        //verification du numero
+        if (numero_tf.getText().isEmpty()) {
             numero_tf.setStyle("-fx-border-color: red;");
             b = false;
+
+            VerifUtilitaire.createPopOver(numero_tf, "Veuillez remplir ce champ");
+        }else if(!VerifUtilitaire.verifTelephone(numero_tf.getText())){
+            numero_tf.setStyle("-fx-border-color: red;");
+            b = false;
+
+            VerifUtilitaire.createPopOver(numero_tf, "Veuillez rentrer un numéro de téléphone avec un format valide");
         }
+
+        //verification du type
         if (type_cb.getValue() == null) {
             type_cb.setStyle("-fx-border-color: red;");
             b = false;
+
+            VerifUtilitaire.createPopOver(type_cb, "Veuillez choisir un type");
         }
         return b;
     }
