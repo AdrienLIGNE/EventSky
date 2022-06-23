@@ -124,37 +124,61 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
 
             type_cb.setStyle("-fx-border-color: red; -fx-text-fill: red;");
             valide = false;
+
+            VerifUtilitaire.createPopOver(type_cb, "Veuillez choisir un type");
         }
 
         //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
         //si on est en edit mode on vérifie seulement si on change le nom du matériel
-        if (this.isOnEditMode()){
-            if (this.getElementModifie() == null || !nom_tf.getText().equals(this.getElementModifie().getNom().get())){
-                if (VerifUtilitaire.existeDejaLieu(nom_tf.getText(),this.getModel().getLieux())){
+        if (nom_tf.getText().isEmpty()){
+            nom_tf.setStyle("-fx-border-color: red;");
+            valide = false;
+
+            VerifUtilitaire.createPopOver(nom_tf, "Veuillez remplir ce champ");
+        }else {
+            if (this.isOnEditMode()) {
+                if (this.getElementModifie() == null || !nom_tf.getText().equals(this.getElementModifie().getNom().get())) {
+                    if (VerifUtilitaire.existeDejaLieu(nom_tf.getText(), this.getModel().getLieux())) {
+                        nom_tf.setStyle("-fx-border-color: red;");
+                        valide = false;
+
+                        VerifUtilitaire.createPopOver(nom_tf, "Un lieu du même nom existe déjà");
+                    }
+                }
+            } else {
+                if (VerifUtilitaire.existeDejaLieu(nom_tf.getText(), this.getModel().getLieux())) {
                     nom_tf.setStyle("-fx-border-color: red;");
                     valide = false;
+
+                    VerifUtilitaire.createPopOver(nom_tf, "Un lieu du même nom existe déjà");
                 }
-            }
-        }else {
-            if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaLieu(nom_tf.getText(), this.getModel().getLieux())) {
-                nom_tf.setStyle("-fx-border-color: red;");
-                valide = false;
             }
         }
 
         if (adresse_tf.getText().isEmpty()){
             adresse_tf.setStyle("-fx-border-color: red;");
             valide = false;
+
+            VerifUtilitaire.createPopOver(adresse_tf, "Veuillez remplir ce champ");
         }
 
-        if (code_postal_tf.getText().isEmpty() | !VerifUtilitaire.verifFormatCodePostal(code_postal_tf.getText())){
+        if (code_postal_tf.getText().isEmpty()){
             code_postal_tf.setStyle("-fx-border-color: red;");
             valide = false;
+
+            VerifUtilitaire.createPopOver(code_postal_tf, "Veuillez remplir ce champ");
+        }else if (!VerifUtilitaire.verifFormatCodePostal(code_postal_tf.getText())){
+            code_postal_tf.setStyle("-fx-border-color: red;");
+            valide = false;
+
+            VerifUtilitaire.createPopOver(code_postal_tf, "Veuillez entrer un code postal qui existe");
         }
 
         if (ville_tf.getText().isEmpty()){
             ville_tf.setStyle("-fx-border-color: red;");
             valide = false;
+
+            VerifUtilitaire.createPopOver(ville_tf, "Veuillez remplir ce champ");
         }
         return valide;
     }
