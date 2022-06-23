@@ -133,7 +133,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
 
-                VerifUtilitaire.createPopOver(nom_tf, "Champ obligatoire");
+                VerifUtilitaire.createPopOver(nom_tf, " Champ obligatoire ");
             }
             //on fait la vérification seulement si on a modifié le nom
             if (this.getElementModifie() == null || !nom.equals(this.getElementModifie().getNom().get())) {
@@ -141,7 +141,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
 
-                    VerifUtilitaire.createPopOver(nom_tf, "Nom déjà pris");
+                    VerifUtilitaire.createPopOver(nom_tf, " Nom déjà pris ");
                 }
             }
         } else {
@@ -155,13 +155,13 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
 
-               VerifUtilitaire.createPopOver(nom_tf,"Champ obligatoire");
+               VerifUtilitaire.createPopOver(nom_tf," Champ obligatoire ");
 
             }else if (VerifUtilitaire.existeDejaPersonnel(nom, this.getModel().getPersonnels())){
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
 
-                VerifUtilitaire.createPopOver(nom_tf,"Nom déjà pris");
+                VerifUtilitaire.createPopOver(nom_tf," Nom déjà pris ");
             }
         }
 
@@ -170,12 +170,12 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
             mail_tf.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(mail_tf, "Champ obligatoire");
+            VerifUtilitaire.createPopOver(mail_tf, " Champ obligatoire ");
         }else if(!VerifUtilitaire.verifMail(mail_tf.getText())){
             mail_tf.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(mail_tf, "Format invalide");
+            VerifUtilitaire.createPopOver(mail_tf, " Format invalide ");
         }
 
         //verification du numero
@@ -183,12 +183,12 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
             numero_tf.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(numero_tf, "Champ obligatoire");
+            VerifUtilitaire.createPopOver(numero_tf, " Champ obligatoire ");
         }else if(!VerifUtilitaire.verifTelephone(numero_tf.getText())){
             numero_tf.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(numero_tf, "Format invalide");
+            VerifUtilitaire.createPopOver(numero_tf, " Format invalide ");
         }
 
         //verification du type
@@ -196,7 +196,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
             type_cb.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(type_cb, "Choisir un type");
+            VerifUtilitaire.createPopOver(type_cb, " Choisir un type ");
         }
         return b;
     }
