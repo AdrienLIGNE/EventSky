@@ -132,11 +132,12 @@ public class ManageEventController extends Controller implements Initializable {
     @FXML
     private void confirmEventClick(ActionEvent e) {
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("confirm-event-view.fxml"));
+        ConfirmEventController controller = ConfirmEventController.getController();
+        fxmlLoader.setController(controller);
 
         Stage stage = new Stage();
         try {
             stage.setScene(new Scene(fxmlLoader.load()));
-            ConfirmEventController controller = ConfirmEventController.getController();
             controller.setEvenement(getSelectedEvent());
             stage.show();
         }

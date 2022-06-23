@@ -93,6 +93,17 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
     public void resetEtape() {
         etape = 1;
+
+        type = null;
+        nb_personnes = 0;
+        nom = null;
+        nom_artistes = null;
+        date_debut = null;
+        date_fin = null;
+        duree = 1;
+        lieu = null;
+        choix_materiel = null;
+        choix_personnel = null;
     }
 
     @Override
