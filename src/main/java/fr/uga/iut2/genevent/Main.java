@@ -43,8 +43,9 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader mainViewLoader = new FXMLLoader(JavaFXGUI.class.getResource("main-view.fxml"));
         Scene mainScene = new Scene(mainViewLoader.load());
-        stage.setTitle("GenEvent");
+        stage.setTitle("EventSky");
         stage.setScene(mainScene);
+        stage.setResizable(false);
 
         stage.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
             @Override

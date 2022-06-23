@@ -14,34 +14,36 @@ public class ChoixMaterielQuantite {
     private Spinner<Integer> nb;
     private Materiel mat;
 
-    // Il peut être éditable (spinner) ou fixe (pour l'affichage)
-    private int quantite;
-    private boolean editable;
+
+    private int defaultValue;
 
 
     public ChoixMaterielQuantite(Materiel m) {
         this.mat = m;
-        this.editable = true;
+        defaultValue = 0;
 
     }
 
     public ChoixMaterielQuantite(Materiel m, int quantite) {
         this.mat = m;
-        this.editable = false;
-        this.quantite = quantite;
+        setDefaultValue(quantite);
+    }
+
+    public void setDefaultValue(int defaultValue) {
+        this.defaultValue = defaultValue;
     }
 
     public void setSpinner(Spinner<Integer> s, int max) {
         this.nb = s;
 
-        this.nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, max, 0));
+        this.nb.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, max, defaultValue));
+
     }
 
     public int getQuantite() {
-        if(editable)
-            return nb.getValue();
+        if(nb == null) return defaultValue;
+        return nb.getValue();
 
-        return quantite;
     }
 
     public Materiel getMateriel() {

@@ -12,10 +12,6 @@ public abstract class Controller {
 
     private static MainModel app;
 
-    static {
-        app = new MainModel();
-    }
-
 
     public static void setModel(MainModel a) {
         app = a;
@@ -24,7 +20,6 @@ public abstract class Controller {
     public static MainModel getModel() {
         return app;
     }
-
 
     /**
      * Méthode permettant de récupérer le stage d'un élément.

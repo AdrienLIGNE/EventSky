@@ -38,9 +38,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MainController">
+<BorderPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
          <left>
-            <fx:include source="menu-lateral.fxml"></fx:include>
+            <fx:include fx:id="menu" source="menu-lateral.fxml"></fx:include>
          </left>
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="950.0" BorderPane.alignment="CENTER">

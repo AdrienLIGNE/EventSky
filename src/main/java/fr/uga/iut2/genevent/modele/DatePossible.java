@@ -33,7 +33,7 @@ public class DatePossible {
 
     @Override
     public String toString() {
-        return getDateDebut().format(DateTimeFormatter.ofPattern("dd/MM/YY")) + "  -  " + getDateFin().format(DateTimeFormatter.ofPattern("dd/MM/YY"));
+        return getDateDebut().format(DateTimeFormatter.ofPattern("dd MMM YYYY")) + "\t -\t" + getDateFin().format(DateTimeFormatter.ofPattern("dd MMM YYYY"));
     }
 
     /**

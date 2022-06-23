@@ -32,6 +32,16 @@ import java.util.ResourceBundle;
  */
 public class ManageRessourcesController extends Controller implements Initializable {
 
+    private static ManageRessourcesController controller;
+
+    static {
+        controller = new ManageRessourcesController();
+    }
+
+    public static ManageRessourcesController getController() {
+        return controller;
+    }
+
     private final static int MATERIEL_TAB = 0;
     private final static int PERSONNEL_TAB = 1;
     private final static int LIEU_TAB = 2;
@@ -85,6 +95,7 @@ public class ManageRessourcesController extends Controller implements Initializa
 
     }
 
+
     /**
      * Méthode appeler lors du clique sur le bouton ajouter
      * @param e
@@ -95,14 +106,16 @@ public class ManageRessourcesController extends Controller implements Initializa
 
         // On récupère le bon FXML en fonction de l'onglet
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource(getFXMLRessourceCreator()));
+        fxmlLoader.setController(getControllerRessourceCreator());
 
         try {
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
 
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Ajouter nouvelles ressources");
+            stage.setTitle("EventSky - Ajouter des ressources");
             stage.show();
+            stage.setResizable(false);
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -122,14 +135,16 @@ public class ManageRessourcesController extends Controller implements Initializa
         Stage stage = new Stage();
 
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource(getFXMLRessourceCreator(reservableModifie)));
+        fxmlLoader.setController(getControllerRessourceCreator(reservableModifie));
 
         try {
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
 
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Modification du matériel");
+            stage.setTitle("EventSky - Modifier les matériels");
             stage.show();
+            stage.setResizable(false);
 
             FormulaireController controller =  fxmlLoader.getController();
             controller.setEditMode(reservableModifie);
@@ -144,7 +159,7 @@ public class ManageRessourcesController extends Controller implements Initializa
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
         confirm.setTitle("Confirmation requise");
         confirm.setHeaderText("Supprimer cette ressource ?");
-        confirm.setContentText("Une fois confirmer, vous ne pourrez plus revenir en arrière !");
+        confirm.setContentText("Une fois confirmé, vous ne pourrez plus revenir en arrière !");
 
         Optional<ButtonType> result = confirm.showAndWait();
 
@@ -178,6 +193,26 @@ public class ManageRessourcesController extends Controller implements Initializa
         if(r instanceof Materiel) return "create-items-view.fxml";
         if(r instanceof Personnel) return "create-personnel-view.fxml";
         if(r instanceof Lieu) return "create-salle-view.fxml";
+        else return null;
+    }
+
+    /**
+     * Retourne le controleur à utiliser en fonction de l'onglet
+     * @return controleur
+     */
+    private Controller getControllerRessourceCreator() {
+        int index = getOngletActif();
+
+        if(index == MATERIEL_TAB) return CreateMaterielController.getController();
+        if(index == PERSONNEL_TAB) return CreatePersonnelController.getController();
+        if(index == LIEU_TAB) return CreateLieuController.getController();
+        else return null;
+    }
+
+    private static Controller getControllerRessourceCreator(Reservable r) {
+        if(r instanceof Materiel) return CreateMaterielController.getController();
+        if(r instanceof Personnel) return CreatePersonnelController.getController();
+        if(r instanceof Lieu) return CreateLieuController.getController();
         else return null;
     }
 

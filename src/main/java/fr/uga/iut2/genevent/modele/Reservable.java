@@ -7,7 +7,9 @@ import javafx.collections.ObservableList;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -87,6 +89,7 @@ public abstract class Reservable  {
         affectation_evenements.add(new TupleQuantiteEvenement(e, quantite));
     }
 
+
     /**
      * Réserve le réservable pour un événement
      * @param e Evenement sur lequel réserver l'élément réservable
@@ -95,6 +98,18 @@ public abstract class Reservable  {
         affecteEvenement(e, 1);
     }
 
+    /**
+     * Permet de supprimer le lien avec un évènement
+     * @param e
+     */
+    public void supprimeEvenement(Evenement e) {
+        affectation_evenements.removeIf(new Predicate<TupleQuantiteEvenement>() {
+            @Override
+            public boolean test(TupleQuantiteEvenement tupleQuantiteEvenement) {
+                return tupleQuantiteEvenement.getEvenement().equals(e);
+            }
+        });
+    }
 
     /**
      * Calcule la quantité réservée pour un jour donné.

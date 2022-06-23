@@ -23,6 +23,16 @@ import java.util.ResourceBundle;
  */
 public class CreateLieuController extends FormulaireController<Lieu> implements Initializable {
 
+    private static CreateLieuController controller;
+
+    static {
+        controller = new CreateLieuController();
+    }
+
+    public static CreateLieuController getController() {
+        return controller;
+    }
+
     @FXML private ComboBox<TypeLieu> type_cb;
 
     @FXML private TextField nom_tf;
@@ -111,6 +121,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         ville_tf.setStyle("-fx-border-color: none;");
 
         if (type_cb.getValue() == null){
+
             type_cb.setStyle("-fx-border-color: red; -fx-text-fill: red;");
             valide = false;
         }

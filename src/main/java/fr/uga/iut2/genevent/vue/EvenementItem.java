@@ -41,7 +41,9 @@ public class EvenementItem extends ListCell<Evenement> {
         if(evenement != null) {
             controller.setTitre(evenement.getNomEvenement());
             controller.setDates(evenement.getDateDebut(), evenement.getDateFin());
+            controller.setType(evenement.getType());
             setGraphic(itemNode);
         }
+        else setGraphic(null);
     }
 }

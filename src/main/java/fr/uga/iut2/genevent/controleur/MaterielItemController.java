@@ -7,14 +7,26 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MaterielItemController implements Initializable {
+public class MaterielItemController extends Controller implements Initializable {
+
+    private static MaterielItemController controller;
+
+    static {
+        controller = new MaterielItemController();
+    }
+
+    public static MaterielItemController getController() {
+        return controller;
+    }
 
     @FXML private Label label_nom;
     @FXML private Label label_dispo;
@@ -52,4 +64,6 @@ public class MaterielItemController implements Initializable {
         });
 
     }
+
+
 }

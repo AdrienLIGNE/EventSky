@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <fx:include source="menu-lateral.fxml" />
+    </left>
+    <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="237.5" prefWidth="237.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="237.5" prefWidth="237.5" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="237.5" prefWidth="237.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="237.5" prefWidth="237.5" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="4" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Concert de 47ter">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" text="CONCERT">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" text="CONFIRME">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Images/confirmation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label text="Récapitulatif des informations de l'événènement">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+               </children>
+            </VBox>
+            <Label text="Nom de l'évènement :" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label text="Date de début :" GridPane.rowIndex="2">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label text="Date de fin :" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label text="Durée en jour :" GridPane.rowIndex="3">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label text="Nombre de spectateurs attendus :" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label text="Coût estimé de l'évènement :" GridPane.rowIndex="4">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label text="Artiste(s) présent(s) :" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <children>
+                  <Label text="Liste de matériels">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <children>
+                  <Label text="Liste de personnels">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6" GridPane.rowSpan="2">
+               <GridPane.margin>
+                  <Insets left="20.0" right="10.0" />
+               </GridPane.margin></ListView>
+            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6" GridPane.rowSpan="2">
+               <GridPane.margin>
+                  <Insets left="10.0" right="20.0" />
+               </GridPane.margin></ListView>
+            <DatePicker disable="true" editable="false" maxWidth="1.7976931348623157E308" promptText="21" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" right="10.0" />
+               </GridPane.margin>
+            </DatePicker>
+            <DatePicker disable="true" editable="false" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+            </DatePicker>
+            <Label text="1 jour" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="1000" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Concert de 47ter" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="47ter" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="10000 €" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8">
+               <children>
+                  <Button mnemonicParsing="false" text="SUPPRIMER" />
+                  <Button mnemonicParsing="false" text="MODIFIER">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="PUBLIER">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

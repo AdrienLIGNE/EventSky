@@ -13,6 +13,16 @@ import java.util.ResourceBundle;
 public class MainController extends Controller implements Initializable{
 
 
+    private static MainController controller;
+
+    static {
+        controller = new MainController();
+    }
+
+    public static MainController getController() {
+        return controller;
+    }
+
     @FXML
     private Node menu;
 
@@ -21,7 +31,6 @@ public class MainController extends Controller implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println(getModel().getLieux().size());
     }
-
 
 
 }

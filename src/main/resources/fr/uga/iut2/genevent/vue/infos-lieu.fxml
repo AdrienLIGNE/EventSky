@@ -11,89 +11,89 @@
     <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="90.0" minHeight="90.0" prefHeight="90.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="55.0" minHeight="55.0" prefHeight="55.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Type de lieu :">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Type de lieu :">
          <GridPane.margin>
-            <Insets right="7.5" top="30.0" />
+            <Insets bottom="5.0" right="7.5" top="30.0" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Nom :" GridPane.rowIndex="1">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Nom :" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="5.0" right="7.5" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Adresse :" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Adresse :" GridPane.rowIndex="2">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Infos complémentaires :" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Infos complémentaires :" GridPane.rowIndex="3">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Code postal :" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Code postal :" GridPane.rowIndex="4">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Ville :" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Ville :" GridPane.rowIndex="5">
+      <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" text="Capacité maximum :" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets right="7.5" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label text="Capacité maximum :" GridPane.rowIndex="6">
+      <Label fx:id="lbl_type" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1">
          <GridPane.margin>
-            <Insets right="7.5" />
-         </GridPane.margin>
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></Label>
-      <Label fx:id="lbl_type" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets left="7.5" top="30.0" />
+            <Insets bottom="5.0" left="7.5" top="30.0" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_nom" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label fx:id="lbl_nom" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="7.5" />
+         </GridPane.margin></Label>
+      <Label fx:id="lbl_adresse" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_adresse" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label fx:id="lbl_infos" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_infos" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label fx:id="lbl_code" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_code" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Label fx:id="lbl_ville" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>
-      <Label fx:id="lbl_ville" GridPane.columnIndex="1" GridPane.rowIndex="5">
-         <GridPane.margin>
-            <Insets left="7.5" />
-         </GridPane.margin></Label>
-      <Label fx:id="lbl_capacite" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <Label fx:id="lbl_capacite" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets left="7.5" />
          </GridPane.margin></Label>

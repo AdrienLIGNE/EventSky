@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="title" prefHeight="25.0" prefWidth="550.0" text="Créer un évènement">
          <font>
-            <Font size="21.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
          <VBox.margin>
             <Insets left="15.0" top="15.0" />
@@ -30,13 +30,13 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.99998474121094" minWidth="10.0" prefWidth="322.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.39999999999999" minHeight="32.40000762939452" prefHeight="32.40000762939452" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="68.39999237060547" minHeight="39.20000000000002" prefHeight="39.20000000000002" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="60.0" minHeight="-Infinity" prefHeight="36.599999999999994" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.19999999999999" minHeight="-Infinity" prefHeight="17.80000000000001" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="51.00000000000003" minHeight="0.0" prefHeight="50.00000000000003" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Nom de l'artiste/groupe *" GridPane.rowIndex="2" GridPane.valignment="CENTER">
@@ -44,12 +44,12 @@
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Première date possible*" GridPane.rowIndex="4">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Première date possible *" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Dernière date possible*" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" text="Dernière date possible *" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" right="7.5" />
                </GridPane.margin>
@@ -133,6 +133,9 @@
                   <Insets bottom="15.0" right="15.0" />
                </HBox.margin></Button>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

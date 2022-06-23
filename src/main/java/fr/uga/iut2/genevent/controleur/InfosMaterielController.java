@@ -14,14 +14,25 @@ import javafx.beans.property.StringProperty;
 
 
 public class InfosMaterielController extends Controller{
-    @FXML
-    Label lbl_type;
+
+    private static InfosMaterielController controller;
+
+    static {
+        controller = new InfosMaterielController();
+    }
+
+    public static InfosMaterielController getController() {
+        return controller;
+    }
 
     @FXML
-    Label lbl_nom;
+    private Label lbl_type;
 
     @FXML
-    Label lbl_quantite;
+    private Label lbl_nom;
+
+    @FXML
+    private Label lbl_quantite;
 
     private Materiel materiel;
 

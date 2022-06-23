@@ -8,6 +8,8 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.logging.Level;
 
 public class JSONPersist {
@@ -89,20 +91,24 @@ public class JSONPersist {
 
         JSONArray evenements_list = new JSONArray();
 
-        for(Evenement e : app.getEvenementsNonConfirme()) {
+        // On concat les évènements non confirmer avec ceux confirmés
+        Collection<Evenement> evenements = app.getEvenementsNonConfirme();
+        evenements.addAll(app.getEvenementsConfirme());
+
+        for(Evenement e : evenements) {
 
             JSONObject evenement = new JSONObject();
 
             evenement.put("nom", e.getNomEvenement().getValue());
             evenement.put("nom_artiste", e.getNomArtiste().getValue());
-            evenement.put("date_debut", e.getDateDebut().toString());
-            evenement.put("date_fin", e.getDateFin().toString());
+            evenement.put("date_debut", e.getDateDebut().get().toString());
+            evenement.put("date_fin", e.getDateFin().get().toString());
             evenement.put("duree", e.getDuree().getValue());
-            evenement.put("lieu", e.getLieu().getNom().getValue());
+            evenement.put("lieu", e.getLieu().get().getNom().getValue());
             evenement.put("confirme", e.isConfirmed());
             evenement.put("type", e.getType().getValue().toString());
             evenement.put("nb_personnes", e.getNbPersonnes().getValue());
-            evenement.put("lieu", e.getLieu().getNom().getValue());
+            evenement.put("lieu", e.getLieu().get().getNom().getValue());
 
             // On sauvegarde la liste du matériel
             JSONArray materiel_list_evenement = new JSONArray();
@@ -277,12 +283,14 @@ public class JSONPersist {
                     e.addPersonnel(p);
                 }
 
+
                 if(confirme) {
                     e.confirme();
+                    app.addEvenementConfirme(e);
                 }
-
-                app.addEvenement(e);
-
+                else {
+                    app.addEvenement(e);
+                }
             }
 
     }
