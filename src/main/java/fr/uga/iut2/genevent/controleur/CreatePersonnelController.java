@@ -141,7 +141,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
 
-                    VerifUtilitaire.createPopOver(nom_tf, "Ce nom existe déjà");
+                    VerifUtilitaire.createPopOver(nom_tf, "Nom déjà pris");
                 }
             }
         } else {
@@ -161,7 +161,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 nom_tf.setStyle("-fx-border-color: red;");
                 b = false;
 
-                VerifUtilitaire.createPopOver(nom_tf,"Ce nom existe déjà");
+                VerifUtilitaire.createPopOver(nom_tf,"Nom déjà pris");
             }
         }
 
@@ -196,7 +196,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
             type_cb.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(type_cb, "Sélectionner un type");
+            VerifUtilitaire.createPopOver(type_cb, "Choisir un type");
         }
         return b;
     }

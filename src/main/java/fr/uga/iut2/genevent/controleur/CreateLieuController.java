@@ -125,7 +125,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
             type_cb.setStyle("-fx-border-color: red; -fx-text-fill: red;");
             valide = false;
 
-            VerifUtilitaire.createPopOver(type_cb, "Veuillez choisir un type");
+            VerifUtilitaire.createPopOver(type_cb, "Choisir un type");
         }
 
         //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
@@ -134,7 +134,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
             nom_tf.setStyle("-fx-border-color: red;");
             valide = false;
 
-            VerifUtilitaire.createPopOver(nom_tf, "Veuillez remplir ce champ");
+            VerifUtilitaire.createPopOver(nom_tf, "Champ obligatoire");
         }else {
             if (this.isOnEditMode()) {
                 if (this.getElementModifie() == null || !nom_tf.getText().equals(this.getElementModifie().getNom().get())) {
@@ -142,7 +142,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                         nom_tf.setStyle("-fx-border-color: red;");
                         valide = false;
 
-                        VerifUtilitaire.createPopOver(nom_tf, "Un lieu du même nom existe déjà");
+                        VerifUtilitaire.createPopOver(nom_tf, "Nom déjà pris");
                     }
                 }
             } else {
@@ -150,7 +150,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                     nom_tf.setStyle("-fx-border-color: red;");
                     valide = false;
 
-                    VerifUtilitaire.createPopOver(nom_tf, "Un lieu du même nom existe déjà");
+                    VerifUtilitaire.createPopOver(nom_tf, "Nom déjà pris");
                 }
             }
         }
@@ -159,26 +159,26 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
             adresse_tf.setStyle("-fx-border-color: red;");
             valide = false;
 
-            VerifUtilitaire.createPopOver(adresse_tf, "Veuillez remplir ce champ");
+            VerifUtilitaire.createPopOver(adresse_tf, "Champ obligatoire");
         }
 
         if (code_postal_tf.getText().isEmpty()){
             code_postal_tf.setStyle("-fx-border-color: red;");
             valide = false;
 
-            VerifUtilitaire.createPopOver(code_postal_tf, "Veuillez remplir ce champ");
+            VerifUtilitaire.createPopOver(code_postal_tf, "Champ obligatoire");
         }else if (!VerifUtilitaire.verifFormatCodePostal(code_postal_tf.getText())){
             code_postal_tf.setStyle("-fx-border-color: red;");
             valide = false;
 
-            VerifUtilitaire.createPopOver(code_postal_tf, "Veuillez entrer un code postal qui existe");
+            VerifUtilitaire.createPopOver(code_postal_tf, "Code postal invalide");
         }
 
         if (ville_tf.getText().isEmpty()){
             ville_tf.setStyle("-fx-border-color: red;");
             valide = false;
 
-            VerifUtilitaire.createPopOver(ville_tf, "Veuillez remplir ce champ");
+            VerifUtilitaire.createPopOver(ville_tf, "Champ obligatoire");
         }
         return valide;
     }

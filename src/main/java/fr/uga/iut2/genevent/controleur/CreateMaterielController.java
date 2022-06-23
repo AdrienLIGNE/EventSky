@@ -111,7 +111,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
             nom_tf.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(nom_tf, "Veuillez remplir ce champ");
+            VerifUtilitaire.createPopOver(nom_tf, "Champ obligatoire");
         }else {
             if (this.isOnEditMode()) {
                 if (!nom_tf.getText().equals(ancienNom) | ancienNom == null) {
@@ -119,7 +119,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
                         nom_tf.setStyle("-fx-border-color: red;");
                         b = false;
 
-                        VerifUtilitaire.createPopOver(nom_tf, "Un matériel de ce nom existe déjà");
+                        VerifUtilitaire.createPopOver(nom_tf, "Nom déjà pris");
                     }
                 }
             } else {
@@ -127,7 +127,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
 
-                    VerifUtilitaire.createPopOver(nom_tf, "Un matériel de ce nom existe déjà");
+                    VerifUtilitaire.createPopOver(nom_tf, "Nom déjà pris");
                 }
             }
         }
@@ -137,7 +137,7 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
             typeMateriel_cb.setStyle("-fx-border-color: red;");
             b = false;
 
-            VerifUtilitaire.createPopOver(typeMateriel_cb, "Veuillez choisir un type");
+            VerifUtilitaire.createPopOver(typeMateriel_cb, "Choisir un type");
 
         }
         return b;
