@@ -5,10 +5,14 @@ import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.Reservable;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
+import org.controlsfx.control.action.Action;
 
 import java.util.Collection;
 
@@ -143,6 +147,8 @@ public class VerifUtilitaire {
         popOver.arrowIndentProperty().bind(new SimpleDoubleProperty(1));
         popOver.arrowSizeProperty().bind(new SimpleDoubleProperty(5));
         popOver.show(node);
+
+        //lorsqu'on clique sur le champ, on fait disparaitre le popover (sinon il disparait pas tout de suite)
         node.setOnMouseClicked(MouseEvent -> {
             popOver.hide();
         });
