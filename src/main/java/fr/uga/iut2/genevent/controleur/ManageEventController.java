@@ -28,9 +28,11 @@ import java.util.ResourceBundle;
 public class ManageEventController extends Controller implements Initializable {
 
     private static ManageEventController controller;
+    private static Stage createEventStage;
 
     static {
         controller = new ManageEventController();
+        createEventStage = new Stage();
     }
 
     public static ManageEventController getController() {
@@ -46,6 +48,7 @@ public class ManageEventController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         // On affiche les listes avec les évènements
         list_brouillon.setItems(getModel().getEvenementsNonConfirme());
         list_evenement.setItems(getModel().getEvenementsConfirme());
@@ -71,11 +74,11 @@ public class ManageEventController extends Controller implements Initializable {
 
     @FXML
     private void createEventButtonClick() {
-        Stage stage = new Stage();
 
         CreateEventController controller = CreateEventController.getController();
-        controller.showPage(stage);
-        stage.show();
+        controller.showPage(createEventStage);
+        createEventStage.show();
+
     }
 
 
@@ -88,8 +91,8 @@ public class ManageEventController extends Controller implements Initializable {
                 Stage stage = new Stage();
 
                 CreateEventController controller = CreateEventController.getController();
-                controller.setEditMode(getSelectedEvent());
                 controller.showPage(stage);
+                controller.setEditMode(getSelectedEvent());
                 stage.show();
             }
         }
