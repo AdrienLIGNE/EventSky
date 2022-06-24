@@ -2,7 +2,6 @@
     -fx-border-width: 2;
 }
 
-
 .menu-button {
     -fx-border-radius: 0;
     -fx-background-color: #154B6E;
@@ -54,4 +53,11 @@
 .button {
     -fx-border-radius: 4;
     -fx-background-radius: 4;
+}
+
+.infoGridPane {
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-background-color: white;
+    -fx-border-color: lightgrey;
 }

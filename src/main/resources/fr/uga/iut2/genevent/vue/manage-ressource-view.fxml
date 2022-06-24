@@ -30,7 +30,10 @@
                                                 <Insets bottom="15.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <ListView fx:id="materiel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0" />
+                                          <ListView fx:id="materiel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0">
+                                             <VBox.margin>
+                                                <Insets right="15.0" />
+                                             </VBox.margin></ListView>
                                        </children>
                                        <HBox.margin>
                                           <Insets />
@@ -58,7 +61,10 @@
                                                 <Insets bottom="15.0" />
                                              </VBox.margin>
                                          </Label>
-                                         <ListView fx:id="personnel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0" />
+                                         <ListView fx:id="personnel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0">
+                                             <VBox.margin>
+                                                <Insets right="15.0" />
+                                             </VBox.margin></ListView>
                                       </children>
                                        <HBox.margin>
                                           <Insets />
@@ -86,7 +92,10 @@
                                                 <Insets bottom="15.0" />
                                              </VBox.margin>
                                          </Label>
-                                         <ListView fx:id="lieux_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0" />
+                                         <ListView fx:id="lieux_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0">
+                                             <VBox.margin>
+                                                <Insets right="15.0" />
+                                             </VBox.margin></ListView>
                                       </children>
                                        <HBox.margin>
                                           <Insets />
