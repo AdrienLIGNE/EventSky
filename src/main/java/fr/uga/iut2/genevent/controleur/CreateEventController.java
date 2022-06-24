@@ -32,30 +32,43 @@ import java.util.ResourceBundle;
  */
 public class CreateEventController extends FormulaireController<Evenement> implements Initializable {
 
-    private static CreateEventController controller;
-
+    private static CreateEventController[] controller = new CreateEventController[4];
+    private static Scene[] scenes = new Scene[4];
     static {
-        controller = new CreateEventController();
+
+        // On charge toutes les pages à l'avance
+        for(int i = 0; i < 4; i++) {
+            try {
+                controller[i] = new CreateEventController();
+                FXMLLoader loader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page" + (i + 1) + "-view.fxml"));
+                loader.setController(controller[i]);
+                scenes[i] = new Scene(loader.load());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public static CreateEventController getController() {
-        return controller;
+        return controller[0];
     }
 
-    private int etape;
+    private static int etape;
 
     // Données récupérées à chaque étapes
-    private TypeEvenement type;
-    private int nb_personnes;
-    private String nom_artistes;
-    private String nom;
-    private LocalDate date_debut;
-    private LocalDate date_fin;
-    private int duree;
-    private Lieu lieu;
-    private ObservableList<ChoixMaterielQuantite> choix_materiel;
-    private ObservableList<Personnel> choix_personnel;
-    private ObservableList<DatePossible> date_possibles;
+    private static Evenement evenement;
+    private static TypeEvenement type;
+    private static int nb_personnes;
+    private static String nom_artistes;
+    private static String nom;
+    private static LocalDate date_debut;
+    private static LocalDate date_fin;
+    private static int duree;
+    private static Lieu lieu;
+    private static ObservableList<ChoixMaterielQuantite> choix_materiel;
+    private static ObservableList<Personnel> choix_personnel;
+    private static ObservableList<DatePossible> date_possibles;
 
 
     // Partie 1 - Infos générales
@@ -87,8 +100,6 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("initialize() called " + etape);
-        initEtape();
     }
 
     public void resetEtape() {
@@ -107,26 +118,27 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     }
 
     @Override
-    public void setEditMode(Evenement evenement) {
-        super.setEditMode(evenement);
+    public void setEditMode(Evenement ev) {
+        super.setEditMode(ev);
 
-        type = evenement.getType().getValue();
-        nb_personnes = evenement.getNbPersonnes().getValue();
-        nom = evenement.getNomEvenement().getValue();
-        nom_artistes = evenement.getNomArtiste().getValue();
-        date_debut = evenement.getDateDebut().getValue();
-        date_fin = evenement.getDateFin().getValue();
-        duree = evenement.getDuree().getValue();
-        lieu = evenement.getLieu().getValue();
+        evenement = ev;
+        type = ev.getType().getValue();
+        nb_personnes = ev.getNbPersonnes().getValue();
+        nom = ev.getNomEvenement().getValue();
+        nom_artistes = ev.getNomArtiste().getValue();
+        date_debut = ev.getDateDebut().getValue();
+        date_fin = ev.getDateFin().getValue();
+        duree = ev.getDuree().getValue();
+        lieu = ev.getLieu().getValue();
 
         // On récupère la liste de personnel
-        choix_personnel = FXCollections.observableArrayList(evenement.getPersonnel());
+        choix_personnel = FXCollections.observableArrayList(ev.getPersonnel());
 
         // On récupère la liste de matériel
         choix_materiel = FXCollections.observableArrayList();
         for(Materiel m : getModel().getMateriels()) {
             ChoixMaterielQuantite c = new ChoixMaterielQuantite(m);
-            c.setDefaultValue(m.getQuantiteAffecte(evenement));
+            c.setDefaultValue(m.getQuantiteAffecte(ev));
             choix_materiel.add(c);
         }
 
@@ -207,7 +219,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     @FXML
     private void nextButtonClick(ActionEvent e) {
 
-        if(verifieSaisies()) {
+        if(verifieSaisies() | true) {
             saveSaisies();
 
             etape += 1;
@@ -231,23 +243,16 @@ public class CreateEventController extends FormulaireController<Evenement> imple
      * @param n numéro étape
      */
     private void showPage(Stage stage, int n) {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page" + n + "-view.fxml"));
-
-        if(fxmlLoader.getController() == null) {
-            fxmlLoader.setController(this);
+        stage.setScene(scenes[n-1]);
+        if(isOnEditMode()) {
+            controller[n-1].setEditMode(evenement);
         }
+        controller[n-1].initEtape();
+    }
 
-        try {
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
-
-            //initEtape();
-
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    public void showPage(Stage stage) {
+        resetEtape();
+        showPage(stage, 1);
     }
 
     @Override

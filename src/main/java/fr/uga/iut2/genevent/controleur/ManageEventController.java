@@ -71,26 +71,11 @@ public class ManageEventController extends Controller implements Initializable {
 
     @FXML
     private void createEventButtonClick() {
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
-
-        CreateEventController controller = CreateEventController.getController();
-        controller.resetEtape();
-
-        fxmlLoader.setController(controller);
-
         Stage stage = new Stage();
 
-        try {
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-            stage.setTitle("SkyEvent - Créer un évènement");
-            stage.setResizable(false);
-        } catch (IOException e) {
-            // TODO: Logger
-            e.printStackTrace();
-        }
+        CreateEventController controller = CreateEventController.getController();
+        controller.showPage(stage);
+        stage.show();
     }
 
 
@@ -100,25 +85,12 @@ public class ManageEventController extends Controller implements Initializable {
         if(getSelectedEvent() != null) {
             confirm_event_btn.setDisable(false);
             if(e.getClickCount() == 2) {
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
-                    CreateEventController controller = CreateEventController.getController();
-                    fxmlLoader.setController(controller);
-                    controller.resetEtape();
+                Stage stage = new Stage();
 
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(fxmlLoader.load()));
-
-                    controller.setEditMode(getSelectedEvent());
-                    stage.setTitle("SkyEvent - Afficher un évènement");
-                    stage.show();
-                    stage.setResizable(false);
-
-                }
-                catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-
+                CreateEventController controller = CreateEventController.getController();
+                controller.setEditMode(getSelectedEvent());
+                controller.showPage(stage);
+                stage.show();
             }
         }
     }
