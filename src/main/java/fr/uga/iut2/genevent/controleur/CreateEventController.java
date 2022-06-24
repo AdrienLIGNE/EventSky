@@ -153,12 +153,12 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                 type_cb.setStyle("-fx-border-color: red");
                 valide = false;
 
-                VerifUtilitaire.createPopOver(type_cb, "Veuillez choisir un type");
+                VerifUtilitaire.createPopOver(type_cb, " Choisir un type ");
             }if (nom_artiste_tf.getText() == null || nom_artiste_tf.getText().isEmpty()){
                 nom_artiste_tf.setStyle("-fx-border-color: red");
                 valide = false;
 
-                VerifUtilitaire.createPopOver(nom_artiste_tf, "Veuillez remplir ce champ");
+                VerifUtilitaire.createPopOver(nom_artiste_tf, " Champ obligatoire ");
             }if (date_debut_dp.getValue() != null & date_fin_dp.getValue() != null){
                 //vérification que la date de fin n'est pas antérieure à la date de début
                 if (date_debut_dp.getValue().isAfter(date_fin_dp.getValue())){
@@ -166,25 +166,25 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                     date_debut_dp.setStyle("-fx-border-color: red");
                     valide = false;
 
-                    VerifUtilitaire.createPopOver(date_fin_dp, "Veuillez rentrer une date de fin ultérieure à la date de début");
+                    VerifUtilitaire.createPopOver(date_fin_dp, " Date invalide ");
                 }
                 //vérification que la durée n'est pas supérieure au laps de temps sélectionné
                 if (duree_s.getValue() > java.time.temporal.ChronoUnit.DAYS.between(date_debut_dp.getValue(), date_fin_dp.getValue())+1){
                     duree_s.setStyle("-fx-border-color: red");
                     valide = false;
 
-                    VerifUtilitaire.createPopOver(duree_s, "Veuillez entrer une durée de " + (java.time.temporal.ChronoUnit.DAYS.between(date_debut_dp.getValue(), date_fin_dp.getValue())+1) + " jours ou moins");
+                    VerifUtilitaire.createPopOver(duree_s, " " + (java.time.temporal.ChronoUnit.DAYS.between(date_debut_dp.getValue(), date_fin_dp.getValue())+1) + " jours maximum ");
                 }
             }if (date_debut_dp.getValue() == null){
                 date_debut_dp.setStyle("-fx-border-color: red");
                 valide = false;
 
-                VerifUtilitaire.createPopOver(date_debut_dp, "Veuillez choisir une date de début");
+                VerifUtilitaire.createPopOver(date_debut_dp, " Choisir une date ");
             }if (date_fin_dp.getValue() == null){
                 date_fin_dp.setStyle("-fx-border-color: red");
                 valide = false;
 
-                VerifUtilitaire.createPopOver(date_fin_dp, "Veuillez choisir une date de fin");
+                VerifUtilitaire.createPopOver(date_fin_dp, " Choisir une date ");
             }
         }
 
@@ -196,7 +196,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
                 lieux_list.setStyle("-fx-border-color: red");
                 valide = false;
 
-                VerifUtilitaire.createPopOver(lieux_list, "Veuillez choisir un lieu");
+                VerifUtilitaire.createPopOver(lieux_list, " Choisir un lieu ");
             }
         }
 
