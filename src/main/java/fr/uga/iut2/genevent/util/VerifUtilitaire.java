@@ -4,6 +4,15 @@ import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.Reservable;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.AccessibleRole;
+import javafx.scene.Node;
+import javafx.scene.control.Control;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
+import org.controlsfx.control.PopOver;
+import org.controlsfx.control.action.Action;
 
 import java.util.Collection;
 
@@ -127,5 +136,25 @@ public class VerifUtilitaire {
             verifie = false;
         }
         return  verifie;
+    }
+
+
+    public static void createPopOver(Node node, String msg){
+        Label label = new Label(msg);
+        label.setStyle("-fx-text-fill: red;");
+
+        PopOver popOver = new PopOver(label);
+        popOver.arrowIndentProperty().bind(new SimpleDoubleProperty(1));
+        popOver.arrowSizeProperty().bind(new SimpleDoubleProperty(5));
+        popOver.show(node);
+
+        //lorsqu'on clique sur le champ, on fait disparaitre le popover (sinon il disparait pas tout de suite)
+        node.setOnMouseClicked(MouseEvent -> {
+            popOver.hide();
+        });
+
+        // pour empêcher le crash lors de la fermeture de la fenêtre lorsque le popover est toujours ouvert
+        // (sinon ça crash car le popover disparait pas instantanément, et quand la fenetre n'existe plus ça déclenche une erreur)
+        popOver.setFadeOutDuration(Duration.ZERO);
     }
 }

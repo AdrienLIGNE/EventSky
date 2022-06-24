@@ -8,11 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
-import javafx.stage.Window;
 
 import java.io.File;
 import java.net.URL;
@@ -105,25 +107,38 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
 
         //vérification que le nom n'existe pas déjà seulement si on n'est pas en edit mode
         //si on est en edit mode on vérifie seulement si on change le nom du matériel
-        if (this.isOnEditMode()){
-            if (!nom_tf.getText().equals(ancienNom) | ancienNom == null){
-                if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(),this.getModel().getMateriels())){
+        if (nom_tf.getText().isEmpty()){
+            nom_tf.setStyle("-fx-border-color: red;");
+            b = false;
+
+            VerifUtilitaire.createPopOver(nom_tf, " Champ obligatoire ");
+        }else {
+            if (this.isOnEditMode()) {
+                if (!nom_tf.getText().equals(ancienNom) | ancienNom == null) {
+                    if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
+                        nom_tf.setStyle("-fx-border-color: red;");
+                        b = false;
+
+                        VerifUtilitaire.createPopOver(nom_tf, " Nom déjà pris ");
+                    }
+                }
+            } else {
+                if (VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
                     nom_tf.setStyle("-fx-border-color: red;");
                     b = false;
+
+                    VerifUtilitaire.createPopOver(nom_tf, " Nom déjà pris ");
                 }
             }
-        }else {
-            if (nom_tf.getText().isEmpty() || VerifUtilitaire.existeDejaMateriel(nom_tf.getText(), this.getModel().getMateriels())) {
-                nom_tf.setStyle("-fx-border-color: red;");
-                b = false;
-
-            }
         }
+
         //verification du combobox
         if (typeMateriel_cb.getValue() == null){
             typeMateriel_cb.setStyle("-fx-border-color: red;");
-            System.out.println(typeMateriel_cb.getValue());
             b = false;
+
+            VerifUtilitaire.createPopOver(typeMateriel_cb, " Choisir un type ");
+
         }
         return b;
     }

@@ -4,6 +4,7 @@ module genevent {
     requires javafx.fxml;
     requires java.logging;
     requires json.simple;
+    requires org.controlsfx.controls;
 
     opens fr.uga.iut2.genevent.vue to javafx.fxml;
     opens fr.uga.iut2.genevent.controleur to javafx.fxml;
