@@ -6,6 +6,7 @@ import fr.uga.iut2.genevent.vue.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Callback;
@@ -55,6 +57,10 @@ public class InfosEventController extends Controller implements Initializable {
     @FXML private Label nb_spectateurs;
     @FXML private Label lieu;
 
+    @FXML private Button confirm_btn;
+    @FXML private Button edit_btn;
+    @FXML private Label confirm;
+
 
     @FXML private ListView<ChoixMaterielQuantite> materiel_list;
     @FXML private ListView<Personnel> personnel_list;
@@ -89,6 +95,21 @@ public class InfosEventController extends Controller implements Initializable {
     public void setEvenement(Evenement e) {
         this.evenement = e;
 
+        confirm_btn.setDisable(evenement.isConfirmed());
+        edit_btn.setDisable(evenement.isConfirmed());
+        confirm.setText(evenement.isConfirmed() ? "Confirmé" : "Non confirmé");
+        confirm.setTextFill(evenement.isConfirmed() ? new Color(0, 0.7, 0, 1) : new Color(0.7, 0.5, 0, 1));
+
+        evenement.getConfirmed().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
+                confirm_btn.setDisable(evenement.isConfirmed());
+                edit_btn.setDisable(evenement.isConfirmed());
+                confirm.setText(evenement.isConfirmed() ? "Confirmé" : "Non confirmé");
+                confirm.setTextFill(evenement.isConfirmed() ? new Color(0, 0.7, 0, 1) : new Color(0.7, 0.5, 0, 1));
+            }
+        });
+
         title.textProperty().bind(evenement.getNomEvenement());
 
         type.textProperty().bind(evenement.getType().asString());
@@ -116,17 +137,29 @@ public class InfosEventController extends Controller implements Initializable {
             }
         });
 
-        ObservableList<ChoixMaterielQuantite> materiels = ChoixMaterielQuantite.createList(FXCollections.observableArrayList(e.getMateriel()));
         ObservableList<Personnel> personnels = FXCollections.observableArrayList(e.getPersonnel());
+        personnels_items.setAll(personnels);
+
+        updateMateriel(e);
+
+        e.getMateriel().addListener(new ListChangeListener<Materiel>() {
+            @Override
+            public void onChanged(Change<? extends Materiel> change) {
+                updateMateriel(e);
+            }
+        });
+
+
+    }
+
+    private void updateMateriel(Evenement e) {
+        ObservableList<ChoixMaterielQuantite> materiels = ChoixMaterielQuantite.createList(FXCollections.observableArrayList(e.getMateriel()));
 
         for(ChoixMaterielQuantite m : materiels) {
             m.setDefaultValue(m.getMateriel().getQuantiteAffecte(evenement));
         }
 
         materiels_items.setAll(materiels);
-        personnels_items.setAll(personnels);
-
-
     }
 
 
@@ -176,11 +209,22 @@ public class InfosEventController extends Controller implements Initializable {
         stage.setScene(MenuController.getManageEventScene());
     }
 
+    @FXML
+    private void confirmButtonClick(ActionEvent e) {
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("confirm-event-view.fxml"));
+        ConfirmEventController controller = ConfirmEventController.getController();
+        fxmlLoader.setController(controller);
 
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(fxmlLoader.load()));
+            controller.setEvenement(evenement);
+            stage.show();
+            stage.setResizable(false);
 
-
-
-
-
-
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

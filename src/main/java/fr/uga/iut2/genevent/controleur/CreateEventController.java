@@ -280,7 +280,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     @FXML
     private void nextButtonClick(ActionEvent e) {
 
-        if(verifieSaisies() | true) {
+        if(verifieSaisies()) {
             saveSaisies();
 
             etape += 1;
