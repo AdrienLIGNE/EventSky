@@ -175,6 +175,19 @@ public class Evenement {
     }
 
     /**
+     * Supression des réservables (pour modification)
+     */
+    public void deleteAllReservable() {
+
+        for(Reservable r : getReservables()) {
+            r.supprimeEvenement(this);
+        }
+
+        materiel.clear();
+        personnel.clear();
+    }
+
+    /**
      * Vérifie si un événement se passe un jour donné
      * @param date date à tester
      * @return vrai si l'événement se déroule le jour donné

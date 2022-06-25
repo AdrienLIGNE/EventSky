@@ -324,7 +324,22 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
         // Création de l'événement
 
-        Evenement evenement = new Evenement(date_debut, date_fin, duree, nom, type);
+        Evenement evenement;
+
+        if(!isOnEditMode()) {
+            evenement = new Evenement(date_debut, date_fin, duree, nom, type);
+        }
+        else {
+            evenement = getElementModifie();
+
+            evenement.deleteAllReservable();
+            evenement.setDateDebut(date_debut);
+            evenement.setDateFin(date_fin);
+            evenement.setDuree(duree);
+            evenement.setNomEvenement(nom);
+            evenement.setType(type);
+        }
+
         evenement.setNbPersonnes(nb_personnes);
         evenement.setLieu(lieu);
         evenement.setNomArtiste(nom_artistes);
@@ -338,15 +353,11 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             evenement.addPersonnel(p);
         }
 
-        //evenement.confirme();
-
-        if(isOnEditMode()) {
-            getModel().supprimeEvenement(getElementModifie());
-        }
-
-        getModel().addEvenement(evenement);
+        if(!isOnEditMode())
+            getModel().addEvenement(evenement);
 
         exitStage(Controller.getStageFromTarget(e.getTarget()));
+
     }
 
     /**
