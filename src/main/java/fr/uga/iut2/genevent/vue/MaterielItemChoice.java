@@ -44,7 +44,6 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
 
 
     private void init() {
-
         controller = new MaterielItemController();
 
         // On charge le fxml de l'item

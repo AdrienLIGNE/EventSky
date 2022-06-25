@@ -1,9 +1,7 @@
 package fr.uga.iut2.genevent.controleur;
 
-import fr.uga.iut2.genevent.modele.Evenement;
-import fr.uga.iut2.genevent.modele.Lieu;
-import fr.uga.iut2.genevent.modele.Materiel;
-import fr.uga.iut2.genevent.modele.Personnel;
+import fr.uga.iut2.genevent.Main;
+import fr.uga.iut2.genevent.modele.*;
 import fr.uga.iut2.genevent.vue.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -27,7 +25,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class InfosEventController extends Controller implements Initializable {
 
@@ -145,6 +145,35 @@ public class InfosEventController extends Controller implements Initializable {
                 //setEvenement();
             }
         });
+    }
+
+
+    @FXML
+    private void deleteButtonClick(ActionEvent e) {
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        confirm.setTitle("Confirmation requise");
+        confirm.setHeaderText("Supprimer cet évenement ?");
+        confirm.setContentText("Une fois confirmé, vous ne pourrez plus revenir en arrière !");
+
+        Optional<ButtonType> result = confirm.showAndWait();
+
+        if(result.get().getButtonData().equals(ButtonBar.ButtonData.OK_DONE)) {
+            // On supprime l'élement sélectionné
+
+            Main.LOGGER.log(Level.INFO, "Suppression de l'évènement...");
+            getModel().supprimeEvenement(evenement);
+
+            back(getStageFromTarget(e.getTarget()));
+        }
+    }
+
+    @FXML
+    private void backButtonClick(ActionEvent e) {
+        back(getStageFromTarget(e.getTarget()));
+    }
+
+    private void back(Stage stage) {
+        stage.setScene(MenuController.getManageEventScene());
     }
 
 

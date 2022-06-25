@@ -59,6 +59,10 @@ public class MenuController extends Controller {
         return controller;
     }
 
+    public static Scene getManageEventScene() {
+        return manageEventScene;
+    }
+
     @FXML
     private void accueilClick(ActionEvent e) {
         Stage stage = Controller.getStageFromTarget(e.getTarget());
@@ -73,6 +77,7 @@ public class MenuController extends Controller {
         stage.setScene(manageRessourceScene);
     }
 
+
     @FXML
     private void manageEventClick(ActionEvent e) {
         //System.out.println("test");
@@ -80,7 +85,6 @@ public class MenuController extends Controller {
 
         stage.setScene(manageEventScene);
     }
-
 
 
 }

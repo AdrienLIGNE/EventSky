@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <fx:include source="menu-lateral.fxml" />
     </left>
@@ -146,7 +145,7 @@
             </Label>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
                <children>
-                  <Button mnemonicParsing="false" text="SUPPRIMER" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonClick" text="SUPPRIMER" />
                   <Button mnemonicParsing="false" onAction="#editButtonClick" text="MODIFIER">
                      <HBox.margin>
                         <Insets left="20.0" />
@@ -169,7 +168,7 @@
                   <Insets left="20.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" text="RETOUR" GridPane.rowIndex="7">
+            <Button mnemonicParsing="false" onAction="#backButtonClick" text="RETOUR" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="150.0" />
                </GridPane.margin>
