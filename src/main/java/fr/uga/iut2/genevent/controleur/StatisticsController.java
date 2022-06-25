@@ -37,16 +37,11 @@ public class StatisticsController extends Controller implements Initializable {
     }
 
     private void createChart(){
-        ObjectProperty<ObservableList<PieChart.Data>> donnees = new SimpleObjectProperty<>(FXCollections.observableArrayList(
-                new PieChart.Data("Théâtre",getNbEvenements(getModel().getEvenementsConfirme(), TypeEvenement.THEATRE)),
-                new PieChart.Data("Concert",getNbEvenements(getModel().getEvenementsConfirme(), TypeEvenement.CONCERT)),
-                new PieChart.Data("Danse",getNbEvenements(getModel().getEvenementsConfirme(), TypeEvenement.DANSE)),
-                new PieChart.Data("Cirque",getNbEvenements(getModel().getEvenementsConfirme(), TypeEvenement.CIRQUE)),
-                new PieChart.Data("Magie",getNbEvenements(getModel().getEvenementsConfirme(), TypeEvenement.MAGIE)),
-                new PieChart.Data("Marionnette",getNbEvenements(getModel().getEvenementsConfirme(), TypeEvenement.MARIONNETTE)),
-                new PieChart.Data("Cinéma",getNbEvenements(getModel().getEvenementsConfirme(), TypeEvenement.CINEMA))
-        ));
-        piechart.dataProperty().bind(donnees);
+        ObservableList<PieChart.Data> donnees = FXCollections.observableArrayList();
+        for (TypeEvenement type : TypeEvenement.values()){
+            donnees.add(new PieChart.Data(type.getNom(),getNbEvenements(getModel().getEvenementsConfirme(), type)));
+        }
+        piechart.setData(donnees);
     }
 
     private int getNbEvenements(List<Evenement> evenements, TypeEvenement typeEvenement){
