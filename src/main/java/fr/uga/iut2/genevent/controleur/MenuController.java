@@ -18,6 +18,7 @@ public class MenuController extends Controller {
     private static Scene manageRessourceScene;
     private static Scene manageEventScene;
     private static Scene accueilScene;
+    private static Scene statisticsScene;
 
     static {
         controller = new MenuController();
@@ -53,6 +54,17 @@ public class MenuController extends Controller {
         catch (IOException e) {
 
         }
+
+        fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("statistiques-view.fxml"));
+        fxmlLoader.setController(StatisticsController.getController());
+
+        try {
+            statisticsScene = new Scene(fxmlLoader.load(), 1200, 600);
+        }
+        catch (IOException e) {
+
+        }
+
     }
 
     public static MenuController getController() {
@@ -81,6 +93,12 @@ public class MenuController extends Controller {
         stage.setScene(manageEventScene);
     }
 
+    @FXML
+    private void statisticsClick(ActionEvent e){
+        Stage stage = Controller.getStageFromTarget(e.getTarget());
+
+        stage.setScene(statisticsScene);
+    }
 
 
 }
