@@ -18,7 +18,6 @@ public class Personnel extends Reservable  {
     private ObjectProperty<TypePersonnel> type;
 
     private StringProperty nom;
-    private String prenom;
     private StringProperty mail;
     private StringProperty numero;
 
@@ -31,17 +30,12 @@ public class Personnel extends Reservable  {
         setNom(nom);
         setType(type);
 
-        //setPrenom(prenom);
-        this.prenom = "";
     }
 
     public void setNom(String nom) {
         this.nom.set(TextUtilitaire.capitalize(nom));
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = TextUtilitaire.capitalize(prenom);
-    }
 
     public StringProperty getNom() {
         return nom;
@@ -65,10 +59,6 @@ public class Personnel extends Reservable  {
 
     public void setType(TypePersonnel type) {
         this.type.set(type);
-    }
-
-    public String getPrenom() {
-        return prenom;
     }
 
     public ObjectProperty<TypePersonnel> getTypeEmploi() {

@@ -42,6 +42,10 @@ public abstract class FormulaireController<E> extends Controller{
         title.setText(title.getText().replace("Ajouter", "Modifier").replace("Créer", "Modifier"));
     }
 
+    public void setEditMode(boolean b) {
+        this.isModification = b;
+    }
+
     public boolean isOnEditMode() {
         return isModification;
     }

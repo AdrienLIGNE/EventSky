@@ -28,9 +28,22 @@ import java.util.ResourceBundle;
 public class ManageEventController extends Controller implements Initializable {
 
     private static ManageEventController controller;
+    private static Stage createEventStage;
+    private static Scene infosEventScene;
 
     static {
         controller = new ManageEventController();
+        createEventStage = new Stage();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("infos-event.fxml"));
+        fxmlLoader.setController(InfosEventController.getController());
+
+        try {
+            infosEventScene = new Scene(fxmlLoader.load(), 1200, 600);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static ManageEventController getController() {
@@ -46,6 +59,7 @@ public class ManageEventController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         // On affiche les listes avec les évènements
         list_brouillon.setItems(getModel().getEvenementsNonConfirme());
         list_evenement.setItems(getModel().getEvenementsConfirme());
@@ -71,26 +85,11 @@ public class ManageEventController extends Controller implements Initializable {
 
     @FXML
     private void createEventButtonClick() {
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
 
         CreateEventController controller = CreateEventController.getController();
-        controller.resetEtape();
+        controller.showPage(createEventStage);
+        createEventStage.show();
 
-        fxmlLoader.setController(controller);
-
-        Stage stage = new Stage();
-
-        try {
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-            stage.setTitle("SkyEvent - Créer un évènement");
-            stage.setResizable(false);
-        } catch (IOException e) {
-            // TODO: Logger
-            e.printStackTrace();
-        }
     }
 
 
@@ -100,25 +99,10 @@ public class ManageEventController extends Controller implements Initializable {
         if(getSelectedEvent() != null) {
             confirm_event_btn.setDisable(false);
             if(e.getClickCount() == 2) {
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("create-event-page1-view.fxml"));
-                    CreateEventController controller = CreateEventController.getController();
-                    fxmlLoader.setController(controller);
-                    controller.resetEtape();
 
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(fxmlLoader.load()));
-
-                    controller.setEditMode(getSelectedEvent());
-                    stage.setTitle("SkyEvent - Afficher un évènement");
-                    stage.show();
-                    stage.setResizable(false);
-
-                }
-                catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-
+                InfosEventController.getController().setEvenement(getSelectedEvent());
+                Stage stage = getStageFromTarget(e.getTarget());
+                stage.setScene(infosEventScene);
             }
         }
     }
