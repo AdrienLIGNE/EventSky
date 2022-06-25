@@ -65,14 +65,9 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
 
         if(materiel != null) {
 
-            int quantiteDispo = materiel.getMateriel().getQuantiteDisponible(datesPossibles);
-
             controller.setNom(materiel.getMateriel().getLabel());
 
-            // On récupère le spinner pour pouvoir y accéder depuis le controleur du formulaire
-            materiel.setSpinner(controller.getQuantiteSpinner(), quantiteDispo);
-
-            controller.setDispo(new SimpleIntegerProperty(quantiteDispo));
+            updateQuantite(materiel);
 
             // Si la quantité de matériel change en cours de route, on actualise le spinner et on recalcul les dispos
             materiel.getMateriel().getQuantiteDisponibleProperty().addListener(new ChangeListener<Number>() {
@@ -107,7 +102,14 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
 
 
     private void updateQuantite(ChoixMaterielQuantite materiel) {
-        int quantiteDispo = materiel.getMateriel().getQuantiteDisponible(datesPossibles);
+        int quantiteDispo;
+
+        if(datesPossibles == null) {
+            quantiteDispo = materiel.getMateriel().getQuantiteDisponible();
+        }
+        else {
+            quantiteDispo = materiel.getMateriel().getQuantiteDisponible(datesPossibles);
+        }
 
         controller.setDispo(new SimpleIntegerProperty(quantiteDispo));
         materiel.setSpinner(controller.getQuantiteSpinner(), quantiteDispo);

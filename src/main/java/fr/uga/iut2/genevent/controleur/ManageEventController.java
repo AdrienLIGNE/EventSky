@@ -29,10 +29,21 @@ public class ManageEventController extends Controller implements Initializable {
 
     private static ManageEventController controller;
     private static Stage createEventStage;
+    private static Scene infosEventScene;
 
     static {
         controller = new ManageEventController();
         createEventStage = new Stage();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("infos-event.fxml"));
+        fxmlLoader.setController(InfosEventController.getController());
+
+        try {
+            infosEventScene = new Scene(fxmlLoader.load(), 1200, 600);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static ManageEventController getController() {
@@ -88,12 +99,10 @@ public class ManageEventController extends Controller implements Initializable {
         if(getSelectedEvent() != null) {
             confirm_event_btn.setDisable(false);
             if(e.getClickCount() == 2) {
-                Stage stage = new Stage();
 
-                CreateEventController controller = CreateEventController.getController();
-                controller.showPage(stage);
-                controller.setEditMode(getSelectedEvent());
-                stage.show();
+                InfosEventController.getController().setEvenement(getSelectedEvent());
+                Stage stage = getStageFromTarget(e.getTarget());
+                stage.setScene(infosEventScene);
             }
         }
     }
