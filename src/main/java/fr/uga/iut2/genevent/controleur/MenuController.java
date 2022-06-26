@@ -61,7 +61,7 @@ public class MenuController extends Controller {
         fxmlLoader.setController(StatisticsController.getController());
 
         try {
-            statisticsScene = new Scene(fxmlLoader.load(), 1200, 600);
+            statisticsScene = new Scene(fxmlLoader.load(), 1223, 600);
         }
         catch (IOException e) {
             Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène Statistiques", e);
