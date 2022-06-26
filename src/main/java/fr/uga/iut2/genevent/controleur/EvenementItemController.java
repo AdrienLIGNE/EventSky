@@ -7,6 +7,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -34,6 +36,7 @@ public class EvenementItemController extends Controller{
     @FXML private Label label_titre;
     @FXML private Label label_date;
     @FXML private Label label_type;
+    @FXML private ImageView iv;
 
     public void setTitre(StringProperty titre) {
         this.label_titre.textProperty().bind(titre);
@@ -64,6 +67,18 @@ public class EvenementItemController extends Controller{
             }
         });
 
+    }
+
+    public void setImage(StringProperty lien){
+        if (lien.get() !=null){
+            iv.setImage(new Image(lien.get()));
+            lien.addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                    iv.setImage(new Image(t1));
+                }
+            });
+        }
     }
 
 }

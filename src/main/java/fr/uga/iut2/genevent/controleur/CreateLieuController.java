@@ -4,6 +4,9 @@ import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.TypeLieu;
 import fr.uga.iut2.genevent.util.VerifUtilitaire;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,6 +46,9 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
     @FXML private TextField code_postal_tf;
     @FXML private TextField ville_tf;
     @FXML private Spinner<Integer> capacite_s;
+    @FXML private Button btn_upload;
+
+    private String lien_image;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,11 +62,10 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         FileChooser fileChooser = new FileChooser();
 
         File fileChosen = fileChooser.showOpenDialog(nom_tf.getScene().getWindow());
-        Image image = new Image(fileChosen.toURI().toString());
+        lien_image = fileChosen.toURI().toString();
 
-        //rajouter un imageview et un label pour l'image uploadee
-        //iv.setImage(image);
-        //lblImageName.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
+
+        btn_upload.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
     }
 
     @Override
@@ -87,6 +92,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         String ville = ville_tf.getText();
         int capcite_max = capacite_s.getValue();
 
+
         if(verifieSaisies()) {
             if(isOnEditMode()) {
                 getElementModifie().setType(type);
@@ -96,6 +102,11 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 getElementModifie().setComplementAdresse(adresse[1]);
                 getElementModifie().setVille(ville);
                 getElementModifie().setCodePostal(code_postal);
+                if (lien_image == null){
+                    getElementModifie().setLien_image(getImage(getElementModifie().getType().get()));
+                }else {
+                    getElementModifie().setLien_image(lien_image);
+                }
                 Main.LOGGER.log(Level.INFO, "Modification du lieu : " + getElementModifie().getNom().get());
             }
             else {
@@ -104,10 +115,16 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 lieu.setComplementAdresse(adresse[1]);
                 lieu.setCodePostal(code_postal);
                 lieu.setVille(ville);
+                if (lien_image == null){
+                    lieu.setLien_image(getImage(lieu.getType().get()));
+                }else {
+                    lieu.setLien_image(lien_image);
+                }
                 getModel().addLieu(lieu);
                 Main.LOGGER.log(Level.INFO, "Création du lieu : " + lieu.getNom().get());
             }
 
+            lien_image = null;
             exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
 
@@ -185,5 +202,17 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
             VerifUtilitaire.createPopOver(ville_tf, " Champ obligatoire ");
         }
         return valide;
+    }
+
+    private String getImage(TypeLieu type){
+        String lien = null;
+        if (type.getLibelle().equals(TypeLieu.SALLE.getLibelle())){
+            lien = "file:src/main/resources/Images/lieux/salle.png";
+        }else if (type.getLibelle().equals(TypeLieu.GYMNASE.getLibelle())){
+            lien = "file:src/main/resources/Images/lieux/gymnase.png";
+        }else if (type.getLibelle().equals(TypeLieu.PLEIN_AIR.getLibelle())){
+            lien = "file:src/main/resources/Images/lieux/plein-air.png";
+        }
+        return lien;
     }
 }

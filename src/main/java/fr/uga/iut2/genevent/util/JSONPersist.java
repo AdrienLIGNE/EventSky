@@ -80,6 +80,7 @@ public class JSONPersist {
             lieu.put("ville", l.getVille().getValue());
             lieu.put("capacite", l.getCapacite().getValue());
             lieu.put("type", l.getType().getValue().toString());
+            lieu.put("image", l.getLien_image().getValue());
 
 
             lieux_list.add(lieu);
@@ -225,6 +226,7 @@ public class JSONPersist {
                 String ville = (String) lieu.get("ville");
                 int capacite = (int) (long) lieu.get("capacite");
                 String type = (String) lieu.get("type");
+                String image = (String) lieu.get("image");
 
                 Lieu l = new Lieu(nom, capacite, getTypeLieuByName(type));
 
@@ -232,6 +234,7 @@ public class JSONPersist {
                 l.setComplementAdresse(complement);
                 l.setCodePostal(code_postal);
                 l.setVille(ville);
+                l.setLien_image(image);
                 app.addLieu(l);
             }
 
