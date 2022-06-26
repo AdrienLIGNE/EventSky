@@ -66,4 +66,8 @@ public class EvenementItemController extends Controller{
 
     }
 
+    public void setImage(){
+
+    }
+
 }
