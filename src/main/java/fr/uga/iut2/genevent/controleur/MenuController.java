@@ -31,7 +31,7 @@ public class MenuController extends Controller {
         fxmlLoader.setController(ManageRessourcesController.getController());
 
         try {
-            manageRessourceScene = new Scene(fxmlLoader.load(), 1200, 600);
+            manageRessourceScene = new Scene(fxmlLoader.load(), 1223, 600);
         }
         catch (IOException e) {
             Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène ManageRessources", e);
@@ -41,7 +41,7 @@ public class MenuController extends Controller {
         fxmlLoader.setController(ManageEventController.getController());
 
         try {
-            manageEventScene = new Scene(fxmlLoader.load(), 1200, 600);
+            manageEventScene = new Scene(fxmlLoader.load(), 1223, 600);
         }
         catch (IOException e) {
             Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène ManageEvent", e);
@@ -51,7 +51,7 @@ public class MenuController extends Controller {
         fxmlLoader.setController(MainController.getController());
 
         try {
-            accueilScene = new Scene(fxmlLoader.load(), 1200, 600);
+            accueilScene = new Scene(fxmlLoader.load(), 1223, 600);
         }
         catch (IOException e) {
             Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène Accueil", e);
@@ -61,7 +61,7 @@ public class MenuController extends Controller {
         fxmlLoader.setController(StatisticsController.getController());
 
         try {
-            statisticsScene = new Scene(fxmlLoader.load(), 1200, 600);
+            statisticsScene = new Scene(fxmlLoader.load(), 1223, 600);
         }
         catch (IOException e) {
             Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène Statistiques", e);

@@ -41,7 +41,7 @@ public class ManageEventController extends Controller implements Initializable {
         fxmlLoader.setController(InfosEventController.getController());
 
         try {
-            infosEventScene = new Scene(fxmlLoader.load(), 1200, 600);
+            infosEventScene = new Scene(fxmlLoader.load(), 1223, 600);
         }
         catch (IOException e) {
             Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène InfosEvent", e);

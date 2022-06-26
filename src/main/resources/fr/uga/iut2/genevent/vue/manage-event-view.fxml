@@ -37,16 +37,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1223.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
          <left>
             <fx:include source="menu-lateral.fxml" />
          </left>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="parent_hbox" maxHeight="1.7976931348623157E308" onMouseClicked="#parentClick">
+            <HBox fx:id="parent_hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#parentClick" prefHeight="538.0" prefWidth="950.0">
                <children>
-                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" text="En attente de validation">
                                  <font>
@@ -56,7 +56,7 @@
                                     <Insets left="15.0" top="15.0" />
                                  </VBox.margin>
                               </Label>
-                              <ListView fx:id="list_brouillon" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="481.0" minWidth="440.0" onMouseClicked="#listViewEvent" prefHeight="481.0" prefWidth="440.0">
+                              <ListView fx:id="list_brouillon" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#listViewEvent" prefHeight="482.0" prefWidth="452.0">
                                  <VBox.margin>
                                     <Insets left="15.0" right="7.5" top="15.0" />
                                  </VBox.margin>
@@ -70,10 +70,10 @@
                                     <Font name="System Bold" size="21.0" />
                                  </font>
                            <VBox.margin>
-                              <Insets left="15.0" top="15.0" />
+                              <Insets left="7.5" top="15.0" />
                            </VBox.margin>
                               </Label>
-                              <ListView fx:id="list_evenement" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="481.0" minWidth="440.0" onMouseClicked="#listViewEvent" prefHeight="481.0" prefWidth="440.0">
+                              <ListView fx:id="list_evenement" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#listViewEvent" prefHeight="482.0" prefWidth="452.0">
                                  <VBox.margin>
                                     <Insets left="7.5" right="15.0" top="15.0" />
                                  </VBox.margin>
@@ -85,19 +85,19 @@
                         </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" maxHeight="62.0" minHeight="62.0" prefHeight="62.0">
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="950.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
                   <Button fx:id="confirm_event_btn" disable="true" mnemonicParsing="false" onAction="#confirmEventClick" prefHeight="30.0" prefWidth="240.0" styleClass="neutralButton" text="Confirmer un évènement">
                      <HBox.margin>
-                        <Insets bottom="15.0" left="5.0" right="5.0" top="15.0" />
+                        <Insets bottom="15.0" left="7.5" right="7.5" top="15.0" />
                      </HBox.margin>
                   </Button>
                   <Button layoutX="365.0" layoutY="23.0" mnemonicParsing="false" onAction="#createEventButtonClick" prefHeight="30.0" prefWidth="240.0" styleClass="neutralButton" text="Créer un événement">
                      <HBox.margin>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets bottom="15.0" left="7.5" right="7.5" top="15.0" />
                      </HBox.margin>
                   </Button>
                </children>

@@ -7,14 +7,14 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1200.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="1200.0">
+      <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1223.0">
           <left>
               <fx:include source="menu-lateral.fxml" />
           </left>
          <center>
-            <VBox maxHeight="600.0" maxWidth="927.0" prefHeight="600.0" prefWidth="927.0" BorderPane.alignment="CENTER">
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane fx:id="onglets" onMouseClicked="#ongletClick" prefHeight="540.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane fx:id="onglets" onMouseClicked="#ongletClick" prefHeight="538.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="Matériels">
                            <content>
@@ -27,12 +27,12 @@
                                                 <Font name="System Bold" size="21.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets bottom="15.0" />
+                                                <Insets bottom="15.0" left="15.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <ListView fx:id="materiel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0">
+                                          <ListView fx:id="materiel_list" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#listViewEvent" prefHeight="451.0" prefWidth="452.0">
                                              <VBox.margin>
-                                                <Insets right="15.0" />
+                                                <Insets left="15.0" right="16.0" />
                                              </VBox.margin></ListView>
                                        </children>
                                        <HBox.margin>
@@ -42,14 +42,14 @@
                                     <fx:include fx:id="infos_materiel" source="infos-materiel.fxml" />
                                  </children>
                                  <padding>
-                                    <Insets left="15.0" right="7.5" top="15.0" />
+                                    <Insets top="15.0" />
                                  </padding>
                               </HBox>
                            </content>
                       </Tab>
                        <Tab text="Personnels">
                           <content>
-                             <HBox prefHeight="100.0" prefWidth="200.0">
+                             <HBox prefHeight="100.0" prefWidth="950.0">
                                 <children>
                                    <VBox prefHeight="481.0" prefWidth="477.0">
                                       <children>
@@ -58,12 +58,12 @@
                                                <Font name="System Bold" size="21.0" />
                                             </font>
                                              <VBox.margin>
-                                                <Insets bottom="15.0" />
+                                                <Insets bottom="15.0" left="15.0" />
                                              </VBox.margin>
                                          </Label>
-                                         <ListView fx:id="personnel_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0">
+                                         <ListView fx:id="personnel_list" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#listViewEvent" prefHeight="451.0" prefWidth="452.0">
                                              <VBox.margin>
-                                                <Insets right="15.0" />
+                                                <Insets left="15.0" right="16.0" />
                                              </VBox.margin></ListView>
                                       </children>
                                        <HBox.margin>
@@ -73,7 +73,7 @@
                                    <fx:include fx:id="infos_personnel" source="infos-personnel.fxml" />
                                 </children>
                                 <padding>
-                                   <Insets left="15.0" right="7.5" top="15.0" />
+                                   <Insets top="15.0" />
                                 </padding>
                              </HBox>
                           </content>
@@ -89,12 +89,12 @@
                                                <Font name="System Bold" size="21.0" />
                                             </font>
                                              <VBox.margin>
-                                                <Insets bottom="15.0" />
+                                                <Insets bottom="15.0" left="15.0" />
                                              </VBox.margin>
                                          </Label>
-                                         <ListView fx:id="lieux_list" onMouseClicked="#listViewEvent" prefHeight="450.0" prefWidth="477.0">
+                                         <ListView fx:id="lieux_list" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#listViewEvent" prefHeight="451.0" prefWidth="452.0">
                                              <VBox.margin>
-                                                <Insets right="15.0" />
+                                                <Insets left="15.0" right="16.0" />
                                              </VBox.margin></ListView>
                                       </children>
                                        <HBox.margin>
@@ -104,37 +104,37 @@
                                    <fx:include fx:id="infos_lieu" source="infos-lieu.fxml" />
                                 </children>
                                 <padding>
-                                   <Insets left="15.0" right="7.5" top="15.0" />
+                                   <Insets top="15.0" />
                                 </padding>
                              </HBox>
                           </content>
                        </Tab>
                     </tabs>
                   </TabPane>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="62.0" prefWidth="200.0">
+                  <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="950.0">
                      <children>
-                        <Button fx:id="ajouter_btn" alignment="CENTER" onAction="#ajoutRessourceClick" prefHeight="30.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
+                        <Button fx:id="ajouter_btn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ajoutRessourceClick" prefHeight="32.0" prefWidth="120.0" styleClass="actionButton" text="Ajouter" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets bottom="15.0" right="7.5" />
+                              <Insets bottom="15.0" right="7.5" top="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="modifier_btn" alignment="CENTER" onAction="#editRessourceClick" prefHeight="30.0" prefWidth="120.0" styleClass="neutralButton" text="Modifier" textFill="WHITE">
+                        <Button fx:id="modifier_btn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#editRessourceClick" prefHeight="32.0" prefWidth="120.0" styleClass="neutralButton" text="Modifier" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets bottom="15.0" left="7.5" right="7.5" />
+                              <Insets bottom="15.0" left="7.5" right="7.5" top="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="supprimer_btn" alignment="CENTER" onAction="#supprimerRessourceClick" prefHeight="30.0" prefWidth="120.0" styleClass="cancelButton" text="Supprimer" textFill="WHITE">
+                        <Button fx:id="supprimer_btn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#supprimerRessourceClick" prefHeight="32.0" prefWidth="120.0" styleClass="cancelButton" text="Supprimer" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets bottom="15.0" left="7.5" />
+                              <Insets bottom="15.0" left="7.5" top="15.0" />
                            </HBox.margin>
                         </Button>
                      </children>
