@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="250.0" style="-fx-background-color: #154B6E;" stylesheets="@styles/styles.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minHeight="600.0" minWidth="250.0" style="-fx-background-color: #154B6E;" stylesheets="@styles/styles.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
         <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -100,6 +100,10 @@
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font></Button>
+      <Label alignment="BOTTOM_CENTER" text="SDT 2022 No rights reserved" textFill="WHITE" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="240.0" />
+         </VBox.margin></Label>
         </children>
         <padding>
             <Insets bottom="10.0" top="10.0" />
