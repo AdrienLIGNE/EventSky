@@ -113,7 +113,10 @@ public class ManageEventController extends Controller implements Initializable {
      * @return evenement
      */
     public Evenement getSelectedEvent() {
-        return list_brouillon.getSelectionModel().getSelectedItem();
+        if(list_brouillon.isFocused())
+            return list_brouillon.getSelectionModel().getSelectedItem();
+        else
+            return list_evenement.getSelectionModel().getSelectedItem();
     }
 
     @FXML

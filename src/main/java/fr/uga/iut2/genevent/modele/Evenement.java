@@ -188,6 +188,20 @@ public class Evenement {
     }
 
     /**
+     * Calcul le prix d'un évènement à partir du personnel et de sa durée
+     * @return le prix de l'événement
+     */
+    public double getPrix() {
+        double prix = 0;
+        for(Personnel p : personnel) {
+            prix += p.getTypeEmploi().get().getSalaire();
+        }
+
+        prix = prix * duree.get();
+        return prix;
+    }
+
+    /**
      * Vérifie si un événement se passe un jour donné
      * @param date date à tester
      * @return vrai si l'événement se déroule le jour donné

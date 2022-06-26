@@ -127,6 +127,7 @@ public class InfosEventController extends Controller implements Initializable {
         duree.textProperty().bind(evenement.getDuree().asString());
         nom_artistes.textProperty().bind(evenement.getNomArtiste());
         nb_spectateurs.textProperty().bind(evenement.getNbPersonnes().asString());
+        cout.setText(evenement.getPrix() + " €");
 
         lieu.textProperty().bind(evenement.getLieu().getValue().getNom());
 
@@ -137,15 +138,22 @@ public class InfosEventController extends Controller implements Initializable {
             }
         });
 
-        ObservableList<Personnel> personnels = FXCollections.observableArrayList(e.getPersonnel());
-        personnels_items.setAll(personnels);
+
 
         updateMateriel(e);
+        updatePersonnel(e);
 
         e.getMateriel().addListener(new ListChangeListener<Materiel>() {
             @Override
             public void onChanged(Change<? extends Materiel> change) {
                 updateMateriel(e);
+            }
+        });
+
+        e.getPersonnel().addListener(new ListChangeListener<Personnel>() {
+            @Override
+            public void onChanged(Change<? extends Personnel> change) {
+                updatePersonnel(e);
             }
         });
 
@@ -160,6 +168,11 @@ public class InfosEventController extends Controller implements Initializable {
         }
 
         materiels_items.setAll(materiels);
+    }
+
+    private void updatePersonnel(Evenement e) {
+        ObservableList<Personnel> personnels = FXCollections.observableArrayList(e.getPersonnel());
+        personnels_items.setAll(personnels);
     }
 
 

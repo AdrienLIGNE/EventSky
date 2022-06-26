@@ -4,9 +4,9 @@ package fr.uga.iut2.genevent.modele;
  * Enumeration utilisée par la classe Personnel, servant à connaitre le type de personnel ainsi que son salaire horaire
  */
 public enum TypePersonnel {
-    MENAGE("Agent de ménage", 11), VIGILE("Agent de sécurité", 13), BARMAN("Barman",12) ;
+    MENAGE("Agent de ménage", 110), VIGILE("Agent de sécurité", 115), BARMAN("Barman",113) ;
 
-    private double salaire;
+    private double salaire; // salaire à la journée
     private String libelle;
 
     private TypePersonnel(String libelle, double salaire) {

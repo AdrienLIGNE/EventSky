@@ -488,6 +488,16 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             nb_place_tf.setText(Integer.toString(nb_personnes));
             nom_artiste_tf.setText(nom_artistes);
 
+            double prix = 0;
+
+            for(Personnel p : choix_personnel) {
+                prix += p.getTypeEmploi().getValue().getSalaire();
+            }
+
+            prix = prix * duree;
+
+            cout_tf.setText(prix + " €");
+
             dates_list.setItems(date_possibles);
             dates_list.setEditable(false);
 
