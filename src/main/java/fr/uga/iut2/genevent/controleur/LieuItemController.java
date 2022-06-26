@@ -6,9 +6,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class LieuItemController extends Controller{
 
@@ -25,6 +25,7 @@ public class LieuItemController extends Controller{
     @FXML
     private Label label_nom;
     @FXML private Label label_capacite;
+    @FXML private ImageView iv;
 
     public void setNom(StringProperty nom) {
         this.label_nom.textProperty().bind(nom);
@@ -40,6 +41,18 @@ public class LieuItemController extends Controller{
                 label_capacite.setText("Capacité: " + t1 + " personnes");
             }
         });
+    }
+
+    public void setImage(StringProperty lien){
+        if (lien.get() != null && !lien.get().isEmpty()){
+            iv.setImage(new Image(lien.get()));
+            lien.addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                    iv.setImage(new Image(t1));
+                }
+            });
+        }
     }
 
 }

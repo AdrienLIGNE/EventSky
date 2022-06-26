@@ -43,6 +43,9 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
     @FXML private TextField code_postal_tf;
     @FXML private TextField ville_tf;
     @FXML private Spinner<Integer> capacite_s;
+    @FXML private Button btn_upload;
+
+    private String lien_image;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,11 +59,10 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         FileChooser fileChooser = new FileChooser();
 
         File fileChosen = fileChooser.showOpenDialog(nom_tf.getScene().getWindow());
-        Image image = new Image(fileChosen.toURI().toString());
+        lien_image = fileChosen.toURI().toString();
 
-        //rajouter un imageview et un label pour l'image uploadee
-        //iv.setImage(image);
-        //lblImageName.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
+
+        btn_upload.setText(fileChosen.toURI().toString().substring(fileChosen.toURI().toString().lastIndexOf('/') + 1));
     }
 
     @Override
@@ -96,6 +98,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 getElementModifie().setComplementAdresse(adresse[1]);
                 getElementModifie().setVille(ville);
                 getElementModifie().setCodePostal(code_postal);
+                getElementModifie().setLien_image(lien_image);
                 Main.LOGGER.log(Level.INFO, "Modification du lieu : " + getElementModifie().getNom().get());
             }
             else {
@@ -104,6 +107,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 lieu.setComplementAdresse(adresse[1]);
                 lieu.setCodePostal(code_postal);
                 lieu.setVille(ville);
+                lieu.setLien_image(lien_image);
                 getModel().addLieu(lieu);
                 Main.LOGGER.log(Level.INFO, "Création du lieu : " + lieu.getNom().get());
             }
