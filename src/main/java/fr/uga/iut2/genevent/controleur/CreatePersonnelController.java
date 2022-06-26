@@ -100,7 +100,7 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 personnel.setMail(mail);
                 personnel.setNumero(numero);
                 getModel().addPersonnel(personnel);
-                Main.LOGGER.log(Level.INFO, "Création du personnel : " + getElementModifie().getNom().get());
+                Main.LOGGER.log(Level.INFO, "Création du personnel : " + personnel.getNom().get());
             }
             exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
