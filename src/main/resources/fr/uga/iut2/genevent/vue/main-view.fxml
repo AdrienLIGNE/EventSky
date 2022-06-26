@@ -37,7 +37,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1223.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1223.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
          <left>
             <fx:include fx:id="menu" source="menu-lateral.fxml" />
          </left>
@@ -49,7 +49,7 @@
                   <Image url="@../../../../../Images/Plan%20de%20travail%201.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: black;" text="Créer un évènement" textFill="WHITE" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="480.0">
+            <Button mnemonicParsing="false" onAction="#createEventClick" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: black;" text="Créer un évènement" textFill="WHITE" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="480.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>

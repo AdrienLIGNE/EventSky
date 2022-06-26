@@ -1,6 +1,9 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.modele.TypeLieu;
+import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -9,13 +12,22 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.HashMap;
+
 
 public class LieuItemController extends Controller{
 
     private static LieuItemController controller;
+    private static HashMap<TypeLieu, Image> icons;
 
     static {
         controller = new LieuItemController();
+
+        icons = new HashMap<>();
+
+        icons.put(TypeLieu.GYMNASE, new Image(JavaFXGUI.class.getResourceAsStream("/Images/lieux-icon/gymnase.png")));
+        icons.put(TypeLieu.PLEIN_AIR, new Image(JavaFXGUI.class.getResourceAsStream("/Images/lieux-icon/plein-air.png")));
+        icons.put(TypeLieu.SALLE, new Image(JavaFXGUI.class.getResourceAsStream("/Images/lieux-icon/salle.png")));
     }
 
     public static LieuItemController getController() {
@@ -43,16 +55,15 @@ public class LieuItemController extends Controller{
         });
     }
 
-    public void setImage(StringProperty lien){
-        if (lien.get() != null){
-            iv.setImage(new Image(lien.get()));
-            lien.addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    iv.setImage(new Image(t1));
-                }
-            });
-        }
+    public void setType(ObjectProperty<TypeLieu> type) {
+        iv.setImage(icons.get(type.get()));
+
+        type.addListener(new ChangeListener<TypeLieu>() {
+            @Override
+            public void changed(ObservableValue<? extends TypeLieu> observableValue, TypeLieu typeLieu, TypeLieu t1) {
+                iv.setImage(icons.get(type.get()));
+            }
+        });
     }
 
 }

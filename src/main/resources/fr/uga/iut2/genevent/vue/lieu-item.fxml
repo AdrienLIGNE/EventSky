@@ -8,9 +8,9 @@
 
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="iv" fitHeight="52.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iv" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Images/default-salle.jpg" />
+            <Image url="@../../../../../Images/lieux-icon/salle.png" />
          </image>
       </ImageView>
       <VBox prefHeight="43.0" prefWidth="282.0">

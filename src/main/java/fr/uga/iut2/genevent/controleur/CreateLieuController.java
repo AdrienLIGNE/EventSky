@@ -102,11 +102,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 getElementModifie().setComplementAdresse(adresse[1]);
                 getElementModifie().setVille(ville);
                 getElementModifie().setCodePostal(code_postal);
-                if (lien_image == null){
-                    getElementModifie().setLien_image(getImage(getElementModifie().getType().get()));
-                }else {
-                    getElementModifie().setLien_image(lien_image);
-                }
+
                 Main.LOGGER.log(Level.INFO, "Modification du lieu : " + getElementModifie().getNom().get());
             }
             else {
@@ -115,11 +111,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 lieu.setComplementAdresse(adresse[1]);
                 lieu.setCodePostal(code_postal);
                 lieu.setVille(ville);
-                if (lien_image == null){
-                    lieu.setLien_image(getImage(lieu.getType().get()));
-                }else {
-                    lieu.setLien_image(lien_image);
-                }
+
                 getModel().addLieu(lieu);
                 Main.LOGGER.log(Level.INFO, "Création du lieu : " + lieu.getNom().get());
             }

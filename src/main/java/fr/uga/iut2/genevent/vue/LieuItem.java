@@ -40,7 +40,7 @@ public class LieuItem extends ListCell<Lieu> {
         if(lieu != null) {
             controller.setNom(lieu.getNom());
             controller.setCapacite(lieu.getCapacite());
-            controller.setImage(lieu.getLien_image());
+            controller.setType(lieu.getType());
             setGraphic(itemNode);
         }
         else setGraphic(null);

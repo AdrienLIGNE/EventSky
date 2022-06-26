@@ -1,6 +1,7 @@
 package fr.uga.iut2.genevent;
 
 import fr.uga.iut2.genevent.controleur.Controller;
+import fr.uga.iut2.genevent.controleur.MainController;
 import fr.uga.iut2.genevent.modele.MainModel;
 import fr.uga.iut2.genevent.util.JSONPersist;
 import fr.uga.iut2.genevent.util.Persisteur;
@@ -43,6 +44,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
 
         FXMLLoader mainViewLoader = new FXMLLoader(JavaFXGUI.class.getResource("main-view.fxml"));
+        mainViewLoader.setController(MainController.getController());
         Scene mainScene = new Scene(mainViewLoader.load());
         stage.setTitle("EventSky");
         stage.setScene(mainScene);

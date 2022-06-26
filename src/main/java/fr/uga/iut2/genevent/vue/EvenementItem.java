@@ -42,7 +42,6 @@ public class EvenementItem extends ListCell<Evenement> {
             controller.setTitre(evenement.getNomEvenement());
             controller.setDates(evenement.getDateDebut(), evenement.getDateFin());
             controller.setType(evenement.getType());
-            controller.setImage(evenement.getLieu().get().getLien_image());
             setGraphic(itemNode);
         }
         else setGraphic(null);

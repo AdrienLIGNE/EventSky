@@ -17,8 +17,6 @@ public class Lieu extends Reservable  {
 
     private IntegerProperty capacite;
     private ObjectProperty<TypeLieu> type;
-    private StringProperty lien_image;
-
 
     public Lieu(String nom, int capacite, TypeLieu type) {
 
@@ -31,7 +29,6 @@ public class Lieu extends Reservable  {
         this.ville = new SimpleStringProperty();
 
         this.type = new SimpleObjectProperty<>();
-        this.lien_image = new SimpleStringProperty();
 
         setNom(nom);
         setCapacite(capacite);
@@ -96,11 +93,4 @@ public class Lieu extends Reservable  {
         this.capacite.set(capacite);
     }
 
-    public void setLien_image(String lien_image) {
-        this.lien_image.set(lien_image);
-    }
-
-    public StringProperty getLien_image() {
-        return lien_image;
-    }
 }
