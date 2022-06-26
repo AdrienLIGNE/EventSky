@@ -124,6 +124,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 Main.LOGGER.log(Level.INFO, "Création du lieu : " + lieu.getNom().get());
             }
 
+            lien_image = null;
             exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
 
