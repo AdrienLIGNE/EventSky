@@ -83,7 +83,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Statistiques" textFill="WHITE">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#statisticsClick" styleClass="menu-button" text=" Statistiques" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
