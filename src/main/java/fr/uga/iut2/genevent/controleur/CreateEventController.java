@@ -482,8 +482,6 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
             materiel_items.setAll(materiels);
             personnel_items.setAll(personnels);
-
-
         }
 
         if(etape == 4) {
