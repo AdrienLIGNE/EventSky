@@ -65,6 +65,7 @@ public class MaterielItemChoice extends ListCell<ChoixMaterielQuantite> {
         if(materiel != null) {
 
             controller.setNom(materiel.getMateriel().getLabel());
+            controller.setType(materiel.getMateriel().getType());
 
             updateQuantite(materiel);
 

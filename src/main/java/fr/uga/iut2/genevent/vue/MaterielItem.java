@@ -57,6 +57,8 @@ public class MaterielItem extends ListCell<Materiel> {
 
         if(materiel != null) {
             controller.setNom(materiel.getLabel());
+            controller.setType(materiel.getType());
+
 
             // On regarde si l'evenement est null pour savoir si il faut afficher tout le matériel disponible ou seulement celui de l'évenement
             if(evenement == null) {

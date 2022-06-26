@@ -108,7 +108,9 @@ public class ManageRessourcesController extends Controller implements Initializa
 
         // On récupère le bon FXML en fonction de l'onglet
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource(getFXMLRessourceCreator()));
-        fxmlLoader.setController(getControllerRessourceCreator());
+        FormulaireController controller = (FormulaireController) getControllerRessourceCreator();
+        controller.setEditMode(false);
+        fxmlLoader.setController(controller);
 
         try {
             Scene scene = new Scene(fxmlLoader.load());
@@ -204,7 +206,7 @@ public class ManageRessourcesController extends Controller implements Initializa
      * Retourne le controleur à utiliser en fonction de l'onglet
      * @return controleur
      */
-    private Controller getControllerRessourceCreator() {
+    private FormulaireController getControllerRessourceCreator() {
         int index = getOngletActif();
 
         if(index == MATERIEL_TAB) return CreateMaterielController.getController();
@@ -213,7 +215,7 @@ public class ManageRessourcesController extends Controller implements Initializa
         else return null;
     }
 
-    private static Controller getControllerRessourceCreator(Reservable r) {
+    private static FormulaireController getControllerRessourceCreator(Reservable r) {
         if(r instanceof Materiel) return CreateMaterielController.getController();
         if(r instanceof Personnel) return CreatePersonnelController.getController();
         if(r instanceof Lieu) return CreateLieuController.getController();

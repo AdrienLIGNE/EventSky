@@ -40,6 +40,10 @@ public class StatisticsController extends Controller implements Initializable {
         getModel().getEvenementsConfirme().addListener(new ListChangeListener<Evenement>() {
             @Override
             public void onChanged(Change<? extends Evenement> change) {
+                //affichage du nombre d'événements créés
+                int nbEvenements = getModel().getEvenementsNonConfirme().size() + getModel().getEvenementsConfirme().size();
+                lbl_nb_evenements.setText(String.valueOf(nbEvenements));
+
                 createChart();
             }
         });
