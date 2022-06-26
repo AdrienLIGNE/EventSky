@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <fx:include source="menu-lateral.fxml" />
     </left>
@@ -98,7 +98,7 @@
                <children>
                   <Label text="Liste de matériels">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
                </children>
@@ -153,13 +153,13 @@
             </Label>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
                <children>
-                  <Button mnemonicParsing="false" onAction="#deleteButtonClick" text="SUPPRIMER" />
-                  <Button fx:id="edit_btn" mnemonicParsing="false" onAction="#editButtonClick" text="MODIFIER">
+                  <Button mnemonicParsing="false" onAction="#deleteButtonClick" text="Supprimer" />
+                  <Button fx:id="edit_btn" mnemonicParsing="false" onAction="#editButtonClick" text="Modifier">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="confirm_btn" mnemonicParsing="false" onAction="#confirmButtonClick" text="CONFIRMER EVENEMENT">
+                  <Button fx:id="confirm_btn" mnemonicParsing="false" onAction="#confirmButtonClick" text="Confirmer l'évènement">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
@@ -176,11 +176,15 @@
                   <Insets left="20.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#backButtonClick" text="RETOUR" GridPane.rowIndex="7">
-               <GridPane.margin>
-                  <Insets right="150.0" />
-               </GridPane.margin>
-            </Button>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" text="Retour">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </GridPane>
    </center>
