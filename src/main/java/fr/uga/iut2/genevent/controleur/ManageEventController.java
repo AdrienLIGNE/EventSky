@@ -39,7 +39,7 @@ public class ManageEventController extends Controller implements Initializable {
         fxmlLoader.setController(InfosEventController.getController());
 
         try {
-            infosEventScene = new Scene(fxmlLoader.load(), 1200, 600);
+            infosEventScene = new Scene(fxmlLoader.load(), 1223, 600);
         }
         catch (IOException e) {
             e.printStackTrace();
