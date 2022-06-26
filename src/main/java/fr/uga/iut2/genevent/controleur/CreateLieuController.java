@@ -4,6 +4,9 @@ import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.TypeLieu;
 import fr.uga.iut2.genevent.util.VerifUtilitaire;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,6 +92,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
         String ville = ville_tf.getText();
         int capcite_max = capacite_s.getValue();
 
+
         if(verifieSaisies()) {
             if(isOnEditMode()) {
                 getElementModifie().setType(type);
@@ -98,7 +102,11 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 getElementModifie().setComplementAdresse(adresse[1]);
                 getElementModifie().setVille(ville);
                 getElementModifie().setCodePostal(code_postal);
-                getElementModifie().setLien_image(lien_image);
+                if (lien_image == null){
+                    getElementModifie().setLien_image(getImage(getElementModifie().getType().get()));
+                }else {
+                    getElementModifie().setLien_image(lien_image);
+                }
                 Main.LOGGER.log(Level.INFO, "Modification du lieu : " + getElementModifie().getNom().get());
             }
             else {
@@ -107,7 +115,11 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 lieu.setComplementAdresse(adresse[1]);
                 lieu.setCodePostal(code_postal);
                 lieu.setVille(ville);
-                lieu.setLien_image(lien_image);
+                if (lien_image == null){
+                    lieu.setLien_image(getImage(lieu.getType().get()));
+                }else {
+                    lieu.setLien_image(lien_image);
+                }
                 getModel().addLieu(lieu);
                 Main.LOGGER.log(Level.INFO, "Création du lieu : " + lieu.getNom().get());
             }
@@ -189,5 +201,17 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
             VerifUtilitaire.createPopOver(ville_tf, " Champ obligatoire ");
         }
         return valide;
+    }
+
+    private String getImage(TypeLieu type){
+        String lien = null;
+        if (type.getLibelle().equals(TypeLieu.SALLE.getLibelle())){
+            lien = "file:src/main/resources/Images/lieux/salle.png";
+        }else if (type.getLibelle().equals(TypeLieu.GYMNASE.getLibelle())){
+            lien = "file:src/main/resources/Images/lieux/gymnase.png";
+        }else if (type.getLibelle().equals(TypeLieu.PLEIN_AIR.getLibelle())){
+            lien = "file:src/main/resources/Images/lieux/plein-air.png";
+        }
+        return lien;
     }
 }

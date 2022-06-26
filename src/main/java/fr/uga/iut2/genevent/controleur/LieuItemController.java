@@ -44,7 +44,7 @@ public class LieuItemController extends Controller{
     }
 
     public void setImage(StringProperty lien){
-        if (lien.get() != null && !lien.get().isEmpty()){
+        if (lien.get() != null){
             iv.setImage(new Image(lien.get()));
             lien.addListener(new ChangeListener<String>() {
                 @Override
