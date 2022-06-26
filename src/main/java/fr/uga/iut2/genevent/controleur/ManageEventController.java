@@ -97,7 +97,9 @@ public class ManageEventController extends Controller implements Initializable {
     private void listViewEvent(MouseEvent e) {
         // Si on a sélectionné un évenement
         if(getSelectedEvent() != null) {
-            confirm_event_btn.setDisable(false);
+            if(list_brouillon.isFocused())
+                confirm_event_btn.setDisable(false);
+            else confirm_event_btn.setDisable(true);
             if(e.getClickCount() == 2) {
 
                 InfosEventController.getController().setEvenement(getSelectedEvent());
@@ -113,7 +115,7 @@ public class ManageEventController extends Controller implements Initializable {
      * @return evenement
      */
     public Evenement getSelectedEvent() {
-        if(list_brouillon.isFocused())
+        if(list_brouillon.isFocused() | confirm_event_btn.isFocused())
             return list_brouillon.getSelectionModel().getSelectedItem();
         else
             return list_evenement.getSelectionModel().getSelectedItem();
