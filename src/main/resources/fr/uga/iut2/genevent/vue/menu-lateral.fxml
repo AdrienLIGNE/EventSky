@@ -6,16 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="250.0" style="-fx-background-color: #154B6E;" stylesheets="@styles/styles.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" minWidth="250.0" style="-fx-background-color: #154B6E;" stylesheets="@styles/styles.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controleur.MenuController">
         <children>
-            <Label text="EventSky" textFill="WHITE">
-                <font>
-                    <Font name="System Bold" size="24.0" />
-                </font>
-                <VBox.margin>
-                    <Insets bottom="10.0" />
-                </VBox.margin>
-            </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Images/logo.png" />
+         </image>
+      </ImageView>
             <Button layoutX="10.0" layoutY="108.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#accueilClick" styleClass="menu-button" text=" Accueil" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -68,22 +65,6 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Outils" textFill="WHITE">
-                <graphic>
-                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../../Images/outils-icon.png" />
-                        </image></ImageView>
-                </graphic>
-                <padding>
-                    <Insets left="10.0" />
-                </padding>
-                <VBox.margin>
-                    <Insets bottom="5.0" />
-                </VBox.margin>
-                <font>
-                    <Font name="System Bold" size="18.0" />
-                </font></Button>
             <Button layoutX="10.0" layoutY="143.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Tâches" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -102,7 +83,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Statistiques" textFill="WHITE">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#statisticsClick" styleClass="menu-button" text=" Statistiques" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -119,24 +100,6 @@
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font></Button>
-            <Button layoutX="10.0" layoutY="208.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="menu-button" text=" Paramètres" textFill="WHITE">
-                <graphic>
-                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../../Images/parametre-icon.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-                <padding>
-                    <Insets left="10.0" />
-                </padding>
-                <VBox.margin>
-                    <Insets bottom="5.0" />
-                </VBox.margin>
-                <font>
-                    <Font name="System Bold" size="18.0" />
-                </font>
-            </Button>
         </children>
         <padding>
             <Insets bottom="10.0" top="10.0" />

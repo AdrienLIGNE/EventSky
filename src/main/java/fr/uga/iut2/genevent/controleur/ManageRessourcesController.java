@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.Personnel;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 /**
  * Cette classe gère la partie de l'interface de gestion des ressources. Elle charge les données dans les ListView
@@ -118,7 +120,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             stage.setResizable(false);
         }
         catch (IOException ex) {
-            ex.printStackTrace();
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de l'ouverture de la fenêtre d'ajout de ressources", ex);
         }
     }
 
@@ -150,7 +152,7 @@ public class ManageRessourcesController extends Controller implements Initializa
             controller.setEditMode(reservableModifie);
         }
         catch (IOException ex) {
-
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de l'ouverture de la fenêtre d'édition", ex);
         }
     }
 
@@ -167,6 +169,8 @@ public class ManageRessourcesController extends Controller implements Initializa
             // On supprime l'élement sélectionné
             getModel().removeReservable(getSelectedRessource());
             activeEditButton(false);
+
+            Main.LOGGER.log(Level.INFO, "Suppression de la ressource");
         }
     }
 

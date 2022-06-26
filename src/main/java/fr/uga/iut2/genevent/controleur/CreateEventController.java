@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.*;
 import fr.uga.iut2.genevent.util.FiltreUtilitaire;
 import fr.uga.iut2.genevent.util.VerifUtilitaire;
@@ -27,6 +28,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 /**
  * Controleur qui gère la création d'un évenement lors des différentes étapes
@@ -353,9 +355,13 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             evenement.addPersonnel(p);
         }
 
-        if(!isOnEditMode())
+        if(!isOnEditMode()) {
             getModel().addEvenement(evenement);
-
+            Main.LOGGER.log(Level.INFO, "Création de l'événement " + evenement.getNomEvenement());
+        }
+        else {
+            Main.LOGGER.log(Level.INFO, "Modification de l'événement " + evenement.getNomEvenement());
+        }
         exitStage(Controller.getStageFromTarget(e.getTarget()));
 
     }
@@ -376,7 +382,6 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             duree = duree_s.getValue();
 
             date_possibles = DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel);
-            System.out.println(date_possibles);
 
 
         }
@@ -384,7 +389,6 @@ public class CreateEventController extends FormulaireController<Evenement> imple
             lieu = lieux_list.getSelectionModel().getSelectedItem();
 
             date_possibles = DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel);
-            System.out.println(date_possibles);
         }
         if(etape == 3) {
             choix_materiel = materiel_list.getItems();
@@ -401,7 +405,6 @@ public class CreateEventController extends FormulaireController<Evenement> imple
 
 
             date_possibles = DatePossible.getDatePossible(date_debut, date_fin, duree, lieu, choix_materiel, choix_personnel);
-            System.out.println(date_possibles);
         }
     }
 

@@ -29,7 +29,7 @@ public class MainController extends Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(getModel().getLieux().size());
+
     }
 
 
