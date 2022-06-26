@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.Lieu;
 import fr.uga.iut2.genevent.modele.TypeLieu;
 import fr.uga.iut2.genevent.util.VerifUtilitaire;
@@ -17,6 +18,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 /**
  * Classe permettant de gérer la création/modification d'un nouveau lieu
@@ -94,6 +96,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 getElementModifie().setComplementAdresse(adresse[1]);
                 getElementModifie().setVille(ville);
                 getElementModifie().setCodePostal(code_postal);
+                Main.LOGGER.log(Level.INFO, "Modification du lieu : " + getElementModifie().getNom().get());
             }
             else {
                 Lieu lieu = new Lieu(nom, capcite_max, type);
@@ -102,6 +105,7 @@ public class CreateLieuController extends FormulaireController<Lieu> implements 
                 lieu.setCodePostal(code_postal);
                 lieu.setVille(ville);
                 getModel().addLieu(lieu);
+                Main.LOGGER.log(Level.INFO, "Création du lieu : " + lieu.getNom().get());
             }
 
             exitStage(Controller.getStageFromTarget(e.getTarget()));

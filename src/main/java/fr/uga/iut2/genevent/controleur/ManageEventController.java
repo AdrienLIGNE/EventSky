@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.Evenement;
 import fr.uga.iut2.genevent.vue.EvenementItem;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
@@ -21,6 +22,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 /**
  * Classe controlleur principale, gère l'affichage et le lien avec les données
@@ -42,7 +44,7 @@ public class ManageEventController extends Controller implements Initializable {
             infosEventScene = new Scene(fxmlLoader.load(), 1200, 600);
         }
         catch (IOException e) {
-            e.printStackTrace();
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène InfosEvent", e);
         }
     }
 
@@ -136,7 +138,7 @@ public class ManageEventController extends Controller implements Initializable {
 
         }
         catch (IOException ex) {
-            ex.printStackTrace();
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène ConfirmEvent", ex);
         }
         confirm_event_btn.setDisable(true);
     }

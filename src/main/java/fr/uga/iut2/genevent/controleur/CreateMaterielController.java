@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.Materiel;
 import fr.uga.iut2.genevent.modele.TypeMateriel;
 import fr.uga.iut2.genevent.util.VerifUtilitaire;
@@ -20,6 +21,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class CreateMaterielController extends FormulaireController<Materiel> implements Initializable {
 
@@ -81,9 +83,11 @@ public class CreateMaterielController extends FormulaireController<Materiel> imp
                 getElementModifie().setLabel(nom);
                 getElementModifie().setQuantiteDisponible(quantite);
                 getElementModifie().setType(type);
+                Main.LOGGER.log(Level.INFO, "Modification du matériel : " + getElementModifie().getLabel().get());
             } else {
                 Materiel materiel = new Materiel(nom, type, quantite);
                 getModel().addMateriel(materiel);
+                Main.LOGGER.log(Level.INFO, "Création du matériel : " + materiel.getLabel().get());
             }
 
             exitStage(Controller.getStageFromTarget(e.getTarget()));

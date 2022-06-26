@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 import javafx.event.ActionEvent;
 import javafx.event.EventTarget;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.logging.Level;
 
 public class MenuController extends Controller {
 
@@ -32,7 +34,7 @@ public class MenuController extends Controller {
             manageRessourceScene = new Scene(fxmlLoader.load(), 1200, 600);
         }
         catch (IOException e) {
-
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène ManageRessources", e);
         }
 
         fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("manage-event-view.fxml"));
@@ -42,7 +44,7 @@ public class MenuController extends Controller {
             manageEventScene = new Scene(fxmlLoader.load(), 1200, 600);
         }
         catch (IOException e) {
-
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène ManageEvent", e);
         }
 
         fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("main-view.fxml"));
@@ -52,7 +54,7 @@ public class MenuController extends Controller {
             accueilScene = new Scene(fxmlLoader.load(), 1200, 600);
         }
         catch (IOException e) {
-
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène Accueil", e);
         }
 
         fxmlLoader = new FXMLLoader(JavaFXGUI.class.getResource("statistiques-view.fxml"));
@@ -62,7 +64,7 @@ public class MenuController extends Controller {
             statisticsScene = new Scene(fxmlLoader.load(), 1200, 600);
         }
         catch (IOException e) {
-
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de la création de la scène Statistiques", e);
         }
 
     }

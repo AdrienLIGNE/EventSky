@@ -210,6 +210,7 @@ public class InfosEventController extends Controller implements Initializable {
             getModel().supprimeEvenement(evenement);
 
             back(getStageFromTarget(e.getTarget()));
+            Main.LOGGER.log(Level.INFO, "Suppression de l'évènement");
         }
     }
 
@@ -237,7 +238,7 @@ public class InfosEventController extends Controller implements Initializable {
 
         }
         catch (IOException ex) {
-            ex.printStackTrace();
+            Main.LOGGER.log(Level.SEVERE, "Erreur lors de l'affichage de la vue de confirmation", ex);
         }
     }
 }

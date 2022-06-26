@@ -5,6 +5,7 @@ import fr.uga.iut2.genevent.modele.TypeEvenement;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,7 +35,17 @@ public class StatisticsController extends Controller implements Initializable {
         //affichage du nombre d'événements créés
         int nbEvenements = getModel().getEvenementsNonConfirme().size() + getModel().getEvenementsConfirme().size();
         lbl_nb_evenements.setText(String.valueOf(nbEvenements));
+
+
+        getModel().getEvenementsConfirme().addListener(new ListChangeListener<Evenement>() {
+            @Override
+            public void onChanged(Change<? extends Evenement> change) {
+                createChart();
+            }
+        });
     }
+
+
 
     private void createChart(){
         ObservableList<PieChart.Data> donnees = FXCollections.observableArrayList();

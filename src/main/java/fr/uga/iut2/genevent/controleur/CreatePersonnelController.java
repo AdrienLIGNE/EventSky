@@ -1,5 +1,6 @@
 package fr.uga.iut2.genevent.controleur;
 
+import fr.uga.iut2.genevent.Main;
 import fr.uga.iut2.genevent.modele.Personnel;
 import fr.uga.iut2.genevent.modele.TypePersonnel;
 import fr.uga.iut2.genevent.util.TextUtilitaire;
@@ -22,6 +23,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
@@ -91,12 +93,14 @@ public class CreatePersonnelController extends FormulaireController<Personnel> i
                 getElementModifie().setMail(mail);
                 getElementModifie().setNumero(numero);
                 getElementModifie().setType(type);
+                Main.LOGGER.log(Level.INFO, "Modification du personnel : " + getElementModifie().getNom().get());
             } else {
                 // Création d'un nouveau personnel
                 Personnel personnel = new Personnel(nom,  type);
                 personnel.setMail(mail);
                 personnel.setNumero(numero);
                 getModel().addPersonnel(personnel);
+                Main.LOGGER.log(Level.INFO, "Création du personnel : " + getElementModifie().getNom().get());
             }
             exitStage(Controller.getStageFromTarget(e.getTarget()));
         }
