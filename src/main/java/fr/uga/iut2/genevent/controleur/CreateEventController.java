@@ -319,6 +319,7 @@ public class CreateEventController extends FormulaireController<Evenement> imple
     public void showPage(Stage stage) {
         resetEtape();
         showPage(stage, 1);
+        stage.setResizable(false);
     }
 
     @Override

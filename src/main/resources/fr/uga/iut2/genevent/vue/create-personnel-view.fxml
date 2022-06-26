@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -35,7 +34,6 @@
                 <RowConstraints minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
             <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Nom de l'employé *" GridPane.rowIndex="1">
@@ -46,11 +44,6 @@
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Numéro de téléphone *" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets bottom="25.0" right="7.5" />
-                    </GridPane.margin>
-                </Label>
-                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Ajouter une image" GridPane.rowIndex="4">
-                    <GridPane.margin>
-                        <Insets bottom="5.0" right="7.5" />
                     </GridPane.margin>
                 </Label>
                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="165.0" text="Type d'emploi *">
@@ -71,18 +64,6 @@
                   <Font name="System Italic" size="12.0" />
                </font>
                 </TextField>
-                <Button mnemonicParsing="false" onMouseClicked="#onUploadButtonClick" prefHeight="25.0" prefWidth="200.0" text="Charger une image" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <GridPane.margin>
-                        <Insets bottom="5.0" left="7.5" />
-                    </GridPane.margin>
-               <graphic>
-                  <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Images/download.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-                </Button>
             <TextField fx:id="numero_tf" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="01.23.45.56.78" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="25.0" left="7.5" />
